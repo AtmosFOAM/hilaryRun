@@ -1,0 +1,12 @@
+
+
+--> FOAM FATAL IO ERROR: 
+cannot find file
+
+file: /home/hilary/OpenFOAM/hilary-dev/run/MongeAmpere/system/controlDict at line 0.
+
+    From function regIOobject::readStream()
+    in file db/regIOobject/regIOobjectRead.C at line 72.
+
+FOAM exiting
+

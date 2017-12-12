@@ -57,9 +57,10 @@ done
 mkdir -p animategraphics
 for field in theta sigma; do
     t=0
-    for time in [0-9] [0-9]?? [0-9]???; do
+    for time in [0-9] [0-9]??; do
         ln -s ../$time/$field.pdf animategraphics/${field}_$t.pdf
         let t=$t+1
     done
 done
+
 

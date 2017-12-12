@@ -49,38 +49,13 @@ for field in theta sigma; do
     eps2gif $field.gif 0/$field.pdf ???/$field.pdf ????/$field.pdf
 done
 
-# Debugging plots
-sumFields $time sigmaDiff $time buoyant.sigma 0 buoyant.sigma -scale0 -1
-gmtFoam -time $time sigmaDiff
-gv $time/sigmaDiff.pdf &
-
-sumFields $time sigmaRhoDiff $time buoyant.sigmaRho 0 buoyant.sigmaRho -scale0 -1
-gmtFoam -time $time sigmaRho
-gv $time/sigmaRho.pdf &
-
-sumFields $time rhoDiff $time buoyant.rho 0 buoyant.rho -scale0 -1
-gmtFoam -time $time rho
-gv $time/rho.pdf &
-
-sumFields $time ExnerDiff $time Exner 0 Exner -scale1 -1
-sumFields $time UfDiff $time stable.Uf 0 stable.Uf -scale1 -1
-gmtFoam -time $time ExnerDiff
-gv $time/ExnerDiff.pdf &
-
-# Differences between non-partitioned run
-time=2
-sumFields $time ExnerDiff $time Exner ../standard/$time Exner -scale1 -1
-sumFields $time thetaDiff $time stable.theta ../standard/$time theta -scale1 -1
-sumFields $time thetaDiff $time buoyant.theta ../standard/$time theta -scale1 -1
-sumFields $time UfDiff $time stable.Uf ../standard/$time Uf -scale1 -1
-gmtFoam -time $time ExnerDiff
-gmtFoam -time $time thetaDiff
-gv $time/ExnerDiff.pdf &
-gv $time/thetaDiff.pdf &
-
-# Differences between partitions
-sumFields $time thetaDiff $time stable.theta $time buoyant.theta -scale1 -1
-gmtFoam -time $time thetaDiff
-gv $time/thetaDiff.pdf &
-
+# Make links for animategraphics
+mkdir -p animategraphics
+for field in theta; do
+    t=0
+    for time in [0-9] [0-9]?? [0-9]???; do
+        ln -s ../$time/$field.pdf animategraphics/${field}_$t.pdf
+        let t=$t+1
+    done
+done
 

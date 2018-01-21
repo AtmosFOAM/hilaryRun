@@ -17,45 +17,15 @@ FoamFile
     local           "";
 
     class           dictionary;
-    object          controlDict;
+    object          environmentalProperties;
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-application buoyantFoam;
-
-//startFrom       startTime;
-startFrom       latestTime;
-
-startTime       0;
-
-stopAt          endTime;
-
-endTime         2000;
-
-deltaT          2;
-
-writeControl    runTime;
-
-writeInterval   2;
-
-purgeWrite      0;
-
-writeFormat     binary;
-
-writePrecision  6;
-
-writeCompression uncompressed;
-
-timeFormat      general;
-
-timePrecision   6;
-
-runTimeModifiable no;
-
-adjustTimeStep no;
-maxCo          0.5;
-
-libs            ("libExnerTheta.so" "libfiniteVolumeAtmos.so" "libfiniteVolumeAtmosFOAMtools.so");
+cloudRadiusMax     cloudRadiusMax [0 1 0 0 0] 2000;
+cloudRadiusMin     cloudRadiusMin [0 1 0 0 0] 100;
+dragCoeff       1;
+heatTransferCoeff 0; //0.14;
+Ksigma Ksigma [0 2 -1 0 0] 0;
 
 // ************************************************************************* //

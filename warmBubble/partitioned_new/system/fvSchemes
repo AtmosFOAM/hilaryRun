@@ -41,15 +41,10 @@ divSchemes
     div(buoyant.flux,buoyant.theta) Gauss linearUpwind linearUpwind;
     div(stable.flux,stable.u)       Gauss linearUpwind linearUpwind;
     div(buoyant.flux,buoyant.u)     Gauss linearUpwind linearUpwind;
-
-    // for partitionedExnerFoamAdv
-    div(stable.volFlux,stable.sigmaRho) Gauss linearUpwind linearUpwind;
-    div(buoyant.volFlux,buoyant.sigmaRho) Gauss linearUpwind linearUpwind;
-    div(stable.volFlux,stable.theta) Gauss linearUpwind linearUpwind;
-    div(buoyant.volFlux,buoyant.theta) Gauss linearUpwind linearUpwind;
-    div(stable.volFlux,stable.u) Gauss linearUpwind linearUpwind;
-    div(buoyant.volFlux,buoyant.u) Gauss linearUpwind linearUpwind;
 */
+    // for partitionedExnerFoamAdv
+    sigmaRho Gauss linearUpwind linearUpwind;
+    theta Gauss linearUpwind linearUpwind;
 }
 
 laplacianSchemes
@@ -82,7 +77,9 @@ interpolationSchemes
     convection linear;
     Uf         linear;
     rho linear;
+    sigma linear;
     sigmaRho linear;
+    theta    linear;
 }
 
 snGradSchemes

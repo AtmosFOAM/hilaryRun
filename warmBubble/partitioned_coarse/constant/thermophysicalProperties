@@ -17,61 +17,33 @@ FoamFile
     local           "";
 
     class           dictionary;
-    object          fvSchemes;
+    object          thermophysicalProperties;
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-ddtSchemes
-{
-    default Euler;
-}
-offCentre 1; //0.5;
 
-gradSchemes
-{
-    default         Gauss linear;
-}
+T0       T0 [0 0  0 1 0 0 0] 300;
 
-divSchemes
+mixture//  air 1 28.9 1000 0 1.8e-05 0.7;
 {
-    default none;
-    sigmaRho Gauss linearUpwind linearUpwind;
-    theta Gauss linearUpwind linearUpwind;
-    u Gauss linearUpwind linearUpwind;
-}
-
-laplacianSchemes
-{
-    default         Gauss linear uncorrected;
+    specie
+    {
+        molWeight       28.9;
+    }
+    thermodynamics
+    {
+        Cp              1005;
+        Hf              0;
+    }
+    transport
+    {
+        mu              1.8e-05;
+        Pr              0.7;
+    }
 }
 
-interpolationSchemes
-{
-    default        none;
-    // For initialisation
-    interpolate(theta) linear;
-    
-    // for partitionedExnerFoamAdv
-    convection linear;
-    Uf         linear;
-    rho linear;
-    sigma linear;
-    sigmaRho linear;
-    theta    linear;
-}
-
-snGradSchemes
-{
-    default         none;
-    snGrad(Exner)   uncorrected;
-}
-
-fluxRequired
-{
-    default         no;
-    Exner;
-}
+pRef     pRef [1 -1 -2 0 0 0 0] 100000;
 
 
 // ************************************************************************* //

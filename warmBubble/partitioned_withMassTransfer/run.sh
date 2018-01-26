@@ -43,8 +43,8 @@ partitionedExnerFoamAdv >& log & sleep 0.01; tail -f log
 # Plot theta and sigma
 time=100
 gmtFoam theta -time $time
-gv $time/theta.pdf &
 gmtFoam sigma -time $time
+gv $time/theta.pdf &
 gv $time/sigma.pdf &
 
 # animate the results

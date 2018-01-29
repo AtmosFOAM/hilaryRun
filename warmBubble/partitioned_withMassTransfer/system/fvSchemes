@@ -36,8 +36,8 @@ gradSchemes
 divSchemes
 {
     default none;
-    sigmaRho Gauss linearUpwind linearUpwind;
-    theta Gauss linearUpwind linearUpwind;
+    sigmaRho Gauss vanLeer;
+    theta Gauss vanLeer; //linearUpwind linearUpwind;
     u Gauss linearUpwind linearUpwind;
 }
 

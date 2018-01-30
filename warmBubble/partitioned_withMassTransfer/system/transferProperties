@@ -28,7 +28,7 @@ dragCoeff       0;
 heatTransferCoeff 0; //0.14;
 Ksigma Ksigma [0 2 -1 0 0] 800; // 1250; //0.25 dx^2/dt For dx = 100, dt = 2
 //Ksigma Ksigma [0 2 -1 0 0] 2000; // 4000; //0.25 dx^2/dt For dx = 400, dt = 10
-minSigmaRho minSigmaRho [1 -3 0 0 0] 1e-6;
+minSigma  1e-6;
 // Transfer between partitions based on w
 //wTransfer true;
 

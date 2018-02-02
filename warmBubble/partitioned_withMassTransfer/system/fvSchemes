@@ -64,8 +64,7 @@ interpolationSchemes
 
 snGradSchemes
 {
-    default         none;
-    snGrad(Exner)   uncorrected;
+    default         uncorrected;
 }
 
 fluxRequired

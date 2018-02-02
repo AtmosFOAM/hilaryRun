@@ -31,5 +31,6 @@ Ksigma Ksigma [0 2 -1 0 0] 800; // 1250; //0.25 dx^2/dt For dx = 100, dt = 2
 minSigma  1e-6;
 // Transfer between partitions based on w
 //wTransfer true;
+thetaTransfer true;
 
 // ************************************************************************* //

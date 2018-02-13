@@ -33,7 +33,7 @@ stopAt          endTime;
 
 endTime         2010;
 
-deltaT          10; //2;
+deltaT          2;
 
 writeControl    runTime;
 

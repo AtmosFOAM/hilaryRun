@@ -48,15 +48,15 @@ partitionedExnerFoamAdv >& log & sleep 0.01; tail -f log
 
 # Plot theta and sigma
 time=100
-gmtFoam theta -time $time
-gmtFoam sigma -time $time
-gv $time/theta.pdf &
-gv $time/sigma.pdf &
+for var in theta sigma; do
+   gmtFoam $var -time $time
+   gv $time/$var.pdf &
+done
 
 # animate the results
 for field in theta sigma; do
     gmtFoam $field
-    eps2gif $field.gif 0/$field.pdf ???/$field.pdf ????/$field.pdf
+    eps2gif $field.gif 0/$field.pdf ??/$field.pdf ???/$field.pdf ????/$field.pdf
 done
 
 # Make links for animategraphics

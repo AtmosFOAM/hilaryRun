@@ -30,6 +30,9 @@ Ksigma Ksigma [0 2 -1 0 0] 100; //800; // 1250; //0.25 dx^2/dt For dx = 100, dt 
 //Ksigma Ksigma [0 2 -1 0 0] 2000; // 4000; //0.25 dx^2/dt For dx = 400, dt = 10
 minSigma  1e-9;
 // Transfer between partitions based on horizontal divergence
-wTransfer true;
+wTransfer false;
+// Transfer between partitions based on laplacian(theta)
+thetaTransfer true;
+thetaTransferDiffusivity thetaTransferDiffusivity  [0 2 -1 0 0] 1e5;
 
 // ************************************************************************* //

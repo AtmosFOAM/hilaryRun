@@ -17,18 +17,33 @@ FoamFile
     local           "";
 
     class           dictionary;
-    object          environmentalProperties;
+    object          thermophysicalProperties;
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-cloudRadiusMax     cloudRadiusMax [0 1 0 0 0] 2000;
-cloudRadiusMin     cloudRadiusMin [0 1 0 0 0] 100;
-dragCoeff       1;
-//heatTransferCoeff 0; //0.14;
-Ksigma Ksigma [0 2 -1 0 0] 0;
-wTransfer false;
-thetaTransfer false;
-thetaTransferDiffusivity thetaTransferDiffusivity [0 2 -1 0 0] 0;
-minSigma 1e-12;
+
+T0       T0 [0 0  0 1 0 0 0] 300;
+
+mixture//  air 1 28.9 1000 0 1.8e-05 0.7;
+{
+    specie
+    {
+        molWeight       28.9;
+    }
+    thermodynamics
+    {
+        Cp              1005;
+        Hf              0;
+    }
+    transport
+    {
+        mu              1.8e-05;
+        Pr              0.7;
+    }
+}
+
+pRef     pRef [1 -1 -2 0 0 0 0] 100000;
+
+
 // ************************************************************************* //

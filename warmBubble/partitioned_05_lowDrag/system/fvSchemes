@@ -26,7 +26,7 @@ ddtSchemes
 {
     default Euler;
 }
-offCentre 1; //0.5;
+offCentre 0.5;
 
 gradSchemes
 {
@@ -43,12 +43,15 @@ divSchemes
     div(buoyant.flux,buoyant.u)     Gauss linearUpwind linearUpwind;
 */
     // for partitionedExnerFoamAdv
-    div(stable.volFlux,stable.sigmaRho) Gauss linearUpwind linearUpwind;
+    sigmaRho Gauss linearUpwind linearUpwind;
+    theta    Gauss linearUpwind linearUpwind;
+    u        Gauss linearUpwind linearUpwind;
+/*    div(stable.volFlux,stable.sigmaRho) Gauss linearUpwind linearUpwind;
     div(buoyant.volFlux,buoyant.sigmaRho) Gauss linearUpwind linearUpwind;
     div(stable.volFlux,stable.theta) Gauss linearUpwind linearUpwind;
     div(buoyant.volFlux,buoyant.theta) Gauss linearUpwind linearUpwind;
     div(stable.volFlux,stable.u) Gauss linearUpwind linearUpwind;
-    div(buoyant.volFlux,buoyant.u) Gauss linearUpwind linearUpwind;
+    div(buoyant.volFlux,buoyant.u) Gauss linearUpwind linearUpwind;*/
 }
 
 laplacianSchemes
@@ -62,7 +65,15 @@ interpolationSchemes
     // For initialisation
     interpolate(theta) linear;
     
-    // for partitionedExnerFoam
+    // for partitionedExnerFoamAdv
+    sigmaRho        linear;
+    sigma           linear;
+    theta           linear;
+    rho             linear;
+    massTransfer    linear;
+    convection      linear;
+    Uf              linear;
+/*    // for partitionedExnerFoam
     interpolate(stable.sigmaRho) linear; //Upwind stable.flux linearUpwind;
     interpolate(buoyant.sigmaRho) linear; //Upwind buoyant.flux linearUpwind;
     interpolate(stable.theta) linear; //Upwind stable.flux linearUpwind;
@@ -81,7 +92,7 @@ interpolationSchemes
     convection linear;
     Uf         linear;
     interpolate(stable.rho) linear;
-    interpolate(buoyant.rho) linear;
+    interpolate(buoyant.rho) linear;*/
 }
 
 snGradSchemes

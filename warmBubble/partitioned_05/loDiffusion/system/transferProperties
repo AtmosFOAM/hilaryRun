@@ -17,62 +17,17 @@ FoamFile
     local           "";
 
     class           dictionary;
-    object          fvSchemes;
+    object          environmentalProperties;
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-ddtSchemes
-{
-    default Euler;
-}
-offCentre 0.5;
-
-gradSchemes
-{
-    default         Gauss linear;
-}
-
-divSchemes
-{
-    default none;
-    sigmaRho Gauss vanLeer;
-    theta Gauss vanLeer; //linearUpwind linearUpwind;
-    u Gauss linearUpwind linearUpwind;
-}
-
-laplacianSchemes
-{
-    default         Gauss linear uncorrected;
-}
-
-interpolationSchemes
-{
-    default        none;
-    // For initialisation
-    interpolate(theta) linear;
-    
-    // for partitionedExnerFoamAdv
-    convection      linear;
-    Uf              linear;
-    rho             linear;
-    sigma           linear;
-    sigmaRho        linear;
-    theta           linear;
-    massTransfer    linear;
-//    interpolate(grad(stable.sigma)) linear;
-}
-
-snGradSchemes
-{
-    default         uncorrected;
-}
-
-fluxRequired
-{
-    default         no;
-    Exner;
-}
-
-
+cloudRadiusMax     cloudRadiusMax [0 1 0 0 0] 2000;
+cloudRadiusMin     cloudRadiusMin [0 1 0 0 0] 100;
+dragCoeff       0;
+Ksigma Ksigma [0 2 -1 0 0] 200;
+wTransfer false;
+thetaTransfer false;
+thetaTransferDiffusivity thetaTransferDiffusivity [0 2 -1 0 0] 0;
+minSigma 0;
 // ************************************************************************* //

@@ -60,7 +60,6 @@ interpolationSchemes
     sigmaRho        linear;
     theta           linear;
     massTransfer    linear;
-//    interpolate(grad(stable.sigma)) linear;
 }
 
 snGradSchemes

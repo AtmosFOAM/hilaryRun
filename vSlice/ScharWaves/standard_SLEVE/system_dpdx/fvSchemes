@@ -17,45 +17,59 @@ FoamFile
     local           "";
 
     class           dictionary;
-    object          controlDict;
+    object          fvSchemes;
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-application buoyantFoam;
+ddtSchemes
+{
+    default Euler;
+}
+offCentre 0.5;
+SIgravityWaves true;
 
-startFrom       startTime;
-//startFrom       latestTime;
+gradSchemes
+{
+    default         none;
+    grad(theta)     Gauss midPoint;
+}
 
-startTime       0;
+divSchemes
+{
+    default             none;
+    div(phi,theta)    Gauss cubicUpwindCPCFit 3;
+    div(phi,U)        Gauss cubicUpwindCPCFit 3;
+}
 
-stopAt          endTime;
+laplacianSchemes
+{
+    default         Gauss linear linearFit 3;
+}
 
-endTime         2000;
+interpolationSchemes
+{
+    default        none; 
+    interpolate(theta)    midPoint;
+    interpolate(rho)    midPoint;
+    interpolate(convection(phi,U)) midPoint;
+    interpolate(U) midPoint;
+    interpolate(grad(theta)) midPoint;
+    interpolate(Exner)       midPoint;
+}
 
-deltaT          2;
+snGradSchemes
+{
+    default         none;
+    snGrad(Exner)   linearFit 3;
+    snGrad(theta)   linearFit 3;
+}
 
-writeControl    runTime;
+fluxRequired
+{
+    default         no;
+    Exner;
+}
 
-writeInterval   100;
-
-purgeWrite      0;
-
-writeFormat     binary;
-
-writePrecision  6;
-
-writeCompression uncompressed;
-
-timeFormat      general;
-
-timePrecision   6;
-
-runTimeModifiable no;
-
-adjustTimeStep no;
-maxCo          0.5;
-
-libs            ("libExnerTheta.so" "libfiniteVolumeAtmos.so" "libfiniteVolumeAtmosFOAMtools.so");
 
 // ************************************************************************* //

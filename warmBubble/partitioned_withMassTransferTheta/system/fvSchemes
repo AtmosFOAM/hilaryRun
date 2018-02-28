@@ -53,14 +53,13 @@ interpolationSchemes
     interpolate(theta) linear;
     
     // for partitionedExnerFoamAdv
-    convection linear;
-    Uf         linear;
-    rho linear;
-    sigma linear;
-    sigmaRho linear;
-    theta    linear;
-    massTransfer linear;
-    interpolate(grad(stable.sigma)) linear;
+    convection      linear;
+    Uf              linear;
+    rho             linear;
+    sigma           linear;
+    sigmaRho        linear;
+    theta           linear;
+    massTransfer    linear;
 }
 
 snGradSchemes

@@ -7,33 +7,40 @@
 \*---------------------------------------------------------------------------*/
 FoamFile
 {
-    version     2.0;
+    version     2.2;
     format      ascii;
-    class       dictionary;
-    object      setFieldsDict;
+    class       volScalarField;
+    location    "constant";
+    object      theta_init;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-defaultFieldValues
-(
-    volScalarFieldValue buoyant.sigma 0.001
-);
+dimensions      [0 0 0 1 0 0 0];
 
-regions
-(
-    // Set cell values
-    // (does zerogradient on boundaries)
-    sphereToCell
+internalField   uniform 288;
+
+boundaryField
+{
+    ground
     {
-        centre (0 500 2e3);
-        radius 2000;
-
-        fieldValues
-        (
-            volScalarFieldValue buoyant.sigma 0.999
-        );
+        type            fixedValue;
+        value           uniform 288;
     }
+    top
+    {
+        type            fixedValue;
+        value           uniform 288;
+    }
+    inlet
+    {
+        type            fixedValue;
+        value           uniform 288;
+    }
+    outlet
+    {
+        type            zeroGradient;
+    }
+}
 
-);
 
 // ************************************************************************* //

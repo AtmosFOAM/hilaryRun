@@ -37,20 +37,18 @@ rm 0/thetaf
 #sumFields 0 stable.sigma init_0 stable.sigma 0 buoyant.sigma -scale1 -1
 
 # Plot initial conditions
-gmtFoam theta -time 0
-gv 0/theta.pdf &
-gmtFoam sigma -time 0
-gv 0/sigma.pdf &
+time=0
+gmtFoam sigmaTheta -time $time
+gv $time/sigmaTheta.pdf &
 
 # Solve Euler equations
 #partitionedExnerFoam >& log & sleep 0.01; tail -f log
 partitionedExnerFoamAdv >& log & sleep 0.01; tail -f log
 
 # Plot theta and sigma
-time=100
-for var in theta sigma; do
-   gmtFoam $var -time $time
-   gv $time/$var.pdf &
+for time in 100 1000; do
+    gmtFoam sigmaTheta -time $time
+    gv $time/sigmaTheta.pdf &
 done
 
 # animate the results

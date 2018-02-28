@@ -17,45 +17,26 @@ FoamFile
     local           "";
 
     class           dictionary;
-    object          controlDict;
+    object          environmentalProperties;
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-application buoyantFoam;
+g               g [0 1 -2 0 0 0 0] (0 0 -9.81);
+Omega           Omega [0 0 -1 0 0 0 0] (0 0 0);
+diffusioneCoefficient diffusionCoeff [0 2 -1 0 0] 0;
 
-startFrom       startTime;
-//startFrom       latestTime;
+// Settings for setTheta
+// Brunt Vailsalla frequency for different layers of atmosphere
+BruntVaisallaFreq  1(0.01);
+// Extents of the layers (array should be one longer)
+zN  2(0 30.0001e3);
 
-startTime       0;
-
-stopAt          endTime;
-
-endTime         2000;
-
-deltaT          2;
-
-writeControl    runTime;
-
-writeInterval   100;
-
-purgeWrite      0;
-
-writeFormat     binary;
-
-writePrecision  6;
-
-writeCompression uncompressed;
-
-timeFormat      general;
-
-timePrecision   6;
-
-runTimeModifiable no;
-
-adjustTimeStep no;
-maxCo          0.5;
-
-libs            ("libExnerTheta.so" "libfiniteVolumeAtmos.so" "libfiniteVolumeAtmosFOAMtools.so");
+// Sponge layer coefficients
+spongeBase 20e3;
+spongeTop  30.0001e3;
+spongeMean 1.2;
+xSpongeCentre -150e3;
+xSpongeEnd -140e3;
 
 // ************************************************************************* //

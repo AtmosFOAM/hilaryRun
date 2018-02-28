@@ -10,30 +10,12 @@ FoamFile
     version     2.0;
     format      ascii;
     class       dictionary;
-    object      setFieldsDict;
+    location    "constant";
+    object      transportProperties;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-defaultFieldValues
-(
-    volScalarFieldValue buoyant.sigma 0.001
-);
+DT              DT [ 0 2 -1 0 0 0 0 ] 0;
 
-regions
-(
-    // Set cell values
-    // (does zerogradient on boundaries)
-    sphereToCell
-    {
-        centre (0 500 2e3);
-        radius 2000;
-
-        fieldValues
-        (
-            volScalarFieldValue buoyant.sigma 0.999
-        );
-    }
-
-);
 
 // ************************************************************************* //

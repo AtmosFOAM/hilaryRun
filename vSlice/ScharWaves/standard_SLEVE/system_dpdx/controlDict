@@ -31,13 +31,13 @@ startTime       0;
 
 stopAt          endTime;
 
-endTime         2000;
+endTime         18000;
 
-deltaT          2;
+deltaT          40;
 
 writeControl    runTime;
 
-writeInterval   100;
+writeInterval   3600;
 
 purgeWrite      0;
 
@@ -51,11 +51,11 @@ timeFormat      general;
 
 timePrecision   6;
 
-runTimeModifiable no;
+runTimeModifiable yes;
 
 adjustTimeStep no;
-maxCo          0.5;
+maxCo          1;
 
-libs            ("libExnerTheta.so" "libfiniteVolumeAtmos.so" "libfiniteVolumeAtmosFOAMtools.so");
+libs            ("libExnerTheta.so" "libfiniteVolumeUser.so");
 
 // ************************************************************************* //

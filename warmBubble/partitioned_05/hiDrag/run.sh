@@ -47,7 +47,7 @@ for time in 100 1000; do
 done
 
 # animate the results
-for field in sigmaTheta ; do
+for field in theta sigma; do
     gmtFoam $field
     eps2gif $field.gif 0/$field.pdf ???/$field.pdf ????/$field.pdf
 done

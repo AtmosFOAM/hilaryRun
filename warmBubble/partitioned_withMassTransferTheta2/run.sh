@@ -17,18 +17,24 @@ sed -i 's/fixedFluxBuoyantExner/partitionedHydrostaticExner/g' 0/Exner
 
 # Add a warm perturnation
 cp 0/theta 0/theta_init
+#cp constant/initialProperties0 constant/initialProperties
+#makeHotBubble
+#mv 0/theta 0/stable.theta
+#cp constant/initialProperties1 constant/initialProperties
 makeHotBubble
+mv 0/theta 0/stable.theta
+cp 0/theta_init 0/buoyant.theta
 
-# Warm bubble only in the buoyant partition
-mv 0/theta 0/buoyant.theta
-cp init_0/theta 0/stable.theta
+# Partition into stable and buoyant fluids
+#cp 0/buoyant.theta 0/stable.theta
+#mv 0/theta_init 0/buoyant.theta
 mv 0/Uf 0/stable.Uf
 cp 0/stable.Uf 0/buoyant.Uf
 rm 0/thetaf
 
-# create initial sigma field
-setFields
-sumFields 0 stable.sigma init_0 stable.sigma 0 buoyant.sigma -scale1 -1
+# create initial conditions
+#setFields
+#sumFields 0 stable.sigma init_0 stable.sigma 0 buoyant.sigma -scale1 -1
 
 # Plot initial conditions
 time=0
@@ -40,16 +46,15 @@ gv $time/sigmaTheta.pdf &
 partitionedExnerFoamAdv >& log & sleep 0.01; tail -f log
 
 # Plot theta and sigma
-# Plot theta and sigma
 for time in 100 1000; do
     gmtFoam sigmaTheta -time $time
     gv $time/sigmaTheta.pdf &
 done
 
 # animate the results
-for field in sigmaTheta ; do
+for field in theta sigma; do
     gmtFoam $field
-    eps2gif $field.gif 0/$field.pdf ???/$field.pdf ????/$field.pdf
+    eps2gif $field.gif 0/$field.pdf ??/$field.pdf ???/$field.pdf ????/$field.pdf
 done
 
 # Make links for animategraphics

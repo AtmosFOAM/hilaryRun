@@ -39,6 +39,9 @@ gv $time/sigmaTheta.pdf &
 #partitionedExnerFoam >& log & sleep 0.01; tail -f log
 partitionedExnerFoamAdv >& log & sleep 0.01; tail -f log
 
+gmtPlot plots/plotCo.gmt
+gmtPlot plots/plotEnergy.gmt
+
 # Plot theta and sigma
 # Plot theta and sigma
 for time in 100 1000; do

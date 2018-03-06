@@ -39,6 +39,9 @@ gv $time/sigmaTheta.pdf &
 #partitionedExnerFoam >& log & sleep 0.01; tail -f log
 partitionedExnerFoamAdv >& log & sleep 0.01; tail -f log
 
+gmtPlot ../../plots/plotEnergy.gmt
+gmtPlot ../../plots/plotCo.gmt
+
 # Plot theta and sigma
 for time in 100 1000; do
     gmtFoam sigmaTheta -time $time
@@ -62,4 +65,24 @@ for field in sigmaTheta ; do
         let t=$t+1
     done
 done
+
+
+# Debugging - differences from warmBubble/advective case
+time=2
+part=sum
+for field in u Uf theta rho sigmaRhof sigma.rho; do
+    sumFields $time ${field}Diff $time $part.$field \
+               ../../advective/$time $part.$field -scale1 -1
+done
+gmtFoam -time $time rhoDiff
+gmtFoam -time $time thetaDiff
+gmtFoam -time $time sigmaRhoDiff
+gv $time/rhoDiff.pdf &
+gv $time/thetaDiff.pdf &
+gv $time/sigmaRhoDiff.pdf &
+
+sumFields $time momentumDiff $time momentum ../../advective/$time momentum \
+          -scale1 -1
+gmtFoam -time $time momentum
+gv $time/momentum.pdf &
 

@@ -19,8 +19,7 @@ projection2D XZ;
 
 FieldsToPlot
 (
-    [thetaDiff filledContours 0 0 0 "$GMTU/colours/red_white_blue.cpt"]
-    [UfDiff vectors 0 1 "black"]
+    [momentumDiff vectors 0 1 "black"]
 );
 
 //separateLegend true;

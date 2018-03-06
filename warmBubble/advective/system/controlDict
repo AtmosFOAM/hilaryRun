@@ -24,20 +24,20 @@ FoamFile
 
 application buoyantFoam;
 
-//startFrom       startTime;
-startFrom       latestTime;
+startFrom       startTime;
+//startFrom       latestTime;
 
 startTime       0;
 
 stopAt          endTime;
 
-endTime         2000;
+endTime         4; //2000;
 
 deltaT          2;
 
 writeControl    runTime;
 
-writeInterval   100;
+writeInterval   2; //100;
 
 purgeWrite      0;
 

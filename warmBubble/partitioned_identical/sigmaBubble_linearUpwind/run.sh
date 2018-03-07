@@ -84,3 +84,6 @@ gmtFoam -time $time thetaDiff
 gv $time/rhoDiff.pdf &
 gv $time/thetaDiff.pdf &
 
+time=100
+sumFields $time rhoDiff $time sum.rho $time sum.sigma.rho -scale1 -1
+

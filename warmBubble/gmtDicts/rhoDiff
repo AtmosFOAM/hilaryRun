@@ -20,7 +20,9 @@ projection2D XZ;
 FieldsToPlot
 (
     [rhoDiff filledContours -1e-8 1e-8 1e-9 "$GMTU/colours/red_white_blue.cpt"]
-    [uDiff vectors 0 17 "black"]
+    [stable.UfDiff vectors 1e16 1 "green"]
+    [buoyant.UfDiff vectors 1e16 1 "red"]
+    [sum.UfDiff vectors 1e16 1 "black"]
 );
 
 //separateLegend true;

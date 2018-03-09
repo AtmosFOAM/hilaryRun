@@ -37,7 +37,7 @@ divSchemes
 {
     default none;
     sigmaRho Gauss vanLeer;
-    theta Gauss vanLeer; //linearUpwind linearUpwind;
+    theta Gauss vanLeer;
     u Gauss linearUpwind linearUpwind;
 }
 

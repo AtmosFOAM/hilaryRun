@@ -1,23 +1,13 @@
 inputFiles=("diags.dat" "diags.dat" "diags.dat" "diags.dat"
-            "diags.dat" "diags.dat" "diags.dat" "diags.dat"
-            "diags.dat" "diags.dat" "diags.dat" "diags.dat"
-             "diags.dat" "diags.dat" "diags.dat" "diags.dat"
-             "diags.dat" "diags.dat" "diags.dat" "diags.dat")
+            "diags.dat" "diags.dat" "diags.dat" "diags.dat")
 outFile=plots/energy.eps
-col=(6 6 7 7 8 8 9 9 10 10 11 11 12 12 13 13 14 14 15 15)
+col=(13 13 14 14 15 15 12 12)
 colx=1
-legends=("KE 0" "" "KE 1" ""
-         "PE 0" "" "PE 1" ""
-         "IE 0" "" "IE 1" ""
-         "total" ""
-         "KE sum" "" "PE sum" "" "IE sum" "")
-pens=("1,black," "3,black,5_5:" "1,grey,"    "3,grey,5_5:" 
-      "1,blue,"  "3,blue,5_5:"  "1,cyan,"    "3,cyan,5_5:"
-      "1,red,"   "3,red,5_5:"   "1,magenta," "3,magenta,5_5:"
-      "1,green," "3,green,5_5:"
-      "1,darkgrey," "3,darkgrey,5_5:"
-      "1,navy,"  "3,navy,5_5:"
-      "1,maroon," "3,maroon,5_5:")
+legends=("KE" "" "PE" "" "IE" "" "total" "")
+pens=("1,blue,"  "2,blue,7_3:"
+      "1,green,"   "2,green,7_3:"
+      "1,red," "2,red,7_3:"
+      "1,black," "2,black,7_3:")
 #symbols=(psxy symbol types in double quotes) (optional)
 #spens=(psxy pen types in double quotes for the symbols) (optional)
 xlabel="time (s)"
@@ -28,14 +18,14 @@ ylabel="normalised energy change"
 #ddx=1 (number of ticks)
 #dxg=0 (x grid spacing)
 ymin=1e-10
-ymax=1e-1
+ymax=1e-4
 dy=10
 #ddy=0.1
 #dyg=0 (y grid spacing)
 #xscale=/86400
 yscale=(*1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1)
-legPos=x12/4
+legPos=x12/2.5
 nSkip=1
 projection=X15c/10cl
-gv=0
+gv=1
 

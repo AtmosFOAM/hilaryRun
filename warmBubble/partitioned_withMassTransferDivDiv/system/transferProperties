@@ -22,16 +22,16 @@ FoamFile
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-cloudRadiusMax     cloudRadiusMax [0 1 0 0 0] 1000;
-cloudRadiusMin     cloudRadiusMin [0 1 0 0 0] 100;
+cloudRadiusMax     cloudRadiusMax [0 1 0 0 0] 1;
+cloudRadiusMin     cloudRadiusMin [0 1 0 0 0] 1;
 dragCoeff       0;
 Ksigma Ksigma [0 2 -1 0 0] 0;
-minSigma  1e-9;
+divTransfer true;
 // Transfer between partitions based on horizontal divergence
 wTransfer true;
 // Transfer between partitions based on laplacian(theta)
 thetaTransfer false;
-divTransfer true;
-thetaTransferDiffusivity thetaTransferDiffusivity  [0 2 -1 0 0] 0;
+thetaTransferDiffusivity thetaTransferDiffusivity [0 2 -1 0 0] 0;
+minSigma  1e-9;
 
 // ************************************************************************* //

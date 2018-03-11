@@ -1,7 +1,8 @@
 refCase=partitioned_identical/sigmaBubble
 
-cases="advective
-       advective_linearUnpwind
+cases="advective/advective_vanLeer
+       advective/advective_linearUnpwind
+       advective/advective_linear
        partitioned_05/divTransfer
        partitioned_05/hiDrag
        partitioned_05/loDiffusion
@@ -41,4 +42,8 @@ for case in $cases; do
     #$base/plots/plotRhoDiff.sh
     cd $base
 done
+
+gmtPlot plots/plotEnergy1part.gmt
+gmtPlot plots/plotEnergy_05.gmt
+gmtPlot plots/plotEnergy_transfers.gmt
 

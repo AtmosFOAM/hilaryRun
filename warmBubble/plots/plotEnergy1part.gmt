@@ -1,0 +1,39 @@
+inputFiles=(advective/advective_vanLeer/diags.dat
+            advective/advective_vanLeer/diags.dat
+            advective/advective_linear/diags.dat
+            advective/advective_linear/diags.dat
+            partitioned_identical/sigmaBubble/diags.dat
+            partitioned_identical/sigmaBubble/diags.dat
+            partitioned_identical/sigmaBubble2/diags.dat
+            partitioned_identical/sigmaBubble2/diags.dat)
+outFile=plots/energy1part.eps
+col=(12)
+colx=1
+legends=("1 partition van Leer" "" "1 partition linear differencing" ""
+         "2 identical partitions, symmetric" ""
+         "2 identical partisions asymmetric" "")
+pens=("1,black," "5,black,7_3:5"
+      "1,green," "1,green,7_3:2"
+      "1,blue,"  "2,blue,7_3:3"
+      "1,red," "1,red,7_3:")
+#symbols=(psxy symbol types in double quotes) (optional)
+#spens=(psxy pen types in double quotes for the symbols) (optional)
+xlabel="time (s)"
+ylabel="normalised energy change"
+#xmin=0
+#xmax=2000
+#dx=5
+#ddx=1 (number of ticks)
+#dxg=0 (x grid spacing)
+ymin=1e-10
+ymax=1e-5
+dy=10
+#ddy=0.1
+#dyg=0 (y grid spacing)
+#xscale=/86400
+yscale=(*1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1)
+legPos=x7/2.5
+nSkip=1
+projection=X15c/10cl
+gv=0
+

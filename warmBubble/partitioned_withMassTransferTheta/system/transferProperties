@@ -26,12 +26,12 @@ cloudRadiusMax     cloudRadiusMax [0 1 0 0 0] 1;
 cloudRadiusMin     cloudRadiusMin [0 1 0 0 0] 1;
 dragCoeff       0;
 Ksigma Ksigma [0 2 -1 0 0] 200;
+minSigma  1e-9;
 // Transfer between partitions based on horizontal divergence
-divTransfer false;
 wTransfer false;
+divTransfer false;
 // Transfer between partitions based on laplacian(theta)
 thetaTransfer true;
 thetaTransferDiffusivity thetaTransferDiffusivity  [0 2 -1 0 0] 1e6;
-minSigma  1e-9;
 
 // ************************************************************************* //

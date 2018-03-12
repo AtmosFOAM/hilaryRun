@@ -1,24 +1,14 @@
 inputFiles=(partitioned_withMassTransferDiv/diags.dat
             partitioned_withMassTransferDiv/diags.dat
             
-            partitioned_withMassTransferDivDiv/diags.dat
-            partitioned_withMassTransferDivDiv/diags.dat
-            
             partitioned_withMassTransferTheta/diags.dat
-            partitioned_withMassTransferTheta/diags.dat
-            
-            partitioned_withMassTransferThetaDiv/diags.dat
-            partitioned_withMassTransferThetaDiv/diags.dat)
+            partitioned_withMassTransferTheta/diags.dat)
 outFile=plots/energy_transfers.eps
 col=(12)
 colx=1
 legends=("Transfer based on horizontal divergence and w" ""
-         "Transfer based on horizontal divergence, w and divergence" ""
-         "Transfer based on buoyancy" ""
-         "Transfer based on buoyancy and divergence" "")
-pens=("1,black," "5,black,7_3:5"
-      "1,green," "1,green,7_3:2"
-      "1,blue,"  "2,blue,7_3:3"
+         "Transfer based on buoyancy" "")
+pens=("1,blue,"  "2,blue,7_3:3"
       "1,red," "1,red,7_3:")
 #symbols=(psxy symbol types in double quotes) (optional)
 #spens=(psxy pen types in double quotes for the symbols) (optional)
@@ -39,5 +29,5 @@ yscale=(*1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1)
 legPos=x4/3
 nSkip=1
 projection=X15c/10cl
-gv=0
+gv=1
 

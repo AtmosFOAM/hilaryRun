@@ -22,12 +22,12 @@ FieldsToPlot
     [buoyant.sigma filledContours 0 1 0.1 "$GMTU/colours/white_grey.cpt"]
     [stable.theta  colouredContours 300 302 0.2 "$GMTU/colours/white_blue_red.cpt"]
     [buoyant.theta  colouredContours 300 302 0.2 "$GMTU/colours/white_blue_red.cpt"]
-    [buoyant.Uf vectors 50 26 "blue"]
-    [stable.Uf vectors  50 26 "black"]
+    [buoyant.Uf vectors 80 26 "blue"]
+    [stable.Uf vectors  80 26 "black"]
 );
 
 separateLegend true;
-region "-5000/5000/0/1e4";
+region "-2500/2500/0/5e3";
 //annotate "minMax -4.7e3 400";
 boundaryMarks "2500/2500";
 plotBoundaryDots false;

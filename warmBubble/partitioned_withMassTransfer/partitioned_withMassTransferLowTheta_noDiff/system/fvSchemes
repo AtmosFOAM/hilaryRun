@@ -1,0 +1,87 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.4                                   |
+|   \\  /    A nd           | Web:      http://www.openfoam.org               |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version         2.0;
+    format          ascii;
+
+    root            "";
+    case            "";
+    instance        "";
+    local           "";
+
+    class           dictionary;
+    object          fvSchemes;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+ddtSchemes
+{
+    default Euler;
+}
+offCentre 0.5;
+
+gradSchemes
+{
+    default         none;
+    grad((sum.theta|sum.rho)) Gauss linear;
+    grad(stable.sigma_0)      Gauss linear;
+    grad(buoyant.sigma_0)      Gauss linear;
+    grad(stable.sigma)      Gauss linear;
+    grad(buoyant.sigma)      Gauss linear;
+    advectSigmaRho0          Gauss upwind stable.volFlux;
+    advectSigmaRho1          Gauss upwind buoyant.volFlux;
+    grad(stable.theta)       Gauss linear;
+    grad(buoyant.theta)       Gauss linear;
+    linearUpwind              Gauss linear;
+}
+
+divSchemes
+{
+    default none;
+    sigmaRho Gauss vanLeer;
+    theta Gauss vanLeer;
+    u Gauss linearUpwind linearUpwind;
+}
+
+laplacianSchemes
+{
+    default         Gauss linear uncorrected;
+}
+
+interpolationSchemes
+{
+    default        none;
+    // For initialisation
+    interpolate(theta) linear;
+    
+    // for partitionedExnerFoamAdv
+    convection      linear;
+    Uf              linear;
+    rho             linear;
+    sigma           linear;
+    sigmaRho        linear;
+    theta           linear;
+    massTransfer    linear;
+}
+
+snGradSchemes
+{
+    default         uncorrected;
+}
+
+fluxRequired
+{
+    default         no;
+    Exner;
+}
+
+
+// ************************************************************************* //

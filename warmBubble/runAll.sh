@@ -11,10 +11,11 @@ cases="advective/advective_vanLeer
        partitioned_identical/sigmaBubble
        partitioned_identical/sigmaBubble2
        partitioned_identical/sigmaBubble_linearUpwind
-       partitioned_withMassTransferDiv
-       partitioned_withMassTransferDivDiv
-       partitioned_withMassTransferTheta
-       partitioned_withMassTransferThetaDiv"
+       partitioned_withMassTransfer/partitioned_withMassTransferDiv
+       partitioned_withMassTransfer/partitioned_withMassTransferDivDiv
+       partitioned_withMassTransfer/partitioned_withMassTransferTheta
+       partitioned_withMassTransfer/partitioned_withMassTransferThetaDiv
+       partitioned_withMassTransfer/partitioned_withMassTransferTheta_noDiff"
 
 for case in $cases; do
     meld $case/system $refCase/system
@@ -30,6 +31,11 @@ done
 time=1000
 for case in $cases; do
     gmtFoam -case $case -time $time sigmaTheta
+done
+
+case=partitioned_05/noTransfer
+for time in 0 100 200 290; do
+    gmtFoam -case $case -time $time sigmaThetaZoom
 done
 
 base=$PWD

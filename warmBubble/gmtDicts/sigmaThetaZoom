@@ -22,7 +22,7 @@ FieldsToPlot
     [buoyant.sigma filledContours 0 1 0.1 "$GMTU/colours/white_grey.cpt"]
     [stable.theta  colouredContours 300 302 0.2 "$GMTU/colours/white_blue_red.cpt"]
     [buoyant.theta  colouredContours 300 302 0.2 "$GMTU/colours/white_blue_red.cpt"]
-    [buoyant.Uf vectors 80 26 "blue"]
+    [buoyant.Uf vectors 80 26 "red"]
     [stable.Uf vectors  80 26 "black"]
 );
 

@@ -31,11 +31,13 @@ done
 time=1000
 for case in $cases; do
     gmtFoam -case $case -time $time sigmaTheta
+    gv $case/$time/sigmaTheta.pdf &
 done
 
 case=partitioned_05/noTransfer
 for time in 0 100 200 290; do
     gmtFoam -case $case -time $time sigmaThetaZoom
+    gv $case/$time/sigmaThetaZoom.pdf &
 done
 
 base=$PWD
@@ -47,6 +49,8 @@ for case in $cases; do
     #gmtPlot $base/plots/plotCo.gmt
     #$base/plots/plotRhoDiff.sh
     cd $base
+    pstitle $case/plots/energy.eps
+    gv $case/plots/energy.eps &
 done
 
 gmtPlot plots/plotEnergy1part.gmt

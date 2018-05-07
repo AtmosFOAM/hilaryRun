@@ -53,3 +53,6 @@ gmtPlot plots/plotEnergy1part.gmt
 gmtPlot plots/plotEnergy_05.gmt
 gmtPlot plots/plotEnergy_transfers.gmt
 
+# Plot difference between partitioned and non-partitioned cases
+plots/errors.sh
+

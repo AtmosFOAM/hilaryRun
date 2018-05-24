@@ -9,9 +9,9 @@ inputFiles=(advective/advective_vanLeer/diags.dat
 outFile=plots/energy1part.eps
 col=(12)
 colx=1
-legends=("1 partition van Leer" "" "1 partition linear differencing" ""
-         "2 identical partitions, symmetric" ""
-         "2 identical partisions asymmetric" "")
+legends=("1 partition van-Leer" "" "1 partition linear differencing" ""
+         "2 identical partitions, symmetric, van-Leer" ""
+         "2 identical partisions asymmetric, van-Leer" "")
 pens=("1,black," "5,black,7_3:5"
       "1,green," "1,green,7_3:2"
       "1,blue,"  "2,blue,7_3:3"
@@ -32,8 +32,8 @@ dy=10
 #dyg=0 (y grid spacing)
 #xscale=/86400
 yscale=(*1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1)
-legPos=x7/2.5
+legPos=x4/2.5
 nSkip=1
 projection=X15c/10cl
-gv=1
+gv=0
 

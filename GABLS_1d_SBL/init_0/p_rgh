@@ -1,0 +1,64 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  dev                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      p_rgh;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [1 -1 -2 0 0 0 0];
+
+internalField   uniform 1e5;
+
+boundaryField
+{
+    ground
+    {
+        type            hydrostatic_p_rgh;
+        value           uniform 1e5;
+        gradient        uniform 0;
+    }
+
+    top
+    {
+        type            fixedValue;
+        value           uniform 9.8e4;
+        gradient        uniform 0;
+    }
+
+    inlet
+    {
+        type            cyclic;
+        value           uniform 1e5;
+    }
+
+    outlet
+    {
+        type            cyclic;
+        value           uniform 1e5;
+    }
+    front
+    {
+        type           geostrophic_p_rgh;
+        geostrophicVelocity     (8 0 0);
+        Omega       (0 0 6.95e-5); // Rotation of the geometry
+        gradient    uniform 0;
+    }
+    back
+    {
+        type           geostrophic_p_rgh;
+        geostrophicVelocity     (8 0 0);
+        Omega       (0 0 6.95e-5); // Rotation of the geometry
+        gradient    uniform 0;
+    }
+}
+
+// ************************************************************************* //

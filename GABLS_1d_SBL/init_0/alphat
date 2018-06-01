@@ -9,41 +9,45 @@ FoamFile
 {
     version     2.0;
     format      ascii;
-    class       dictionary;
-    location    "constant";
-    object      thermophysicalProperties;
+    class       volScalarField;
+    location    "0";
+    object      alphat;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-thermoType
-{
-    type            heRhoThermo;
-    mixture         pureMixture;
-    transport       const;
-    thermo          hConst;
-    equationOfState perfectGas;
-    specie          specie;
-    energy          sensibleEnthalpy;
-}
+dimensions      [1 -1 -1 0 0 0 0];
 
-pRef 100000;
-T0   265;
+internalField   uniform 0;
 
-mixture
+boundaryField
 {
-    specie
+    ground
     {
-        molWeight       28.9;
+        type            compressible::alphatWallFunction;
+        value           uniform 0;
     }
-    thermodynamics
+    top
     {
-        Cp              1000;
-        Hf              0;
+        type            zeroGradient;
+        value           uniform 0;
     }
-    transport
+    inlet
     {
-        mu              1.8e-05;
-        Pr              0.7;
+        type            cyclic;
+        value           uniform 0;
+    }
+    outlet
+    {
+        type            cyclic;
+        value           uniform 0;
+    }
+    front
+    {
+        type           zeroGradient;
+    }
+    back
+    {
+        type           zeroGradient;
     }
 }
 

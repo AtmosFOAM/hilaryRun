@@ -25,17 +25,17 @@ stopAt          endTime;
 
 endTime         32400;
 
-deltaT          1;
+deltaT          10;
 
 writeControl    runTime;
 
-writeInterval   10; //3600;
+writeInterval   3600;
 
 purgeWrite      0;
 
 writeFormat     ascii; //binary;
 
-writePrecision  6;
+writePrecision  12;
 
 writeCompression off;
 
@@ -49,6 +49,15 @@ adjustTimeStep  no;
 
 maxCo           0.5;
 
-libs            ("libcompressibleTurbulenceModels.so" "libfiniteVolumeAtmosFOAMtools.so");
+libs
+(
+    "libcompressibleTurbulenceModels.so"
+    "libfiniteVolumeAtmosFOAMtools.so"
+);
+
+functions
+{
+    #includeFunc theta
+}
 
 // ************************************************************************* //

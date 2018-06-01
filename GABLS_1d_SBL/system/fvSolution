@@ -15,6 +15,13 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+initialisation
+{
+    maxIters 10;
+    BCiters 5;
+    BCtol   0.5;
+}
+
 solvers
 {
     "rho.*"
@@ -57,7 +64,7 @@ solvers
 PIMPLE
 {
     momentumPredictor yes;
-    nOuterCorrectors 1;
+    nOuterCorrectors 2;
     nCorrectors     2;
     nNonOrthogonalCorrectors 0;
 }

@@ -19,7 +19,15 @@ initialisation
 {
     maxIters 10;
     BCiters 5;
-    BCtol   0.5;
+    BCtol   0.001; //0.5;
+}
+
+// For ExnerFoamH
+iterations
+{
+    nOuterCorrecters 2;
+    nCorrectors 2;
+    nNonOrthogonalCorrectors 0;
 }
 
 solvers
@@ -32,7 +40,7 @@ solvers
         relTol          0;
     }
 
-    p_rgh
+    "(p_rgh|Exner)"
     {
         solver          PCG;
         preconditioner  DIC;
@@ -40,13 +48,13 @@ solvers
         relTol          0.01;
     }
 
-    p_rghFinal
+    "(p_rghFinal|ExnerFinal)"
     {
         $p_rgh;
         relTol          0;
     }
 
-    "(U|h|e|k|epsilon|R)"
+    "(U|h|e|k|epsilon|R|theta)"
     {
         solver          PBiCGStab;
         preconditioner  DILU;

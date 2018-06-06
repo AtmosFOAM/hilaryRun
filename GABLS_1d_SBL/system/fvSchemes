@@ -19,6 +19,9 @@ ddtSchemes
 {
     default         Euler; //CrankNicolson 0.9;
 }
+// For ExnerFoam
+offCentre 1;
+SIgravityWaves false;
 
 gradSchemes
 {
@@ -38,11 +41,15 @@ divSchemes
     div(phi,Ekp)    Gauss linear;
     div(R)          Gauss linear;
     div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear;
+    
+    // For ExnerFoamTurbulence
+    div(phi,u)        Gauss upwind;
+    div(phi,theta)    Gauss upwind;
 }
 
 laplacianSchemes
 {
-    default         Gauss linear corrected;
+    default         Gauss linear uncorrected;
 }
 
 interpolationSchemes
@@ -52,8 +59,12 @@ interpolationSchemes
 
 snGradSchemes
 {
-    default         corrected;
+    default         uncorrected;
 }
 
+fluxRequired
+{
+    Exner;
+}
 
 // ************************************************************************* //

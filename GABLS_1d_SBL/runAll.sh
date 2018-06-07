@@ -25,7 +25,7 @@ sed -i 's/Omega               (0 0 0)/Omega               (0 0 6.95e-5)/g' 0/Exn
 buoyantPimpleFoam >& log & sleep 0.01; tail -f log
 
 # Plotting for buoyantPimpleFoam
-time=32400
+export time=32400
 for var in theta T U k nut p p_rgh; do
     writeCellDataxyz $var -time $time
     sort -g --key=3 $time/$var.xyz > $time/$var.dat
@@ -34,7 +34,7 @@ done
 gmtPlot plots/plotw.gmt
 rm $time/*.dat $time/*.xyz
 
-mv $time saveB_$time
+mv $time saveB_${time}_RAS
 
 # run exnerFoamTurbulence
 rm -rf [1-9]*
@@ -42,8 +42,8 @@ exnerFoamTurbulence >& logE & sleep 0.01; tail -f logE
 
 
 # Plotting for exnerFoamTurbulence
-time=32400
-for var in T theta Uf Exner; do
+export time=32400
+for var in  k nut epsilon T theta Uf Exner; do
     writeCellDataxyz $var -time $time
     sort -g --key=3 $time/$var.xyz > $time/$var.dat
     gmtPlot plots/plot$var.gmt

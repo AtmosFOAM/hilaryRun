@@ -28,8 +28,8 @@ boundaryField
 
     top
     {
-        type            fixedValue;
-        value           uniform 268;
+        type            fixedGradient;
+        gradient        uniform 0.01;
     }
 
     inlet

@@ -15,13 +15,15 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+// exnerFoamTurbulence must be run with Crank Nicolson time-stepping and ddt
+// (rho,U)_CN must have the same off-centering coefficient
 ddtSchemes
 {
-    default         Euler; //CrankNicolson 0.9;
+    default         CrankNicolson 0.9;
+    ddt(rho,U)_CN   0.9;
+    ddt(rho,epsilon) Euler;
+    ddt(rho,k) Euler;
 }
-// For ExnerFoam
-offCentre 1;
-SIgravityWaves false;
 
 gradSchemes
 {
@@ -31,20 +33,16 @@ gradSchemes
 divSchemes
 {
     default         none;
-    div(phi,U)      Gauss upwind;
-    div(phi,h)      Gauss upwind;
-    div(phi,e)      Gauss upwind;
-    div(phi,k)      Gauss upwind;
-    div(phi,epsilon) Gauss upwind;
-    div(phi,R)      Gauss upwind;
+    div(phi,U)      Gauss linearUpwind linearUpwind;
+    div(phi,h)  Gauss linearUpwind linearUpwind;
+    div(phi,theta)  Gauss linearUpwind linearUpwind;
+    div(phi,k)      Gauss linearUpwind linearUpwind;
+    div(phi,epsilon) Gauss linearUpwind linearUpwind;
+    div(phi,R)      Gauss linearUpwind linearUpwind;
     div(phi,K)      Gauss linear;
     div(phi,Ekp)    Gauss linear;
     div(R)          Gauss linear;
     div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear;
-    
-    // For ExnerFoamTurbulence
-    div(phi,u)        Gauss upwind;
-    div(phi,theta)    Gauss upwind;
 }
 
 laplacianSchemes

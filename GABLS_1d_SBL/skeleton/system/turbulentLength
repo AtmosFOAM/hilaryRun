@@ -9,48 +9,15 @@ FoamFile
 {
     version     2.0;
     format      ascii;
-    class       volScalarField;
-    object      theta;
+    class       dictionary;
+    object      turbulentLength;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 0 0 1 0 0 0];
-
-internalField   uniform 265;
-
-boundaryField
-{
-    ground
-    {
-        type            fixedValue;
-        value           uniform 265;
-    }
-
-    top
-    {
-        type            fixedGradient;
-        gradient        uniform 0.01;
-    }
-
-    inlet
-    {
-        type            cyclic;
-        value           uniform 265;
-    }
-
-    outlet
-    {
-        type            cyclic;
-        value           uniform 265;
-    }
-    front
-    {
-        type           zeroGradient;
-    }
-    back
-    {
-        type           zeroGradient;
-    }
-}
+type            turbulentLength;
+libs            ("libAtmosFoamFieldFunctionObjects.so");
+fields          (k epsilon);
+executeControl  writeTime;
+writeControl    writeTime;
 
 // ************************************************************************* //

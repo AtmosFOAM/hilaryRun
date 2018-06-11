@@ -10,20 +10,16 @@ FoamFile
     version     2.0;
     format      ascii;
     class       dictionary;
-    location    "32400/uniform";
-    object      time;
+    location    "system";
+    object      epsilon_tracerFieldDict;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-value           32400;
 
-name            "32400";
-
-index           3240;
-
-deltaT          10;
-
-deltaT0         10;
-
-
-// ************************************************************************* //
+type      polynomial;
+a_const   0.004;
+a_z       -1.6e-5;
+a_zz      6.4e-8;
+a_zzz     -2.56e-10;
+polyMax   0.004;
+polyMin   0;

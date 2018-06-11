@@ -8,47 +8,46 @@
 FoamFile
 {
     version     2.0;
-    format      binary;
+    format      ascii;
     class       volScalarField;
-    location    "32400";
-    object      T;
+    location    "0";
+    object      k;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 0 0 1 0 0 0];
+dimensions      [0 2 -2 0 0 0 0];
 
-internalField   nonuniform List<scalar> 
-64
-(eã?ˆp@Øo‘ôOp@¾ø'p@U'…×ÿp@}sÁÖp@ÅSHXªp@‚]°Ñyp@œ¢½›Dp@(Œ$
-p@Ğ¯âÄÉp@Ô—·‚p@|V4p@.ÍÁÜŒp@×Úew{Œp@ç‡`£Œp@ˆ¦‘_”‹p@ïyLZ
-‹p@+ß]¼mŠp@­YË»‰p@i%ç)îˆp@ÏÕwˆp@ÀRòò†p@ğùn¿…p@¢)V¾e„p@C­,ƒp@â^ºp@ÏÔKªi€p@]-y\€p@Z™f€p@…„¾½m€p@ƒù,Jq€p@şŞIet€p@Õ‡w€p@ò.,¿z€p@ÀÚ#í}€p@­ÛL2€p@I>ÉN„€p@kÔˆ®‡€p@ì„Á Š€p@^kÉE€p@èD³Ä€p@=ø$•€p@¶,ê}–€p@[1§œ€p@@zÖG›€p@Idœ¥€p@,«éÿ€p@´©v±€p@óŒ¤œ€p@ÙˆNÃ€p@LŒÃ¬’€p@iè‘à€p@¶šåy€p@Ö¿æèp@$lşG€p@9Q¯Šfp@Ì_bİp@‚#Œ‚p@N6€n=p@ºí³Ë ‚p@E€·qú~p@Å$×K„p@Z1»¬{p@z.Àyˆp@);
+internalField   uniform 0.4;
 
 boundaryField
 {
     ground
     {
-        type            fixedValue;
-        value           uniform 265;
+        type            kqRWallFunction;
+        value           uniform 0.4;
     }
     top
     {
         type            zeroGradient;
+        value           uniform 0;
     }
     inlet
     {
         type            cyclic;
+        value           uniform 0.4;
     }
     outlet
     {
         type            cyclic;
+        value           uniform 0.4;
     }
     front
     {
-        type            zeroGradient;
+        type           zeroGradient;
     }
     back
     {
-        type            zeroGradient;
+        type           zeroGradient;
     }
 }
 

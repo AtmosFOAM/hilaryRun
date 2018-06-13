@@ -24,13 +24,17 @@ FoamFile
 
 ddtSchemes
 {
-    default Euler;
+    default         CrankNicolson 0.9;
+    volFlux_CN      0.9;
+    ddt(rho.stable,epsilon.stable) Euler;
+    ddt(rho.buoyant,epsilon.buoyant) Euler;
+    ddt(rho.stable,k.stable) Euler;
+    ddt(rho.buoyant,k.buoyant) Euler;
 }
-offCentre 0.5;
 
 gradSchemes
 {
-    default         Gauss linear;
+    grad((theta.sum|rho.sum)) Gauss linear;
 }
 
 divSchemes
@@ -39,6 +43,12 @@ divSchemes
     sigmaRho Gauss vanLeer;
     theta Gauss vanLeer;
     u Gauss linearUpwind linearUpwind;
+
+    // for partitionedTurbulentFoam
+    div(volFlux.sigmaRhof.stable,epsilon.stable)   Gauss upwind;
+    div(volFlux.sigmaRhof.buoyant,epsilon.buoyant) Gauss upwind;
+    div(volFlux.sigmaRhof.stable,k.stable)         Gauss upwind;
+    div(volFlux.sigmaRhof.buoyant,k.buoyant)       Gauss upwind;
 }
 
 laplacianSchemes
@@ -60,6 +70,10 @@ interpolationSchemes
     sigmaRho        linear;
     theta           linear;
     massTransfer    linear;
+    
+    // for partitionedTurbulentFoam
+    interpolate(rho.stable)    linear;
+    interpolate(rho.buoyant)   linear;
 }
 
 snGradSchemes

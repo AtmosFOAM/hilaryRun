@@ -20,7 +20,7 @@ cp 0/theta 0/theta_init
 makeHotBubble
 
 # Warm bubble only in the buoyant partition
-mv 0/theta 0/buoyant.theta
+mv 0/theta 0/theta.buoyant
 cp init_0/theta 0/theta.stable
 mv 0/Uf 0/Uf.stable
 cp 0/Uf.stable 0/Uf.buoyant

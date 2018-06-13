@@ -35,6 +35,13 @@ ddtSchemes
 gradSchemes
 {
     grad((theta.sum|rho.sum)) Gauss linear;
+    grad(theta.stable)        Gauss linear;
+    grad(theta.buoyant)       Gauss linear;
+    grad(u.stable)            Gauss linear;
+    grad(u.buoyant)           Gauss linear;
+    linearUpwind              Gauss linear;
+    grad(rho.stable)          Gauss linear;
+    grad(rho.buoyant)         Gauss linear;
 }
 
 divSchemes
@@ -49,6 +56,8 @@ divSchemes
     div(volFlux.sigmaRhof.buoyant,epsilon.buoyant) Gauss upwind;
     div(volFlux.sigmaRhof.stable,k.stable)         Gauss upwind;
     div(volFlux.sigmaRhof.buoyant,k.buoyant)       Gauss upwind;
+    div(((rho.stable*nuEff.stable)*dev2(T(grad(u.stable))))) Gauss linear;
+    div(((rho.buoyant*nuEff.buoyant)*dev2(T(grad(u.buoyant))))) Gauss linear;
 }
 
 laplacianSchemes
@@ -74,6 +83,10 @@ interpolationSchemes
     // for partitionedTurbulentFoam
     interpolate(rho.stable)    linear;
     interpolate(rho.buoyant)   linear;
+    interpolate(theta.stable)  linear;
+    interpolate(theta.buoyant) linear;
+    interpolate(u.stable)      linear;
+    interpolate(u.buoyant)     linear;
 }
 
 snGradSchemes

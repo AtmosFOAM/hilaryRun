@@ -24,6 +24,8 @@ mv 0/theta 0/theta.buoyant
 cp init_0/theta 0/theta.stable
 mv 0/Uf 0/Uf.stable
 cp 0/Uf.stable 0/Uf.buoyant
+mv 0/u 0/u.stable
+cp 0/u.stable 0/u.buoyant
 rm 0/thetaf
 mv 0/alphat 0/alphat.stable; cp 0/alphat.stable 0/alphat.buoyant
 mv 0/nut 0/nut.stable; cp 0/nut.stable 0/nut.buoyant
@@ -44,6 +46,12 @@ partitionedTurbulentFoam >& log & sleep 0.01; tail -f log
 
 gmtPlot ../../plots/plotCo.gmt
 gmtPlot ../../plots/plotEnergy.gmt
+
+# Debugging diagnostics
+for var in k epsilon; do
+    gmtFoam -time $time $var
+    gv $time/$var.pdf &
+done
 
 # Plot theta and sigma
 for time in 100 1000; do

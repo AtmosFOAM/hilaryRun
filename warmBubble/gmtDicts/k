@@ -19,8 +19,8 @@ projection2D XZ;
 
 FieldsToPlot
 (
-    [k.stable    filledContours 0 0.1 0.01 "$GMTU/colours/white_grey.cpt"]
-    [k.buoyant   colouredContours 0 0.1 0.01 "$GMTU/colours/white_blue_red.cpt"]
+    [k.stable    filledContours 0 0 0 "$GMTU/colours/white_grey.cpt"]
+    [k.buoyant   colouredContours 0 0 0 "$GMTU/colours/white_blue_red.cpt"]
     [Uf.buoyant vectors 50 26 "red"]
     [Uf.stable vectors  50 26 "black"]
 );

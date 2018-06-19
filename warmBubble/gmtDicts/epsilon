@@ -19,14 +19,16 @@ projection2D XZ;
 
 FieldsToPlot
 (
+    [epsilon    filledContours 0 0 0 "$GMTU/colours/white_blue_red.cpt"]
     [epsilon.stable    filledContours 0 0 0 "$GMTU/colours/white_grey.cpt"]
     [epsilon.buoyant   colouredContours 0 0 0 "$GMTU/colours/white_blue_red.cpt"]
-    [Uf.buoyant vectors 50 26 "red"]
-    [Uf.stable vectors  50 26 "black"]
+    [Uf.buoyant vectors 200 1 "red"]
+    [Uf.stable vectors  200 1 "black"]
+    [Uf vectors  500 5 "black"]
 );
 
 separateLegend true;
-region "-5000/5000/0/1e4";
-//annotate "minMax -4.7e3 400";
-boundaryMarks "2500/2500";
+region "0/5e3/0/5e3";
+annotate "minMax 500 -400";
+boundaryMarks "500/500";
 plotBoundaryDots false;

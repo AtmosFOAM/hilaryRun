@@ -1,0 +1,92 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.4                                   |
+|   \\  /    A nd           | Web:      http://www.openfoam.org               |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version         2.0;
+    format          ascii;
+
+    root            "";
+    case            "";
+    instance        "";
+    local           "";
+
+    class           dictionary;
+    object          fvSchemes;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+ddtSchemes
+{
+    default         none; //CrankNicolson 1;
+    ddt(U)_CN   1;
+    ddt(U)      CrankNicolson 1;
+    ddt(rho)        CrankNicolson 1;
+    ddt(theta)  CrankNicolson 1;
+
+    ddt(Psi,Exner)  CrankNicolson 1;
+    
+    ddt(rho,epsilon) Euler;
+    ddt(rho,k) Euler;
+}
+
+gradSchemes
+{
+    default                   Gauss linear;
+}
+
+divSchemes
+{
+    default none;
+    sigmaRho Gauss vanLeer;
+    theta Gauss vanLeer;
+    u Gauss linearUpwind linearUpwind;
+
+    // for exnerFoamTurbulence
+    div(((rho*nuEff)*dev2(T(grad(U)))))            Gauss linear;
+    div(volFlux,theta) Gauss linearUpwind linearUpwind;
+    div(volFlux,U)     Gauss linearUpwind linearUpwind;
+    div(phi,epsilon) Gauss upwind;
+    div(phi,k) Gauss upwind;
+}
+
+laplacianSchemes
+{
+    default         Gauss linear uncorrected;
+}
+
+interpolationSchemes
+{
+    default        linear;
+    // For initialisation
+    interpolate(theta) linear;
+    
+    // for partitionedExnerFoamAdv
+    convection      linear;
+    Uf              linear;
+    rho             linear;
+    sigma           linear;
+    sigmaRho        linear;
+    theta           linear;
+    massTransfer    linear;
+}
+
+snGradSchemes
+{
+    default         uncorrected;
+}
+
+fluxRequired
+{
+    default         no;
+    Exner;
+}
+
+
+// ************************************************************************* //

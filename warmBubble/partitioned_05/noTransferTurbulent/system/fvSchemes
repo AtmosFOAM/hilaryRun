@@ -24,8 +24,8 @@ FoamFile
 
 ddtSchemes
 {
-    default         CrankNicolson 0.9;
-    volFlux_CN      0.9;
+    default         CrankNicolson 1;
+    volFlux_CN      1;
     ddt(rho.stable,epsilon.stable) Euler;
     ddt(rho.buoyant,epsilon.buoyant) Euler;
     ddt(rho.stable,k.stable) Euler;
@@ -34,14 +34,7 @@ ddtSchemes
 
 gradSchemes
 {
-    grad((theta.sum|rho.sum)) Gauss linear;
-    grad(theta.stable)        Gauss linear;
-    grad(theta.buoyant)       Gauss linear;
-    grad(u.stable)            Gauss linear;
-    grad(u.buoyant)           Gauss linear;
-    linearUpwind              Gauss linear;
-    grad(rho.stable)          Gauss linear;
-    grad(rho.buoyant)         Gauss linear;
+    default                   Gauss linear;
 }
 
 divSchemes

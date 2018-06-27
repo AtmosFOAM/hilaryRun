@@ -57,7 +57,7 @@ done
 
 # Make links for animategraphics
 mkdir -p animategraphics
-for field in theta sigma; do
+for field in sigmaTheta ; do
     t=0
     for time in [0-9] [0-9]?? [0-9]???; do
         ln -s ../$time/$field.pdf animategraphics/${field}_$t.pdf

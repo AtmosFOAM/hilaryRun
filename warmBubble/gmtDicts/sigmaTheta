@@ -19,20 +19,14 @@ projection2D XZ;
 
 FieldsToPlot
 (
-//    [buoyant.sigma filledContours 0 1 0.1 "$GMTU/colours/white_grey.cpt"]
-//    [stable.theta  colouredContours 300 302 0.2 "$GMTU/colours/white_blue_red.cpt"]
-//    [buoyant.theta  colouredContours 300 302 0.2 "$GMTU/colours/white_blue_red.cpt"]
-//    [buoyant.Uf vectors 50 26 "red"]
-//    [stable.Uf vectors  50 26 "black"]
-
-    [theta  filledContours 300 302 0.2 "$GMTU/colours/white_blue_red.cpt"]
+//    [theta  filledContours 300 302 0.2 "$GMTU/colours/white_blue_red.cpt"]
 
     [sigma.buoyant filledContours 0 1 0.1 "$GMTU/colours/white_grey.cpt"]
     [theta.stable  colouredContours 300 302 0.2 "$GMTU/colours/white_blue_red.cpt"]
     [theta.buoyant  colouredContours 300 302 0.2 "$GMTU/colours/white_blue_red.cpt"]
-    [Uf.buoyant vectors 50 17 "red"]
+    [Uf.buoyant vectors 50 26 "red"]
     [Uf.stable vectors  50 26 "black"]
-    [Uf vectors  50 26 "black"]
+//    [Uf vectors  50 26 "black"]
 );
 
 separateLegend true;

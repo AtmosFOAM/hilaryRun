@@ -56,6 +56,11 @@ runTimeModifiable no;
 adjustTimeStep no;
 maxCo          0.5;
 
-libs            ("libExnerTheta.so" "libfiniteVolumeAtmos.so" "libfiniteVolumeAtmosFOAMtools.so");
+libs
+(
+    "libExnerTheta.so"
+    "libfiniteVolumeAtmos.so"
+    "libfiniteVolumeAtmosFOAMtools.so"
+);
 
 // ************************************************************************* //

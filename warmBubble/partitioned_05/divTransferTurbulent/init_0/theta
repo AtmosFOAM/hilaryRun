@@ -10,21 +10,20 @@ FoamFile
     version     2.0;
     format      ascii;
     class       volScalarField;
-    location    "0";
-    object      k;
+    location    "constant";
+    object      theta;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 2 -2 0 0 0 0];
+dimensions      [0 0 0 1 0 0 0];
 
-internalField   uniform 1e-8;
+internalField   uniform 300;
 
 boundaryField
 {
     ground
     {
         type            zeroGradient;
-        value           $internalField;
     }
     top
     {
@@ -32,11 +31,11 @@ boundaryField
     }
     left
     {
-        type           zeroGradient;
+        type            zeroGradient;
     }
     right
     {
-        type           zeroGradient;
+        type            zeroGradient;
     }
 }
 

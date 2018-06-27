@@ -19,10 +19,10 @@ projection2D XZ;
 
 FieldsToPlot
 (
-    [sum.thetaDiff filledContours 0 0 0 "$GMTU/colours/red_white_blue.cpt"]
-    [stable.UfDiff vectors 1.1e7 1 "green"]
-    [buoyant.UfDiff vectors 1e7 1 "red"]
-    [sum.UfDiff vectors 1e7 1 "black"]
+//    [theta filledContours 300 302 0.2 "$GMTU/colours/white_blue_red.cpt"]
+    [theta.diff   filledContours 0 0 0 "$GMTU/colours/red_white_blue.cpt"]
+    [Uf vectors  500 17 "black"]
+    [Uf.diff vectors 5e4 13 "white"]
 );
 
 //separateLegend true;

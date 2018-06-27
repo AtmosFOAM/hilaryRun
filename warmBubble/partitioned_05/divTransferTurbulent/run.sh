@@ -46,7 +46,7 @@ gmtPlot ../../plots/plotCo.gmt
 gmtPlot ../../plots/plotEnergy.gmt
 
 # Differences between partitions
-time=200
+time=400
 for var in theta k epsilon Uf; do
     sumFields $time $var.diff $time $var.stable $time $var.buoyant -scale1 -1
 done

@@ -46,7 +46,7 @@ gmtPlot ../../plots/plotCo.gmt
 gmtPlot ../../plots/plotEnergy.gmt
 
 # Differences between partitions
-time=100
+time=1000
 for var in k epsilon Uf; do
     sumFields $time $var.diff $time $var.stable $time $var.buoyant -scale1 -1
 done
@@ -55,8 +55,8 @@ for var in k epsilon; do
     gv $time/${var}Diff.pdf &
 done
 
-# Debugging diagnostics
-for var in k epsilon sigmaTheta; do
+# More diagnostics
+for var in sigmaTheta; do
     gmtFoam -time $time $var
     gv $time/$var.pdf &
 done

@@ -42,6 +42,8 @@ ddtSchemes
 gradSchemes
 {
     default                   Gauss linear;
+    advectSigmaRho0          Gauss upwind volFlux.stable;
+    advectSigmaRho1          Gauss upwind volFlux.buoyant;
 }
 
 divSchemes

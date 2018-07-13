@@ -56,9 +56,10 @@ for var in theta k epsilon; do
 done
 
 # More diagnostics
-for var in sigmaTheta; do
-    gmtFoam -time $time $var
-    gv $time/$var.pdf &
+time=500
+for var in sigmaTheta k epsilon; do
+    gmtFoam -time $time ${var}Zoom
+    gv $time/${var}Zoom.pdf &
 done
 
 # Plot theta and sigma

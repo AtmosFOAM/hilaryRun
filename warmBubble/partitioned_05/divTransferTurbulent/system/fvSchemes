@@ -24,14 +24,14 @@ FoamFile
 
 ddtSchemes
 {
-    default         none;
-    ddt(Psi,Exner)  CrankNicolson 1;
+    default         Euler;
+    ddt(Psi,Exner)  CrankNicolson 0;
 
-    volFlux_CN      1;
-    ddt(theta.stable)     CrankNicolson 1;
-    ddt(theta.buoyant)    CrankNicolson 1;
-    ddt(u.stable)         CrankNicolson 1;
-    ddt(u.buoyant)        CrankNicolson 1;
+    volFlux_CN      0;
+    ddt(theta.stable)     CrankNicolson 0;
+    ddt(theta.buoyant)    CrankNicolson 0;
+    ddt(u.stable)         CrankNicolson 0;
+    ddt(u.buoyant)        CrankNicolson 0;
     
     ddt(sigma.stable,rho.stable,epsilon.stable) Euler;
     ddt(sigma.buoyant,rho.buoyant,epsilon.buoyant) Euler;
@@ -62,6 +62,10 @@ divSchemes
     div((((sigma.stable*rho.stable)*nuEff.stable)*dev2(T(grad(u.stable))))) Gauss linear;
     div((((sigma.buoyant*rho.buoyant)*nuEff.buoyant)*dev2(T(grad(u.buoyant))))) Gauss linear;
     
+    div(volFlux.stable,epsilon.stable) Gauss upwind;
+    div(volFlux.buoyant,epsilon.buoyant) Gauss upwind;
+    div(volFlux.stable,k.stable) Gauss upwind;
+    div(volFlux.buoyant,k.buoyant) Gauss upwind;
 }
 
 laplacianSchemes

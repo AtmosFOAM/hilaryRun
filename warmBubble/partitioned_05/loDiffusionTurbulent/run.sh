@@ -46,7 +46,7 @@ gmtPlot ../../plots/plotCo.gmt
 gmtPlot ../../plots/plotEnergy.gmt
 
 # Differences between partitions
-time=200
+time=400
 for var in theta k epsilon Uf; do
     sumFields $time $var.diff $time $var.stable $time $var.buoyant -scale1 -1
 done
@@ -56,9 +56,10 @@ for var in theta k epsilon; do
 done
 
 # More diagnostics
-for var in k epsilon sigmaTheta; do
-    gmtFoam -time $time ${var}Zoom
-    gv $time/${var}Zoom.pdf &
+time=500
+for var in sigmakZoom massTransfer; do
+    gmtFoam -time $time $var
+    gv $time/$var.pdf &
 done
 
 # Plot theta and sigma

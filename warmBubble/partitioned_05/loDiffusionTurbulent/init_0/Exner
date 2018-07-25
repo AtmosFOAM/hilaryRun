@@ -9,24 +9,41 @@ FoamFile
 {
     version     2.0;
     format      ascii;
-    class       dictionary;
+    class       volScalarField;
     location    "constant";
-    object      turbulenceProperties;
+    object      Exner;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-simulationType  RAS;
+dimensions      [0 0 0 0 0 0 0];
 
-laminar
-{
-    laminarModel Stokes;
-}
+internalField   uniform 1;
 
-RAS
+boundaryField
 {
-    RASModel        hmm; //multiFluidBuoyantKEpsilon;
-    turbulence      on;
-    printCoeffs     on;
+    ground
+    {
+        type            partitionedHydrostaticExner;
+        gradient        uniform 0;
+        value           uniform 1;
+    }
+    top
+    {
+        type            partitionedHydrostaticExner;
+        value           uniform 0.346341;
+    }
+    left
+    {
+        type            partitionedHydrostaticExner;
+        gradient        uniform 0;
+        value           uniform 1;
+    }
+    right
+    {
+        type            partitionedHydrostaticExner;
+        gradient        uniform 0;
+        value           uniform 1;
+    }
 }
 
 

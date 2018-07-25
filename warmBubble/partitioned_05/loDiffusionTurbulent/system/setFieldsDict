@@ -10,24 +10,30 @@ FoamFile
     version     2.0;
     format      ascii;
     class       dictionary;
-    location    "constant";
-    object      turbulenceProperties;
+    object      setFieldsDict;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-simulationType  RAS;
+defaultFieldValues
+(
+    volScalarFieldValue sigma.buoyant 0.001
+);
 
-laminar
-{
-    laminarModel Stokes;
-}
+regions
+(
+    // Set cell values
+    // (does zerogradient on boundaries)
+    sphereToCell
+    {
+        centre (0 500 2e3);
+        radius 2000;
 
-RAS
-{
-    RASModel        hmm; //multiFluidBuoyantKEpsilon;
-    turbulence      on;
-    printCoeffs     on;
-}
+        fieldValues
+        (
+            volScalarFieldValue sigma.buoyant 0.5
+        );
+    }
 
+);
 
 // ************************************************************************* //

@@ -15,18 +15,19 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-simulationType  RAS;
+//simulationType  RAS;
 
-laminar
-{
-    laminarModel Stokes;
-}
+//laminar
+//{
+//    laminarModel Stokes;
+//}
 
 RAS
 {
-    RASModel        hmm; //multiFluidBuoyantKEpsilon;
+//    RASModel        hmm; //multiFluidBuoyantKEpsilon;
     turbulence      on;
     printCoeffs     on;
+//    Cg              0;
 }
 
 

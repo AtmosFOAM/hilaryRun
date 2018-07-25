@@ -9,24 +9,41 @@ FoamFile
 {
     version     2.0;
     format      ascii;
-    class       dictionary;
+    class       surfaceScalarField;
     location    "constant";
-    object      turbulenceProperties;
+    object      thetaStat;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-simulationType  RAS;
+dimensions      [0 0 0 1 0 0 0];
 
-laminar
-{
-    laminarModel Stokes;
-}
+// all values are placeholders that are overwritten by setTheta
+// _init files are used to establish the type of boundary conditions
 
-RAS
+internalField   uniform 300;
+
+boundaryField
 {
-    RASModel        hmm; //multiFluidBuoyantKEpsilon;
-    turbulence      on;
-    printCoeffs     on;
+    ground
+    {
+        type            fixedValue;
+	value           uniform 300;
+    }
+    top
+    {
+        type            fixedValue;
+	value           uniform 300;
+    }
+    left
+    {
+        type            fixedValue;
+	value           uniform 300;
+    }
+    right
+    {
+        type            fixedValue;
+	value           uniform 300;
+    }
 }
 
 

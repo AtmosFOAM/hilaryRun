@@ -14,7 +14,7 @@ FoamFile
 
 // How to plot
 // Compulsory inputs
-projection "X12c/12c";
+projection "X6c/6c";
 projection2D XZ;
 
 FieldsToPlot

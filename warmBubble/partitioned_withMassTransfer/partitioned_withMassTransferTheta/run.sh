@@ -22,14 +22,14 @@ cp 0/theta 0/theta_init
 #mv 0/theta 0/stable.theta
 #cp constant/initialProperties1 constant/initialProperties
 makeHotBubble
-mv 0/theta 0/stable.theta
-cp 0/theta_init 0/buoyant.theta
+mv 0/theta 0/theta.stable
+cp 0/theta_init 0/theta.buoyant
 
 # Partition into stable and buoyant fluids
 #cp 0/buoyant.theta 0/stable.theta
 #mv 0/theta_init 0/buoyant.theta
-mv 0/Uf 0/stable.Uf
-cp 0/stable.Uf 0/buoyant.Uf
+mv 0/Uf 0/Uf.stable
+cp 0/Uf.stable 0/Uf.buoyant
 rm 0/thetaf
 
 # create initial conditions

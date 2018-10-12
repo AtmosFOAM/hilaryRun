@@ -1,24 +1,26 @@
-inputFiles=(partitioned_withMassTransfer/partitioned_withMassTransferDiv/diags.dat
-            partitioned_withMassTransfer/partitioned_withMassTransferDiv/diags.dat
-            
-            partitioned_withMassTransfer/partitioned_withMassTransferDivDiv/diags.dat
-            partitioned_withMassTransfer/partitioned_withMassTransferDivDiv/diags.dat
-            
-            partitioned_withMassTransfer/partitioned_withMassTransferTheta/diags.dat
+inputFiles=(partitioned_withMassTransfer/partitioned_withMassTransferTheta/diags.dat
             partitioned_withMassTransfer/partitioned_withMassTransferTheta/diags.dat
 
-            partitioned_withMassTransfer/partitioned_withMassTransferThetaDiv/diags.dat
-            partitioned_withMassTransfer/partitioned_withMassTransferThetaDiv/diags.dat)
+            partitioned_withMassTransfer/partitioned_withMassTransferLowTheta/diags.dat
+            partitioned_withMassTransfer/partitioned_withMassTransferLowTheta/diags.dat
+            
+            partitioned_withMassTransfer/partitioned_withMassTransferDiv/diags.dat
+            partitioned_withMassTransfer/partitioned_withMassTransferDiv/diags.dat
+            
+            
+            partitioned_withMassTransfer/partitioned_withMassTransferThetaDivw/diags.dat
+            partitioned_withMassTransfer/partitioned_withMassTransferThetaDivw/diags.dat)
 outFile=plots/energy_transfers.eps
 col=(12)
 colx=1
-legends=("Horizontal divergence transfer, diffusion stabilisation" ""
-         "Horizontal divergence transfer, divergence stabilisation" ""
-         "Buoyancy transfer, diffusion stabilisation" ""
-         "Buoyancy transfer, divergence stabilisation" "")
-pens=("1,blue,"  "2,blue,7_3:3"
-      "1,cyan,"  "2,cyan,7_3:3"
-      "1,red," "1,red,7_3:"
+legends=("Buoyancy transfer, K@-@~f@~@- = 10@+6@+ m@+2@+s@+-2@+" ""
+         "Buoyancy transfer, K@-@~f@~@- = 10@+5@+ m@+2@+s@+-2@+" ""
+         "Buoyancy transfer, K@-@~f@~@- = 10@+6@+ m@+2@+s@+-2@+ and horizontal divergence transfer" ""
+         "Horizontal divergence transfer" "")
+pens=("1,black,"  "2,black,7_9"
+      "1,blue,"  "2,blue,7_9:3"
+      "1,cyan,"  "1,cyan,7_9:5"
+      "1,red," "1,red,7_9:7"
       "1,magenta," "1,magenta,7_3:")
 #symbols=(psxy symbol types in double quotes) (optional)
 #spens=(psxy pen types in double quotes for the symbols) (optional)
@@ -36,7 +38,7 @@ dy=10
 #dyg=0 (y grid spacing)
 #xscale=/86400
 yscale=(*1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1)
-legPos=x2/3
+legPos=x2/2
 nSkip=1
 projection=X15c/10cl
 gv=0

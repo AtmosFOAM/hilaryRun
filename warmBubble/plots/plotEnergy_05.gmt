@@ -7,16 +7,14 @@ inputFiles=(partitioned_05/noTransfer/diags.dat
             partitioned_05/loDiffusion/diags.dat
             partitioned_05/loDiffusion/diags.dat
             partitioned_05/hiDiffusion/diags.dat
-            partitioned_05/hiDiffusion/diags.dat
-            partitioned_05/divTransfer/diags.dat
-            partitioned_05/divTransfer/diags.dat)
+            partitioned_05/hiDiffusion/diags.dat)
 outFile=plots/energy_05.eps
 col=(12)
 colx=1
-legends=("No transfer" "" "low drag" ""
-         "high drag" ""
-         "low diffusion" ""
-         "high diffusion" "" "divergence transfer" "")
+legends=("No transfer" "" "Drag C@-D@- = 1" ""
+         "Drag C@-D@- = 10@+6@+" ""
+         "Diffusion K@-@~s@~@- = 200 m/s@+2@+" ""
+         "Diffusion K@-@~s@~@- = 800 m/s@+2@+" "")
 pens=("2,black," "5,black,7_3:5"
       "1,grey," "1,grey,7_3:2"
       "1,blue,"  "2,blue,7_3:3"
@@ -42,5 +40,5 @@ yscale=(*1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1)
 legPos=x9/3
 nSkip=1
 projection=X15c/10cl
-gv=0
+gv=1
 

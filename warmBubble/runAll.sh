@@ -12,18 +12,16 @@ cases="advective/advective_vanLeer
        partitioned_identical/sigmaBubble2
        partitioned_identical/sigmaBubble_linearUpwind
        partitioned_withMassTransfer/partitioned_withMassTransferDiv
-       partitioned_withMassTransfer/partitioned_withMassTransferDivDiv
+       partitioned_withMassTransfer/partitioned_withMassTransferLowTheta
        partitioned_withMassTransfer/partitioned_withMassTransferTheta
-       partitioned_withMassTransfer/partitioned_withMassTransferThetaDiv
-       partitioned_withMassTransfer/partitioned_withMassTransferTheta_noDiff"
+       partitioned_withMassTransfer/partitioned_withMassTransferThetaDivw"
 
 for case in $cases; do
     meld $case/system $refCase/system
 done
 
-find . -name [1-9]* -exec rm -r {} \;
-
 for case in $cases; do
+    rm -r $case/[1-9]*
     nohup nice -n 19 partitionedExnerFoamAdv -case $case >& $case/log &
 done
 

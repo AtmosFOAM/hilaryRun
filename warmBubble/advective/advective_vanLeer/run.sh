@@ -20,10 +20,10 @@ cp 0/theta 0/theta_init
 makeHotBubble
 
 # Partition into stable and buoyant fluids
-mv 0/theta 0/buoyant.theta
-cp 0/buoyant.theta 0/stable.theta
-mv 0/Uf 0/stable.Uf
-cp 0/stable.Uf 0/buoyant.Uf
+mv 0/theta 0/theta.buoyant
+cp 0/theta.buoyant 0/theta.stable
+mv 0/Uf 0/Uf.stable
+cp 0/Uf.stable 0/Uf.buoyant
 rm 0/thetaf
 
 # Plot initial conditions

@@ -31,9 +31,9 @@ startTime       0;
 
 stopAt          endTime;
 
-endTime         500; //2000;
+endTime         1000; //2000;
 
-deltaT          2;
+deltaT          1;
 
 writeControl    runTime;
 

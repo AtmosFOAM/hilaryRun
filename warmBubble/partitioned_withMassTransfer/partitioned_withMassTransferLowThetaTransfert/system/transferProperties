@@ -32,11 +32,11 @@ wTransfer false;
 divTransfer false;
 // Transfer between partitions based on laplacian(theta)
 thetaTransfer true;
-thetaTransferDiffusivity thetaTransferDiffusivity  [0 2 -1 0 0] 1e3; //1e4;
+thetaTransferDiffusivity thetaTransferDiffusivity  [0 2 -1 0 0] 4e5;
 
 // Temperature perturbation for the transferred fluid
-thetatMin 0.1;
-thetatMax 100;
+thetatMin 0.5; //0;
+thetatMax 0.5; //10;
 
 
 // ************************************************************************* //

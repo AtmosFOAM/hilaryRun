@@ -52,16 +52,16 @@ for time in 100 1000; do
 done
 
 # animate the results
-for field in theta sigma; do
+for field in sigma theta_stable theta_buoyant ; do
     gmtFoam $field
     eps2gif $field.gif 0/$field.pdf ??/$field.pdf ???/$field.pdf ????/$field.pdf
 done
 
 # Make links for animategraphics
 mkdir -p animategraphics
-for field in theta sigma; do
+for field in sigma theta_stable theta_buoyant; do
     t=0
-    for time in [0-9] [0-9]?? [0-9]???; do
+    for time in [0-9] [0-9]? [0-9]?? [0-9]???; do
         ln -s ../$time/$field.pdf animategraphics/${field}_$t.pdf
         let t=$t+1
     done

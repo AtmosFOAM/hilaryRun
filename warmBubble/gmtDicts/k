@@ -19,17 +19,17 @@ projection2D XZ;
 
 FieldsToPlot
 (
-    [k        filledContours 0 2e-5 1e-6 "$GMTU/colours/white_blue_red.cpt"]
-    [k.stable filledContours 0 2e-5 1e-6 "$GMTU/colours/white_blue_red.cpt"]
-    [k.buoyant   colouredContours 0 2e-5 1e-6 "$GMTU/colours/white_blue_red.cpt"]
-    [Uf.buoyant vectors 50 17 "red"]
-    [Uf.stable vectors  50 17 "black"]
+//    [k        filledContours 0 2e-5 1e-6 "$GMTU/colours/white_blue_red.cpt"]
+//    [k.stable filledContours 0 1e-7 1e-8 "$GMTU/colours/white_blue_red.cpt"]
+    [k.buoyant   filledContours 0 1e-7 1e-8 "$GMTU/colours/white_blue_red.cpt"]
+//    [Uf.buoyant vectors 50 17 "red"]
+//    [Uf.stable vectors  50 17 "black"]
 //    [Uf vectors  500 5 "black"]
 );
 
 separateLegend true;
 region "-5000/5000/0/1e4";
 //region "0/9e3/0/9e3";
-//annotate "minMax 3e3 -800";
+annotate "minMax -3e3 -800";
 boundaryMarks "2.5e3/2.5e3";
 plotBoundaryDots false;

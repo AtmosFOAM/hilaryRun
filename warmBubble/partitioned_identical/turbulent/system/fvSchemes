@@ -33,10 +33,10 @@ ddtSchemes
     ddt(u.stable)         CrankNicolson 1;
     ddt(u.buoyant)        CrankNicolson 1;
     
-    ddt(rho.sigma.stable,epsilon.stable) Euler;
-    ddt(rho.sigma.buoyant,epsilon.buoyant) Euler;
-    ddt(rho.sigma.stable,k.stable) Euler;
-    ddt(rho.sigma.buoyant,k.buoyant) Euler;
+    ddt(sigma.stable,rho.stable,epsilon.stable) Euler;
+    ddt(sigma.buoyant,rho.buoyant,epsilon.buoyant) Euler;
+    ddt(sigma.stable,rho.stable,k.stable) Euler;
+    ddt(sigma.buoyant,rho.buoyant,k.buoyant) Euler;
 }
 
 gradSchemes

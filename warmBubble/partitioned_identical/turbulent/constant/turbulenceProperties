@@ -24,7 +24,7 @@ laminar
 
 RAS
 {
-    RASModel        kEpsilon; //buoyantKEpsilon;
+    RASModel        multiFluidThetaBuoyantKEpsilon; //buoyantKEpsilon;
     turbulence      on;
     printCoeffs     on;
 }

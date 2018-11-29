@@ -37,6 +37,11 @@ ddtSchemes
     ddt(epsilon.buoyant) Euler;
     ddt(k.stable) Euler;
     ddt(k.buoyant) Euler;
+    
+    ddt(sigma.stable,rho.stable,epsilon.stable) Euler;
+    ddt(sigma.buoyant,rho.buoyant,epsilon.buoyant) Euler;
+    ddt(sigma.stable,rho.stable,k.stable) Euler;
+    ddt(sigma.buoyant,rho.buoyant,k.buoyant) Euler;
 }
 
 gradSchemes
@@ -54,10 +59,10 @@ divSchemes
     u Gauss linearUpwind linearUpwind;
 
     // for partitionedTurbulentFoam
-    div(volFlux.stable,epsilon.stable) Gauss upwind;
-    div(volFlux.buoyant,epsilon.buoyant) Gauss upwind;
-    div(volFlux.stable,k.stable) Gauss upwind;
-    div(volFlux.buoyant,k.buoyant) Gauss upwind;
+    div(volFlux.sigmaRhof.stable,epsilon.stable) Gauss upwind;
+    div(volFlux.sigmaRhof.buoyant,epsilon.buoyant) Gauss upwind;
+    div(volFlux.sigmaRhof.stable,k.stable) Gauss upwind;
+    div(volFlux.sigmaRhof.buoyant,k.buoyant) Gauss upwind;
 
     div((((sigma.stable*rho.stable)*nuEff.stable)*dev2(T(grad(u.stable))))) Gauss linear;
     div((((sigma.buoyant*rho.buoyant)*nuEff.buoyant)*dev2(T(grad(u.buoyant))))) Gauss linear;

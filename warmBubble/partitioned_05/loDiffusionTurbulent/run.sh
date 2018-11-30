@@ -55,21 +55,15 @@ for var in theta k epsilon; do
     gv $time/${var}Diff.pdf &
 done
 
-# More diagnostics
-time=500
-for var in sigmakZoom massTransfer; do
+# Variables in both partitions
+time=1000
+for var in k sigmaTheta12; do
     gmtFoam -time $time $var
     gv $time/$var.pdf &
 done
 
-# Plot theta and sigma
-for time in 100 1000; do
-    gmtFoam sigmaTheta -time $time
-    gv $time/sigmaTheta.pdf &
-done
-
 # animate the results
-for field in sigmaTheta; do
+for field in k sigmaTheta12; do
     gmtFoam $field
     eps2gif $field.gif 0/$field.pdf ???/$field.pdf ????/$field.pdf
 done

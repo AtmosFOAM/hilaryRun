@@ -3,7 +3,8 @@
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
 |  \\    /   O peration     | Version:  1.4                                   |
 |   \\  /    A nd           | Web:      http://www.openfoam.org               |
-|    \\/     M anipulation  |                                                 |
+|    \\/     M anipulation  |             
+                                    |
 \*---------------------------------------------------------------------------*/
 
 FoamFile
@@ -22,21 +23,9 @@ FoamFile
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-cloudRadiusMax     cloudRadiusMax [0 1 0 0 0] 2000;
-cloudRadiusMin     cloudRadiusMin [0 1 0 0 0] 1;
-dragCoeff       0.5;
-Ksigma Ksigma [0 2 -1 0 0] 100;
-minSigma  1e-9;
-// Transfer between partitions based on horizontal divergence
-wTransfer false;
-divTransfer false;
-// Transfer between partitions based on laplacian(theta)
-thetaTransfer true;
-thetaTransferDiffusivity thetaTransferDiffusivity  [0 2 -1 0 0] 1e6;
-
-// Temperature perturbation for the transferred fluid
-thetatMin 0;
-thetatMax 1; //10;
-
+// inputs for makeHotBubble
+thetaPrime thetaPrime [0 0  0 1 0 0 0] -4;
+bubbleCentre (0 500 8e3);
+bubbleRadii  (2000 1 2000);
 
 // ************************************************************************* //

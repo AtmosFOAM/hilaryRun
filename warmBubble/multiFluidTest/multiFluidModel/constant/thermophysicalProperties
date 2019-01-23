@@ -17,26 +17,32 @@ FoamFile
     local           "";
 
     class           dictionary;
-    object          environmentalProperties;
+    object          thermophysicalProperties;
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-cloudRadiusMax     cloudRadiusMax [0 1 0 0 0] 2000;
-cloudRadiusMin     cloudRadiusMin [0 1 0 0 0] 1;
-dragCoeff       0.5;
-Ksigma Ksigma [0 2 -1 0 0] 100;
-minSigma  1e-9;
-// Transfer between partitions based on horizontal divergence
-wTransfer false;
-divTransfer false;
-// Transfer between partitions based on laplacian(theta)
-thetaTransfer true;
-thetaTransferDiffusivity thetaTransferDiffusivity  [0 2 -1 0 0] 1e6;
 
-// Temperature perturbation for the transferred fluid
-thetatMin 0;
-thetatMax 1; //10;
+T0       300;
+pRef     100000;
 
+mixture//  air 1 28.9 1000 0 1.8e-05 0.7;
+{
+    specie
+    {
+        molWeight       28.9;
+    }
+    thermodynamics
+    {
+        Cp              1005;
+        Hf              0;
+    }
+    transport
+    {
+        mu              0; //1.8e-05;
+        nu              0;
+        Pr              0.7;
+    }
+}
 
 // ************************************************************************* //

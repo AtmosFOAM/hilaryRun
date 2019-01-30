@@ -31,19 +31,19 @@ startTime       0;
 
 stopAt          endTime;
 
-endTime         10; //100; //2000;
+endTime         2000;
 
 deltaT          2;
 
 writeControl    runTime;
 
-writeInterval   4; //100;
+writeInterval   100;
 
 purgeWrite      0;
 
-writeFormat     ascii; //binary;
+writeFormat     binary;
 
-writePrecision  12;
+writePrecision  6;
 
 writeCompression uncompressed;
 
@@ -63,6 +63,7 @@ libs
     "libfiniteVolumeAtmosFOAMtools.so"
     "libcompressibleTurbulenceModels.so"
     "libatmosphericModels.so"
+    "libmultiFluidTurbulence.so"
 );
 
 // ************************************************************************* //

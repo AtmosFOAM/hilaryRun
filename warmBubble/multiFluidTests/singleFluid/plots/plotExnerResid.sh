@@ -1,0 +1,25 @@
+grep ExnerPrime log | grep convergence | awk '{print $2, $5}' \
+     > plots/ExnerResid.dat
+
+
+echo '
+inputFiles=("plots/ExnerResid.dat")
+outFile=plots/ExnerResid.eps
+col=2
+colx=1
+symbols=("x4p")
+pens=("0p")
+ylabel="Exner Residual"
+legPos=x10/10
+nSkip=0
+ymin=1e-9
+ymax=1e-5
+#xmin=1500
+#xmax=1510
+dy=10
+dx=200
+projection=X15c/10cl
+gv=0' > plots/ExnerResid.gmt
+
+gmtPlot plots/ExnerResid.gmt
+

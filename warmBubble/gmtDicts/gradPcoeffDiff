@@ -19,7 +19,7 @@ projection2D XZ;
 
 FieldsToPlot
 (
-    [gradPcoeffDiff rawValues 0 0 0 "$GMTU/colours/red_white_blue.cpt"]
+    [gradPcoeffDiff rawValues -1e-10 1e-10 1e-11 "$GMTU/colours/red_white_blue.cpt"]
 );
 
 //separateLegend true;

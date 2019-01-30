@@ -1,0 +1,19 @@
+
+inputFiles=("plots/rhoDiff.dat")
+outFile=plots/rhoDiff.eps
+col=2
+colx=1
+pens=("0p")
+symbols=("x4p")
+xlabel="Time (s)"
+ylabel="Density difference"
+legPos=x10/10
+nSkip=0
+projection=X15c/10cl
+ymin=1e-11
+ymax=1e-5
+dy=10
+dx=200
+#xmin=1500
+#xmax=1510
+gv=0

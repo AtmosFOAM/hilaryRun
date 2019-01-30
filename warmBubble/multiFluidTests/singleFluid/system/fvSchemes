@@ -1,0 +1,73 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.4                                   |
+|   \\  /    A nd           | Web:      http://www.openfoam.org               |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version         2.0;
+    format          ascii;
+
+    root            "";
+    case            "";
+    instance        "";
+    local           "";
+
+    class           dictionary;
+    object          fvSchemes;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+ddtSchemes
+{
+    default Euler;
+}
+offCentre 0.5;
+
+gradSchemes
+{
+    default         Gauss linear;
+}
+
+divSchemes
+{
+    default none;
+   div(volFlux,theta) Gauss vanLeer;
+   u Gauss linearUpwind linearUpwind;
+}
+
+laplacianSchemes
+{
+    default         Gauss linear uncorrected;
+}
+
+interpolationSchemes
+{
+    default        none;
+    // For initialisation
+    interpolate(theta) linear;
+    
+    // for ExnerFoamAdv
+    convection      linear;
+    Uf              linear;
+    interpolate(theta)    linear;
+    interpolate(rho)      linear;
+}
+
+snGradSchemes
+{
+    default         uncorrected;
+}
+
+fluxRequired
+{
+    default         no;
+    Exner;
+}
+
+
+// ************************************************************************* //

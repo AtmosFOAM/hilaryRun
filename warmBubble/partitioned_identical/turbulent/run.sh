@@ -31,7 +31,7 @@ done
 rm 0/thetaf
 
 # create initial sigma field
-setFields
+#setFields
 sumFields 0 sigma.stable init_0 sigma.stable 0 sigma.buoyant -scale1 -1
 
 # Plot initial conditions
@@ -56,26 +56,27 @@ for var in k epsilon; do
 done
 
 # More diagnostics
-for var in sigmaTheta; do
+for var in sigmaTheta k epsilon; do
     gmtFoam -time $time $var
     gv $time/$var.pdf &
 done
 
 # Plot theta and sigma
-for time in 100 1000; do
-    gmtFoam sigmaTheta -time $time
-    gv $time/sigmaTheta.pdf &
+time=1000
+for var in k sigmaTheta; do
+    gmtFoam $var -time $time
+    gv $time/$var.pdf &
 done
 
 # animate the results
-for field in sigmaTheta; do
-    gmtFoam $field
-    eps2gif $field.gif 0/$field.pdf ???/$field.pdf ????/$field.pdf
+for var in k sigmaTheta; do
+    gmtFoam $var
+    eps2gif $var.gif 0/$var.pdf ???/$var.pdf ????/$var.pdf
 done
 
 # Make links for animategraphics
 mkdir -p animategraphics
-for field in theta sigma; do
+for field in k_stable ; do
     t=0
     for time in [0-9] [0-9]?? [0-9]???; do
         ln -s ../$time/$field.pdf animategraphics/${field}_$t.pdf

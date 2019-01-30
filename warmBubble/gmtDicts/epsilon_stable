@@ -19,8 +19,8 @@ projection2D XZ;
 
 FieldsToPlot
 (
-    [sigma.buoyant filledContours 0 1 0.1 "$GMTU/colours/white_grey.cpt"]
-    [epsilon.stable colouredContours 0 1e-9 5e-11 "$GMTU/colours/white_blue_red.cpt"]
+    [epsilon.stable filledContours 0 5e-10 2.5e-11 "$GMTU/colours/white_blue_red.cpt"]
+    [Uf.stable vectors  50 26 "black"]
 );
 
 separateLegend true;

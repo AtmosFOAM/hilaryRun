@@ -56,10 +56,10 @@ divSchemes
     div(volFlux.sigmaRhof.buoyant,epsilon.buoyant) Gauss upwind;
     div(volFlux.sigmaRhof.stable,k.stable)         Gauss upwind;
     div(volFlux.sigmaRhof.buoyant,k.buoyant)       Gauss upwind;
-    div(((rho.sigma.stable*nuEff.stable)*dev2(T(grad(u.stable))))) Gauss linear;
-    div(((rho.sigma.buoyant*nuEff.buoyant)*dev2(T(grad(u.buoyant))))) Gauss linear;
-    div(((rho.stable*nuEff.stable)*dev2(T(grad(u.stable)))))    Gauss linear;
-    div(((rho.buoyant*nuEff.buoyant)*dev2(T(grad(u.buoyant))))) Gauss linear;
+
+    div((((sigma.stable*rho.stable)*nuEff.stable)*dev2(T(grad(u.stable))))) Gauss linear;
+    div((((sigma.buoyant*rho.buoyant)*nuEff.buoyant)*dev2(T(grad(u.buoyant))))) Gauss linear;
+
 }
 
 laplacianSchemes

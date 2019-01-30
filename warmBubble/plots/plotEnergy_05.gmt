@@ -37,8 +37,8 @@ dy=10
 #dyg=0 (y grid spacing)
 #xscale=/86400
 yscale=(*1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1)
-legPos=x9/3
+legPos=x9/1
 nSkip=1
-projection=X15c/10cl
-gv=1
+projection=X15cp0.5/10cl
+gv=0
 

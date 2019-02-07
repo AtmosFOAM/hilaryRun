@@ -17,45 +17,27 @@ FoamFile
     local           "";
 
     class           dictionary;
-    object          controlDict;
+    object          environmentalProperties;
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-application buoyantFoam;
+cloudRadiusMax     cloudRadiusMax [0 1 0 0 0] 2000;
+cloudRadiusMin     cloudRadiusMin [0 1 0 0 0] 1;
+dragCoeff       0;
+Ksigma Ksigma [0 2 -1 0 0] 0;
+minSigma  1e-9;
+// Transfer between partitions based on horizontal divergence
+wTransfer false;
+divTransfer true;
+// Transfer between partitions based on laplacian(theta)
+thetaTransfer false;
+thetaTransferDiffusivity thetaTransferDiffusivity  [0 2 -1 0 0] 2e5;
+thetaTransferDiffusivity2 thetaTransferDiffusivity2  [0 2 -1 0 0] 2e5;
 
-startFrom       startTime;
-//startFrom       latestTime;
+// Temperature perturbation for the transferred fluid
+thetatMin 0;
+thetatMax 10;
 
-startTime       0;
-
-stopAt          endTime;
-
-endTime         2000;
-
-deltaT          2;
-
-writeControl    runTime;
-
-writeInterval   50;
-
-purgeWrite      0;
-
-writeFormat     binary;
-
-writePrecision  6;
-
-writeCompression uncompressed;
-
-timeFormat      general;
-
-timePrecision   6;
-
-runTimeModifiable no;
-
-adjustTimeStep no;
-maxCo          0.5;
-
-libs            ("libExnerTheta.so" "libfiniteVolumeAtmosFOAMtools.so");
 
 // ************************************************************************* //

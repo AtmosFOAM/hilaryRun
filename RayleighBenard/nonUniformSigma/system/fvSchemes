@@ -17,45 +17,61 @@ FoamFile
     local           "";
 
     class           dictionary;
-    object          controlDict;
+    object          fvSchemes;
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-application buoyantFoam;
+ddtSchemes
+{
+    default         Euler;
+}
+offCentre 0.5;
 
-startFrom       startTime;
-//startFrom       latestTime;
+gradSchemes
+{
+    default                   Gauss linear;
+}
 
-startTime       0;
+divSchemes
+{
+    default none;
+    sigmaRho        Gauss vanLeer;
+    theta           Gauss vanLeer;
+    u               Gauss linearUpwind linearUpwind;
+}
 
-stopAt          endTime;
+laplacianSchemes
+{
+    default         Gauss linear uncorrected;
+}
 
-endTime         2000;
+interpolationSchemes
+{
+    default        linear;
+    // For initialisation
+    interpolate(theta) linear;
+    
+    // for partitionedExnerFoamAdv
+    convection      linear;
+    Uf              linear;
+    rho             linear;
+    sigma           linear;
+    sigmaRho        linear;
+    theta           linear;
+    massTransfer    linear;
+}
 
-deltaT          2;
+snGradSchemes
+{
+    default         uncorrected;
+}
 
-writeControl    runTime;
+fluxRequired
+{
+    default         no;
+    Exner;
+}
 
-writeInterval   50;
-
-purgeWrite      0;
-
-writeFormat     binary;
-
-writePrecision  6;
-
-writeCompression uncompressed;
-
-timeFormat      general;
-
-timePrecision   6;
-
-runTimeModifiable no;
-
-adjustTimeStep no;
-maxCo          0.5;
-
-libs            ("libExnerTheta.so" "libfiniteVolumeAtmosFOAMtools.so");
 
 // ************************************************************************* //

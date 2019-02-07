@@ -16,13 +16,6 @@ FoamFile
 
 solvers
 {
-    rho
-    {
-        solver PCG;
-        preconditioner   DIC;
-        tolerance        0;
-        relTol           0;
-    };
     Exner
     {
         solver PCG;

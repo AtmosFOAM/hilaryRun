@@ -9,31 +9,42 @@ FoamFile
 {
     version     2.0;
     format      ascii;
-    class       dictionary;
-    object      setFieldsDict;
+    class       volScalarField;
+    location    "constant";
+    object      Exner;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-defaultFieldValues
-(
-    volScalarFieldValue sigma.buoyant 0.0001
-);
+dimensions      [0 0 0 0 0 0 0];
 
-regions
-(
-    // Set cell values
-    // (does zerogradient on boundaries)
-    sphereToCell
+internalField   uniform 1;
+
+boundaryField
+{
+    ground
     {
-        centre (0 500 2e3);
-        radius 2000;
-
-        fieldValues
-        (
-            volScalarFieldValue sigma.buoyant 0.5
-        );
+        type            partitionedHydrostaticExner;
+        gradient        uniform 0;
+        value           uniform 1;
     }
+    top
+    {
+        type            partitionedHydrostaticExner;
+        value           uniform 0.346341;
+    }
+    left
+    {
+        type            partitionedHydrostaticExner;
+        gradient        uniform 0;
+        value           uniform 1;
+    }
+    right
+    {
+        type            partitionedHydrostaticExner;
+        gradient        uniform 0;
+        value           uniform 1;
+    }
+}
 
-);
 
 // ************************************************************************* //

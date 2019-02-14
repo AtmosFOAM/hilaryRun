@@ -26,20 +26,22 @@ ddtSchemes
 {
     default Euler;
 }
-offCentre 0.5;
+//offCentre 0.5;
 
 gradSchemes
 {
-    default         Gauss linear;
+    default         none;
+    grad((theta.sum|rho.sum)) Gauss linear;
+    grad(sigma.stable)        Gauss upwind volFlux.stable;
+    grad(sigma.buoyant)       Gauss upwind volFlux.buoyant;
+    linearUpwind              Gauss linear;
 }
 
 divSchemes
 {
     default none;
-    sigmaRho Gauss vanLeer;
-    theta Gauss vanLeer;
+    theta Gauss linearUpwind linearUpwind;
     u Gauss linearUpwind linearUpwind;
-    divPaux Gauss upwind;
 }
 
 laplacianSchemes
@@ -53,20 +55,11 @@ interpolationSchemes
     // For initialisation
     interpolate(theta) linear;
     
-    // for multiFluidFoam
-    //interpolate(sigma.stable) vanLeer volFlux.stable;
-    //interpolate(sigma.buoyant) vanLeer volFlux.buoyant;
-    interpolate(rho.sigma.stable) linear;
-    interpolate(rho.sigma.buoyant) linear;
-    convection      linear;
-    Uf              linear;
-    rho             linear;
-    sigma           linear;
+    // for multiFluidFoam_TwoPressures
     sigmaRho        linear;
     theta           linear;
-    interpolate(theta.stable)    linear;
-    interpolate(theta.buoyant)   linear;
-    massTransfer    linear;
+    convection      linear;
+    Uf              linear;
 }
 
 snGradSchemes

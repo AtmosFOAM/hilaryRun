@@ -36,10 +36,8 @@ gradSchemes
 divSchemes
 {
     default none;
-    sigmaRho Gauss vanLeer;
-    theta Gauss vanLeer;
-    u Gauss linearUpwind linearUpwind;
-    divPaux Gauss upwind;
+   div(volFlux,theta) Gauss vanLeer;
+   u Gauss linearUpwind linearUpwind;
 }
 
 laplacianSchemes
@@ -53,20 +51,11 @@ interpolationSchemes
     // For initialisation
     interpolate(theta) linear;
     
-    // for multiFluidFoam
-    //interpolate(sigma.stable) vanLeer volFlux.stable;
-    //interpolate(sigma.buoyant) vanLeer volFlux.buoyant;
-    interpolate(rho.sigma.stable) linear;
-    interpolate(rho.sigma.buoyant) linear;
+    // for ExnerFoamAdv
     convection      linear;
     Uf              linear;
-    rho             linear;
-    sigma           linear;
-    sigmaRho        linear;
-    theta           linear;
-    interpolate(theta.stable)    linear;
-    interpolate(theta.buoyant)   linear;
-    massTransfer    linear;
+    interpolate(theta)    linear;
+    interpolate(rho)      linear;
 }
 
 snGradSchemes

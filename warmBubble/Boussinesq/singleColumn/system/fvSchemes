@@ -1,0 +1,73 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.4                                   |
+|   \\  /    A nd           | Web:      http://www.openfoam.org               |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version         2.0;
+    format          ascii;
+
+    root            "";
+    case            "";
+    instance        "";
+    local           "";
+
+    class           dictionary;
+    object          fvSchemes;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+ddtSchemes
+{
+    default Euler;
+}
+offCentre 0.5;
+
+gradSchemes
+{
+    default         Gauss linear;
+}
+
+divSchemes
+{
+    default none;
+    sigma Gauss vanLeer;
+    b Gauss vanLeer;
+    u Gauss vanLeer;
+}
+
+laplacianSchemes
+{
+    default         Gauss linear uncorrected;
+}
+
+interpolationSchemes
+{
+    default        none;
+    interpolate(sigma.stable) linear;
+    interpolate(sigma.buoyant) linear;
+    interpolate(b.stable) linear;
+    interpolate(b.buoyant) linear;
+    convection      linear;
+    interpolate(transfer.stable) linear;
+    interpolate(transfer.buoyant) linear;
+}
+
+snGradSchemes
+{
+    default         uncorrected;
+}
+
+fluxRequired
+{
+    default         no;
+    Exner;
+}
+
+
+// ************************************************************************* //

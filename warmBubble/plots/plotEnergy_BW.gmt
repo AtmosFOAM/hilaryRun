@@ -1,0 +1,30 @@
+inputFiles=("diags.dat" "diags.dat" "diags.dat" "diags.dat"
+            "diags.dat" "diags.dat" "diags.dat" "diags.dat")
+outFile=plots/energy_BW.eps
+col=(13 13 14 14 15 15 12 12)
+colx=1
+legends=("KE +ve" "KE -ve" "PE +ve" "PE -ve" "IE +ve" "IE -ve"
+         "total +ve" "total -ve")
+pens=("3,grey," "1,grey"
+      "3,black,7_3:3"  "1,black,7_3:3"
+      "3,grey,7_3:" "1,grey,7_3:"
+      "3,black," "1,black")
+xlabel="time (s)"
+ylabel="normalised energy change"
+#xmin=0
+#xmax=2000
+#dx=5
+#ddx=1 (number of ticks)
+#dxg=0 (x grid spacing)
+ymin=1e-10
+ymax=1e-4
+dy=10
+#ddy=0.1
+#dyg=0 (y grid spacing)
+#xscale=/86400
+yscale=('*1' '*-1' '*1' '*-1' '*1' '*-1' '*1' '*-1' '*1' '*-1' '*1' '*-1' '*1' '*-1' '*1' '*-1' '*1' '*-1' '*1' '*-1')
+legPos=x10/0.5
+nSkip=1
+projection=X15cp0.5/10cl
+gv=0
+

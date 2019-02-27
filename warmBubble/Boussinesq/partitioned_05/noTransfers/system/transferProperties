@@ -30,4 +30,5 @@ buoyancyTransfer false;
 bTransferDiffusivity bTransferDiffusivity [0 2 -1 0 0] 0;
 minSigma 0;
 
+uniformSigma false;
 // ************************************************************************* //

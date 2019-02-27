@@ -26,10 +26,12 @@ for case in $cases; do
 done
 
 # post proecssing
-time=1000
+for time in 0 1000
 for case in $cases; do
-    gmtFoam -case $case -time $time sigmaTheta
-    gv $case/$time/sigmaTheta.pdf &
+    for field in sigmaTheta sigmaTheta0 sigmaTheta1; do
+        gmtFoam -case $case -time $time $field
+        gv $case/$time/$field.pdf &
+    done
 done
 
 case=partitioned_05/noTransfer
@@ -44,16 +46,23 @@ for case in $cases; do
     mkdir -p plots
     echo $case
     gmtPlot $base/plots/plotEnergy.gmt
+    gmtPlot $base/plots/plotEnergy_BW.gmt
     #gmtPlot $base/plots/plotCo.gmt
     #$base/plots/plotRhoDiff.sh
     cd $base
     pstitle $case/plots/energy.eps
     gv $case/plots/energy.eps &
+    pstitle $case/plots/energy_BW.eps
+    gv $case/plots/energy_BW.eps &
 done
 
 gmtPlot plots/plotEnergy1part.gmt
 gmtPlot plots/plotEnergy_05.gmt
 gmtPlot plots/plotEnergy_transfers.gmt
+
+gmtPlot plots/plotEnergy1part_BW.gmt
+gmtPlot plots/plotEnergy_05_BW.gmt
+gmtPlot plots/plotEnergy_transfers_BW.gmt
 
 # Plot difference between partitioned and non-partitioned cases
 plots/errors.sh

@@ -17,18 +17,45 @@ FoamFile
     local           "";
 
     class           dictionary;
-    object          environmentalProperties;
+    object          controlDict;
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-Ksigma Ksigma [0 2 -1 0 0] 0;
-// Transfer between partitions based on horizontal divergence
-divTransfer false;
-wTransfer false;
-buoyancyTransfer false;
-bTransferDiffusivity bTransferDiffusivity [0 2 -1 0 0] 0;
-minSigma 0;
-uniformSigma false;
+application buoyantFoam;
+
+//startFrom       startTime;
+startFrom       latestTime;
+
+startTime       0;
+
+stopAt          endTime;
+
+endTime         2000;
+
+deltaT          2;
+
+writeControl    runTime;
+
+writeInterval   50;
+
+purgeWrite      0;
+
+writeFormat     binary;
+
+writePrecision  6;
+
+writeCompression uncompressed;
+
+timeFormat      general;
+
+timePrecision   6;
+
+runTimeModifiable no;
+
+adjustTimeStep no;
+maxCo          0.5;
+
+libs            ("libfiniteVolumeAtmosFOAMtools.so");
 
 // ************************************************************************* //

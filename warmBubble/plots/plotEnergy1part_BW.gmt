@@ -1,0 +1,43 @@
+inputFiles=(advective/advective_vanLeer/diags.dat
+            advective/advective_vanLeer/diags.dat
+            advective/advective_linear/diags.dat
+            advective/advective_linear/diags.dat
+            partitioned_identical/sigmaBubble/diags.dat
+            partitioned_identical/sigmaBubble/diags.dat
+            partitioned_identical/sigmaBubble2/diags.dat
+            partitioned_identical/sigmaBubble2/diags.dat)
+outFile=plots/energy1part_BW.eps
+col=(12)
+colx=1
+legends=("1 partition van-Leer +ve" "1 partition van-Leer -ve"
+         "1 partition linear differencing +ve"
+         "1 partition linear differencing -ve"
+         "2 identical partitions, symmetric, van-Leer +ve"
+         "2 identical partitions, symmetric, van-Leer -ve"
+         "2 identical partisions asymmetric, van-Leer +ve"
+         "2 identical partisions asymmetric, van-Leer -ve")
+pens=("3,black," "1,black"
+      "3,grey," "1,grey"
+      "3,black,7_3:3"  "1,black,7_3:3"
+      "3,grey,7_3:" "1,grey,7_3:"
+      "3,black,3_7:" "1,black,3_7:"
+      "3,grey,3_7:" "1,grey,3_7:")
+xlabel="time (s)"
+ylabel="normalised energy change"
+#xmin=0
+#xmax=2000
+#dx=5
+#ddx=1 (number of ticks)
+#dxg=0 (x grid spacing)
+ymin=1e-10
+ymax=1e-4
+dy=10
+#ddy=0.1
+#dyg=0 (y grid spacing)
+#xscale=/86400
+yscale=(*1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1)
+legPos=x0.2/6
+nSkip=1
+projection=X15cp0.5/10cl
+gv=0
+

@@ -16,7 +16,7 @@ FoamFile
 
 defaultFieldValues
 (
-    volScalarFieldValue Stransfer.stable 0
+    volScalarFieldValue transferLocation.stable 0
 );
 
 regions
@@ -25,12 +25,12 @@ regions
     // (does zerogradient on boundaries)
     sphereToCell
     {
-        centre (0 500 50);
-        radius 50;
+        centre (0 0.5 0.5);
+        radius 0.5;
 
         fieldValues
         (
-            volScalarFieldValue Stransfer.stable 1
+            volScalarFieldValue transferLocation.stable 1
         );
     }
 

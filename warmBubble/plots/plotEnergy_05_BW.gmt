@@ -1,0 +1,45 @@
+inputFiles=(partitioned_05/noTransfer/diags.dat
+            partitioned_05/noTransfer/diags.dat
+            partitioned_05/loDrag/diags.dat
+            partitioned_05/loDrag/diags.dat
+            partitioned_05/hiDrag/diags.dat
+            partitioned_05/hiDrag/diags.dat
+            partitioned_05/loDiffusion/diags.dat
+            partitioned_05/loDiffusion/diags.dat
+            partitioned_05/hiDiffusion/diags.dat
+            partitioned_05/hiDiffusion/diags.dat)
+outFile=plots/energy_05_BW.eps
+col=(12)
+colx=1
+legends=("No transfer +ve" "No transfer -ve"
+         "Drag C@-D@- = 1 +ve" "Drag C@-D@- = 1 -ve"
+         "Drag C@-D@- = 10@+6@+ +ve" "Drag C@-D@- = 10@+6@+ -ve"
+         "Diffusion K@-@~s@~@- = 200 m/s@+2@+ +ve"
+         "Diffusion K@-@~s@~@- = 200 m/s@+2@+ -ve"
+         "Diffusion K@-@~s@~@- = 800 m/s@+2@+ +ve"
+         "Diffusion K@-@~s@~@- = 800 m/s@+2@+ -ve")
+pens=("3,black," "1,black"
+      "3,grey," "1,grey"
+      "3,black,7_3:3"  "1,black,7_3:3"
+      "3,grey,7_3:" "1,grey,7_3:"
+      "3,black,3_7:" "1,black,3_7:"
+      "3,grey,3_7:" "1,grey,3_7:")
+xlabel="time (s)"
+ylabel="normalised energy change"
+xmin=0
+xmax=2000
+#dx=5
+#ddx=1 (number of ticks)
+#dxg=0 (x grid spacing)
+ymin=1e-10
+ymax=2e-4
+dy=10
+#ddy=0.1
+#dyg=0 (y grid spacing)
+#xscale=/86400
+yscale=(*1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1 *1 *-1)
+legPos=x8.5/0.5
+nSkip=1
+projection=X15cp0.5/10cl
+gv=0
+

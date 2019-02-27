@@ -43,10 +43,11 @@ gmtPlot plots/plotCo.gmt
 gmtPlot plots/plotEnergy.gmt
 
 # Plot theta and sigma
-# Plot theta and sigma
-for time in 100 1000; do
-    gmtFoam sigmaTheta -time $time
-    gv $time/sigmaTheta.pdf &
+for field in sigmaTheta sigmaTheta0 sigmaTheta1; do
+    for time in 100 1000; do
+        gmtFoam $field -time $time
+        gv $time/$field.pdf &
+    done
 done
 
 # animate the results

@@ -1,0 +1,31 @@
+FoamFile
+{
+    version         2.3;
+    format          ascii;
+
+    root            "";
+    case            "";
+    instance        "constant";
+    local           "";
+
+    class           dictionary;
+    object          gmtDict;
+}
+
+// How to plot
+// Compulsory inputs
+projection "X6c/6c";
+projection2D XZ;
+
+FieldsToPlot
+(
+    [sigma.buoyant filledContours 0 1 0.1 "$GMTU/colours/white_grey.cpt"]
+    [theta.stable  contours 300 302 0.2 "black"]
+    [Uf.stable vectors  80 26 "black"]
+);
+
+separateLegend true;
+region "-2500/2500/0/5e3";
+//annotate "minMax -4.7e3 400";
+boundaryMarks "2500/2500";
+plotBoundaryDots false;

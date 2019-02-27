@@ -23,13 +23,13 @@ FoamFile
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 Ksigma Ksigma [0 2 -1 0 0] 0;
-divTransfer false;
+divTransfer true;
 wTransfer false;
 buoyancyTransfer false;
 bTransferDiffusivity bTransferDiffusivity [0 2 -1 0 0] 0;
 minSigma 0;
 
 // Transfers only at boundaries
-boundaryTransfer true;
+uniformSigma true;
 
 // ************************************************************************* //

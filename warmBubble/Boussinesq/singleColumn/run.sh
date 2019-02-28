@@ -12,8 +12,8 @@ mkdir 0
 cp -r init_0/* 0
 
 # Create non-uniform sigma and Stransfer fields
-setFields -dict system/setS01Dict
-setFields -dict system/setS10Dict
+setFields -dict system/setTransferDict
+cp 0/transferLocation.stable 0/transferLocation.buoyant
 setFields -dict system/setSigmaDict
 sumFields 0 sigma.stable init_0 sigma.stable 0 sigma.buoyant -scale1 -1
 

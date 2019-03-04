@@ -1,0 +1,182 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{color}
+\newcommand{\nicefrac}[2]{\ensuremath ^{#1}\!\!/\!_{#2}}
+\usepackage { fancybox}
+
+\renewcommand{\floatpagefraction}{0.95}
+\renewcommand{\textfraction}{0}
+\renewcommand{\topfraction}{1}
+\renewcommand{\bottomfraction}{1}
+\end_preamble
+\use_default_options false
+\maintain_unincluded_children false
+\language british
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "times" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 12
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\paperwidth 15cm
+\paperheight 12cm
+\leftmargin 2cm
+\topmargin 2cm
+\rightmargin 2cm
+\bottommargin 2cm
+\secnumdepth 5
+\tocdepth 5
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle plain
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Boussinesq Version of Rayleigh-Benard Convection
+\end_layout
+
+\begin_layout Author
+Hilary Weller
+\end_layout
+
+\begin_layout Section
+Single Fluid Boussinesq Equations
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{D\mathbf{u}}{Dt}+\nabla P & = & b\mathbf{k}\\
+\frac{Db}{Dt}+N^{2}w & = & 0\\
+\nabla\cdot\mathbf{u} & = & 0
+\end{eqnarray*}
+
+\end_inset
+
+where 
+\begin_inset Formula $P=p^{\prime}\big/\rho_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $b=-g\rho^{\prime}\big/\rho_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $N^{2}=-g\big/\rho_{0}d\overline{\rho}\big/dz$
+\end_inset
+
+.
+ 
+\begin_inset Formula $P$
+\end_inset
+
+ has dimensions 
+\begin_inset Formula $\text{m}^{2}\text{s}^{-2}$
+\end_inset
+
+ and 
+\begin_inset Formula $b$
+\end_inset
+
+ has dimensions 
+\begin_inset Formula $\text{m}\text{s}^{-2}$
+\end_inset
+
+ .
+\end_layout
+
+\begin_layout Section
+Rayleigh-Benard Convection Problem
+\end_layout
+
+\begin_layout Standard
+If 
+\begin_inset Formula $p=\rho RT$
+\end_inset
+
+ and 
+\begin_inset Formula $p=10^{5}$
+\end_inset
+
+ and 
+\begin_inset Formula $R=287.05$
+\end_inset
+
+ and 
+\begin_inset Formula $T=300$
+\end_inset
+
+ then 
+\begin_inset Formula $\rho_{0}=1.1612.$
+\end_inset
+
+ If 
+\begin_inset Formula $T^{\prime}=30$
+\end_inset
+
+ then 
+\begin_inset Formula $\rho=\rho_{0}+\rho^{\prime}=1.0668\implies\rho^{\prime}\approx0.1\implies b^{\prime}\approx0.8$
+\end_inset
+
+.
+ Domain depth is 1m.
+\end_layout
+
+\end_body
+\end_document

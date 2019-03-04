@@ -1,0 +1,78 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  dev                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      setFieldsDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+regions
+(
+    // A buoyancy perturbation near the ground (0.1), or not (0)
+    boxToCell
+    {
+        box (4.4e3 0 0) (5.4e3 100 1000);
+        fieldValues
+        (
+            volScalarFieldValue b.buoyant 0.1
+            volScalarFieldValue b.stable 0.1
+        );
+    }
+    boxToCell
+    {
+        box (14.4e3 0 0) (15.4e3 100 1000);
+        fieldValues
+        (
+            volScalarFieldValue b.buoyant 0.1
+            volScalarFieldValue b.stable 0.1
+        );
+    }
+    boxToCell
+    {
+        box (24.4e3 0 0) (25.4e3 100 1000);
+        fieldValues
+        (
+            volScalarFieldValue b.buoyant 0.1
+            volScalarFieldValue b.stable 0.1
+        );
+    }
+    boxToCell
+    {
+        box (34.4e3 0 0) (35.4e3 100 1000);
+        fieldValues
+        (
+            volScalarFieldValue b.buoyant 0.1
+            volScalarFieldValue b.stable 0.1
+        );
+    }
+    boxToCell
+    {
+        box (44.4e3 0 0) (45.4e3 100 1000);
+        fieldValues
+        (
+            volScalarFieldValue b.buoyant 0.1
+            volScalarFieldValue b.stable 0.1
+        );
+    }
+
+    // Set cell values near lower boundary
+    boxToCell
+    {
+        box (0 0 -1000) (50e3 100 0);
+        fieldValues
+        (
+            volScalarFieldValue b.buoyant 0.1
+            volScalarFieldValue b.stable 0.1
+        );
+    }
+);
+
+// ************************************************************************* //

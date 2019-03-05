@@ -19,58 +19,22 @@ regions
     // A buoyancy perturbation near the ground (0.1), or not (0)
     boxToCell
     {
-        box (4.4e3 0 0) (5.4e3 100 1000);
+        box (14e3 0 1000) (16e3 1000 3000);
         fieldValues
         (
-            volScalarFieldValue b.buoyant 0.1
-            volScalarFieldValue b.stable 0.1
+            volScalarFieldValue b.buoyant 1
+            volScalarFieldValue b.stable 1
         );
     }
+    
+    // Buoyant air at the ground
     boxToCell
     {
-        box (14.4e3 0 0) (15.4e3 100 1000);
+        box (0 0 0) (50e3 1000 1000);
         fieldValues
         (
-            volScalarFieldValue b.buoyant 0.1
-            volScalarFieldValue b.stable 0.1
-        );
-    }
-    boxToCell
-    {
-        box (24.4e3 0 0) (25.4e3 100 1000);
-        fieldValues
-        (
-            volScalarFieldValue b.buoyant 0.1
-            volScalarFieldValue b.stable 0.1
-        );
-    }
-    boxToCell
-    {
-        box (34.4e3 0 0) (35.4e3 100 1000);
-        fieldValues
-        (
-            volScalarFieldValue b.buoyant 0.1
-            volScalarFieldValue b.stable 0.1
-        );
-    }
-    boxToCell
-    {
-        box (44.4e3 0 0) (45.4e3 100 1000);
-        fieldValues
-        (
-            volScalarFieldValue b.buoyant 0.1
-            volScalarFieldValue b.stable 0.1
-        );
-    }
-
-    // Set cell values near lower boundary
-    boxToCell
-    {
-        box (0 0 -1000) (50e3 100 0);
-        fieldValues
-        (
-            volScalarFieldValue b.buoyant 0.1
-            volScalarFieldValue b.stable 0.1
+            volScalarFieldValue b.buoyant 1
+            volScalarFieldValue b.stable 1
         );
     }
 );

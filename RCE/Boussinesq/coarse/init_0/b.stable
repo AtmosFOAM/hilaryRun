@@ -24,7 +24,7 @@ boundaryField
     ground
     {
         type            fixedUniformInternalValue;
-        value           uniform 0.1;
+        value           uniform 1;
     }
     top
     {

@@ -30,3 +30,6 @@ done
 eps2gif allFields.gif 0/plotFields.pdf ?/plotFields.pdf ??/plotFields.pdf \
         ???/plotFields.pdf
 
+gmtFoam b
+eps2gif b.gif 0/b.pdf ???/b.pdf ????/b.pdf ?????/b.pdf
+

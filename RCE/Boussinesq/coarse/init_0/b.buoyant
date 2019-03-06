@@ -23,8 +23,9 @@ boundaryField
 {
     ground
     {
-        type            fixedUniformInternalValue;
-        value           uniform 1;
+        type            fixedGradient;
+        gradient        uniform 3.858e-8;
+        values          uniform 0;
     }
     top
     {

@@ -161,7 +161,7 @@ where
 \begin_inset Formula $\theta_{0}$
 \end_inset
 
- is contant and 
+ is constant and 
 \begin_inset Formula $\overline{\theta}$
 \end_inset
 
@@ -178,7 +178,7 @@ Radiative-Convective Equilibrium
 
 \begin_layout Standard
 Let us consider a 
-\begin_inset Formula $10$
+\begin_inset Formula $H=10$
 \end_inset
 
 km domain with 
@@ -203,10 +203,51 @@ K,
 
 K.
  If we set radiative cooling at 
-\begin_inset Formula $Q=1\text{K}\text{day}^{-1}$
+\begin_inset Formula $C=1\text{K}\text{day}^{-1}=\frac{1}{86400}\text{K}\text{s}^{-1}$
 \end_inset
 
-what kind of climate to we end up with?
+, what kind of climate to we end up with?
+\end_layout
+
+\begin_layout Standard
+The cooling rate for 
+\begin_inset Formula $b$
+\end_inset
+
+ should be 
+\begin_inset Formula 
+\[
+\frac{gC}{\theta_{0}}=\frac{10}{300\times86400}=3.858\times10^{-7}.
+\]
+
+\end_inset
+
+The lower boundary gradient for 
+\begin_inset Formula $b$
+\end_inset
+
+ should be
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial b}{\partial z}=\frac{HgC}{\alpha\theta_{0}}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ is the thermal diffusivity.
+ If 
+\begin_inset Formula $\alpha=10^{3}$
+\end_inset
+
+ then 
+\begin_inset Formula $\frac{\partial b}{\partial z}=\frac{10^{3}\times10}{86400\times10^{3}\times300}=3.858\times10^{-8}$
+\end_inset
+
+.
 \end_layout
 
 \end_body

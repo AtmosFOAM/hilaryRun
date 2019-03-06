@@ -19,22 +19,11 @@ regions
     // A buoyancy perturbation near the ground (0.1), or not (0)
     boxToCell
     {
-        box (14e3 0 1000) (16e3 1000 3000);
+        box (124e3 0 0) (126e3 1000 2000);
         fieldValues
         (
-            volScalarFieldValue b.buoyant 1
-            volScalarFieldValue b.stable 1
-        );
-    }
-    
-    // Buoyant air at the ground
-    boxToCell
-    {
-        box (0 0 0) (50e3 1000 1000);
-        fieldValues
-        (
-            volScalarFieldValue b.buoyant 1
-            volScalarFieldValue b.stable 1
+            volScalarFieldValue b.buoyant 1e-4
+            volScalarFieldValue b.stable 1e-4
         );
     }
 );

@@ -24,16 +24,16 @@ FoamFile
 
 application     multiFluidBoussinesqFoam;
 
-startFrom       startTime;
-//startFrom       latestTime;
+//startFrom       startTime;
+startFrom       latestTime;
 
 startTime       0;
 
 stopAt          endTime;
 
-endTime         50000;
+endTime         2e5;
 
-deltaT          250;
+deltaT          100;
 
 writeControl    runTime;
 

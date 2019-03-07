@@ -22,8 +22,8 @@ regions
         box (124e3 0 0) (126e3 1000 2000);
         fieldValues
         (
-            volScalarFieldValue b.buoyant 1e-4
-            volScalarFieldValue b.stable 1e-4
+            volScalarFieldValue b.buoyant 1e-2
+            volScalarFieldValue b.stable 1e-2
         );
     }
 );

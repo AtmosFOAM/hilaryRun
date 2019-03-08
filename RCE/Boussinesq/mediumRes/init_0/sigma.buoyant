@@ -9,23 +9,35 @@ FoamFile
 {
     version     2.0;
     format      ascii;
-    class       dictionary;
-    object      setFieldsDict;
+    class       volScalarField;
+    location    "0";
+    object      sigma.buoyant;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-regions
-(
-    // A buoyancy perturbation near the ground (0.1), or not (0)
-    boxToCell
+dimensions      [0 0 0 0 0 0 0];
+
+internalField   uniform 0.1;
+
+boundaryField
+{
+    ground
     {
-        box (99e3 0 0) (101e3 1000 2000);
-        fieldValues
-        (
-            volScalarFieldValue b.buoyant 1e-2
-            volScalarFieldValue b.stable 1e-2
-        );
+        type            zeroGradient;
     }
-);
+    top
+    {
+        type            zeroGradient;
+    }
+    left
+    {
+        type            cyclic;
+    }
+    right
+    {
+        type            cyclic;
+    }
+}
+
 
 // ************************************************************************* //

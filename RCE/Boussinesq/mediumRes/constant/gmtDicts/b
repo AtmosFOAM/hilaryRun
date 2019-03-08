@@ -20,7 +20,6 @@ projection2D XZ;
 FieldsToPlot
 (
     [b rawValues -4.2e-3 4.2e-3 4e-4 "$GMTU/colours/red_white_blue.cpt"]
-    [u vectors 100 1 "black"]
 );
 
 separateLegend true;

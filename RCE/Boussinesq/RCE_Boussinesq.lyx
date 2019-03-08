@@ -244,7 +244,92 @@ where
 \end_inset
 
  then 
-\begin_inset Formula $\frac{\partial b}{\partial z}=\frac{10^{3}\times10}{86400\times10^{3}\times300}=3.858\times10^{-8}$
+\begin_inset Formula $\frac{\partial b}{\partial z}=\frac{10^{4}\times10}{86400\times10^{3}\times300}=3.858\times10^{-6}$
+\end_inset
+
+.
+ The equilibrium one dimensional solution satisfies:
+\begin_inset Formula 
+\begin{equation}
+\frac{\partial b}{\partial t}=\frac{\partial^{2}b}{\partial x^{2}}-\frac{gC}{\theta_{0}}=0
+\end{equation}
+
+\end_inset
+
+subject to 
+\begin_inset Formula $\frac{\partial b}{\partial z}=\frac{HgC}{\alpha\theta_{0}}$
+\end_inset
+
+ at 
+\begin_inset Formula $z=0$
+\end_inset
+
+ and 
+\begin_inset Formula $\frac{\partial b}{\partial z}=0$
+\end_inset
+
+ at 
+\begin_inset Formula $z=H$
+\end_inset
+
+.
+ We would also like
+\begin_inset Formula 
+\begin{equation}
+\int_{0}^{H}b\ dz=0.
+\end{equation}
+
+\end_inset
+
+The solution to this is 
+\begin_inset Formula 
+\begin{equation}
+b=\frac{gC}{\alpha\theta_{0}}\left(\frac{1}{2}z^{2}-Hz+\frac{H^{2}}{3}\right)
+\end{equation}
+
+\end_inset
+
+so at equilibrium we should get 
+\begin_inset Formula $b(z=0)=\frac{gCH^{2}}{3\alpha\theta_{0}}=\frac{10\times10^{8}}{3\times10^{3}\times300\times86400}=1.286\times10^{-2}$
+\end_inset
+
+ and 
+\begin_inset Formula $b\left(z=H\right)=-\frac{gCH^{2}}{6\alpha\theta_{0}}=-6.43\times10^{-3}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Similar to Rayleigh-B
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+'e
+\end_layout
+
+\end_inset
+
+rnard convection, we will use a Prandtl number of 0.7 and consider the Rayleigh
+ number:
+\begin_inset Formula 
+\begin{eqnarray*}
+\text{Pr} & = & \frac{\nu}{\alpha}=0.707\\
+\text{Ra} & = & \frac{g\Delta T\ H^{3}}{T_{\text{ref}}\nu^{2}}\text{Pr}.
+\end{eqnarray*}
+
+\end_inset
+
+For our simulation 
+\begin_inset Formula $\Delta T=g\frac{b_{H}-b_{0}}{\theta_{0}}=2.46\times10^{-4}$
+\end_inset
+
+ so 
+\begin_inset Formula $\text{Ra}\approx10^{13}$
 \end_inset
 
 .

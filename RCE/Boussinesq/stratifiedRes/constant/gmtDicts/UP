@@ -14,16 +14,16 @@ FoamFile
 
 // How to plot
 // Compulsory inputs
-projection "X40c/4c";
+projection "X18c/9c";
 projection2D XZ;
 
 FieldsToPlot
 (
-    [b rawValues -4.2e-3 4.2e-3 4e-4 "$GMTU/colours/red_white_blue.cpt"]
-    [u vectors 100 1 "black"]
+    [P filledContours 0 0 0 "$GMTU/colours/red_white_blue.cpt"]
+    [u.buoyant vectors 10 1 "black"]
 );
 
-separateLegend true;
-//region "0/10/-0.1/1.1";
+separateLegend false;
+region "0/20e3/-1e3/11e3";
 plotBoundaryDots false;
-annotate "minMax 3 1.3";
+annotate "minMax 100 -1100";

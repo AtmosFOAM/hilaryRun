@@ -1,6 +1,6 @@
-inputFiles=(0/k.dat 3600/k.dat 7200/k.dat 10800/k.dat
-            14400/k.dat 18000/k.dat 21600/k.dat 
-            25200/k.dat 28800/k.dat 32400/k.dat)
+#inputFiles=(0/k.dat 3600/k.dat 7200/k.dat 10800/k.dat
+#            14400/k.dat 18000/k.dat 21600/k.dat 
+#            25200/k.dat 28800/k.dat 32400/k.dat)
 outFile=plots/k.eps
 colx=4
 col=3

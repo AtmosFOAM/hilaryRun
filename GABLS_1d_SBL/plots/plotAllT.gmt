@@ -1,6 +1,6 @@
-inputFiles=(0/T.dat 3600/T.dat 7200/T.dat 10800/T.dat
-            14400/T.dat 18000/T.dat 21600/T.dat 
-            25200/T.dat 28800/T.dat 32400/T.dat)
+#inputFiles=(0/T.dat 3600/T.dat 7200/T.dat 10800/T.dat
+#            14400/T.dat 18000/T.dat 21600/T.dat 
+#            25200/T.dat 28800/T.dat 32400/T.dat)
 outFile=plots/T.eps
 colx=4
 col=3

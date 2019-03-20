@@ -1,6 +1,6 @@
-inputFiles=(0/nut.dat 3600/nut.dat 7200/nut.dat 10800/nut.dat
-            14400/nut.dat 18000/nut.dat 21600/nut.dat 
-            25200/nut.dat 28800/nut.dat 32400/nut.dat)
+#inputFiles=(0/nut.dat 3600/nut.dat 7200/nut.dat 10800/nut.dat
+#            14400/nut.dat 18000/nut.dat 21600/nut.dat 
+#            25200/nut.dat 28800/nut.dat 32400/nut.dat)
 outFile=plots/nut.eps
 colx=4
 col=3
@@ -13,10 +13,8 @@ pens=("1,black" "1.5,black,5_5:" "1.5,black,2_4_10_4:"
 ylabel="z (m)"
 xlabel="Turbulent Viscosity"
 xmin=0
-xmax=2
-dx=0.2
-ddx=1
-dxg=0
+xmax=6
+dx=1
 ymin=0
 ymax=400
 dy=50

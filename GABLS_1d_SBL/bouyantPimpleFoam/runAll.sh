@@ -22,7 +22,7 @@ rm -rf [1-9]*
 buoyantPimpleFoam >& log & sleep 0.01; tail -f log
 
 # Plotting for buoyantPimpleFoam
-for var in  theta T p p_rgh U k nut epsilon; do
+for var in T p p_rgh U k nut epsilon; do
     writeCellDataxyz $var
     for time in [0-9]*; do
         sort -g --key=3 $time/$var.xyz > $time/$var.dat

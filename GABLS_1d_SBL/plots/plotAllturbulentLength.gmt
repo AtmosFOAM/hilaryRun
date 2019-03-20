@@ -1,6 +1,6 @@
-inputFiles=(0/turbulentLength.dat 3600/turbulentLength.dat 7200/turbulentLength.dat 10800/turbulentLength.dat
-            14400/turbulentLength.dat 18000/turbulentLength.dat 21600/turbulentLength.dat 
-            25200/turbulentLength.dat 28800/turbulentLength.dat 32400/turbulentLength.dat)
+#inputFiles=(0/turbulentLength.dat 3600/turbulentLength.dat 7200/turbulentLength.dat 10800/turbulentLength.dat
+#            14400/turbulentLength.dat 18000/turbulentLength.dat 21600/turbulentLength.dat 
+#            25200/turbulentLength.dat 28800/turbulentLength.dat 32400/turbulentLength.dat)
 outFile=plots/turbulentLength.eps
 colx=4
 col=3
@@ -13,10 +13,9 @@ pens=("1,black" "1.5,black,5_5:" "1.5,black,2_4_10_4:"
 ylabel="z (m)"
 xlabel="Turbulent length scale (m)"
 xmin=0
-xmax=25
-dx=5
-ddx=1
-dxg=0
+xmax=140
+dx=20
+ddx=20
 ymin=0
 ymax=400
 dy=50

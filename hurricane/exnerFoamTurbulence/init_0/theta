@@ -10,46 +10,49 @@ FoamFile
     version     2.0;
     format      ascii;
     class       volScalarField;
-    location    "constant";
-    object      gh;
+    object      theta;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 2 -2 0 0 0 0];
+dimensions      [0 0 0 1 0 0 0];
 
-internalField   nonuniform List<scalar> 10(-196.2 -588.6 -981 -1373.4 -1765.8 -2158.2 -2550.6 -2943 -3335.4 -3727.8);
+internalField   uniform 300;
 
 boundaryField
 {
     ground
     {
-        type            calculated;
-        value           uniform 0;
+        type            fixedValue;
+        value           uniform  300;
     }
+
     top
     {
-        type            calculated;
-        value           uniform -3924;
+        type            fixedValue;
+        value           uniform 300;
     }
+
     inlet
     {
         type            cyclic;
+        value           uniform 300;
     }
+
     outlet
     {
         type            cyclic;
+        value           uniform 300;
     }
     front
     {
-        type            calculated;
-        value           nonuniform List<scalar> 10(-196.2 -588.6 -981 -1373.4 -1765.8 -2158.2 -2550.6 -2943 -3335.4 -3727.8);
+        type            cyclic;
+        value           uniform 300;
     }
     back
     {
-        type            calculated;
-        value           nonuniform List<scalar> 10(-196.2 -588.6 -981 -1373.4 -1765.8 -2158.2 -2550.6 -2943 -3335.4 -3727.8);
+        type            cyclic;
+        value           uniform 300;
     }
 }
-
 
 // ************************************************************************* //

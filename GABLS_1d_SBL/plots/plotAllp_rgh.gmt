@@ -1,6 +1,6 @@
-inputFiles=(0/p_rgh.dat 3600/p_rgh.dat 7200/p_rgh.dat 10800/p_rgh.dat
-            14400/p_rgh.dat 18000/p_rgh.dat 21600/p_rgh.dat 
-            25200/p_rgh.dat 28800/p_rgh.dat 32400/p_rgh.dat)
+#inputFiles=(0/p_rgh.dat 3600/p_rgh.dat 7200/p_rgh.dat 10800/p_rgh.dat
+#            14400/p_rgh.dat 18000/p_rgh.dat 21600/p_rgh.dat 
+#            25200/p_rgh.dat 28800/p_rgh.dat 32400/p_rgh.dat)
 outFile=plots/p_rgh.eps
 colx=4
 col=3

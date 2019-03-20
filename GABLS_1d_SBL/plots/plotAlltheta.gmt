@@ -1,6 +1,6 @@
-inputFiles=(0/theta.dat 3600/theta.dat 7200/theta.dat 10800/theta.dat
-            14400/theta.dat 18000/theta.dat 21600/theta.dat 
-            25200/theta.dat 28800/theta.dat 32400/theta.dat)
+#inputFiles=(0/theta.dat 3600/theta.dat 7200/theta.dat 10800/theta.dat
+#            14400/theta.dat 18000/theta.dat 21600/theta.dat 
+#            25200/theta.dat 28800/theta.dat 32400/theta.dat)
 outFile=plots/theta.eps
 colx=4
 col=3

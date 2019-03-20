@@ -26,7 +26,7 @@ FoamFile
 // Settings for setTheta
 g               g [0 1 -2 0 0 0 0] (0 0 -9.81);
 Omega           Omega [0 0 -1 0 0] (0 0 6.95e-5); // Used by ExnerFoam
-Ug              Ug    [0 1 -1 0 0] (0 0 0); //  Used by ExnerFoam
+Ug              Ug    [0 1 -1 0 0] (8 0 0); //  Used by ExnerFoam
 // Brunt Vailsalla frequency for different layers of atmosphere
 BruntVaisallaFreq  2(0 0.019186166);
 // Extents of the layers (array should be one longer)

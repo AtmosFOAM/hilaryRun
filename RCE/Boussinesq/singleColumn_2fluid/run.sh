@@ -13,29 +13,37 @@ cp -r init_0/* 0
 
 # Initial buoyancy perturbations and transfer at the ground
 setFields
+cp 0/transferLocation constant
 
 # Solve Euler equations
 rm -rf [1-9]* core
 multiFluidBoussinesqFoam >& log & sleep 0.01; tail -f log
 
-# Plot all fields
-for time in [0-9]*; do
-    for field in sigma b b.stable b.buoyant S01 S10; do
-        gmtFoam -time $time $field
+# Create ascii data files of all fields
+for var in sigma b u; do
+    for type in "" .stable .buoyant; do
+        field=$var$type
+        writeCellDataxyz $field
+    
+       for time in [0-9]*; do
+           sort -g -k 3 $time/$field.xyz > $time/$field.xyzSorted
+           mv $time/$field.xyzSorted $time/$field.xyz
+       done
     done
-    sed 's/TIMEDIR/'$time'/g' plots/plotFields.tex > plotFields.tex; \
-        pdflatex plotFields.tex; \
-        pdfcrop plotFields.pdf $time/plotFields.pdf; \
-        rm plotFields.*
 done
-eps2gif allFields.gif 0/plotFields.pdf ?/plotFields.pdf ??/plotFields.pdf \
-        ???/plotFields.pdf
 
-gmtFoam b
-eps2gif b.gif 0/b.pdf ????/b.pdf ?????/b.pdf ??????/b.pdf
-
-# Plot cooling rate, Q
-grep value */Q | awk -F'/' '{print $1, $2}' | awk '{print $1, $3}' \
-     | awk -F';' '{print $1}'| sort -n > plots/Q.dat
-gmtPlot plots/Q.gmt
+# Graphs of all fields
+times=`ls -d [0-9]* | sort -g`
+for time in $times; do
+    for field in sigma b u; do
+        sed 's/TIME/'$time'/g' plots/$field.gmt > plots/tmp.gmt; \
+        gmtPlot plots/tmp.gmt
+        eps2png $time/$field.eps
+    done
+    montage $time/sigma.png $time/b.png $time/u.png -tile 3x1 -geometry +0+0 \
+            $time/results.png
+done
+convert ?/results.png ???/results.png ????/results.png ?????/results.png \
+         results.gif
+animate results.gif &
 

@@ -23,6 +23,8 @@ regions
         fieldValues
         (
             volScalarFieldValue transferLocation 1
+            volScalarFieldValue sigma.buoyant    0.5
+            volScalarFieldValue sigma.stable     0.5
         );
     }
 
@@ -33,6 +35,8 @@ regions
         fieldValues
         (
             volScalarFieldValue transferLocation 1
+            volScalarFieldValue sigma.buoyant    0.5
+            volScalarFieldValue sigma.stable     0.5
         );
     }
 );

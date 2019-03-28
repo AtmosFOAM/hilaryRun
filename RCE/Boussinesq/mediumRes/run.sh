@@ -31,3 +31,7 @@ grep value */Q | awk -F'/' '{print $1, $2}' | awk '{print $1, $3}' \
      | awk -F';' '{print $1}'| sort -n > plots/Q.dat
 gmtPlot plots/Q.gmt
 
+# Conditional sampling based on w
+writeuvw u -latestTime
+topoSet -dict system/conditionalSamplingDict -latestTime
+horizontalMean -latestTime -cellSet rising

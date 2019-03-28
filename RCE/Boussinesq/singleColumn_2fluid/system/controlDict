@@ -31,13 +31,13 @@ startTime       0;
 
 stopAt          endTime;
 
-endTime         2e4;
+endTime         2e5;
 
 deltaT          10;
 
 writeControl    runTime;
 
-writeInterval   1e3;
+writeInterval   1e4;
 
 purgeWrite      0;
 

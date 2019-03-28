@@ -1,6 +1,6 @@
-inputFiles=(20000/massTransfer.stable.buoyant.xyz 
-            20000/massTransfer.buoyant.stable.xyz)
-outFile=20000/massTransfer.eps
+inputFiles=(200000/massTransfer.stable.buoyant.xyz 
+            200000/massTransfer.buoyant.stable.xyz)
+outFile=200000/massTransfer.eps
 col=3
 colx=4
 legends=("@~s@~@-0@- S@-01@-" "@~s@~@-1@- S@-10@-")

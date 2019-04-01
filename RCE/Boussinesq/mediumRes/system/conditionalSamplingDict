@@ -14,7 +14,7 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-
+// Parts for topoSet
 actions
 (
     // All cells with rising air
@@ -46,6 +46,27 @@ actions
         name    falling;
         type    cellSet;
         action  invert;
+    }
+);
+
+// Parts for setFields
+defaultFieldValues
+(
+    volScalarFieldValue sigma.stable 1
+    volScalarFieldValue sigma.buoyant 0
+);
+
+regions
+(
+
+    cellToCell
+    {
+        set rising;
+        fieldValues
+        (
+            volScalarFieldValue sigma.stable 0
+            volScalarFieldValue sigma.buoyant 1
+        );
     }
 );
 

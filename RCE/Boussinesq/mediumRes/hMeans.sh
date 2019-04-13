@@ -10,25 +10,24 @@ topoSet -dict system/conditionalSamplingDict -time $time
 # Conditioanl horizontal means of b and w
 horizontalMean -time $time -cellSet rising
 horizontalMean -time $time -cellSet falling
+horizontalMean -time $time
 
 # Write out mean plus/minus one standard deviation of b and w
-awk '{print $1, $2, $3, $4, $4-$5, $4+$5, $6, $7}' \
-    $time/horizontalMean_rising_b.dat \
-    | sponge $time/horizontalMean_rising_b.dat
-awk '{print $1, $2, $3, $4, $4-$5, $4+$5, $6, $7}' \
-    $time/horizontalMean_falling_b.dat \
-    | sponge $time/horizontalMean_falling_b.dat
-awk '{print $1, $2, $3, $4, $4-$5, $4+$5, $6, $7}' \
-    $time/horizontalMean_rising_uz.dat \
-    | sponge $time/horizontalMean_rising_uz.dat
-awk '{print $1, $2, $3, $4, $4-$5, $4+$5, $6, $7}' \
-    $time/horizontalMean_falling_uz.dat \
-    | sponge $time/horizontalMean_falling_uz.dat
-    
+for var in b uz P; do for set in rising falling; do
+    awk '{print $1, $2, $3, $4, $4-$5, $4+$5, $6, $7}' \
+        $time/horizontalMean_${set}_${var}.dat \
+        | sponge $time/horizontalMean_${set}_${var}.dat
+done; done
+
 # plots
-for var in b w sigma; do
+for var in b w sigma P; do
     sed 's/TIME/'$time'/g' plots/$var.gmt > plots/tmp.gmt
     gmtPlot plots/tmp.gmt
 done
 rm plots/tmp.gmt
 
+# Redefine sigma based on w
+setFields -dict system/conditionalSamplingDict -noFunctionObjects
+
+# Rerun for one time step and average onto a coarse grid
+multiFluidBoussinesqFoam

@@ -48,11 +48,14 @@ laplacianSchemes
 
 interpolationSchemes
 {
-    default        linear;
+    default        none;
     convection      linear;
     sigma           linear;
     b               linear;
     massTransfer    linear;
+    interpolate(sigma.stable) linear; //vanLeer volFlux.stable;
+    interpolate(sigma.buoyant) linear; //vanLeer volFlux.buoyant;
+    transfer        linear;
 }
 
 snGradSchemes

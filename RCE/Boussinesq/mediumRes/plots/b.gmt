@@ -1,4 +1,5 @@
-inputFiles=(TIME/horizontalMean_falling_b.dat
+inputFiles=(TIME/horizontalMean_b.dat
+            TIME/horizontalMean_falling_b.dat
             TIME/horizontalMean_falling_b.dat
             TIME/horizontalMean_falling_b.dat
             TIME/horizontalMean_falling_b.dat
@@ -9,11 +10,11 @@ inputFiles=(TIME/horizontalMean_falling_b.dat
             TIME/horizontalMean_rising_b.dat
             TIME/horizontalMean_rising_b.dat)
 outFile=TIME/bMean.eps
-colx=(4 5 6 7 8 4 5 6 7 8)
+colx=(4 4 5 6 7 8 4 5 6 7 8)
 col=1
-legends=("falling" "+/- one std dev" "" "min/max" ""
+legends=("mean" "falling" "+/- one std dev" "" "min/max" ""
          "rising" "+/- one std dev" "" "min/max" "")
-pens=("2,blue" "1,blue" "1,blue" "1,blue,5_5:" "1,blue,5_5:"
+pens=("2,black" "2,blue" "1,blue" "1,blue" "1,blue,5_5:" "1,blue,5_5:"
       "2,red" "1,red" "1,red" "1,red,5_5:" "1,red,5_5:")
 xlabel='Buoyancy (m s@+-2@+)'
 #ylabel='Height (km)'
@@ -28,4 +29,4 @@ yscale=/1000
 legPos=x10/7
 nSkip=1
 projection=X15c/10c
-gv=1
+gv=0

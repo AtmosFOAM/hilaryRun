@@ -17,17 +17,21 @@ FoamFile
 
 dimensions      [0 1 -2 0 0 0 0];
 
-internalField   uniform 0;
+internalField   nonuniform List<scalar> 20
+(
+REPLACE
+);
 
 boundaryField
 {
     ground
     {
-        type            fixedGradient;
-        //gradient        uniform 3.858e-6;
-        //gradient        uniform 3.858e-5;
-        gradient        uniform 7.716e-6;
+        type            fixedHeatFlux;
+        heatFlux        uniform 3.858e-3;
+        densityName     sigma.buoyant;
+        diffusivityName alpha;
         values          uniform 0;
+        gradient        uniform 0;
     }
     top
     {

@@ -25,13 +25,13 @@ boundaryField
     {
         type            fixedGradient;
         gradient        uniform 3.858e-6;
-        values          uniform 0;
+        value           uniform 0;
     }
     top
     {
         type            zeroGradient;
     }
-    left
+    left 
     {
         type            cyclic;
     }

@@ -36,7 +36,7 @@ gradSchemes
 divSchemes
 {
     default none;
-//    sigma        Gauss vanLeer;
+    sigma        Gauss vanLeer;
     b            Gauss vanLeer;
     u            Gauss linearUpwind linearUpwind;
 }
@@ -50,13 +50,13 @@ interpolationSchemes
 {
     default        none;
     convection      linear;
-//    sigma           linear;
+    interpolate(sigma.stable) linear;
+    interpolate(sigma.buoyant) linear;
     interpolate(sigma.stable_0) vanLeer volFlux.stable;
     interpolate(sigma.buoyant_0) vanLeer volFlux.buoyant;
     b               linear;
     massTransfer    linear;
-    interpolate(transfer.stable) linear;
-    interpolate(transfer.buoyant) linear;
+    transfer        linear;
 }
 
 snGradSchemes

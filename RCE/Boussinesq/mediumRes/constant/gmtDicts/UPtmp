@@ -19,11 +19,11 @@ projection2D XZ;
 
 FieldsToPlot
 (
-    [b rawValues -4.2e-3 4.2e-3 4e-4 "$GMTU/colours/red_white_blue.cpt"]
+    [PEqnRHS rawValues -1e-6 1e-6 1e-7 "$GMTU/colours/red_white_blue.cpt"]
+    [Utmp vectors 2e6 1 "black"]
 );
 
 separateLegend true;
-//region "90/110e3/0/10e3";
-//region "0/10/-0.1/1.1";
+region "90/110e3/0/10e3";
 plotBoundaryDots false;
-annotate "minMax 3 1.3";
+annotate "minMax 100 -100";

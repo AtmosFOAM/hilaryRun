@@ -31,13 +31,13 @@ startTime       0;
 
 stopAt          endTime;
 
-endTime         2e5;
+endTime         1e4; //2e5;
 
 deltaT          10;
 
 writeControl    runTime;
 
-writeInterval   1e4;
+writeInterval   1e3; //1e4;
 
 purgeWrite      0;
 
@@ -58,7 +58,7 @@ maxCo          0.5;
 
 libs
 (
-    "libExnerTheta.so"
+    "libExnerTheta.so" "libfiniteVolumeAtmosFOAMtools.so"
 );
 
 

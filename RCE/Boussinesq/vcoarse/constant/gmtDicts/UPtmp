@@ -1,0 +1,29 @@
+FoamFile
+{
+    version         2.3;
+    format          ascii;
+
+    root            "";
+    case            "";
+    instance        "constant";
+    local           "";
+
+    class           dictionary;
+    object          gmtDict;
+}
+
+// How to plot
+// Compulsory inputs
+projection "X40c/4c";
+projection2D XZ;
+
+FieldsToPlot
+(
+    [PEqnRHS rawValues -1e-6 1e-6 1e-7 "$GMTU/colours/red_white_blue.cpt"]
+    [Utmp vectors 2e6 1 "black"]
+);
+
+separateLegend true;
+region "90/110e3/0/10e3";
+plotBoundaryDots false;
+annotate "minMax 100 -100";

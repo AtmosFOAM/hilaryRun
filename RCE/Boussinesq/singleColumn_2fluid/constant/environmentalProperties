@@ -23,7 +23,7 @@ FoamFile
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 Nsquared        Nsquared [0 0 -2 0 0] 0;
-nu       nu       [0 2 -1 0 0] 2e3; //707;
+nu       nu       [0 2 -1 0 0] 1e4; //4e3; //707;
 alpha    alpha    [0 2 -1 0 0] 1e3;
 adjustQ  false;
 //Q        Q        [0 1 -3 0 0] -3.858e-7;

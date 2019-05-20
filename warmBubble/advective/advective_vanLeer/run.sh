@@ -20,9 +20,9 @@ cp 0/theta 0/theta_init
 makeHotBubble
 
 # Partition into stable and buoyant fluids
-mv 0/theta 0/theta.buoyant
+cp 0/theta 0/theta.buoyant
 cp 0/theta.buoyant 0/theta.stable
-mv 0/Uf 0/Uf.stable
+cp 0/Uf 0/Uf.stable
 cp 0/Uf.stable 0/Uf.buoyant
 rm 0/thetaf
 
@@ -45,7 +45,7 @@ for time in 100 1000; do
 done
 
 # animate the results
-for field in sigmaTheta; do
+for field in  theta sigmaTheta; do
     gmtFoam $field
     eps2gif $field.gif 0/$field.pdf ???/$field.pdf ????/$field.pdf
 done
@@ -58,5 +58,15 @@ for field in theta sigma; do
         ln -s ../$time/$field.pdf animategraphics/${field}_$t.pdf
         let t=$t+1
     done
+done
+
+# Horizontal means
+horizontalMean
+for time in [0-9]*; do
+    for var in theta; do
+        sed 's/TIME/'$time'/g' plots/$var.gmt > plots/tmp.gmt
+        gmtPlot plots/tmp.gmt
+    done
+    rm plots/tmp.gmt
 done
 

@@ -1,0 +1,21 @@
+inputFiles=(200/Pi.stable.xyz
+            200/Pi.buoyant.xyz)
+outFile=200/Pi.eps
+colx=(4 4)
+col=(3 3)
+legends=("descent" "ascent")
+pens=("1,blue" "1,red")
+xlabel='Fluid pressure (m@+2@+ s@+-2@+)'
+#ylabel='Height (km)'
+xmin=-100
+xmax=100
+dx=50
+ymin=0
+ymax=10
+dy=2
+xscale=*1
+yscale=/1000
+legPos=x0.5/8.5
+nSkip=1
+projection=X10c/10c
+gv=1

@@ -1,0 +1,21 @@
+inputFiles=(TIME/sigma.buoyant.xyz
+           ../partitioned_identical/sigmaUniform/TIME/horizontalMean_none_sigma.buoyant.dat)
+outFile=TIME/sigmaMean.eps
+colx=(4 4)
+col=(3 1)
+legends=("Two fluids" "Resolved")
+pens=("2,black,5_5:" "1,black")
+xlabel='@~s@~'
+#ylabel='Height (km)'
+xmin=0
+xmax=1
+dx=0.2
+ymin=0
+ymax=10
+dy=2
+xscale=*1
+yscale=/1000
+legPos=x5/7
+nSkip=1
+projection=X10c/10c
+gv=1

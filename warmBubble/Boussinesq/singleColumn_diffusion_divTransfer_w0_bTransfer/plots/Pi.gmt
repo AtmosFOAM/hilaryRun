@@ -1,0 +1,24 @@
+inputFiles=(TIME/Pi.stable.xyz
+            TIME/Pi.buoyant.xyz
+   ../partitioned_identical/sigmaUniform/TIME/horizontalMean_sigma.stable_P.dat
+   ../partitioned_identical/sigmaUniform/TIME/horizontalMean_sigma.buoyant_P.dat
+)
+outFile=TIME/Pi.eps
+colx=(4 4 4 4)
+col=(3 3 1 1)
+legends=("descent" "ascent" "resolved" "resolved")
+pens=("1,blue,5_5:" "1,red,5_5:" "1,blue" "1,red")
+xlabel='Fluid pressure (m@+2@+ s@+-2@+)'
+#ylabel='Height (km)'
+xmin=-50
+xmax=50
+dx=20
+ymin=0
+ymax=10
+dy=2
+xscale=*1
+yscale=/1000
+legPos=x0.5/6.5
+nSkip=1
+projection=X10c/10c
+gv=1

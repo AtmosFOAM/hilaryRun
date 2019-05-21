@@ -42,6 +42,14 @@ for time in [1-9]*; do
             $time/horizontalMean_${fluid}_${var}.dat \
             | sponge $time/horizontalMean_${fluid}_${var}.dat
     done; done
+    
+    # Pressure differences from horizontal mean
+    for fl in stable buoyant; do
+        paste $time/horizontalMean_sigma.${fl}_P.dat \
+              $time/horizontalMean_none_P.dat | \
+              awk '{print $1, $2, $3, $4 - $12, $5, $6, $7, $8}' |\
+              sponge $time/horizontalMean_sigma.${fl}_P.dat
+    done
 
     # plots
     for var in b01 P01 sigma b w P; do

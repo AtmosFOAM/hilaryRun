@@ -51,6 +51,9 @@ interpolationSchemes
     default        none;
     interpolate(sigma.stable) linear;
     interpolate(sigma.buoyant) linear;
+    b      linear;
+    transfer      linear;
+    massTransfer      linear;
     interpolate(b.stable) linear;
     interpolate(b.buoyant) linear;
     convection      linear;

@@ -19,12 +19,11 @@ projection2D XZ;
 
 FieldsToPlot
 (
-    [b.stable  filledContours  0 0.06 0.003 "$GMTU/colours/white_blue_red.cpt"]
-//    [u.stable vectors  50 7 "black"]
+    [b  rawValues  0 0.06 0.003 "$GMTU/colours/white_blue_red.cpt"]
 );
 
 separateLegend true;
-region "-5000/5000/0/1e4";
+region "-5e3/5e3/0/1e4";
 //region "-2500/2500/0/5000";
 boundaryMarks "2500/2500";
 plotBoundaryDots false;

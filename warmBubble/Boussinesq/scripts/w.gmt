@@ -1,0 +1,22 @@
+inputFiles=(DIR/CASE/hMean/TIME/uz.stable.xyz
+            DIR/CASE/hMean/TIME/uz.buoyant.xyz
+)
+outFile=DIR/CASE/hMean/TIME/w.eps
+colx=(4 4)
+col=(3 3)
+legends=("falling" "rising")
+pens=("1,blue" "1,red")
+xlabel='Vertical velocity (m s@+-1@+)'
+#ylabel='Height (km)'
+xmin=-10
+xmax=10
+dx=5
+ymin=0
+ymax=10
+dy=2
+xscale=*1
+yscale=/1000
+legPos=x0.5/4.5
+nSkip=1
+projection=X10c/10c
+gv=0

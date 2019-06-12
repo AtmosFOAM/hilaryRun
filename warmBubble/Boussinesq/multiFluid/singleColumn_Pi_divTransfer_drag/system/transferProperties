@@ -22,6 +22,7 @@ FoamFile
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+noTransfers false;
 cloudRadiusMax     cloudRadiusMax [0 1 0 0 0] 4000;
 cloudRadiusMin     cloudRadiusMin [0 1 0 0 0] 4000;
 dragCoeff       0.5;

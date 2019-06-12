@@ -1,0 +1,29 @@
+inputFiles=(multiFluid/singleColumn_noTransfer/hMean/globalSumbz.dat
+            multiFluid/singleColumn_Pi/hMean/globalSumbz.dat
+            multiFluid/singleColumn_Pi_01DivTransfer/hMean/globalSumbz.dat
+            multiFluid/singleColumn_Pi_halfDivTransfer/hMean/globalSumbz.dat
+            multiFluid/singleColumn_Pi_divTransfer/hMean/globalSumbz.dat
+)
+outFile=plots/heatTransportMultiFluid_divTransfer.eps
+colx=(1 1 1 1 1 1 1 1)
+col=(2 2 2 2 2 2 2 2)
+legends=("S@-ij@- = 0, @~g@~@-P@- = 0"
+         "S@-ij@- = 0, @~g@~@-P@- = 10@+4@+"
+         "S@-ij@- = -0.1div(u@-i@-), @~g@~@-P@- = 10@+4@+"
+         "S@-ij@- = -0.5div(u@-i@-), @~g@~@-P@- = 10@+4@+"
+         "S@-ij@- = -div(u@-i@-), @~g@~@-P@- = 10@+4@+")
+pens=("1,black" "1,black,5_5:" "1,blue" "1,blue,5_5:" "1,red" "1,red,5_5:" "1,blue,2_4:" "1,red,2_4:" "1,grey" "1,grey,5_5:")
+xlabel='Time (s)'
+ylabel='Heat height, bz (ms@+2@+ s@+-2@+)'
+xmin=0
+xmax=1000
+dx=200
+ymin=2
+ymax=8
+dy=2
+#xscale=("*1" "*1" "*1" "*1" "*1")
+yscale=("*1" "*1" "*1" "*1" "*1")
+legPos=x0/6
+nSkip=1
+projection=X12c/10c
+gv=1

@@ -24,7 +24,7 @@ cp $case/init_0/P $case/0
 
 # Divide sigma weighted fields by sigma
 for part in stable buoyant; do
-    for var in b P uz; do
+    for var in b; do
         multiplyFields -case $case 0 $var.$part 0 sigma$var.$part 0 sigma.$part -pow1 -1
     done
 done

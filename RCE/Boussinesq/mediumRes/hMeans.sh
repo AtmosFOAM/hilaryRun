@@ -5,16 +5,12 @@
 time=200000
 writeuvw u -time $time
 
-## Create cell sets "rising" and "falling" dependent on w
-#topoSet -dict system/conditionalSamplingDict -time $time
-
-## Conditional horizontal means of b and w
-#horizontalMean -time $time -cellSet rising
-#horizontalMean -time $time -cellSet falling
-#horizontalMean -time $time
+# Create cell sets "rising" and "falling" dependent on w
+rm -rf constant/polyMesh/sets
+topoSet -dict system/conditionalSamplingDict -time $time
 
 # Redefine sigma based on w
-setFields -dict system/conditionalSamplingDict -noFunctionObjects
+setFields -dict system/conditionalSamplingDict -noFunctionObjects -time $time
 
 # Horizontal mean based on new sigma
 horizontalMean -time $time
@@ -26,8 +22,16 @@ for var in b uz P; do for fluid in none sigma.stable sigma.buoyant; do
         | sponge $time/horizontalMean_${fluid}_${var}.dat
 done; done
 
+# Calculate dpdz
+for part in stable buoyant; do
+    sed -e "1d" $time/horizontalMean_sigma.${part}_P.dat | \
+        awk 'BEGIN { z0=0; P0=0 }
+             { print 0.5*($1+z0), ($4-P0)/($1-z0); P0=$4; z0=$1}' \
+        > $time/horizontalMean_dPdz.${part}.dat
+done
+
 # plots
-for var in b w sigma P; do
+for var in b w sigma P dPdz; do
     sed 's/TIME/'$time'/g' plots/$var.gmt > plots/tmp.gmt
     gmtPlot plots/tmp.gmt
 done

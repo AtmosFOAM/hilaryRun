@@ -1,6 +1,6 @@
 inputFiles=(DIR/CASE/hMean/TIME/P.xyz
-            DIR/CASE/hMean/TIME/P.stable.xyz
-            DIR/CASE/hMean/TIME/P.buoyant.xyz
+            DIR/CASE/hMean/TIME/Pi.stable.xyz
+            DIR/CASE/hMean/TIME/Pi.buoyant.xyz
 )
 outFile=DIR/CASE/hMean/TIME/P.eps
 colx=(4 4 4)
@@ -20,4 +20,4 @@ yscale=/1000
 legPos=x0.5/6.5
 nSkip=1
 projection=X10c/10c
-gv=1
+gv=0

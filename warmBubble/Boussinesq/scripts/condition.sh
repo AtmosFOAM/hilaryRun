@@ -29,8 +29,10 @@ fi
 echo ./condition.sh $case $times
 
 # setup hMean (horizontal mean) directory
-rm -rf $case/hMean
-cp -r $case/../../hMean $case
+if [[ ! -a $case/hMean ]]; then
+    mkdir $case/hMean
+    cp -r $case/../../hMean/* $case/hMean
+fi
 sed 's/TIME/0/g' $case/../../hMean/system/controlDict > $case/hMean/system/controlDict
 blockMesh -case $case/hMean
 
@@ -48,11 +50,11 @@ for time in $times; do
         setFields -case $case -dict system/conditionalSamplingDict \
             -time $time -noFunctionObjects
 
-    # Based on b for time=0
-    else
-        topoSet -case $case -dict system/conditionalSamplingDictb -time $time
-        setFields -case $case -dict system/conditionalSamplingDict \
-            -time $time -noFunctionObjects
+#    # Based on b for time=0
+#    else
+#        topoSet -case $case -dict system/conditionalSamplingDictb -time $time
+#        setFields -case $case -dict system/conditionalSamplingDict \
+#            -time $time -noFunctionObjects
     fi
 
     # Multiply fields by sigma (zero or one)
@@ -76,20 +78,23 @@ for time in $times; do
         done
     done
     
+    # Calculate pressure gradients
+    postProcess  -time $time -case $case/hMean -fields "(P.stable P.buoyant)"
+    
     # Write out ascii data and sort by z
     for part in '' .stable .buoyant; do
-        for var in b uz P sigma; do
-            writeCellDataxyz -case $case/hMean -time $time $var$part
-            sort -g -k 3 $case/hMean/$time/$var$part.xyz \
-                | sponge $case/hMean/$time/$var$part.xyz
+        for var in b uz P sigma sigmab sigmaP sigmauz dPdz; do
+            if [ -a $case/hMean/$time/$var$part ]; then
+                writeCellDataxyz -case $case/hMean -time $time $var$part
+                sort -g -k 3 $case/hMean/$time/$var$part.xyz \
+                    | sponge $case/hMean/$time/$var$part.xyz
+            fi
         done
     done
-        
     # Calculate pressure difference from the mean
     for part in stable buoyant; do
         paste $case/hMean/$time/P.$part.xyz $case/hMean/$time/P.xyz | \
-            awk '{print $1, $2, $3, $4-$8}' | \
-            sponge $case/hMean/$time/P.$part.xyz
+            awk '{print $1, $2, $3, $4-$8}' > $case/hMean/$time/Pi.$part.xyz
     done
 
 done

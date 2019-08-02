@@ -1,0 +1,22 @@
+inputFiles=(TIME/horizontalMean_none_b.dat
+            TIME/horizontalMean_sigma.stable_b.dat
+            TIME/horizontalMean_sigma.buoyant_b.dat)
+outFile=TIME/bMean.eps
+colx=(4 4 4)
+col=1
+legends=("mean" "descent" "ascent")
+pens=("2,black" "2,blue" "2,red")
+xlabel='Buoyancy (m s@+-2@+)'
+#ylabel='Height (km)'
+xmin=-0.006
+xmax=0.006
+dx=0.002
+ymin=0
+ymax=15
+dy=2
+xscale=*1
+yscale=/1000
+legPos=x10/6
+nSkip=1
+projection=X15c/10c
+gv=1

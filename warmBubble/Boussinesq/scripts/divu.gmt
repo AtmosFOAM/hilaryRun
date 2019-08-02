@@ -19,4 +19,4 @@ yscale=/1000
 legPos=x0.5/6.5
 nSkip=1
 projection=X10c/10c
-gv=1
+gv=0

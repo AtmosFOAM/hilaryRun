@@ -23,8 +23,10 @@ setInitialTracerField -name b.buoyant -tracerDict setbDict -case $case
 setInitialTracerField -name b.stable -tracerDict setbDict -case $case
 setInitialTracerField -name b -tracerDict setbDict -case $case
 
-# Re-define sigma based on b
-topoSet -case $case -dict system/conditionalSamplingDictb -time 0
+# Re-define sigma based on w aat time 2
+#topoSet -case $case -dict system/conditionalSamplingDictb -time 0
+writeuvw u -time 2
+topoSet -case $case -dict system/conditionalSamplingDictw -time 2
 setFields -case $case -dict system/conditionalSamplingDict \
             -time 0 -noFunctionObjects
 

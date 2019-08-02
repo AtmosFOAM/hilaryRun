@@ -38,11 +38,12 @@ if [ ! -d scripts ]; then
     ln -sf ../../scripts
 fi
 
-vars="b P sigma w"
+vars="b P sigma w sigmab sigmaP sigmaw dpdz"
+#vars="sigmab"
 if [ -a $case/hMean/$time/massTransfer.buoyant.stable.xyz ]; then
     vars="$vars S"
 fi
-# Plot horizontal means of b, P, sigma and w
+# Plot horizontal means of b, P, sigma and w and dpdz
 for time in $times; do
     for var in $vars; do
         sed 's/TIME/'$time'/g' scripts/$var.gmt \

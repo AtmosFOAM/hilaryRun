@@ -30,7 +30,7 @@ startTime       0;
 
 stopAt          endTime;
 
-endTime         2000;
+endTime         1000;
 
 deltaT          2;
 
@@ -56,5 +56,6 @@ adjustTimeStep no;
 maxCo          0.5;
 
 libs            ("libfiniteVolumeAtmosFOAMtools.so" "libExnerTheta.so");
+
 
 // ************************************************************************* //

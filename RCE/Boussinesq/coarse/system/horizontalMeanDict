@@ -1,0 +1,36 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  dev                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      horizontalMeanDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+levelInterfaces 11(0 1000 2000  3000 4000 5000
+                   6000 7000 8000 9000 10000);
+fieldNamesAndDensities 11
+(
+    (b none)
+    (P none)
+    (uz none)
+
+    (b sigma.buoyant)
+    (P sigma.buoyant)
+    (uz sigma.buoyant)
+    (sigma.buoyant none)
+
+    (b sigma.stable)
+    (P sigma.stable)
+    (uz sigma.stable)
+    (sigma.stable none)
+);
+
+// ************************************************************************* //

@@ -1,6 +1,6 @@
-inputFiles=(multiFluid/singleColumn_Pi_divTransfer_drag_bT0/hMean/globalSumbz.dat
-            multiFluid/singleColumn_Pigamma2e4_divTransfer_drag_bT0/hMean/globalSumbz.dat
-            multiFluid/singleColumn_Pigamma4e3_divTransfer_drag_bT0/hMean/globalSumbz.dat
+inputFiles=(multiFluid/singleColumn_Pi_divTransfer_drag_bT0/hMean/globalSumZmean.dat
+            multiFluid/singleColumn_Pigamma2e4_divTransfer_drag_bT0/hMean/globalSumZmean.dat
+            multiFluid/singleColumn_Pigamma4e3_divTransfer_drag_bT0/hMean/globalSumZmean.dat
 )
 outFile=plots/heatTransportMultiFluid_Pigamma.eps
 colx=(1 1 1 1 1 1 1 1)
@@ -10,16 +10,16 @@ legends=(" @~g@~@-P@- = 10@+4@+, C@-D@- = 0.5, b@+T@+=0"
          " @~g@~@-P@- = 4x10@+3@+, C@-D@- = 0.5, b@+T@+=0")
 pens=("1,black" "1,black,5_5:" "1,blue" "1,blue,5_5:" "1,red" "1,red,5_5:" "1,blue,2_4:" "1,red,2_4:" "1,grey" "1,grey,5_5:")
 xlabel='Time (s)'
-ylabel='Heat height, bz (ms@+2@+ s@+-2@+)'
+ylabel='Height of buoyant air (km)'
 xmin=0
 xmax=1000
 dx=200
-ymin=2
-ymax=8
-dy=2
+ymin=1.8
+ymax=7
+dy=1
 #xscale=("*1" "*1" "*1" "*1" "*1")
-yscale=("*1" "*1" "*1" "*1" "*1")
+yscale=("/1000" "/1000" "/1000" "/1000" "/1000")
 legPos=x0/6
-nSkip=1
+nSkip=0
 projection=X12c/10c
 gv=1

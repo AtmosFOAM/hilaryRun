@@ -25,7 +25,7 @@ if [ "$times" == "" ]; then
     done
 fi
 
-echo ./heatTransport.sh $case $times
+echo heatTransport.sh $case $times
 
 # First calculate field z to multiply b
 cp $case/../../hMean/system/z_tracerFieldDict $case/hMean/system
@@ -35,9 +35,12 @@ setAnalyticTracerField -case $case/hMean -time $time -name z \
 #mv $case/hMean/[0-9]*/z $case/hMean/constant
 rm $case/hMean/*/zf_analytic
 
-# Create bz for all times and volume averate
+# Create bz for all times and volume average
 for time in $times; do
     multiplyFields -case $case/hMean $time bz $time b constant z
 done
 globalSum -case $case/hMean bz
+globalSum -case $case/hMean b
+paste $case/hMean/globalSumbz.dat $case/hMean/globalSumb.dat \
+    | awk '{if ($10*1==$10) print $1, $2/$10'} > $case/hMean/globalSumZmean.dat
 

@@ -43,19 +43,27 @@ for time in $case/[0-9]*; do
     mv $time/u.buoyantz $time/uz.buoyant
 done
 
-for time in $times; do    
+for time in $times; do
+    # Multiply by sigma
+    for var in Pi b uz; do for part in stable buoyant; do
+        multiplyFields -case $case/hMean $time sigma$var.$part $time $var.$part \
+            $time sigma.$part
+    done; done
+
     # Write out ascii data and sort by z
     for part in '' .stable .buoyant; do
-        for var in b uz Pi sigma massTransfer.buoyant massTransfer.stable; do
-            writeCellDataxyz -case $case/hMean -time $time $var$part
-            sort -g -k 3 $case/hMean/$time/$var$part.xyz \
-                | sponge $case/hMean/$time/$var$part.xyz
+        for var in b uz Pi sigma sigmab sigmaPi sigmauz massTransfer.buoyant massTransfer.stable dPdz; do
+            if [ -a $case/hMean/$time/$var$part ]; then
+                writeCellDataxyz -case $case/hMean -time $time $var$part
+                sort -g -k 3 $case/hMean/$time/$var$part.xyz \
+                    | sponge $case/hMean/$time/$var$part.xyz
+            fi
         done
     done
     writeCellDataxyz -case $case/hMean -time $time P
     sort -g -k 3 $case/hMean/$time/P.xyz | sponge $case/hMean/$time/P.xyz
     
     # For consistency with single fluid cases, rename Pi.* P.*
-    mv $case/$time/Pi.stable.xyz $case/$time/P.stable.xyz
-    mv $case/$time/Pi.buoyant.xyz $case/$time/P.buoyant.xyz
+    mv $case/$time/sigmaPi.stable.xyz $case/$time/sigmaP.stable.xyz
+    mv $case/$time/sigmaPi.buoyant.xyz $case/$time/sigmaP.buoyant.xyz
 done

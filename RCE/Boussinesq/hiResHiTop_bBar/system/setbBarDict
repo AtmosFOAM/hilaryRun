@@ -1,0 +1,37 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  dev                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      setbDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+// Cubic polynomial with b=0 for z <= z0, b=b1 for z >= z1 and dbdz=0 at
+// Both these heights. 
+// Define dz = 0.5*(z1 - z0)
+//        zm = 0.5*(z0 + z1)
+// b = b1/(8 dz^3) (z^3 - 3 zm z^2 + 3(zm^2 + dz^2) z + 4dz^3 - 3zm dz^2 - zm^3
+// Use z0 = 1e4, z1 = 1.4e4, b1 = 1/16 
+// Therefore dz = 2e3, zm = 1.2e4, b1/(8 dz^3) = 9.765625e-13
+
+type             polynomial;
+//a_const   = b1/8*(4 - 3 zm/dz - (zm/dz)^3)
+a_const          -1.7968756875;
+// a_1  = 3 b1/8 ((zm/dz)^2 + 1)/dz
+a_z              4.3359375e-4;
+// a_zz = -3 b1/8 (zm/dz) / dz^2
+a_zz             -3.515625e-8;
+// a_zzz = b1/8/dz^3
+a_zzz            9.765625e-13;
+polyMin          0;
+polyMax          6.25e-2;
+
+// ************************************************************************* //

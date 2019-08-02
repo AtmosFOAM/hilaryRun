@@ -21,10 +21,12 @@ FieldsToPlot
 (
     [b.buoyant  rawValues  0 0.06 0.003 "$GMTU/colours/white_blue_red.cpt"]
     [u.buoyant vectors  0 1 "black"]
+//    [sigma.buoyant contours -0.5 1.5 1 "2,black"]
+    [uz contours -100 100 100 "2,black"]
 );
 
 separateLegend true;
-region "-1e4/1e4/0/1e4";
+region "-5e3/5e3/0/5e3";
 //region "-2500/2500/0/5000";
 boundaryMarks "5000/2500";
 plotBoundaryDots false;

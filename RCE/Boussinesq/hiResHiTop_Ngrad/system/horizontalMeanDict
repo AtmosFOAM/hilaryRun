@@ -1,0 +1,50 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  dev                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      horizontalMeanDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+levelInterfaces 61(0 250 500 750
+                   1000 1250 1500 1750
+                   2000 2250 2500 2750
+                   3000 3250 3500 3750
+                   4000 4250 4500 4750
+                   5000 5250 5500 5750
+                   6000 6250 6500 6750
+                   7000 7250 7500 7750
+                   8000 8250 8500 8750
+                   9000 9250 9500 9750
+                   10000 10250 10500 10750
+                   11000 11250 11500 11750
+                   12000 12250 12500 12750
+                   13000 13250 13500 13750
+                   14000 14250 14500 14750
+                   15000);
+fieldNamesAndDensities 11
+(
+    (b none)
+    (P none)
+    (uz none)
+
+    (b sigma.buoyant)
+    (P sigma.buoyant)
+    (uz sigma.buoyant)
+    (sigma.buoyant none)
+
+    (b sigma.stable)
+    (P sigma.stable)
+    (uz sigma.stable)
+    (sigma.stable none)
+);
+
+// ************************************************************************* //

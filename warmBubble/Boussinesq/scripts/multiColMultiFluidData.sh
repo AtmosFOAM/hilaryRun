@@ -30,8 +30,10 @@ echo ./multiColMultiFluidData.sh $case $times
 
 # Horizontal averaging
 # setup hMean (horizontal mean) directory
-rm -rf $case/hMean
-cp -r $case/../../hMean $case
+if [[ ! -a $case/hMean ]]; then
+    mkdir $case/hMean
+    cp -r $case/../../hMean/* $case/hMean
+fi
 sed 's/TIME/0/g' $case/../../hMean/system/controlDict > $case/hMean/system/controlDict
 blockMesh -case $case/hMean
 
@@ -70,16 +72,18 @@ for time in $times; do
     
     # Write out ascii data and sort by z
     for part in '' .stable .buoyant; do
-        for var in b uz Pi sigma massTransfer.buoyant massTransfer.stable; do
-            writeCellDataxyz -case $case/hMean -time $time $var$part
-            sort -g -k 3 $case/hMean/$time/$var$part.xyz \
-                | sponge $case/hMean/$time/$var$part.xyz
+        for var in b uz Pi sigma sigmab sigmaPi sigmauz massTransfer.buoyant massTransfer.stable dPdz; do
+            if [ -a $case/hMean/$time/$var$part ]; then
+                writeCellDataxyz -case $case/hMean -time $time $var$part
+                sort -g -k 3 $case/hMean/$time/$var$part.xyz \
+                    | sponge $case/hMean/$time/$var$part.xyz
+            fi
         done
     done
     writeCellDataxyz -case $case/hMean -time $time P
     sort -g -k 3 $case/hMean/$time/P.xyz | sponge $case/hMean/$time/P.xyz
     
     # For consistency with single fluid cases, rename Pi.* P.*
-    mv $case/hMean/$time/Pi.stable.xyz $case/hMean/$time/P.stable.xyz
-    mv $case/hMean/$time/Pi.buoyant.xyz $case/hMean/$time/P.buoyant.xyz
+    mv $case/hMean/$time/sigmaPi.stable.xyz $case/hMean/$time/sigmaP.stable.xyz
+    mv $case/hMean/$time/sigmaPi.buoyant.xyz $case/hMean/$time/sigmaP.buoyant.xyz
 done

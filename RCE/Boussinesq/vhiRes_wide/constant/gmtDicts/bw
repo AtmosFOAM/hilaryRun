@@ -1,0 +1,32 @@
+FoamFile
+{
+    version         2.3;
+    format          ascii;
+
+    root            "";
+    case            "";
+    instance        "constant";
+    local           "";
+
+    class           dictionary;
+    object          gmtDict;
+}
+
+// How to plot
+// Compulsory inputs
+projection "X80c/5c";
+projection2D XZ;
+
+FieldsToPlot
+(
+    [b rawValues -7e-3 7e-3 1e-3 "$GMTU/colours/red_white_blue.cpt"]
+    [uz contours -100 -1 1 "1,black,15_15:0"]
+    [uz contours 0 1000 1000 "1,black,2_2:0"]
+    [uz contours 1 100 1 "1,black"]
+    [convection contours 1e-8 1e-4 1e-4 "2,grey"]
+);
+
+separateLegend true;
+//region "0/10/-0.1/1.1";
+plotBoundaryDots false;
+//annotate "minMax 3 1.3";

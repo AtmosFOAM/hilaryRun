@@ -1,0 +1,23 @@
+inputFiles=(timeMean_TYPE/none_P.dat
+            timeMean_TYPE/sigma.stable_P.dat
+            timeMean_TYPE/sigma.buoyant_P.dat)
+outFile=timeMean_TYPE/PMean.eps
+colx=(2 2 2)
+col=1
+legends=("mean" "descent" "ascent")
+pens=("2,black" "2,blue" "2,red")
+xlabel='Pressure (m@+2@+ s@+-2@+)'
+#ylabel='Height (km)'
+xmin=0
+xmax=110
+dx=20
+ymin=0
+ymax=15
+dy=2
+dyg=10
+xscale=*1
+yscale=/1000
+legPos=x12/8
+nSkip=1
+projection=X15c/10c
+gv=0

@@ -14,20 +14,17 @@ FoamFile
 
 // How to plot
 // Compulsory inputs
-projection "X80c/5c";
+projection "X40c/4c";
 projection2D XZ;
 
 FieldsToPlot
 (
-    [b rawValues -7e-3 7e-3 1e-3 "$GMTU/colours/red_white_blue.cpt"]
-    [uz contours -100 -1 1 "1,black,15_15:0"]
-    [uz contours 0 1000 1000 "1,black,2_2:0"]
-    [uz contours 1 100 1 "1,black"]
-//    [laplacianb contours 0 100 100  "2,grey"]
-//    [convection contours 1e-8 1e-4 1e-4 "2,grey"]
+//    [b rawValues -4.2e-3 4.2e-3 4e-4 "$GMTU/colours/red_white_blue.cpt"]
+    [b rawValues -0.01 0.01 0.001 "$GMTU/colours/red_white_blue.cpt"]
+    [u vectors 200 1 "black"]
 );
 
 separateLegend true;
 //region "0/10/-0.1/1.1";
 plotBoundaryDots false;
-//annotate "minMax 3 1.3";
+annotate "minMax 3 1.3";

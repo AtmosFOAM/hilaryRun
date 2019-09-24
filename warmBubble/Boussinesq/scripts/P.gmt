@@ -1,15 +1,14 @@
-inputFiles=(DIR/CASE/hMean/TIME/P.xyz
-            DIR/CASE/hMean/TIME/Pi.stable.xyz
-            DIR/CASE/hMean/TIME/Pi.buoyant.xyz
+inputFiles=(DIR/CASE/hMean/TIME/P.stable.xyz
+            DIR/CASE/hMean/TIME/P.buoyant.xyz
 )
 outFile=DIR/CASE/hMean/TIME/P.eps
-colx=(4 4 4)
-col=(3 3 3)
-legends=("total" "falling difference" "rising difference")
-pens=("1,black" "1,blue" "1,red")
-xlabel='Fluid pressure (m@+2@+ s@+-2@+)'
+colx=(4 4)
+col=(3 3)
+legends=("P@-0@-" "P@-1@-" )
+pens=("1,blue" "1,red")
+xlabel='P@-i@-  (m@+2@+ s@+-2@+)'
 #ylabel='Height (km)'
-xmin=-50
+xmin=-70
 xmax=50
 dx=20
 ymin=0
@@ -17,7 +16,7 @@ ymax=10
 dy=2
 xscale=*1
 yscale=/1000
-legPos=x0.5/6.5
+legPos=x0.5/3.5
 nSkip=1
-projection=X10c/10c
+projection=X5c/5c
 gv=0

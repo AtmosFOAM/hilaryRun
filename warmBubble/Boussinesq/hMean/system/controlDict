@@ -30,7 +30,7 @@ startTime       TIME;
 
 stopAt          endTime;
 
-endTime         2000;
+endTime         1000;
 
 deltaT          2;
 

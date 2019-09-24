@@ -5,7 +5,8 @@
 
 writeuvw u
 
-for type in w convection; do
+#for type in w convection; do
+for type in w ; do
     # Calculate horizontal means conditioned on vertical velocity
     for time in 1????? 200000; do
         # Create cell sets "rising" and "falling" dependent on w
@@ -69,7 +70,7 @@ for type in w convection; do
 
     # plots
     time=timeMean_$type
-    for var in b u sigma dPdz; do
+    for var in b u sigma P; do
         sed 's/TYPE/'$type'/g' plots/$var.gmt > plots/tmp.gmt; \
         gmtPlot plots/tmp.gmt
     done
@@ -77,6 +78,6 @@ for type in w convection; do
         eps2png $file
     done
     montage $time/sigmaMean.png  $time/bMean.png $time/wMean.png \
-            $time/dPdzMean.png -tile 4x1 -geometry +0+0 $time/results.png
+            $time/PMean.png -tile 4x1 -geometry +0+0 $time/results.png
     eog -w $time/results.png &
 done

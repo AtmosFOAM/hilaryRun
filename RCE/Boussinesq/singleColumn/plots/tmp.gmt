@@ -1,11 +1,11 @@
-inputFiles=(100000/dPdz.stable.xyz
-            100000/dPdz.buoyant.xyz
-            0/dPdz.stable.xyz
-            0/dPdz.buoyant.xyz)
-outFile=100000/dPdz.eps
+inputFiles=(100000/P.stable.xyz
+            100000/P.buoyant.xyz
+            0/P.stable.xyz
+            0/P.buoyant.xyz)
+outFile=100000/P.eps
 col=3
 colx=4
-legends=("dPdz@-0@-" "dPdz@-1@-")
+legends=("P@-0@-" "P@-1@-")
 pens=("1,blue" "1,red" "1,blue,5_5:" "1,red,5_5:")
 #symbols=("x4p" "+4p")
 #spens=("1,blue" "1,red")
@@ -25,4 +25,4 @@ yscale=/1000
 legPos=x2/1
 nSkip=0
 projection=X4.5c/5.5c
-gv=0
+gv=1

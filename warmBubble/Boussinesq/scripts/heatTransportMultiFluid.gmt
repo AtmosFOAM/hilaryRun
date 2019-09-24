@@ -26,5 +26,5 @@ yscale=("/1000" "/1000" "/1000" "/1000" "/1000")
 legPos=x0/7
 nSkip=0
 projection=X12c/10c
-gv=0
+gv=1
 

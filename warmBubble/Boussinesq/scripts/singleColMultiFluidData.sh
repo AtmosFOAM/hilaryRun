@@ -66,4 +66,10 @@ for time in $times; do
     # For consistency with single fluid cases, rename Pi.* P.*
     mv $case/$time/sigmaPi.stable.xyz $case/$time/sigmaP.stable.xyz
     mv $case/$time/sigmaPi.buoyant.xyz $case/$time/sigmaP.buoyant.xyz
+    
+    # Add Pi to P for plotting
+    paste $case/hMean/$time/Pi.stable.xyz $case/hMean/$time/P.xyz | \
+        awk '{print $1, $2, $3, $4+$8}' > $case/hMean/$time/P.stable.xyz
+    paste $case/hMean/$time/Pi.buoyant.xyz $case/hMean/$time/P.xyz | \
+        awk '{print $1, $2, $3, $4+$8}' > $case/hMean/$time/P.buoyant.xyz
 done

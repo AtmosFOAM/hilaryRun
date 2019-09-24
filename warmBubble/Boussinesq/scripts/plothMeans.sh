@@ -38,8 +38,8 @@ if [ ! -d scripts ]; then
     ln -sf ../../scripts
 fi
 
-vars="b P sigma w sigmab sigmaP sigmaw dpdz"
-#vars="sigmab"
+vars="sigma sigmaCompare b bCompare P Pcompare w wCompare"
+#vars="dpdz"
 if [ -a $case/hMean/$time/massTransfer.buoyant.stable.xyz ]; then
     vars="$vars S"
 fi

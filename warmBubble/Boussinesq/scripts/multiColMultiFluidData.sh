@@ -72,7 +72,7 @@ for time in $times; do
     
     # Write out ascii data and sort by z
     for part in '' .stable .buoyant; do
-        for var in b uz Pi sigma sigmab sigmaPi sigmauz massTransfer.buoyant massTransfer.stable dPdz; do
+        for var in b uz Pi dPdz sigma sigmab sigmaPi sigmauz massTransfer.buoyant massTransfer.stable dPdz; do
             if [ -a $case/hMean/$time/$var$part ]; then
                 writeCellDataxyz -case $case/hMean -time $time $var$part
                 sort -g -k 3 $case/hMean/$time/$var$part.xyz \

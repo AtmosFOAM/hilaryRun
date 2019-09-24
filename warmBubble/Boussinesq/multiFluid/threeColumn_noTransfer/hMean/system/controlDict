@@ -57,4 +57,25 @@ maxCo          0.5;
 
 libs            ("libfiniteVolumeAtmosFOAMtools.so" "libExnerTheta.so");
 
+functions
+{
+    dPdz.stable
+    {
+        type          dpdz;
+        result    "dPdz.stable";
+        libs    ("libAtmosFoamFieldFunctionObjects.so");
+        writeControl writeTime;
+        field "P.stable";
+    }
+
+    dPdz.buoyant
+    {
+        type          dpdz;
+        result    "dPdz.buoyant";
+        libs    ("libAtmosFoamFieldFunctionObjects.so");
+        writeControl writeTime;
+        field "P.buoyant";
+    }
+}
+
 // ************************************************************************* //

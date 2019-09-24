@@ -141,7 +141,7 @@ Resolved,
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/singleFluid/resolved/hMean/1000/b.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/singleFluid/resolved/hMean/1000/sigmab.eps
 	lyxscale 25
 	width 22text%
 
@@ -157,7 +157,7 @@ Resolved,
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/singleFluid/resolved/hMean/1000/w.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/singleFluid/resolved/hMean/1000/sigmaw.eps
 	lyxscale 25
 	width 22text%
 
@@ -249,7 +249,7 @@ With
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/singleFluid/resolvedDiffusion/hMean/1000/b.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/singleFluid/resolvedDiffusion/hMean/1000/sigmab.eps
 	lyxscale 25
 	width 22text%
 
@@ -265,7 +265,7 @@ With
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/singleFluid/resolvedDiffusion/hMean/1000/w.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/singleFluid/resolvedDiffusion/hMean/1000/sigmaw.eps
 	lyxscale 25
 	width 22text%
 
@@ -353,7 +353,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/singleFluid/nineColumn/hMean/1000/b.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/singleFluid/nineColumn/hMean/1000/sigmab.eps
 	lyxscale 25
 	width 22text%
 
@@ -369,7 +369,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/singleFluid/nineColumn/hMean/1000/w.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/singleFluid/nineColumn/hMean/1000/sigmaw.eps
 	lyxscale 25
 	width 22text%
 
@@ -457,7 +457,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/singleFluid/fiveColumn/hMean/1000/b.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/singleFluid/fiveColumn/hMean/1000/sigmab.eps
 	lyxscale 25
 	width 22text%
 
@@ -473,7 +473,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/singleFluid/fiveColumn/hMean/1000/w.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/singleFluid/fiveColumn/hMean/1000/sigmaw.eps
 	lyxscale 25
 	width 22text%
 
@@ -561,7 +561,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/singleFluid/threeColumn/hMean/1000/b.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/singleFluid/threeColumn/hMean/1000/sigmab.eps
 	lyxscale 25
 	width 22text%
 
@@ -577,7 +577,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/singleFluid/threeColumn/hMean/1000/w.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/singleFluid/threeColumn/hMean/1000/sigmaw.eps
 	lyxscale 25
 	width 22text%
 
@@ -665,7 +665,7 @@ Single Column,
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/singleFluid/singleColumn/hMean/1000/b.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/singleFluid/singleColumn/hMean/1000/sigmab.eps
 	lyxscale 25
 	width 22text%
 
@@ -681,7 +681,7 @@ Single Column,
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/singleFluid/singleColumn/hMean/1000/w.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/singleFluid/singleColumn/hMean/1000/sigmaw.eps
 	lyxscale 25
 	width 22text%
 
@@ -839,7 +839,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_noTransfer/hMean/1000/b.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_noTransfer/hMean/1000/sigmab.eps
 	lyxscale 25
 	width 22text%
 
@@ -855,7 +855,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_noTransfer/hMean/1000/w.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_noTransfer/hMean/1000/sigmaw.eps
 	lyxscale 25
 	width 22text%
 
@@ -979,7 +979,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi/hMean/1000/b.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_1e4/hMean/1000/sigmab.eps
 	lyxscale 25
 	width 22text%
 
@@ -995,7 +995,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi/hMean/1000/w.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_1e4/hMean/1000/sigmaw.eps
 	lyxscale 25
 	width 22text%
 
@@ -1011,7 +1011,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi/hMean/1000/sigma.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_1e4/hMean/1000/sigma.eps
 	lyxscale 25
 	width 22text%
 
@@ -1027,7 +1027,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi/hMean/1000/P.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_1e4/hMean/1000/P.eps
 	lyxscale 25
 	width 22text%
 
@@ -1119,7 +1119,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_divTransfer/hMean/1000/b.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_1e4_divTransfer/hMean/1000/sigmab.eps
 	lyxscale 25
 	width 22text%
 
@@ -1135,7 +1135,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_divTransfer/hMean/1000/w.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_1e4_divTransfer/hMean/1000/sigmaw.eps
 	lyxscale 25
 	width 22text%
 
@@ -1151,7 +1151,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_divTransfer/hMean/1000/sigma.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_1e4_divTransfer/hMean/1000/sigma.eps
 	lyxscale 25
 	width 22text%
 
@@ -1167,7 +1167,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_divTransfer/hMean/1000/P.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_1e4_divTransfer/hMean/1000/P.eps
 	lyxscale 25
 	width 22text%
 
@@ -1259,7 +1259,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_halfDivTransfer/hMean/1000/b.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_halfDivTransfer/hMean/1000/sigmab.eps
 	lyxscale 25
 	width 22text%
 
@@ -1275,7 +1275,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_halfDivTransfer/hMean/1000/w.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_halfDivTransfer/hMean/1000/sigmaw.eps
 	lyxscale 25
 	width 22text%
 
@@ -1403,7 +1403,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_divTransfer_wide/hMean/1000/b.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_1e4_divTransfer_wide/hMean/1000/sigmab.eps
 	lyxscale 25
 	width 22text%
 
@@ -1419,7 +1419,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_divTransfer_wide/hMean/1000/w.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_1e4_divTransfer_wide/hMean/1000/sigmaw.eps
 	lyxscale 25
 	width 22text%
 
@@ -1435,7 +1435,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_divTransfer_wide/hMean/1000/sigma.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_1e4_divTransfer_wide/hMean/1000/sigma.eps
 	lyxscale 25
 	width 22text%
 
@@ -1451,7 +1451,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_divTransfer_wide/hMean/1000/P.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_1e4_divTransfer_wide/hMean/1000/P.eps
 	lyxscale 25
 	width 22text%
 
@@ -1547,7 +1547,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_divTransfer_narrow/hMean/1000/b.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_1e4_divTransfer_narrow/hMean/1000/sigmab.eps
 	lyxscale 25
 	width 22text%
 
@@ -1563,7 +1563,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_divTransfer_narrow/hMean/1000/w.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_1e4_divTransfer_narrow/hMean/1000/sigmaw.eps
 	lyxscale 25
 	width 22text%
 
@@ -1579,7 +1579,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_divTransfer_narrow/hMean/1000/sigma.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_1e4_divTransfer_narrow/hMean/1000/sigma.eps
 	lyxscale 25
 	width 22text%
 
@@ -1595,7 +1595,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_divTransfer_narrow/hMean/1000/P.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_1e4_divTransfer_narrow/hMean/1000/P.eps
 	lyxscale 25
 	width 22text%
 
@@ -1630,15 +1630,25 @@ Rising bubble in Buossinesq fluid, multi Fluid, single column, horizontal
 \end_inset
 
 s, 
-\begin_inset Formula $r=4000$
+\begin_inset Formula $r=2000$
 \end_inset
 
-m
+m, 
+\series default
+
+\begin_inset Formula $\gamma=10^{4}\text{m}^{2}\text{s}^{-1}$
+\end_inset
+
+, 
+\begin_inset Formula $S_{ij}=-\nabla\cdot\mathbf{u}_{i}$
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 \begin_inset Tabular
-<lyxtabular version="3" rows="6" columns="5">
+<lyxtabular version="3" rows="5" columns="5">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -1652,37 +1662,6 @@ m
 \begin_layout Plain Layout
 
 \size scriptsize
-\begin_inset Flex Rotatebox
-status open
-
-\begin_layout Plain Layout
-\begin_inset Argument 2
-status open
-
-\begin_layout Plain Layout
-90
-\end_layout
-
-\end_inset
-
-
-\begin_inset space \hspace{}
-\length 5mm
-\end_inset
-
-
-\begin_inset Formula $\gamma=10^{4}\text{m}^{2}\text{s}^{-1}$
-\end_inset
-
-, 
-\begin_inset Formula $S_{ij}=-\nabla\cdot\mathbf{u}_{i}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
  
 \begin_inset Flex Rotatebox
 status open
@@ -1725,7 +1704,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_divTransfer/hMean/1000/b.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_1e4_divTransfer/hMean/1000/sigmab.eps
 	lyxscale 25
 	width 22text%
 
@@ -1741,7 +1720,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_divTransfer/hMean/1000/w.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_1e4_divTransfer/hMean/1000/sigmaw.eps
 	lyxscale 25
 	width 22text%
 
@@ -1757,7 +1736,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_divTransfer/hMean/1000/sigma.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_1e4_divTransfer/hMean/1000/sigma.eps
 	lyxscale 25
 	width 22text%
 
@@ -1773,7 +1752,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_divTransfer/hMean/1000/P.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_1e4_divTransfer/hMean/1000/P.eps
 	lyxscale 25
 	width 22text%
 
@@ -1792,37 +1771,6 @@ status open
 \begin_layout Plain Layout
 
 \size scriptsize
-\begin_inset Flex Rotatebox
-status open
-
-\begin_layout Plain Layout
-\begin_inset Argument 2
-status open
-
-\begin_layout Plain Layout
-90
-\end_layout
-
-\end_inset
-
-
-\begin_inset space \hspace{}
-\length 5mm
-\end_inset
-
-
-\begin_inset Formula $\gamma=10^{4}\text{m}^{2}\text{s}^{-1}$
-\end_inset
-
-, 
-\begin_inset Formula $S_{ij}=-\nabla\cdot\mathbf{u}_{i}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
  
 \begin_inset Flex Rotatebox
 status open
@@ -1843,7 +1791,7 @@ status open
 \end_inset
 
 
-\begin_inset Formula $C_{D}=\frac{1}{2}$
+\begin_inset Formula $C_{D}=1$
 \end_inset
 
 , 
@@ -1865,7 +1813,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_divTransfer_drag/hMean/1000/b.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_1e4_divTransfer_drag/hMean/1000/sigmab.eps
 	lyxscale 25
 	width 22text%
 
@@ -1881,7 +1829,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_divTransfer_drag/hMean/1000/w.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_1e4_divTransfer_drag/hMean/1000/sigmaw.eps
 	lyxscale 25
 	width 22text%
 
@@ -1897,7 +1845,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_divTransfer_drag/hMean/1000/sigma.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_1e4_divTransfer_drag/hMean/1000/sigma.eps
 	lyxscale 25
 	width 22text%
 
@@ -1913,7 +1861,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_divTransfer_drag/hMean/1000/P.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_1e4_divTransfer_drag/hMean/1000/P.eps
 	lyxscale 25
 	width 22text%
 
@@ -1932,38 +1880,6 @@ status open
 \begin_layout Plain Layout
 
 \size scriptsize
-\begin_inset Flex Rotatebox
-status open
-
-\begin_layout Plain Layout
-\begin_inset Argument 2
-status open
-
-\begin_layout Plain Layout
-90
-\end_layout
-
-\end_inset
-
-
-\begin_inset space \hspace{}
-\length 5mm
-\end_inset
-
-
-\begin_inset Formula $\gamma=10^{4}\text{m}^{2}\text{s}^{-1}$
-\end_inset
-
-, 
-\begin_inset Formula $S_{ij}=-\nabla\cdot\mathbf{u}_{i}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- 
 \begin_inset Flex Rotatebox
 status open
 
@@ -2005,7 +1921,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_divTransfer_bT0/hMean/1000/b.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_divTransfer_bT0/hMean/1000/sigmab.eps
 	lyxscale 25
 	width 22text%
 
@@ -2021,7 +1937,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_divTransfer_bT0/hMean/1000/w.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_divTransfer_bT0/hMean/1000/sigmaw.eps
 	lyxscale 25
 	width 22text%
 
@@ -2072,37 +1988,6 @@ status open
 \begin_layout Plain Layout
 
 \size scriptsize
-\begin_inset Flex Rotatebox
-status open
-
-\begin_layout Plain Layout
-\begin_inset Argument 2
-status open
-
-\begin_layout Plain Layout
-90
-\end_layout
-
-\end_inset
-
-
-\begin_inset space \hspace{}
-\length 5mm
-\end_inset
-
-
-\begin_inset Formula $\gamma=10^{4}\text{m}^{2}\text{s}^{-1}$
-\end_inset
-
-, 
-\begin_inset Formula $S_{ij}=-\nabla\cdot\mathbf{u}_{i}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
  
 \begin_inset Flex Rotatebox
 status open
@@ -2123,7 +2008,7 @@ status open
 \end_inset
 
 
-\begin_inset Formula $C_{D}=\frac{1}{2}$
+\begin_inset Formula $C_{D}=1$
 \end_inset
 
 , 
@@ -2145,7 +2030,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_divTransfer_drag_bT0/hMean/1000/b.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_divTransfer_drag_bT0/hMean/1000/sigmab.eps
 	lyxscale 25
 	width 22text%
 
@@ -2161,7 +2046,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_divTransfer_drag_bT0/hMean/1000/w.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_divTransfer_drag_bT0/hMean/1000/sigmaw.eps
 	lyxscale 25
 	width 22text%
 
@@ -2179,6 +2064,7 @@ status open
 \begin_inset Graphics
 	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_divTransfer_drag_bT0/hMean/1000/sigma.eps
 	lyxscale 25
+	display false
 	width 22text%
 
 \end_inset
@@ -2231,43 +2117,11 @@ status open
 \end_inset
 
 
-\begin_inset Formula $\gamma=2\times10^{4}\text{m}^{2}\text{s}^{-1}$
+\begin_inset Formula $C_{D}=0$
 \end_inset
 
 , 
-\begin_inset Formula $S_{ij}=-\nabla\cdot\mathbf{u}_{i}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- 
-\begin_inset Flex Rotatebox
-status open
-
-\begin_layout Plain Layout
-\begin_inset Argument 2
-status open
-
-\begin_layout Plain Layout
-90
-\end_layout
-
-\end_inset
-
-
-\begin_inset space \hspace{}
-\length 5mm
-\end_inset
-
-
-\begin_inset Formula $C_{D}=\frac{1}{2}$
-\end_inset
-
-, 
-\begin_inset Formula $b^{T}=0$
+\begin_inset Formula $b^{T}=\frac{1}{2}(b_{0}+b_{1})$
 \end_inset
 
 
@@ -2285,7 +2139,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pigamma2e4_divTransfer_drag_bT0/hMean/1000/b.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_1e4_divTransfer_bT05/hMean/1000/sigmab.eps
 	lyxscale 25
 	width 22text%
 
@@ -2301,7 +2155,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pigamma2e4_divTransfer_drag_bT0/hMean/1000/w.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_1e4_divTransfer_bT05/hMean/1000/sigmaw.eps
 	lyxscale 25
 	width 22text%
 
@@ -2317,7 +2171,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pigamma2e4_divTransfer_drag_bT0/hMean/1000/sigma.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_1e4_divTransfer_bT05/hMean/1000/sigma.eps
 	lyxscale 25
 	width 22text%
 
@@ -2333,147 +2187,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pigamma2e4_divTransfer_drag_bT0/hMean/1000/P.eps
-	lyxscale 25
-	width 22text%
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-
-\size scriptsize
-\begin_inset Flex Rotatebox
-status open
-
-\begin_layout Plain Layout
-\begin_inset Argument 2
-status open
-
-\begin_layout Plain Layout
-90
-\end_layout
-
-\end_inset
-
-
-\begin_inset space \hspace{}
-\length 5mm
-\end_inset
-
-
-\begin_inset Formula $\gamma=4\times10^{3}\text{m}^{2}\text{s}^{-1}$
-\end_inset
-
-, 
-\begin_inset Formula $S_{ij}=-\nabla\cdot\mathbf{u}_{i}$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
- 
-\begin_inset Flex Rotatebox
-status open
-
-\begin_layout Plain Layout
-\begin_inset Argument 2
-status open
-
-\begin_layout Plain Layout
-90
-\end_layout
-
-\end_inset
-
-
-\begin_inset space \hspace{}
-\length 5mm
-\end_inset
-
-
-\begin_inset Formula $C_{D}=\frac{1}{2}$
-\end_inset
-
-, 
-\begin_inset Formula $b^{T}=0$
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pigamma2e4_divTransfer_drag_bT0/hMean/1000/b.eps
-	lyxscale 25
-	width 22text%
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pigamma2e4_divTransfer_drag_bT0/hMean/1000/w.eps
-	lyxscale 25
-	width 22text%
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pigamma2e4_divTransfer_drag_bT0/hMean/1000/sigma.eps
-	lyxscale 25
-	width 22text%
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pigamma2e4_divTransfer_drag_bT0/hMean/1000/P.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_1e4_divTransfer_bT05/hMean/1000/P.eps
 	lyxscale 25
 	width 22text%
 
@@ -2604,7 +2318,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_divTransfer/hMean/1000/b.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_1e4_divTransfer/hMean/1000/sigmab.eps
 	lyxscale 25
 	width 22text%
 
@@ -2620,7 +2334,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_divTransfer/hMean/1000/w.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_1e4_divTransfer/hMean/1000/sigmaw.eps
 	lyxscale 25
 	width 22text%
 
@@ -2636,7 +2350,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_divTransfer/hMean/1000/sigma.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_1e4_divTransfer/hMean/1000/sigma.eps
 	lyxscale 25
 	width 22text%
 
@@ -2652,7 +2366,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_divTransfer/hMean/1000/P.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_1e4_divTransfer/hMean/1000/P.eps
 	lyxscale 25
 	width 22text%
 
@@ -2740,7 +2454,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/threeColumn_Pi_divTransfer/hMean/1000/b.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/threeColumn_Pi_divTransfer/hMean/1000/sigmab.eps
 	lyxscale 25
 	width 22text%
 
@@ -2756,7 +2470,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/threeColumn_Pi_divTransfer/hMean/1000/w.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/threeColumn_Pi_divTransfer/hMean/1000/sigmaw.eps
 	lyxscale 25
 	width 22text%
 
@@ -2876,7 +2590,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/fiveColumn_Pi_divTransfer/hMean/1000/b.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/fiveColumn_Pi_divTransfer/hMean/1000/sigmab.eps
 	lyxscale 25
 	width 22text%
 
@@ -2892,7 +2606,7 @@ status open
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/fiveColumn_Pi_divTransfer/hMean/1000/w.eps
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/fiveColumn_Pi_divTransfer/hMean/1000/sigmaw.eps
 	lyxscale 25
 	width 22text%
 
@@ -2948,143 +2662,36 @@ status open
 \end_inset
 
 
-\begin_inset Tabular
-<lyxtabular version="3" rows="2" columns="2">
-<features tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Single Fluid
 \end_layout
 
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
+\begin_layout Standard
 
-\begin_layout Plain Layout
-Multiple fluid, single column
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/plots/heatTransportSingleFluid.eps
-	lyxscale 50
-	width 40text%
-
+\series bold
+Rising bubble in Buossinesq fluid, multi Fluid, horizontal means at 
+\begin_inset Formula $t=1000$
 \end_inset
 
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/plots/heatTransportMultiFluid_divTransfer.eps
-	lyxscale 50
-	width 40text%
-
+s, 
+\series default
+varying 
+\begin_inset Formula $\gamma$
 \end_inset
 
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
+, 
+\begin_inset Formula $S_{ij}=-\nabla\cdot\mathbf{u}_{i}$
 \end_inset
 
-
+.
+ Single column
 \end_layout
 
 \begin_layout Standard
 \begin_inset Tabular
-<lyxtabular version="3" rows="2" columns="2">
+<lyxtabular version="3" rows="6" columns="5">
 <features tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Multiple fluid, 1,3,5 columns
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Multiple fluid, single column
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/plots/heatTransportMultiFluid_colWidth.eps
-	lyxscale 50
-	width 40text%
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-\begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/plots/heatTransportMultiFluid.eps
-	lyxscale 50
-	width 40text%
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Tabular
-<lyxtabular version="3" rows="2" columns="2">
-<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <row>
@@ -3092,7 +2699,36 @@ Multiple fluid, single column
 \begin_inset Text
 
 \begin_layout Plain Layout
-Multiple fluid, single columns
+
+\size scriptsize
+\begin_inset Flex Rotatebox
+status open
+
+\begin_layout Plain Layout
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+90
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5mm
+\end_inset
+
+
+\begin_inset Formula $\gamma=0$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_inset
@@ -3101,6 +2737,61 @@ Multiple fluid, single columns
 \begin_inset Text
 
 \begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_divTransfer/hMean/1000/sigmab.eps
+	lyxscale 25
+	width 22text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_divTransfer/hMean/1000/sigmaw.eps
+	lyxscale 25
+	width 22text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_divTransfer/hMean/1000/sigma.eps
+	lyxscale 25
+	width 22text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_divTransfer/hMean/1000/P.eps
+	lyxscale 25
+	width 22text%
+
+\end_inset
+
 
 \end_layout
 
@@ -3112,10 +2803,32 @@ Multiple fluid, single columns
 \begin_inset Text
 
 \begin_layout Plain Layout
-\begin_inset Graphics
-	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/plots/heatTransportMultiFluid_Pigamma.eps
-	lyxscale 50
-	width 40text%
+
+\size scriptsize
+\begin_inset Flex Rotatebox
+status open
+
+\begin_layout Plain Layout
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+90
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5mm
+\end_inset
+
+
+\begin_inset Formula $\gamma=10^{3}\text{m}^{2}\text{s}^{-1}$
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -3128,6 +2841,477 @@ Multiple fluid, single columns
 \begin_inset Text
 
 \begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_1e3_divTransfer/hMean/1000/sigmab.eps
+	lyxscale 25
+	width 22text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_1e3_divTransfer/hMean/1000/sigmaw.eps
+	lyxscale 25
+	width 22text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_1e3_divTransfer/hMean/1000/sigma.eps
+	lyxscale 25
+	width 22text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_1e3_divTransfer/hMean/1000/P.eps
+	lyxscale 25
+	width 22text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Flex Rotatebox
+status open
+
+\begin_layout Plain Layout
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+90
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5mm
+\end_inset
+
+
+\begin_inset Formula $\gamma=4\times10^{3}\text{m}^{2}\text{s}^{-1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_4e3_divTransfer/hMean/1000/sigmab.eps
+	lyxscale 25
+	width 22text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_4e3_divTransfer/hMean/1000/sigmaw.eps
+	lyxscale 25
+	width 22text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_4e3_divTransfer/hMean/1000/sigma.eps
+	lyxscale 25
+	width 22text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_4e3_divTransfer/hMean/1000/P.eps
+	lyxscale 25
+	width 22text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Flex Rotatebox
+status open
+
+\begin_layout Plain Layout
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+90
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5mm
+\end_inset
+
+
+\begin_inset Formula $\gamma=10^{4}\text{m}^{2}\text{s}^{-1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_1e4_divTransfer/hMean/1000/sigmab.eps
+	lyxscale 25
+	width 22text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_1e4_divTransfer/hMean/1000/sigmaw.eps
+	lyxscale 25
+	width 22text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_1e4_divTransfer/hMean/1000/sigma.eps
+	lyxscale 25
+	width 22text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_1e4_divTransfer/hMean/1000/P.eps
+	lyxscale 25
+	width 22text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Flex Rotatebox
+status open
+
+\begin_layout Plain Layout
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+90
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5mm
+\end_inset
+
+
+\begin_inset Formula $\gamma=4\times10^{4}\text{m}^{2}\text{s}^{-1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_4e4_divTransfer/hMean/1000/sigmab.eps
+	lyxscale 25
+	width 22text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_4e4_divTransfer/hMean/1000/sigmaw.eps
+	lyxscale 25
+	width 22text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_4e4_divTransfer/hMean/1000/sigma.eps
+	lyxscale 25
+	width 22text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_4e4_divTransfer/hMean/1000/P.eps
+	lyxscale 25
+	width 22text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\size scriptsize
+\begin_inset Flex Rotatebox
+status open
+
+\begin_layout Plain Layout
+\begin_inset Argument 2
+status open
+
+\begin_layout Plain Layout
+90
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 5mm
+\end_inset
+
+
+\begin_inset Formula $\gamma=10^{5}\text{m}^{2}\text{s}^{-1}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_1e5_divTransfer/hMean/1000/sigmab.eps
+	lyxscale 25
+	width 22text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_1e5_divTransfer/hMean/1000/sigmaw.eps
+	lyxscale 25
+	width 22text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_1e5_divTransfer/hMean/1000/sigma.eps
+	lyxscale 25
+	width 22text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /home/hilary/OpenFOAM/hilary-dev/run/hilary/warmBubble/Boussinesq/multiFluid/singleColumn_Pi_1e5_divTransfer/hMean/1000/P.eps
+	lyxscale 25
+	width 22text%
+
+\end_inset
+
 
 \end_layout
 

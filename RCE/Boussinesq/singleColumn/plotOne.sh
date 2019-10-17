@@ -23,9 +23,9 @@ for t in 0 $time; do
         grep 500 $t/$field.xyz | sort -g -k 3 > $t/$field.xyzSorted
         mv $t/$field.xyzSorted $t/$field.xyz
     done
-    paste $t/P.xyz $t/Pi.stable.xzy | awk '{print $1, $2, $3, $4+$8}' \
+    paste $t/P.xyz $t/Pi.stable.xyz | awk '{print $1, $2, $3, $4+$8}' \
         > $t/P.stable.xyz
-    paste $t/P.xyz $t/Pi.buoyant.xzy | awk '{print $1, $2, $3, $4+$8}' \
+    paste $t/P.xyz $t/Pi.buoyant.xyz | awk '{print $1, $2, $3, $4+$8}' \
         > $t/P.buoyant.xyz
 done
 

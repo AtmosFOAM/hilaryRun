@@ -3,10 +3,9 @@
 # Calculate horizontal means conditioned on vertical velocity and time average
 # and plot
 
-writeuvw u
+#writeuvw u
 
-#for type in w convection; do
-for type in w ; do
+for type in w b; do
     # Calculate horizontal means conditioned on vertical velocity
     for time in 1????? 200000; do
         # Create cell sets "rising" and "falling" dependent on w
@@ -26,6 +25,15 @@ for type in w ; do
                 | sponge $time/horizontalMean_${fluid}_${var}.dat
         done; done
 
+        # Calculate Pi (pressure anomaly)
+        for part in stable buoyant; do
+            echo '#level Pi' > $time/horizontalMean_Pi.${part}.dat
+            paste $time/horizontalMean_sigma.${part}_P.dat \
+                  $time/horizontalMean_none_P.dat | \
+                sed -e "1d"  | awk '{print $1, $4-$12}' \
+                    >> $time/horizontalMean_Pi.${part}.dat
+        done
+
         # Calculate dpdz
         for part in stable buoyant; do
             echo '#level dPdz' > $time/horizontalMean_dPdz.${part}.dat
@@ -39,9 +47,9 @@ for type in w ; do
     # Calculate average over time
     rm -f timeMean_$type/*
     mkdir -p timeMean_$type
-    cols=(2 2 4 4 4 4 4 4 4 4 4 4 4)
+    cols=(2 2 2 2 4 4 4 4 4 4 4 4 4 4 4)
     i=0
-    for field in dPdz.buoyant dPdz.stable \
+    for field in dPdz.buoyant dPdz.stable Pi.stable Pi.buoyant \
            none_P sigma.buoyant_P sigma.stable_P \
            none_b sigma.buoyant_b sigma.stable_b \
            none_uz sigma.buoyant_uz sigma.stable_uz \

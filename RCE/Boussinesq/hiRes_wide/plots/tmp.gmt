@@ -1,6 +1,6 @@
-inputFiles=(timeMean_w/sigma.stable_P.dat
-            timeMean_w/sigma.buoyant_P.dat)
-outFile=timeMean_w/PMean.eps
+inputFiles=(timeMean_b/sigma.stable_P.dat
+            timeMean_b/sigma.buoyant_P.dat)
+outFile=timeMean_b/PMean.eps
 colx=(2 2)
 col=1
 legends=("P@-0@-" "P@-1@-")

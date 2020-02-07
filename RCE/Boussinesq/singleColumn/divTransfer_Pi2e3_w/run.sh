@@ -43,6 +43,9 @@ sed -i 's/REPLACE/'"$values"'/g' 0/Pi.stable
 values=`awk '{if(NR>1)print $2}' $FROM/Pi.buoyant.dat | paste -s`
 sed -i 's/REPLACE/'"$values"'/g' 0/Pi.buoyant
 
+values=`awk '{if(NR>1)print $2}' $FROM/none_P.dat | paste -s`
+sed -i 's/REPLACE/'"$values"'/g' 0/P
+
 # Solve Euler equations
 multiFluidBoussinesqFoam >& log & sleep 0.01; tail -f log
 

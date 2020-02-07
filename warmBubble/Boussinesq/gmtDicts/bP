@@ -22,6 +22,8 @@ FieldsToPlot
     [b  filledContours  0 0.06 0.003 "$GMTU/colours/white_blue_red.cpt"]
     [P  contours        5 100 10 "1,black"]
     [P  contours        -95 -5 10  "1,black,5_5:"]
+    [uz contours        0 1000 1000 "2,white"]
+    [uz contours        0 1000 1000 "1,black,1_2:"]
 );
 
 separateLegend true;

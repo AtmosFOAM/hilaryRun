@@ -38,7 +38,7 @@ if [ ! -d scripts ]; then
     ln -sf ../../scripts
 fi
 
-vars="sigma sigmaCompare b bCompare P Pcompare w wCompare"
+vars="sigma sigmaCompare b bCompare w wCompare P Pcompare"
 #vars="dpdz"
 if [ -a $case/hMean/$time/massTransfer.buoyant.stable.xyz ]; then
     vars="$vars S"

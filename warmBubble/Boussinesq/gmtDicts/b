@@ -19,7 +19,7 @@ projection2D XZ;
 
 FieldsToPlot
 (
-    [b  filledContours  0 0.06 0.003 "$GMTU/colours/white_blue_red.cpt"]
+    [b  rawValues  0 0.06 0.003 "$GMTU/colours/white_blue_red.cpt"]
 );
 
 separateLegend true;

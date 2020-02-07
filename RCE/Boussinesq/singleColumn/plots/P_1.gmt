@@ -1,0 +1,26 @@
+inputFiles=(TIME/P.stable.xyz
+            TIME/P.buoyant.xyz)
+outFile=TIME/P_1.eps
+col=3
+colx=4
+legends=("P@-0@-" "P@-1@-")
+pens=("1,blue" "1,red")
+#symbols=("x4p" "+4p")
+#spens=("1,blue" "1,red")
+#xlabel='dP/dz (m@+2@+ s@+-2@+/km)'
+#ylabel='Height (km)'
+xmin=-10
+xmax=10
+dx=5
+dxg=0
+ymin=0
+ymax=10
+dy=0
+ddy=2
+dyg=0
+xscale=*1
+yscale=/1000
+legPos=x2/1
+nSkip=0
+projection=X4.5c/5.5c
+gv=0

@@ -1,0 +1,33 @@
+The domain width and height
+The sine wave amplitude and wavelength
+U=10m/s?
+
+Boussinesq equations with no stratification.
+
+I will initialise with a potential flow solution
+I will have an inlet boundary on the LHS and a fixed pressure on the outlet
+w=0 at the top boundary
+
+
+
+Hi Hilary.
+
+Thanks for getting back to me.
+
+Domain width and height: 100 km x 10 km.
+Sine wave amplitude and wavelength: amplitude 250m, wavelength 5km (note that peak to peak amplitude is 500m).
+Wind speed: 10 m/s
+
+Just one additional requirement: perhaps begin sine wave at 10km from upstream boundary, and end it 20 km before the downstream one, so that we might be able to look at the flow some distance after it has stopped being directly affected by the mountains.
+
+I agree with Boussinesq equations with no stratification and potential flow. Boundary conditions are fine, and the upper BC should not be a problem for potential flow.
+
+My notes
+if dz = 100m nz = 100
+Domain width = 130km
+nx = 260 so dx = 500m
+
+U = 10m/s so for c=0.5, c = U dt/dx so dt = c dx/U = 25 s
+
+Residence time
+130e3/10 = 13,000 seconds

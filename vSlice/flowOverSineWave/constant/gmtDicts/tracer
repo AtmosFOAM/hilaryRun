@@ -1,0 +1,26 @@
+FoamFile
+{
+    version         2.2;
+    format          ascii;
+
+    root            "";
+    case            "";
+    instance        "constant";
+    local           "";
+
+    class           dictionary;
+    object          gmtDict;
+}
+
+// How to plot
+// Compulsory inputs
+projection "X52c/4c";
+projection2D XZ;
+
+FieldsToPlot
+(
+    [uDiff vectors 400 7 "grey"]
+    [tracer contours 0.5 1.5 1 "2,black"]
+);
+
+plotBoundaryDots true;

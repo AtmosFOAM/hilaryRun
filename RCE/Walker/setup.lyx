@@ -1,0 +1,158 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation skip
+\defskip smallskip
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Experiment setup
+\end_layout
+
+\begin_layout Subsection*
+Resolution and Domain
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $z:0\rightarrow10\text{km},\ 20\text{ cells, }\Delta z=0.5\text{km}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $x:-500\rightarrow500\text{km},\ 2000\text{ cells, }\Delta x=0.5\text{km}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Define 
+\begin_inset Formula $L=500\text{km}$
+\end_inset
+
+, 
+\begin_inset Formula $\ell=50\text{km}$
+\end_inset
+
+, 
+\begin_inset Formula $Z=10\text{k}m$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Surface heating
+\end_layout
+
+\begin_layout Standard
+Diffusivity 
+\begin_inset Formula $\alpha=100\text{m}^{2}\text{s}^{-1}$
+\end_inset
+
+, uniform cooling, 
+\begin_inset Formula $Q=-10^{-7}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $h=\begin{cases}
+H\sin^{2}\left(\left(\frac{x}{\ell}+1\right)\frac{\pi}{4}\right) & x\in[-\ell,\ell]\\
+H & x\in[\ell,L-\ell]\\
+H\sin^{2}\left(\left(\frac{x}{\ell}+1\right)\frac{\pi}{4}\right) & x>L-\ell\text{ or }x<-L+\ell\\
+0 & x\in[-L+\ell,-\ell]
+\end{cases}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{1}{2L}\int_{-L}^{L}h\ dx & = & -QZ/\alpha=10^{-7}\times10^{4}/10^{2}=10^{-5}\\
+ & = & \frac{H}{2L}\int_{-\ell}^{\ell}\sin^{2}\left(\left(\frac{x}{\ell}+1\right)\frac{\pi}{4}\right)\ dx+\frac{H}{2L}\int_{\ell}^{L-\ell}\ dx\\
+ & + & \frac{H}{2L}\int_{L-\ell}^{L}\sin^{2}\left(\left(\frac{x}{\ell}+1\right)\frac{\pi}{4}\right)\ dx+\frac{H}{2L}\int_{-L}^{-L+\ell}\sin^{2}\left(\left(\frac{x}{\ell}+1\right)\frac{\pi}{4}\right)\ dx\\
+ & = & \frac{H}{2L}\left\{ L-2\ell+\frac{1}{2}\int_{-\ell,\ L-\ell,\ -L}^{\ell,\ L,\ -L+\ell}1-\cos\left(\left(\frac{x}{\ell}+1\right)\frac{\pi}{2}\right)\right\} \ dx\\
+ & = & \frac{H}{2L}\left\{ L-2\ell+\frac{1}{2}\left[x-\frac{2\ell}{\pi}\sin\left(\left(\frac{x}{\ell}+1\right)\frac{\pi}{2}\right)\right]_{-\ell,\ L-\ell,\ -L}^{\ell,\ L,\ -L+\ell}\right\} \\
+ & = & \frac{H}{2L}\left\{ L-2\ell+\frac{1}{2}\left[4\ell-\frac{2\ell}{\pi}\left[\sin\pi-\sin0+\sin11\frac{\pi}{2}-\sin5\pi-\sin4\pi+\sin9\frac{\pi}{2}\right]\right]\right\} \\
+ & = & \frac{H}{2}\implies H=2\times10^{-5}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

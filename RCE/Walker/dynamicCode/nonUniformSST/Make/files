@@ -1,0 +1,6 @@
+/* dynamicCode:
+ * SHA1 = 6aeb1d413c08c2505a166e07af16548122c0f3f4
+ */
+functionObjectTemplate.C
+
+LIB = $(PWD)/../platforms/$(WM_OPTIONS)/lib/libnonUniformSST_6aeb1d413c08c2505a166e07af16548122c0f3f4

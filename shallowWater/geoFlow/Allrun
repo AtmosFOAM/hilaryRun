@@ -1,0 +1,16 @@
+rm -r [0-9]* constant/polyMesh
+
+blockMesh
+cp init_0/h_init constant
+setAnalyticTracerField -name h
+rm constant/hf_analytic
+
+mkdir 0
+mv constant/h 0
+cp init_0/hU 0
+
+cp init_0/h0 constant
+setFields
+
+shallowWaterFoam
+

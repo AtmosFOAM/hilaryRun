@@ -19,10 +19,10 @@ projection2D XZ;
 
 FieldsToPlot
 (
-    [ux rawValues 7.9 12.1 0.2 "$GMTU/colours/red_white_blue.cpt"]
-    [uz contours 0.1 2 0.2 "black"]
-    [uz contours -2.1 0.1 0.2 "black,5_3:"]
-//    [U vectors 250 10 "black"]
+//    [ux rawValues 7.9 12.1 0.2 "$GMTU/colours/red_white_blue.cpt"]
+//    [uz contours 0.1 2 0.2 "black"]
+//    [uz contours -2.1 0.1 0.2 "black,5_3:"]
+    [U vectors 250 10 "black"]
 );
 
 plotBoundaryDots true;

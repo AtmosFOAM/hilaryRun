@@ -28,3 +28,4 @@ FieldsToPlot
 
 plotBoundaryDots true;
 region "80e3/110e3/0/10e3";
+separeteLegend true;

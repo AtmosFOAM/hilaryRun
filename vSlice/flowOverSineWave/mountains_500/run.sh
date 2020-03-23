@@ -27,6 +27,10 @@ sumFields $time uDiff $time u init_0 u -scale1 -1
 gmtFoam -time $time tracer
 gv $time/tracer.pdf &
 
+writeuvw -time $time u
+gmtFoam -time $time UtracerZoom
+gv $time/UtracerZoom.pdf &
+
 mv 13000 init_2
 rm -r [0-9]*
 cp -r init_2 0

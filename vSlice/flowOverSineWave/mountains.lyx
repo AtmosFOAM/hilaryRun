@@ -75,7 +75,12 @@
 
 \begin_body
 
-\begin_layout Title
+\begin_layout Standard
+\noindent
+\align center
+
+\series bold
+\size larger
 Flow over Mountains
 \end_layout
 
@@ -89,7 +94,7 @@ Numerical solutions of the incompressible Navier-Stokes equations:
 
 \end_inset
 
-Domain is 10km high and 130km wide with horizontal inlet flow of 
+Domain is 15km high and 130km wide with horizontal inlet flow of 
 \begin_inset Formula $u=10\text{m}/\text{s}$
 \end_inset
 
@@ -109,21 +114,12 @@ with wavelength
 \end_inset
 
  and amplitude 
-\begin_inset Formula $h_{0}/2=250\text{m}$
-\end_inset
-
- or 
 \begin_inset Formula $h_{0}/2=500\text{m}$
 \end_inset
 
 .
- Once the flow has reached steady state (after one complete pass through
- the domain or 
-\begin_inset Formula $1.3\times10^{4}\text{s}$
-\end_inset
-
-, a tracer with concentration 1 is released from the inlet boundary which
- satisfies:
+ A tracer with concentration 1 at the inlet boundary and initially concentration
+ zero elsewhere is simulated which satisfies:
 \begin_inset Formula 
 \begin{equation}
 \frac{\partial\phi}{\partial t}+\nabla\cdot(\phi\mathbf{u})=0.
@@ -153,20 +149,16 @@ sideways false
 status open
 
 \begin_layout Plain Layout
-Mountain height 500m (
-\begin_inset Formula $h_{0}/2=250\text{m}$
-\end_inset
-
-), 
 \begin_inset Formula $\nu=0$
 \end_inset
 
-, vectors show velocity difference
+
 \end_layout
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename mountains_500/11000/tracer.pdf
+	filename mountains_1km_nu0_noSlip_deep/11000/Utracer.pdf
+	lyxscale 50
 	width 100text%
 
 \end_inset
@@ -175,20 +167,16 @@ Mountain height 500m (
 \end_layout
 
 \begin_layout Plain Layout
-Mountain height 1km (
-\begin_inset Formula $h_{0}/2=500\text{m}$
+\begin_inset Formula $\nu=0.01\ \text{m}^{2}\text{s}^{-1}$
 \end_inset
 
-), 
-\begin_inset Formula $\nu=0$
-\end_inset
 
-, vectors show velocity difference
 \end_layout
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename mountains_1km/11000/tracer.pdf
+	filename mountains_1km_nu001_noSlip_deep/11000/Utracer.pdf
+	lyxscale 50
 	width 100text%
 
 \end_inset
@@ -197,20 +185,16 @@ Mountain height 1km (
 \end_layout
 
 \begin_layout Plain Layout
-Mountain height 1km (
-\begin_inset Formula $h_{0}/2=500\text{m}$
+\begin_inset Formula $\nu=0.1\ \text{m}^{2}\text{s}^{-1}$
 \end_inset
 
-), 
-\begin_inset Formula $\nu=100\text{m}^{2}\text{s}^{-1}$
-\end_inset
 
-, vectors show velocity difference
 \end_layout
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename mountains_1km_nu100/11000/tracer.pdf
+	filename mountains_1km_nu01_noSlip_deep/11000/Utracer.pdf
+	lyxscale 50
 	width 100text%
 
 \end_inset
@@ -219,24 +203,16 @@ Mountain height 1km (
 \end_layout
 
 \begin_layout Plain Layout
-Mountain height 1km (
-\begin_inset Formula $h_{0}/2=500\text{m}$
+\begin_inset Formula $\nu=1\ \text{m}^{2}\text{s}^{-1}$
 \end_inset
 
-), 
-\begin_inset Formula $\nu=0$
-\end_inset
 
-, linear (ignoring 
-\begin_inset Formula $\nabla\cdot\mathbf{u}\mathbf{u}$
-\end_inset
-
- term), vectors show velocity difference
 \end_layout
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename mountains_1km_linear/11000/tracer.pdf
+	filename mountains_1km_nu1_noSlip_deep/11000/Utracer.pdf
+	lyxscale 50
 	width 100text%
 
 \end_inset
@@ -245,20 +221,34 @@ Mountain height 1km (
 \end_layout
 
 \begin_layout Plain Layout
-Mountain height 1km (
-\begin_inset Formula $h_{0}/2=500\text{m}$
+\begin_inset Formula $\nu=10\ \text{m}^{2}\text{s}^{-1}$
 \end_inset
 
-), 
-\begin_inset Formula $\nu=100\text{m}^{2}\text{s}^{-1}$
-\end_inset
 
-, no slip bottom boundary
 \end_layout
 
 \begin_layout Plain Layout
 \begin_inset Graphics
-	filename mountains_1km_nu100_noSlip/11000/Utracer.pdf
+	filename mountains_1km_nu10_noSlip_deep/11000/Utracer.pdf
+	lyxscale 50
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula $\nu=100\ \text{m}^{2}\text{s}^{-1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename mountains_1km_nu100_noSlip_deep/11000/Utracer.pdf
+	lyxscale 50
 	width 100text%
 
 \end_inset
@@ -271,16 +261,15 @@ Mountain height 1km (
 
 \begin_layout Plain Layout
 Solution of the incompressible Navier-Stokes equations over mountains.
- The vectors show are the difference in the velocity field from 
+ The vectors 
 \begin_inset Formula $(10,0,0)\text{m}/\text{s}$
 \end_inset
 
-.
+ at the inlet.
  The contour is the 0.5 value of a tracer that starts initially as 0 with
  inlet boundary condition of 1.
  Plot has the correct aspect ratio.
- The plot with a no slip bottom boundary shows vectors of total velocity
- scaled a quarter of the difference vectors.
+ 
 \end_layout
 
 \end_inset

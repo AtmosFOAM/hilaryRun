@@ -1,0 +1,6 @@
+/* dynamicCode:
+ * SHA1 = 378ba8fdd8a5cbb2aec798877125bac075d87c40
+ */
+functionObjectTemplate.C
+
+LIB = $(PWD)/../platforms/$(WM_OPTIONS)/lib/libnonUniformNu_378ba8fdd8a5cbb2aec798877125bac075d87c40

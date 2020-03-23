@@ -54,6 +54,9 @@ interpolationSchemes
     transfer       linear;
     massTransfer   linear;
     convection     linear;
+    interpolate(laplacian(u.sum)) linear;
+    interpolate(laplacian(u.stable)) linear;
+    interpolate(laplacian(u.buoyant)) linear;
 }
 
 snGradSchemes

@@ -1,0 +1,20 @@
+FoamFile {
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      add2dMountainDict;
+}
+
+type			btf;
+domainHeight	5e3;
+
+mountain
+{
+	type		sineWave;
+	xStart  	0;
+	xEnd        100e3;
+	amplitude	500;
+	waveLength	5e3;
+}
+

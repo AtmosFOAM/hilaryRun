@@ -1,0 +1,45 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  7
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+
+type            coded;
+libs            ("libutilityFunctionObjects.so");
+name            nonUniformNu;
+
+codeWrite
+#
+{
+    IOdictionary envDict
+    (
+        IOobject
+        (
+            "environmentalProperties", mesh().time().constant(), mesh(),
+            IOobject::MUST_READ, IOobject::NO_WRITE
+        )
+    );
+    const scalar kappa = readScalar(envDict.lookup("kappa"));
+    const dimensionedScalar uStar(envDict.lookup("uStar"));
+    const dimensionedScalar nuMax(envDict.lookup("nuMax"));
+
+    // Distance from the ground
+    volScalarField groundDistance
+    (
+        IOobject("groundDistance", mesh().time().constant(), mesh(), IOobject::MUST_READ),
+        mesh()
+    );
+    
+    // Viscosity that varys in space
+    volScalarField nu
+    (
+        IOobject("nu", mesh().time().constant(), mesh(), IOobject::NO_READ),
+        min(nuMax, kappa*uStar*groundDistance)
+    );
+
+    nu.write();
+#};
+
+// ************************************************************************* //

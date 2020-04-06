@@ -26,11 +26,11 @@ application buoyantFoam;
 
 startFrom       startTime;
 
-startTime       2000;
+startTime       0;
 
 stopAt          endTime;
 
-endTime         2000;
+endTime         1000;
 
 deltaT          2;
 
@@ -56,5 +56,26 @@ adjustTimeStep no;
 maxCo          0.5;
 
 libs            ("libfiniteVolumeAtmosFOAMtools.so" "libExnerTheta.so");
+
+functions
+{
+    dPdz.stable
+    {
+        type          dpdz;
+        result    "dPdz.stable";
+        libs    ("libAtmosFoamFieldFunctionObjects.so");
+        writeControl writeTime;
+        field "P.stable";
+    }
+
+    dPdz.buoyant
+    {
+        type          dpdz;
+        result    "dPdz.buoyant";
+        libs    ("libAtmosFoamFieldFunctionObjects.so");
+        writeControl writeTime;
+        field "P.buoyant";
+    }
+}
 
 // ************************************************************************* //

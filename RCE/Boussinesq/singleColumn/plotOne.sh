@@ -34,6 +34,7 @@ for field in sigma b u massTransfer P; do
     sed 's/TIME/'$time'/g' plots/$field.gmt > plots/tmp.gmt; \
     gmtPlot plots/tmp.gmt
     eps2png $time/$field.eps
+    eps2pdf $time/$field.eps
 done
 montage $time/sigma.png $time/massTransfer.png $time/b.png $time/u.png \
         $time/P.png -tile 5x1 -geometry +0+0 $time/results.png
@@ -41,6 +42,7 @@ eog -w $time/results.png &
 for field in sigma_1 b_1 u_1 P_1; do
     sed 's/TIME/'$time'/g' plots/$field.gmt > plots/tmp.gmt; \
     gmtPlot plots/tmp.gmt
+    eps2pdf $time/$field.eps
 done
 
 cd $here

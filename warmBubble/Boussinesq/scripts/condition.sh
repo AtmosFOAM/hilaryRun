@@ -46,9 +46,10 @@ for time in $times; do
     # based on w for time!=0
     if [ $time != "0" ]; then
         # Redefine sigma based on w
-        topoSet -case $case -dict system/conditionalSamplingDict -time $time
-        setFields -case $case -dict system/conditionalSamplingDict \
-            -time $time -noFunctionObjects
+        conditionalAverage -case $case -time $time uz 0 stable buoyant
+#        topoSet -case $case -dict system/conditionalSamplingDict -time $time
+#        setFields -case $case -dict system/conditionalSamplingDict \
+#            -time $time -noFunctionObjects
 
 #    # Based on b for time=0
 #    else
@@ -79,11 +80,11 @@ for time in $times; do
     done
     
     # Calculate pressure gradients
-    postProcess  -time $time -case $case/hMean -fields "(P.stable P.buoyant)"
+    #postProcess  -time $time -case $case/hMean -fields "(P.stable P.buoyant)"
     
     # Write out ascii data and sort by z
     for part in '' .stable .buoyant; do
-        for var in b uz P sigma sigmab sigmaP sigmauz dPdz; do
+        for var in b uz P sigma sigmab sigmaP sigmauz; do
             if [ -a $case/hMean/$time/$var$part ]; then
                 writeCellDataxyz -case $case/hMean -time $time $var$part
                 sort -g -k 3 $case/hMean/$time/$var$part.xyz \

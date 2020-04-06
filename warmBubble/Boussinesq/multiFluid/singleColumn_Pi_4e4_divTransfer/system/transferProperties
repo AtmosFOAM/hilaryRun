@@ -37,6 +37,7 @@ bTransferTimeScale bTransferTimeScale [0 1 -1 0 0] 0;
 transferAnomalies false;
 transferAnomaliesb0 false;
 transferAnomaliesLaplacian false;
+transferAnomaliesLinComb 0;
 
 uniformSigma false;
 

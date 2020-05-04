@@ -1,5 +1,7 @@
 inputFiles=(TIME/massTransfer.stable.buoyant.xyz 
-            TIME/massTransfer.buoyant.stable.xyz)
+            TIME/massTransfer.buoyant.stable.xyz
+            ../uniformTransfer_Pi4e3_w/0/massTransfer.stable.buoyant.xyz 
+            ../uniformTransfer_Pi4e3_w/0/massTransfer.buoyant.stable.xyz)
 outFile=TIME/massTransfer.eps
 col=3
 colx=4
@@ -19,7 +21,7 @@ ddy=2
 dyg=10
 xscale=*1
 yscale=/1000
-legPos=x0.5/2
+legPos=x0.7/2.2
 nSkip=0
 projection=X3c/5.5c
 gv=0

@@ -51,6 +51,9 @@ for time in $times; do
             | sed 's/CASE/'$case2'/g' > scripts/tmp.gmt
         gmtPlot scripts/tmp.gmt
     done
+    montage $time/sigmaCompare.eps $time/bCompare.eps $time/wCompare.eps \
+            $time/Pcompare.eps -tile 4x1 -geometry +0+0 $time/results.png
+    eog $time/results.png &
 done
 rm scripts/tmp.gmt
 

@@ -30,6 +30,7 @@ gradSchemes
 divSchemes
 {
     default         none; //Gauss vanLeer;
+    upwind          Gauss upwind;
     explicit        Gauss linearUpwind linearUpwind;
     implicit        Gauss linearUpwind linearUpwind;
 }
@@ -46,7 +47,7 @@ interpolationSchemes
 
 snGradSchemes
 {
-    default         none;
+    default         uncorrected;
 }
 
 

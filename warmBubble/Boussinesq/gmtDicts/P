@@ -14,12 +14,13 @@ FoamFile
 
 // How to plot
 // Compulsory inputs
-projection "X12c/12c";
+projection "X18c/18c";
 projection2D XZ;
 
 FieldsToPlot
 (
-    [P  filledContours  0 0 0 "$GMTU/colours/red_white_blue.cpt"]
+    [P  rawValues  0 0 0 "$GMTU/colours/red_white_blue.cpt"]
+    [Pi.stable contours 0 0 0 "black"]
 );
 
 separateLegend true;

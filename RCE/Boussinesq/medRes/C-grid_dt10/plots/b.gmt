@@ -1,0 +1,24 @@
+inputFiles=(timeMean_TYPE/sigma.stable_b.dat
+            timeMean_TYPE/sigma.buoyant_b.dat)
+outFile=timeMean_TYPE/bMean.eps
+colx=(2 2)
+col=1
+legends=("b@-0@-" "b@-1@-")
+pens=("1,blue" "1,red")
+#xlabel='b (m s@+-2@+)'
+#ylabel='z (km)'
+xmin=-0.003
+xmax=0.006
+dx=0.003
+dxg=0
+ymin=0
+ymax=10
+dy=0
+ddy=2
+dyg=10
+xscale=*1
+yscale=/1000
+legPos=x2/3
+nSkip=1
+projection=X4.5c/5.5c
+gv=0

@@ -22,6 +22,8 @@ FieldsToPlot
     [b rawValues -0.01 0.01 0.001 "$GMTU/colours/red_white_blue.cpt"]
     [U vectors 200 1 "black"]
     [u vectors 200 1 "black"]
+    [Co contours 2 100 2 "black"]
+    [Co contours 0 1 1 "black,--"]
 );
 
 separateLegend true;

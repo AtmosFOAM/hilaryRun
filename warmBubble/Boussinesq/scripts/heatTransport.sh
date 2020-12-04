@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-# Calculate the heat transport as integra(bz)dV of the horizontal means
+# Calculate the heat transport as integral(b z)dV of the horizontal means
 
 if [ "$#" -lt 1 ]
 then

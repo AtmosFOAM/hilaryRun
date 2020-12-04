@@ -38,12 +38,8 @@ if [ ! -d scripts ]; then
     ln -sf ../../scripts
 fi
 
-vars="sigma sigmaCompare b bCompare w wCompare P Pcompare"
-#vars="dpdz"
-if [ -a $case/hMean/$time/massTransfer.buoyant.stable.xyz ]; then
-    vars="$vars S"
-fi
-# Plot horizontal means of b, P, sigma and w and dpdz
+vars="sigma sigmaCompare b bCompare w wCompare P Pcompare S"
+# Plot horizontal means of b, P, sigma and w
 for time in $times; do
     for var in $vars; do
         sed 's/TIME/'$time'/g' scripts/$var.gmt \
@@ -52,7 +48,7 @@ for time in $times; do
         gmtPlot scripts/tmp.gmt
     done
     montage $time/sigmaCompare.eps $time/bCompare.eps $time/wCompare.eps \
-            $time/Pcompare.eps -tile 4x1 -geometry +0+0 $time/results.png
+            $time/Pcompare.eps $time/S.eps -tile 5x1 -geometry +0+0 $time/results.png
     eog $time/results.png &
 done
 rm scripts/tmp.gmt

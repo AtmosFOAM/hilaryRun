@@ -17,7 +17,7 @@ blockMesh -case $case
 # Initial conditions
 rm -rf $case/[0-9]* $case/core
 mkdir $case/0
-cp -r $case/init_0/* $case/0
+cp -r $case/../init_0/* $case/0
 
 # Initial buoyancy perturbation
 setFields -time 0 -case $case

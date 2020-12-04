@@ -1,0 +1,29 @@
+FoamFile
+{
+    version         2.3;
+    format          ascii;
+
+    root            "";
+    case            "";
+    instance        "constant";
+    local           "";
+
+    class           dictionary;
+    object          gmtDict;
+}
+
+// How to plot
+// Compulsory inputs
+projection "X12c/12c";
+projection2D XZ;
+
+FieldsToPlot
+(
+    [b  filledContours  0 0.06 0.003 "$GMTU/colours/white_blue_red.cpt"]
+);
+
+separateLegend true;
+region "-5e3/5e3/0/1e4";
+//region "-2500/2500/0/5000";
+boundaryMarks "2500/2500";
+plotBoundaryDots false;

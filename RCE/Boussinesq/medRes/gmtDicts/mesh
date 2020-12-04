@@ -1,0 +1,28 @@
+FoamFile
+{
+    version         2.3;
+    format          ascii;
+
+    root            "";
+    case            "";
+    instance        "constant";
+    local           "";
+
+    class           dictionary;
+    object          gmtDict;
+}
+
+// How to plot
+// Compulsory inputs
+projection "X1.25c/10c";
+projection2D XZ;
+
+FieldsToPlot
+(
+    [none mesh "black"]
+);
+
+separateLegend true;
+region "-80e3/-78.75e3/0/10e3";
+plotBoundaryDots false;
+annotate "minMax 3 1.3";

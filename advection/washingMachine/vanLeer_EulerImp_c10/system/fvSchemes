@@ -20,7 +20,7 @@ ddtSchemes
     default         Euler;
 }
 offCentre 1;
-CoLimit 0;
+CoLimit 0.5;
 
 
 gradSchemes
@@ -31,7 +31,7 @@ gradSchemes
 divSchemes
 {
     explicit         Gauss vanLeer;
-    implicit         Gauss vanLeer;
+    implicit         Gauss upwind;
     upwind         Gauss upwind;
 }
 
@@ -48,6 +48,7 @@ interpolationSchemes
 snGradSchemes
 {
     default         none;
+    snGrad(T)       uncorrected;
 }
 
 

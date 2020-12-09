@@ -22,8 +22,8 @@ FoamFile
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-nu       nu       [0 2 -1 0 0] 7;
-alpha    alpha    [0 2 -1 0 0] 10;
+nu       nu       [0 2 -1 0 0] 20;
+alpha    alpha    [0 2 -1 0 0] 30;
 gamma    gamma    [0 2 -1 0 0] 1e4;
 adjustQ  false;
 

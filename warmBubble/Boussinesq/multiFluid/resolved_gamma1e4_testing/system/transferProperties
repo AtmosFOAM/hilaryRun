@@ -24,9 +24,9 @@ FoamFile
 
 noTransfers false;
 // Diffusion coefficient for sigma
-Ksigma Ksigma [0 2 -1 0 0] 500;
+Ksigma Ksigma [0 2 -1 0 0] 50;
 // Transfer between partitions based on horizontal divergence
-divTransfer 0;
+divTransfer 1;
 // Transfer w=0 if sigma=1
 wTransfer0  false;
 // Transfer to keep w[0] < 0
@@ -36,5 +36,10 @@ minSigma  0;
 // Fix transfers so that sigma is read in and kept fixed at locations given in
 // constant/transferLocation
 uniformSigma false;
+// Transfer buoyancy anomalies based on linear combination of mean fluid 
+// buoyancies
+bAnomalyLinearCoeff 0;
+// Transfer buoyancy anomalies based on constant factor times mean buoyancy
+bAnomalyMeanCoeff 0;
 
 // ************************************************************************* //

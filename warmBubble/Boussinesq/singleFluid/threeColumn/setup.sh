@@ -20,6 +20,9 @@ mapFields -mapMethod cellVolumeWeight $case/../resolved -consistent \
 # Overwrite P with correct boundary conditions
 cp $case/init_0/P $case/0
 
+# remove bits that are not needed
+rm -f 0/massTransfer* 0/divu* 0/u?
+
 # make sure that both partitions are identical
 cp $case/0/b $case/0/b.stable
 cp $case/0/b $case/0/b.buoyant

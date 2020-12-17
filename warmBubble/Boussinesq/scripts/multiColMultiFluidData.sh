@@ -51,7 +51,7 @@ done
 for time in $times; do
     # Multiply fields by sigma (zero or one)
     for part in stable buoyant; do
-        for var in b uz Pi sigma massTransfer.buoyant massTransfer.stable; do
+        for var in b uz p sigma massTransfer.buoyant massTransfer.stable; do
             multiplyFields -case $case $time sigma$var.$part $time $var.$part \
                  $time sigma.$part
         done
@@ -64,7 +64,7 @@ for time in $times; do
               -consistent -noFunctionObjects -sourceTime $time
     # Divide conditional average fields by sigma
     for part in stable buoyant; do
-        for var in b uz Pi massTransfer.buoyant massTransfer.stable; do
+        for var in b uz p massTransfer.buoyant massTransfer.stable; do
             multiplyFields -case $case/hMean $time $var.$part \
                 $time sigma$var.$part $time sigma.$part -pow1 -1
         done
@@ -72,7 +72,7 @@ for time in $times; do
     
     # Write out ascii data and sort by z
     for part in '' .stable .buoyant; do
-        for var in b uz Pi dPdz sigma sigmab sigmaPi sigmauz massTransfer.buoyant massTransfer.stable dPdz; do
+        for var in b uz p sigma massTransfer.buoyant massTransfer.stable; do
             if [ -a $case/hMean/$time/$var$part ]; then
                 writeCellDataxyz -case $case/hMean -time $time $var$part
                 sort -g -k 3 $case/hMean/$time/$var$part.xyz \
@@ -83,7 +83,9 @@ for time in $times; do
     writeCellDataxyz -case $case/hMean -time $time P
     sort -g -k 3 $case/hMean/$time/P.xyz | sponge $case/hMean/$time/P.xyz
     
-    # For consistency with single fluid cases, rename Pi.* P.*
-    mv $case/hMean/$time/sigmaPi.stable.xyz $case/hMean/$time/sigmaP.stable.xyz
-    mv $case/hMean/$time/sigmaPi.buoyant.xyz $case/hMean/$time/sigmaP.buoyant.xyz
+    # Add p to P for plotting
+    paste $case/hMean/$time/p.stable.xyz $case/hMean/$time/P.xyz | \
+        awk '{print $1, $2, $3, $4+$8}' > $case/hMean/$time/P.stable.xyz
+    paste $case/hMean/$time/p.buoyant.xyz $case/hMean/$time/P.xyz | \
+        awk '{print $1, $2, $3, $4+$8}' > $case/hMean/$time/P.buoyant.xyz
 done

@@ -38,8 +38,8 @@ for time in $times; do
     writeuvw u -case $case -time $time
     writeuvw u.stable -case $case -time $time
     writeuvw u.buoyant -case $case -time $time
-    mv $time/u.stablez $time/uz.stable
-    mv $time/u.buoyantz $time/uz.buoyant
+    mv $case/$time/u.stablez $case/$time/uz.stable
+    mv $case/$time/u.buoyantz $case/$time/uz.buoyant
 done
 
 for time in $times; do

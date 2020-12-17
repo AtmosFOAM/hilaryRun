@@ -38,7 +38,7 @@ if [ ! -d scripts ]; then
     ln -sf ../../scripts
 fi
 
-vars="sigma sigmaCompare b bCompare w wCompare P Pcompare S"
+vars="sigma sigmaCompare b bCompare w wCompare P Pcompare"
 # Plot horizontal means of b, P, sigma and w
 for time in $times; do
     for var in $vars; do
@@ -47,9 +47,10 @@ for time in $times; do
             | sed 's/CASE/'$case2'/g' > scripts/tmp.gmt
         gmtPlot scripts/tmp.gmt
     done
-    montage $time/sigmaCompare.eps $time/bCompare.eps $time/wCompare.eps \
-            $time/Pcompare.eps $time/S.eps -tile 5x1 -geometry +0+0 $time/results.png
-    eog $time/results.png &
+    montage $case/hMean/$time/sigmaCompare.eps $case/hMean/$time/bCompare.eps \
+            $case/hMean/$time/wCompare.eps $case/hMean/$time/Pcompare.eps \
+            -tile 4x1 -geometry +0+0 $case/hMean/$time/results.png
+    display $case/hMean/$time/results.png &
 done
 rm scripts/tmp.gmt
 

@@ -1,0 +1,27 @@
+inputFiles=(multiFluid/resolved_gamma1e4_divTransfer_wTransfer/hMean/TIME/b.xyz
+            multiFluid/nineColumn_gamma1e4_divTransfer_wTransfer/hMean/TIME/b.xyz
+            multiFluid/sevenColumn_gamma1e4_divTransfer_wTransfer/hMean/TIME/b.xyz
+            multiFluid/threeColumn_gamma1e4_divTransfer_wTransfer/hMean/TIME/b.xyz
+            multiFluid/singleColumn_gamma1e4_divTransfer_wTransfer/hMean/TIME/b.xyz
+            singleFluid/resolved/hMean/0/b.xyz
+)
+outFile=plots/TIME/bMultiFluid.eps
+colx=(4 4 4 4 4 4 4)
+col=(3 3 3 3 3 3 3)
+legends=("200" "9" "7" "3" "1" "initial")
+pens=("2,black" "1,blue" "1,green"  "1,red" "2,brown" "2,grey")
+xlabel='b (m s@+-2@+)'
+ylabel='Height (km)'
+xmin=-0.0001
+xmax=0.008
+dx=0.001
+ymin=0
+ymax=10
+dy=2
+ddy=2
+xscale=("*1" "*1" "*1")
+yscale=/1000
+legPos=x12/10
+nSkip=1
+projection=X15c/15c
+gv=0

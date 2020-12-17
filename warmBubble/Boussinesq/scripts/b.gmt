@@ -19,5 +19,5 @@ xscale=("*1" "*1" "*1")
 yscale=/1000
 legPos=x2/0
 nSkip=1
-projection=X5c/5c
+projection=X5c/12c
 gv=0

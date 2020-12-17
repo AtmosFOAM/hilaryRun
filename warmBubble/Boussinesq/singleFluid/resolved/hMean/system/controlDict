@@ -26,7 +26,7 @@ application buoyantFoam;
 
 startFrom       startTime;
 
-startTime       600;
+startTime       1000;
 
 stopAt          endTime;
 

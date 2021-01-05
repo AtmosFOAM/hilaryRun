@@ -19,8 +19,7 @@ ddtSchemes
 {
     default         Euler;
 }
-offCentre 0;
-limitAnteD 1;
+CoLimit 1;
 
 gradSchemes
 {
@@ -30,7 +29,8 @@ gradSchemes
 divSchemes
 {
     default         none;
-    upwind      Gauss upwind;
+    explicit        MPDATA 1e-6;
+    implicit        MPDATA 0;
 }
 
 laplacianSchemes

@@ -19,7 +19,6 @@ ddtSchemes
 {
     default         Euler;
 }
-CoLimit 1;
 
 gradSchemes
 {
@@ -28,9 +27,7 @@ gradSchemes
 
 divSchemes
 {
-    default         none;
-    explicit        MPDATA 1e-6;
-    implicit        MPDATA 0;
+    default         MPDATA 0 1;
 }
 
 laplacianSchemes

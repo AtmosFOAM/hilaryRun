@@ -19,7 +19,7 @@ setVelocityField -case $dir
 cp $dir/0/T_analytic $dir/0/T
 
 if [[ $dir == *"MPDATA"* ]]; then
-    MPDATAadvectionFoam -case $dir |&  tee $dir/log
+    EulerImplicitExplicitAdvectionFoam -case $dir |&  tee $dir/log
 else
     implicitExplicitAdvectionFoam -case $dir |&  tee $dir/log
 fi

@@ -19,9 +19,14 @@ plotBoundaryDots false;
 FieldsToPlot
 (
     [T rawValues -1.025 1.025 0.05 "$GMTU/colours/red_white_blue.cpt"]
-    [T contours 0.025 1.025 0.05 "1,black"]
-    [T contours -1.025 -0.025  0.05 "1,black,5_5:0"]
-    [CoImp contours 0.01 1000 1000 "1,black,2_2:0"]
+    //[T contours 0.025 1.025 0.05 "1,black"]
+    //[T contours -1.025 -0.025  0.05 "1,black,5_5:0"]
+//    [CoImp contours 0.01 1000 0.1 "1,blue,2_2:0"]
+//    [CoExp contours 0 1000 0.1 "1,red,2_2:0"]
+//    [Co contours 0 1000 0.1 "0.5,black,,5_5:0"]
+//    [Co2 contours 0 1000 0.1 "1,grey,,2_2:0"]
+    [Uexp vectors 5 1 "red"]
+    [Uimp vectors 5 1 "blue"]
 );
 
 //region "0e3/450e3/0/30e3";

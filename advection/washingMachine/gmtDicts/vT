@@ -19,7 +19,9 @@ plotBoundaryDots false;
 FieldsToPlot
 (
     [T filledContours -1.025 1.025 0.05 "$GMTU/colours/red_white_blue.cpt"]
-    [antiDv vectors 20 1 "black"]
+    [anteDVe vectors 20 1 "red"]
+    [anteDVi vectors 20 1 "blue"]
+    [Tf rawValues -1.025 1.025 0.05 "$GMTU/colours/red_white_blue.cpt"]
 );
 
 //region "0e3/450e3/0/30e3";

@@ -1,0 +1,32 @@
+FoamFile
+{
+    version         2.3;
+    format          ascii;
+
+    root            "";
+    case            "";
+    instance        "constant";
+    local           "";
+
+    class           dictionary;
+    object          gmtDict;
+}
+
+// How to plot
+// Compulsory inputs
+projection "X10.1c/10c";
+projection2D XZ;
+
+FieldsToPlot
+(
+    [sigma.buoyant rawValues 0 1 0.1 "$GMTU/colours/white_grey.cpt"]
+    [b  contours  0.003 0.06 0.006 "0.5,red"]
+//    [u vectors  200 6 "black"]
+    [u vectors  200 17 "black"]
+);
+
+separateLegend true;
+region "-100/10e3/0/10e3";
+//region "-10e3/100/0/10e3";
+boundaryMarks "5e3/5e3";
+plotBoundaryDots false;

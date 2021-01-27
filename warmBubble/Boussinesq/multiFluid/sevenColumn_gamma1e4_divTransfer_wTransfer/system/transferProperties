@@ -28,7 +28,7 @@ cloudRadius cloudRadius [0 1 0 0 0] 1;
 dragCoeff 0;
 // Diffusion coefficient for sigma
 Ksigma Ksigma [0 2 -1 0 0] 0;
-// Transfer between partitions based on horizontal divergence
+// Transfer between partitions based on divergence
 divTransfer 1;
 // Transfer between partitions based on dwdz
 dwdzTransfer 1;
@@ -36,7 +36,7 @@ dwdzTransfer 1;
 wTransfer0  true;
 wPrimeCoeff 1;
 // Transfer to keep w[0] > 1 when sigma[0] >0
-wTransfer  false;
+wTransfer  0;
 // Mininum allowable sigma in any fluid
 minSigma  0;
 // Fix transfers so that sigma is read in and kept fixed at locations given in

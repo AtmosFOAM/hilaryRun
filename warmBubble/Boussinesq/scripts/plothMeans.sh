@@ -34,23 +34,23 @@ case2=`echo $case | awk -F'/' '{print $2}'`
 if [ "$case2" == "" ]; then case2=.; fi
 
 # Check that scripts exists
-if [ ! -d scripts ]; then
-    ln -sf ../../scripts
+if [ ! -d $case/scripts ]; then
+    ln -sf ../../scripts $case/scripts
 fi
 
 vars="sigma sigmaCompare b bCompare w wCompare P Pcompare"
 # Plot horizontal means of b, P, sigma and w
 for time in $times; do
     for var in $vars; do
-        sed 's/TIME/'$time'/g' scripts/$var.gmt \
+        sed 's/TIME/'$time'/g' $case/scripts/$var.gmt \
             | sed 's/DIR/'$case1'/g' \
-            | sed 's/CASE/'$case2'/g' > scripts/tmp.gmt
-        gmtPlot scripts/tmp.gmt
+            | sed 's/CASE/'$case2'/g' > $case/scripts/tmp.gmt
+        gmtPlot $case/scripts/tmp.gmt
     done
     montage $case/hMean/$time/sigmaCompare.eps $case/hMean/$time/bCompare.eps \
             $case/hMean/$time/wCompare.eps $case/hMean/$time/Pcompare.eps \
             -tile 4x1 -geometry +0+0 $case/hMean/$time/results.png
     display $case/hMean/$time/results.png &
 done
-rm scripts/tmp.gmt
+rm $case/scripts/tmp.gmt
 

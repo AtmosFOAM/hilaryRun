@@ -14,28 +14,22 @@ FoamFile
 
 // How to plot
 // Compulsory inputs
-projection "X24c/12c";
+projection "X10.1c/10c";
 projection2D XZ;
 
 FieldsToPlot
 (
-    [P filledContours -55 55 10 "$GMTU/colours/red_white_blue.cpt"]
+    [sigma.buoyant rawValues 0 1 0.1 "$GMTU/colours/white_grey.cpt"]
+    [P  colouredContours -95 95 10 "$GMTU/colours/red_white_blue.cpt"]
 
-    [Pi.buoyant  contours  1 21 2 "2,red"]
-//    [Pi.stable  contours  1 21 2 "2,blue"]
+    [p.stable colouredContours -95 95 10 "$GMTU/colours/blue.cpt"]
+    [u.stable vectors  200 8 "blue"]
 
-    [Pi.buoyant  contours  -21 -1 2 "2,red,10_15:0"]
-//    [Pi.stable  contours  -21 -1 2 "2,blue,10_15:0"]
-
-    [u.buoyant vectors  0 6 "red"]
-    [u.stable vectors  0 7 "blue"]
-    
-    [u.buoyantz contours 0.5 10.5 1 "black"]
-    [u.buoyantz contours -10.5 -0.5 1 "black,2_2:0"]
+    [p.buoyant colouredContours -95 95 10 "$GMTU/colours/red.cpt"]
+    [u.buoyant vectors  200 6 "red"]
 );
 
 separateLegend true;
-//region "-5e3/5e3/0/5e3";
-//region "-2500/2500/0/5000";
+region "-10e3/100/0/10e3";
 boundaryMarks "5000/2500";
 plotBoundaryDots false;

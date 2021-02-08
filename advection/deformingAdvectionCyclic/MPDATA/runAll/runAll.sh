@@ -4,7 +4,7 @@ time=5
 for ny in 60 120 240 480; do
     for meshType in orthogonal; do
 #        for c in 05; do
-#            for MPDATAtype in exp ; do
+#            for MPDATAtype in exp expGauge ; do
         for c in 1 2 5 10; do
             for MPDATAtype in imp impexp exp_upImp; do
                 case=`./runAll/runOne.sh $ny $meshType $c $MPDATAtype`

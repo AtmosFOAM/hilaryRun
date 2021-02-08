@@ -1,0 +1,44 @@
+inputFiles=(plots/errors_c1_imp.dat
+            plots/errors_c2_imp.dat
+            plots/errors_c4_imp.dat
+            plots/errors_c1_impExp.dat
+            plots/errors_c2_impExp.dat
+            plots/errors_c4_impExp.dat
+            plots/errors_c1_exp_upImp.dat
+            plots/errors_c2_exp_upImp.dat
+            plots/errors_c4_exp_upImp.dat
+            plots/firstOrder.dat plots/secondOrder.dat)
+outFile=plots/l2errorsMore.eps
+col=(2 2 2 2 2 2 2 2 2 2 2)
+colx=(1 1 1 1 1 1 1 1 1 1 1)
+legends=("implicit c<1.4"  "implicit c<2.8" "implicit c<5.6" 
+         "explicit/implicit c<1.4"  "explicit/implicit c<2.8"
+         "explicit/implicit c<5.6" 
+         "implicit upwind c<1.4"  "implicit upwind c<2.8"
+         "implicit upwind c<5.6" 
+         "1st/2nd order" "")
+pens=("0.5,black," "0.5,black,--" "0.5,black,-."
+      "0.5,blue," "0.5,blue,--" "0.25,blue,-."
+      "0.5,red," "0.5,red,--" "0.5,red,-."
+      "0.5,black,." "0.5,black,.")
+spens=("0.5,black" "0.5,black" "1,black"
+       "0.5,blue" "0.5,blue" "0.25,blue"
+       "0.5,red" "0.5,red" "0.5,red"
+       "0.5,black" "0.5,black")
+symbols=("s10p" "h10p" "a8p"
+         "s13p" "h13p" "a16p"
+         "s10p" "h10p" "a10p"
+         "x1p" "x1p")
+xlabel='@~D@~x (m)'
+ylabel=''
+xmin=15
+xmax=200
+dx=2
+ymin=0.005
+ymax=0.6
+dy=2
+legPos=x6.8/0.1
+nSkip=1
+projection=X12cl/12cl
+gv=0
+

@@ -13,11 +13,6 @@ resDir=$1/..
 #gmtFoam -time $time -case $case UT
 #gv $case/$time/UT.pdf &
 
-for time in 120 600; do
-    gmtFoam -time $time -case $case vT
-    gv $case/$time/vT.pdf &
-done
-
 # Calculate errors
 times='0 120 240 360 480 600'
 for time in $times; do
@@ -26,9 +21,9 @@ for time in $times; do
             -scale1 -1
     fi
 done
-#time=600
-#gmtFoam -case $case -time $time Terror
-#gv $case/$time/Terror.pdf &
+time=600
+gmtFoam -case $case -time $time vTerror
+gv $case/$time/vTerror.pdf &
 
 # Calculate error norms
 globalSum -case $case Terror

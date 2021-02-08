@@ -1,0 +1,44 @@
+inputFiles=(320x320/c05_exp/TminMax.dat
+            320x320/c05_imp/TminMax.dat
+            320x320/c1_imp/TminMax.dat
+            320x320/c2_imp/TminMax.dat
+            320x320/c4_imp/TminMax.dat
+            320x320/c1_impExp/TminMax.dat
+            320x320/c2_impExp/TminMax.dat
+            320x320/c4_impExp/TminMax.dat
+            320x320/c1_exp_upImp/TminMax.dat
+            320x320/c2_exp_upImp/TminMax.dat
+            320x320/c4_exp_upImp/TminMax.dat)
+outFile=plots/TV.eps
+col=(4 4 4 4 4 4 4 4 4 4 4)
+colx=(1 1 1 1 1 1 1 1 1 1 1)
+legends=("explicit c<0.7"  "implicit c<0.7"
+         "implicit c<1.4" "implicit c<2.8" "implicit c<5.6"
+         "explicit/implicit c<1.4" "explicit/implicit c<2.8" "explicit/implicit c<5.6"
+         "implicit upwind c<1.4" "implicit upwind c<2.8" "implicit upwind c<5.6")
+pens=("1,grey,2_4:0" 
+      "1,black,2_4:0"
+      "0.25,black"
+      "0.25,black,12_6_2_6:0"
+      "0.25,black,2_4:0"
+      "0.25,blue"
+      "0.25,blue,12_6_2_6:0"
+      "0.25,blue,2_4:0"
+      "0.25,red"
+      "0.25,red,12_6_2_6:0"
+      "0.25,red,2_4:0")
+xlabel='Time (s)'
+ylabel=''
+xmin=0
+xmax=600
+dx=60
+dxg=0
+dyg=0
+ymin=0.8
+ymax=1.005
+dy=0.1
+legPos=x9.5/0.5
+nSkip=0
+projection=X20c/12c
+gv=0
+

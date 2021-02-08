@@ -34,6 +34,8 @@ cp -r $meshDir/system $case
 sed 's/DELTAT/'$dt'/g' dummy/system/controlDict > $case/system/controlDict
 if [[ $MPDATAtype == exp ]]; then
     sed -i 's/MPDATAtype/0 10 1/g' $case/system/fvSchemes
+elif [[ $MPDATAtype == expGauge ]]; then
+    sed -i 's/MPDATAtype/1 10 1/g' $case/system/fvSchemes
 elif [[ $MPDATAtype == imp ]]; then
     sed -i 's/MPDATAtype/0 0 1/g' $case/system/fvSchemes
 elif [[ $MPDATAtype == impExp ]]; then

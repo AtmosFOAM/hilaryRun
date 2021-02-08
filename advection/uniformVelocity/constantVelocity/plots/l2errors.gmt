@@ -1,0 +1,29 @@
+inputFiles=(plots/errors_c05_exp.dat
+            plots/errors_c05_imp.dat
+            plots/errors_c1_imp.dat
+            plots/errors_c2_imp.dat
+            plots/errors_c4_imp.dat
+            plots/firstOrder.dat plots/secondOrder.dat)
+outFile=plots/l2errors.eps
+col=(2 2 2 2 2 2)
+colx=(1 1 1 1 1 1)
+legends=("explicit c<0.7" "implicit c<0.7"  "implicit c<1.4"  "implicit c<2.8"
+         "implicit c<5.6" "1st/2nd order" "")
+pens=("0.5,black" "0.5,black,-" "0.5,black," "0.5,black,--" "0.5,black,-."
+     "0.5,black,." "0.5,black,.")
+spens=("0.5,black" "0.5,black" "0.5,black" "0.5,black" "0.5,black"
+     "0.5,black" "0.5,black")
+symbols=("+10p" "c10p" "s10p" "h10p" "a10p" "x1p" "x1p")
+xlabel='@~D@~x (m)'
+ylabel=''
+xmin=15
+xmax=200
+dx=2
+ymin=0.005
+ymax=0.6
+dy=2
+legPos=x8/1
+nSkip=1
+projection=X12cl/12cl
+gv=0
+

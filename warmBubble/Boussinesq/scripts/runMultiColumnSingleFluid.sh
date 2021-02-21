@@ -5,7 +5,7 @@
 
 # Calculate conditional averages and horizontal means for single fluid cases
 ./scripts/condition.sh .
-./scripts/plothMeans.sh .
+./scripts/plothMeans.sh . 500 1000
 
 ./scripts/heatTransport.sh .
 mkdir -p plots

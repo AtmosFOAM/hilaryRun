@@ -24,7 +24,6 @@ case=$1
 mkdir -p plots
 gmtPlot scripts/heatTransport.gmt
 
-./scripts/plothMeans.sh $case
 gmtFoam bUsigma
 mkdir -p $case/animategraphics
 t=0

@@ -24,10 +24,12 @@ boundaryField
     ground
     {
         type            zeroGradient;
+        //gradient        uniform 1;
     }
     top
     {
         type            zeroGradient;
+        //gradient        uniform 1;
     }
     left
     {

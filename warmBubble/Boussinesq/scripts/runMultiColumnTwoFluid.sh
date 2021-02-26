@@ -24,16 +24,18 @@ case=$1
 mkdir -p plots
 gmtPlot scripts/heatTransport.gmt
 
-gmtFoam bUsigma
-mkdir -p $case/animategraphics
-t=0
-time=0
-while [ "$time" -le 1000 ]; do
-    montage $case/$time/bUsigma.pdf $case/hMean/$time/b.eps \
-            $case/hMean/$time/sigma.eps \
-            -tile 3x1 -geometry +0+0 $case/animategraphics/results_$t.png
-    display $case/animategraphics/results_$t.png &
-    let t=$t+1
-    let time=$time+100
-done
+gmtFoam bUcoarse
+eps2gif bUcoarse.gif 0/bUcoarse.pdf ???/bUcoarse.pdf ????/bUcoarse.pdf
+
+#mkdir -p $case/animategraphics
+#t=0
+#time=0
+#while [ "$time" -le 1000 ]; do
+#    montage $case/$time/bUsigma.pdf $case/hMean/$time/b.eps \
+#            $case/hMean/$time/sigma.eps \
+#            -tile 3x1 -geometry +0+0 $case/animategraphics/results_$t.png
+#    display $case/animategraphics/results_$t.png &
+#    let t=$t+1
+#    let time=$time+100
+#done
 

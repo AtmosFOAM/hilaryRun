@@ -16,18 +16,24 @@ FoamFile
 
 solvers
 {
-    "P|p.stable|p.buoyant"
+    "P"
     {
-        solver PCG;
-        preconditioner DIC;
+        solver GAMG;
+        smoother DICGaussSeidel;
         tolerance      1e-6;
+    }
+    "p.stable|p.buoyant|ph"
+    {
+        solver GAMG;
+        smoother DICGaussSeidel;
+        tolerance      1e-9;
     }
 }
 
 iterations
 {
     nOuterCorrectors 2;
-    nCorrectors      2;
+    nCorrectors      1;
     nNonOrthogonalCorrectors 0;
 }
 

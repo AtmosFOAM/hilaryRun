@@ -28,7 +28,7 @@ for part in stable buoyant; do
     done
 done
 
-# Make b zero gradient
+# Make b fixed value
 sed -i 's/calculated/fixedValue/g' $case/0/b.buoyant
 sed -i 's/calculated/fixedValue/g' $case/0/b.stable
 

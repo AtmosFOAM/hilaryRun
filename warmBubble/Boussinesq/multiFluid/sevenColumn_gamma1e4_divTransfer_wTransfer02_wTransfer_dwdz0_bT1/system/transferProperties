@@ -27,6 +27,8 @@ noTransfers false;
 divTransfer 1;
 // Transfer between partitions based on dwdz
 dwdzTransfer 0;
+
+dbdzTransfer 0;
 // Transfer w=0 if sigma=1
 wTransfer0  true;
 wPrimeCoeff 2;
@@ -36,5 +38,12 @@ wTransfer  0.2;
 minSigma  0;
 // Transfer buoyancy anomalies based on constant factor times mean buoyancy
 bAnomalyMeanCoeff 1;
+
+// Drag Related
+cloudRadius cloudRadius [0 1 0 0 0] 1;
+dragCoeff 0;
+
+// Diffusion between fluids
+Ksigma Ksigma [0 2 -1 0 0] 0;
 
 // ************************************************************************* //

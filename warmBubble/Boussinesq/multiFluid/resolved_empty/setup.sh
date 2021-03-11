@@ -28,9 +28,9 @@ for part in stable buoyant; do
     done
 done
 
-# Make b fixed value
-sed -i 's/calculated/fixedValue/g' $case/0/b.buoyant
-sed -i 's/calculated/fixedValue/g' $case/0/b.stable
+# Make b BC zero gradient value
+sed -i 's/calculated/zeroGradient/g' $case/0/b.buoyant
+sed -i 's/calculated/zeroGradient/g' $case/0/b.stable
 
 rm -f $case/0/*pdf $case/0/divu* $case/0/massTransfer* $case/0/sigmaP* \
       $case/0/sigma?*.* $case/0/Uf* $case/0/u?

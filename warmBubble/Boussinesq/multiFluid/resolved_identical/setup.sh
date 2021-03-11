@@ -22,11 +22,13 @@ cp $case/../../singleFluid/resolved/0/* $case/0
 cp $case/init_0/P $case/init_0/p.* $case/0
 
 # Make b.buoyant and b.stable identical
-cp 0/b 0/b.stable
-cp 0/b 0/b.buoyat
+cp $case/0/b $case/0/b.stable
+cp $case/0/b $case/0/b.buoyant
 
-rm -f 0/*pdf 0/divu* 0/massTransfer* 0/sigmaP* 0/sigma?*.* 0/Uf* 0/u?
+rm -f $case/0/*pdf $case/0/divu* $case/0/massTransfer* $case/0/sigmaP* \
+    $case/0/sigma?*.* $case/0/Uf* $case/0/u?
 
 # Run
-multiFluidBoussinesqFoam
+multiFluidBoussinesqFoam -case $case >& $case/log & sleep 0.01; tail -f $case/log
+
 

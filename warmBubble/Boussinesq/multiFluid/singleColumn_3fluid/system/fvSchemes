@@ -17,33 +17,54 @@ FoamFile
     local           "";
 
     class           dictionary;
-    object          transferProperties;
+    object          fvSchemes;
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-fluids 3
-("stable" "buoyant" "downdraft");
+ddtSchemes
+{
+    default Euler;
+}
+offCentre 0.5;
 
-noTransfers false;
-// Diffusion between fluids
-Ksigma Ksigma [0 2 -1 0 0] 500;
-// Transfer between partitions based on divergence
-divTransfer 1;
-// Transfer between partitions based on dwdz or dbdz
-dwdzTransfer 0;
-dbdzTransfer 0;
-// Transfer w=0 if sigma=1
-wTransfer0  false;
-wPrimeCoeff 0;
-// Transfer to keep w[0] > 1 when sigma[0] >0
-wTransfer  0;
-// Mininum allowable sigma in any fluid
-minSigma  0.1;
-// Transfer buoyancy anomalies based on constant factor times mean buoyancy
-bAnomalyMeanCoeff 0;
-// Drag related
-cloudRadius cloudRadius [0 1 0 0 0] 1000;
-dragCoeff 1;
+gradSchemes
+{
+    default         Gauss linear;
+}
+
+divSchemes
+{
+    default none;
+    sigma Gauss vanLeer;
+    b Gauss vanLeer;
+    u Gauss vanLeer;
+}
+
+laplacianSchemes
+{
+    default         Gauss linear uncorrected;
+}
+
+interpolationSchemes
+{
+    default        linear;
+    b              linear;
+    sigma          linear;
+    transfer       linear;
+    massTransfer   linear;
+    convection     linear;
+}
+
+snGradSchemes
+{
+    default         uncorrected;
+}
+
+fluxRequired
+{
+    default         no;
+}
+
 
 // ************************************************************************* //

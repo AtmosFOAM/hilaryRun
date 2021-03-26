@@ -1,0 +1,31 @@
+inputFiles=(TIME/bT.stable.up.xyz TIME/bT.stable.down.xyz
+            TIME/bT.up.stable.xyz TIME/bT.down.stable.xyz
+             TIME/bT.up.down.xyz TIME/bT.down.up.xyz)
+outFile=TIME/bT.eps
+col=(3 3 3 3 3 3)
+colx=(4 4 4 4 4 4)
+col=(3 3 3 3 3 3)
+colx=(4 4 4 4 4 4)
+legends=("stable->up" "stable->down" "up->stable" "down->stable" 
+         "up->down" "down->up")
+pens=("1p,black" "1p,black,5_5:0" "1p,red" "1p,blue" "1p,red,5_5:0" "1p,blue,5_5:0")
+spens=("1p,black" "1p,grey" "1p,red" "1p,blue" "1p,red" "1p,blue")
+symbols=("x8p" "x8p" "p0" "p0" "p0" "p0" "p0" "p0")
+xlabel="b@+T@+"
+ylabel=""
+xmin=-1e-2
+xmax=1e-2
+dx=1e-2
+ddx=1
+dxg=1
+ymin=0
+ymax=10
+dy=2
+ddy=1
+dyg=0
+xscale=*1
+yscale=/1000
+legPos=x0/3
+nSkip=1
+projection=X5c/8c
+gv=0

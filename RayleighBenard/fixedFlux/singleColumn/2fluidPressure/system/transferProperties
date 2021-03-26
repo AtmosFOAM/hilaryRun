@@ -1,0 +1,39 @@
+/*---------------------------------------------------------------------------*\| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.4                                   |
+|   \\  /    A nd           | Web:      http://www.openfoam.org               |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version         2.0;
+    format          ascii;
+
+    root            "";
+    case        "";
+    instance        "";
+    local           "";
+
+    class           dictionary;
+    object          transferProperties;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+fluids 2 (down up);
+
+transferType divTransfer; // Could be divTransfer, pressureTransfer, special or noTransfer
+                      // or diffusionOnly
+wTransfer0 1.7;
+bAnomalyMeanCoeff 1;
+
+cloudRadius     cloudRadius [0 1 0 0 0] 0;
+dragCoeff 0;
+
+Ksigma Ksigma [0 2 -1 0 0] 0;
+minSigma  2(0.01 0.01);
+
+//gamma    gamma    [0 2 -1 0 0] 1e7;
+
+// ************************************************************************* //

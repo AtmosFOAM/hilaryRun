@@ -1,0 +1,52 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.4                                   |
+|   \\  /    A nd           | Web:      http://www.openfoam.org               |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version         2.0;
+    format          ascii;
+
+    root            "";
+    case            "";
+    instance        "";
+    local           "";
+
+    class           dictionary;
+    object          transferProperties;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+fluids 3
+("stable" "up" "down");
+
+noTransfers false;
+// Diffusion between fluids
+Ksigma Ksigma [0 2 -1 0 0] 0;
+// Transfer between partitions based on divergence
+divTransfer 1;
+// Transfer between partitions based on dwdz or dbdz
+dwdzTransfer 0;
+dbdzTransfer 0;
+// Transfer w=0 if sigma=1
+wTransfer0  true;
+wPrimeCoeff 1;
+// Transfer to keep w[0] > 1 when sigma[0] >0
+wTransfer  0;
+// Mininum allowable sigma in any fluid
+minSigma  0.0;
+// Transfer buoyancy anomalies based on constant factor times mean buoyancy
+bAnomalyMeanCoeff 1;
+// Drag related
+cloudRadius cloudRadius [0 1 0 0 0] 1000;
+dragCoeff 0;
+
+// 3 fluid transfers based on b gradients
+bGradientTransfer false;
+
+// ************************************************************************* //

@@ -1,0 +1,30 @@
+inputFiles=(../../resolved_1fluid/TIME/P.xyz
+            ../../resolved_1fluid/hMeans/TIME/P.up.xyz
+            ../../resolved_1fluid/hMeans/TIME/P.down.xyz
+            TIME/P.up.xyz TIME/P.down.xyz)
+outFile=TIME/P.eps
+col=3
+colx=4
+legends=("r" "r up" "r d" "up" "d")
+xlabel="P (m@+2@+s@+-2@+)"
+ylabel=""
+pens=("0p,white" "2p,red,5_5:0" "2p,blue,5_5:0"  "1p,red" "1p,blue")
+spens=("1p,black" "1p,red" "1p,blue"  "1p,red" "1p,blue")
+symbols=("c1p" "p0" "p0" "p0" "p0" "p0")
+xmin=-20
+xmax=20
+dx=5
+ddx=0
+dxg=0
+ymin=0
+ymax=10
+dy=2
+ddy=1
+dyg=0
+xscale=*1
+yscale=/1000
+legPos=x3/3
+nSkip=1
+projection=X5c/8c
+gv=0
+

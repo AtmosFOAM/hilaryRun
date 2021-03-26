@@ -51,7 +51,7 @@ done
 for time in $times; do
     # Multiply fields by sigma (zero or one)
     for part in stable buoyant; do
-        for var in b uz p sigma massTransfer.buoyant massTransfer.stable; do
+        for var in b uz p ; do
             multiplyFields -case $case $time sigma$var.$part $time $var.$part \
                  $time sigma.$part
         done
@@ -64,7 +64,7 @@ for time in $times; do
               -consistent -noFunctionObjects -sourceTime $time
     # Divide conditional average fields by sigma
     for part in stable buoyant; do
-        for var in b uz p massTransfer.buoyant massTransfer.stable; do
+        for var in b uz p ; do
             multiplyFields -case $case/hMean $time $var.$part \
                 $time sigma$var.$part $time sigma.$part -pow1 -1
         done
@@ -72,7 +72,7 @@ for time in $times; do
     
     # Write out ascii data and sort by z
     for part in '' .stable .buoyant; do
-        for var in b uz p sigma massTransfer.buoyant massTransfer.stable; do
+        for var in b uz p sigma ; do
             if [ -a $case/hMean/$time/$var$part ]; then
                 writeCellDataxyz -case $case/hMean -time $time $var$part
                 sort -g -k 3 $case/hMean/$time/$var$part.xyz \

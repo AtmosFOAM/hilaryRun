@@ -1,0 +1,33 @@
+FoamFile
+{
+    version         2.3;
+    format          ascii;
+
+    root            "";
+    case            "";
+    instance        "constant";
+    local           "";
+
+    class           dictionary;
+    object          gmtDict;
+}
+
+// How to plot
+// Compulsory inputs
+projection "X80c/10c";
+projection2D XZ;
+
+FieldsToPlot
+(
+//    [wb filledContours -10.25 10.25 0.5 "$GMTU/colours/red_white_blue.cpt"]
+    [wb filledContours -0.0205 0.0205 1e-3 "$GMTU/colours/red_white_blue.cpt"]
+    [alphadbdz contours  1e-4  1e-3 1e-4 "black"]
+    [alphadbdz contours -1e-3 -1e-4 1e-4 "black,15_5:0"]
+    [alphadbdz contours 0 100 100 "2,black,2_4:0"]
+    [u vectors 100 7 "black"]
+);
+
+separateLegend true;
+//region "0/10/-0.1/1.1";
+plotBoundaryDots false;
+annotate "minMax 3 1.3";

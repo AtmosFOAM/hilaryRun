@@ -1,0 +1,29 @@
+inputFiles=(../resolved_1fluid/100000/u.air.xyz
+            ../resolved_1fluid/hMeans/100000/u.air.xyz
+            TIME/u.up.xyz TIME/u.down.xyz)
+outFile=TIME/w.eps
+col=3
+colx=6
+legends=("resolved" "resolved"  "up" "down")
+xlabel="w (m/s)"
+ylabel=""
+pens=("0p,white" "2p,darkgreen"  "1p,red" "1p,blue")
+spens=("2p,green" "1p,green" "1p,red" "1p,blue")
+symbols=("c2p" "p0" "p0" "p0" "p0" "p0")
+xmin=-10
+xmax=10
+dx=10
+ddx=1
+dxg=0
+ymin=0
+ymax=10
+dy=2
+ddy=1
+dyg=0
+xscale=*1
+yscale=/1000
+legPos=x0/3
+nSkip=1
+projection=X5c/8c
+gv=0
+

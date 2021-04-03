@@ -17,49 +17,50 @@ FoamFile
     local           "";
 
     class           dictionary;
-    object          controlDict;
+    object          fvSchemes;
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-application     multiFluidBoussinesqFoam;
+ddtSchemes
+{
+    default         Euler;
+}
+offCentre 0.5;
 
-startFrom       startTime;
-//startFrom       latestTime;
+gradSchemes
+{
+    default     Gauss linear;
+}
 
-startTime       0;
+divSchemes
+{
+    default none;
+    sigma        Gauss vanLeer;
+    b            Gauss vanLeer;
+    u            Gauss linearUpwind linearUpwind;
+    convection   Gauss linear;
+}
 
-stopAt          endTime;
+laplacianSchemes
+{
+    default         Gauss linear uncorrected;
+}
 
-endTime         1e5;
+interpolationSchemes
+{
+    default        linear;
+}
 
-deltaT          50;
+snGradSchemes
+{
+    default         uncorrected;
+}
 
-writeControl    runTime;
-
-writeInterval   1e4;
-
-purgeWrite      0;
-
-writeFormat     binary;
-
-writePrecision  6;
-
-writeCompression uncompressed;
-
-timeFormat      general;
-
-timePrecision   6;
-
-runTimeModifiable no;
-
-adjustTimeStep no;
-maxCo          0.5;
-
-libs
-(
-    "libExnerTheta.so"
-);
+fluxRequired
+{
+    default         no;
+}
 
 
 // ************************************************************************* //

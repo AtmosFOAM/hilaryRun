@@ -19,7 +19,7 @@ projection2D XZ;
 
 FieldsToPlot
 (
-    [b filledContours -1.025e-2 1.025e-2 0.5e-3 "$GMTU/colours/red_white_blue.cpt"]
+    [P filledContours 0 0 0 "$GMTU/colours/red_white_blue.cpt"]
     [u vectors 200 3 "black"]
 );
 

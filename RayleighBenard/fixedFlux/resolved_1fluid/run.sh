@@ -18,9 +18,13 @@ setFields -time 0
 multiFluidBoussinesqFoam >& log & sleep 0.01; tail -f log
 
 # Post processing
+for time in [0-9]*; do
+    ./graphData.sh . $time
+done
+
 time=100000
 
-./graphData.sh $time
+./graphData.sh . $time
 
 gmtFoam -time $time ub
 gv $time/ub.pdf &

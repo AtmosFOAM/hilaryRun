@@ -1,8 +1,8 @@
-inputFiles=(100000/massTransfer.up.down.xyz 100000/massTransfer.down.up.xyz)
-outFile=100000/massTransfer.eps
+inputFiles=(TIME/massTransfer.Up.Down.xyz TIME/massTransfer.Down.Up.xyz)
+outFile=TIME/massTransfer.eps
 col=(3 3 3 3 3 3)
 colx=(4 4 4 4 4 4)
-legends=("up->down" "down->up")
+legends=("Up->Down" "Down->Up")
 xlabel="M (s@+-1@+)"
 ylabel=""
 pens=("1p,red" "1p,blue")

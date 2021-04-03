@@ -27,7 +27,7 @@ application     multiFluidBoussinesqFoam;
 startFrom       startTime;
 //startFrom       latestTime;
 
-startTime       0;
+startTime       110000;
 
 stopAt          endTime;
 
@@ -37,7 +37,7 @@ deltaT          50;
 
 writeControl    runTime;
 
-writeInterval   1e4;
+writeInterval   1000;
 
 purgeWrite      0;
 

@@ -20,12 +20,7 @@ projection2D XZ;
 FieldsToPlot
 (
     [b filledContours -1.025e-2 1.025e-2 0.5e-3 "$GMTU/colours/red_white_blue.cpt"]
-    [u vectors 200 3 "black"]
-//    [laplacianb contours 0 100 100  "2,grey"]
-    [convection contours .25e-6 10.25e-6 .5e-6 "1,grey"]
-    [convection contours -10.25e-6 -.25e-6 .5e-6 "1,grey,8_5:0"]
-    [diffusionb contours .25e-6 10.25e-6 .5e-6 "1,green"]
-    [diffusionb contours -10.25e-6 -.25e-6 .5e-6 "1,green,8_5:0"]
+    [u.air vectors 200 3 "black"]
 );
 
 separateLegend true;

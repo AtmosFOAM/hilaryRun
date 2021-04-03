@@ -16,7 +16,7 @@ FoamFile
 
 solvers
 {
-    "P.up|P.down"
+    "P|p.up|p.down"
     {
         solver PCG;
         preconditioner DIC;
@@ -27,7 +27,7 @@ solvers
 
 iterations
 {
-    nOuterCorrectors 1;
+    nOuterCorrectors 2;
     nNonOrthogonalCorrectors 0;
 }
 

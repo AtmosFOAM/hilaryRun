@@ -10,12 +10,12 @@ FoamFile
     version     2.0;
     format      ascii;
     class       volScalarField;
-    location    "constant";
-    object      P;
+    location    "0";
+    object      b;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 2 -2 0 0 0 0];
+dimensions      [0 1 -2 0 0 0 0];
 
 internalField   uniform 0;
 
@@ -23,21 +23,17 @@ boundaryField
 {
     ground
     {
-//        type            zeroGradient;
-        type            hydrostatic;
-        value           uniform 0;
-        gradient        uniform 0;
-        gradPcoeffName  gradPcoeff;
-        buoyancyName    bf.down;
+        type            fixedGradient;
+        gradient        uniform 1e-5;
+//        type            fixedValue;
+//        value          uniform 0.01;
     }
     top
     {
-//        type            zeroGradient;
-        type            hydrostatic;
-        value           uniform 0;
-        gradient        uniform 0;
-        gradPcoeffName  gradPcoeff;
-        buoyancyName    bf.down;
+        type            fixedGradient;
+        gradient        uniform -1e-5;
+//        type            fixedValue;
+//        value          uniform -0.01;
     }
     left
     {

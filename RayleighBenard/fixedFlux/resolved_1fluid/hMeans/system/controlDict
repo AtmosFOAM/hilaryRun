@@ -27,7 +27,7 @@ application     multiFluidBoussinesqFoam;
 startFrom       startTime;
 //startFrom       latestTime;
 
-startTime       23000;
+startTime       950;
 
 stopAt          endTime;
 

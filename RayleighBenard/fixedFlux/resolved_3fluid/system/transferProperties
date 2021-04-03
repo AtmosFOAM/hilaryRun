@@ -23,18 +23,17 @@ FoamFile
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 fluids 3 (stable up down);
-transferType divBtransfer;
+transferType dwdzTransfer;
 transferScale 1;
 minSigma  3(0 0 0);
 
-wTransfer0 0;
-bAnomalyMeanCoeff 0;
+wTransferScale 0;
+bTransferScale 0;
+
+Ksigma Ksigma [0 2 -1 0 0] 0;
+gamma    gamma    [0 2 -1 0 0] 0;
 
 cloudRadius     cloudRadius [0 1 0 0 0] 0;
 dragCoeff 0;
-
-Ksigma Ksigma [0 2 -1 0 0] 0;
-
-gamma    gamma    [0 2 -1 0 0] 0;
 
 // ************************************************************************* //

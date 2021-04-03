@@ -21,6 +21,9 @@ multiFluidBoussinesqFoam >& log & sleep 0.01; tail -f log
 
 time=100000
 
+./graphData.sh . $time
+./graphs.sh $time
+
 gmtFoam -time $time ubSigma
 gv $time/ubSigma.pdf &
 

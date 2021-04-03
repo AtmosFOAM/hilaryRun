@@ -24,14 +24,16 @@ FoamFile
 
 fluids 1 (air);
 
-noTransfers true;
+transferType noTransfer;
+transferScale 0;
+wTransferScale 0;
+bTransferScale 0;
+
 cloudRadius     cloudRadius [0 1 0 0 0] 0;
 dragCoeff 0;
 
+gamma    gamma    [0 2 -1 0 0] 0;
 Ksigma Ksigma [0 2 -1 0 0] 0;
-minSigma  0;
-wTransfer 0;
-divTransfer 0;
-bAnomalyMeanCoeff 0;
+minSigma 1(0);
 
 // ************************************************************************* //

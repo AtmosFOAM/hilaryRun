@@ -33,11 +33,11 @@ stopAt          endTime;
 
 endTime         1e5;
 
-deltaT          50;
+deltaT          20;
 
 writeControl    runTime;
 
-writeInterval   50; //1000; //1e4;
+writeInterval   1000; //1e4;
 
 purgeWrite      0;
 

@@ -17,49 +17,24 @@ FoamFile
     local           "";
 
     class           dictionary;
-    object          controlDict;
+    object          transferProperties;
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-application     multiFluidBoussinesqFoam;
+fluids 2 (down up);
+transferType divBtransfer;
+transferScale 1;
+minSigma  2(0 0);
 
-startFrom       startTime;
-//startFrom       latestTime;
+wTransfer0 2;
+bAnomalyMeanCoeff 0;
 
-startTime       0;
+cloudRadius     cloudRadius [0 1 0 0 0] 0;
+dragCoeff 0;
 
-stopAt          endTime;
+Ksigma Ksigma [0 2 -1 0 0] 0;
 
-endTime         1e5;
-
-deltaT          50;
-
-writeControl    runTime;
-
-writeInterval   1e4;
-
-purgeWrite      0;
-
-writeFormat     binary;
-
-writePrecision  6;
-
-writeCompression uncompressed;
-
-timeFormat      general;
-
-timePrecision   6;
-
-runTimeModifiable no;
-
-adjustTimeStep no;
-maxCo          0.5;
-
-libs
-(
-    "libExnerTheta.so"
-);
-
+gamma    gamma    [0 2 -1 0 0] 1e3;
 
 // ************************************************************************* //

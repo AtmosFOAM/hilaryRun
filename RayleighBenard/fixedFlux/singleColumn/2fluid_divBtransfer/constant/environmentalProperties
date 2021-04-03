@@ -17,49 +17,12 @@ FoamFile
     local           "";
 
     class           dictionary;
-    object          controlDict;
+    object          environmentalProperties;
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-application     multiFluidBoussinesqFoam;
-
-startFrom       startTime;
-//startFrom       latestTime;
-
-startTime       0;
-
-stopAt          endTime;
-
-endTime         1e5;
-
-deltaT          50;
-
-writeControl    runTime;
-
-writeInterval   1e4;
-
-purgeWrite      0;
-
-writeFormat     binary;
-
-writePrecision  6;
-
-writeCompression uncompressed;
-
-timeFormat      general;
-
-timePrecision   6;
-
-runTimeModifiable no;
-
-adjustTimeStep no;
-maxCo          0.5;
-
-libs
-(
-    "libExnerTheta.so"
-);
-
+nu       nu       [0 2 -1 0 0] 70.7;
+alpha    alpha    [0 2 -1 0 0] 1e2;
 
 // ************************************************************************* //

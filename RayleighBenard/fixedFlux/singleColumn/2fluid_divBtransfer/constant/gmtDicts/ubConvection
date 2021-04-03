@@ -19,12 +19,13 @@ projection2D XZ;
 
 FieldsToPlot
 (
-//    [wb filledContours -10.25 10.25 0.5 "$GMTU/colours/red_white_blue.cpt"]
-    [wb filledContours -0.0205 0.0205 1e-3 "$GMTU/colours/red_white_blue.cpt"]
-    [alphadbdz contours  1e-4  1e-3 1e-4 "black"]
-    [alphadbdz contours -1e-3 -1e-4 1e-4 "black,15_5:0"]
-    [alphadbdz contours 0 100 100 "2,black,2_4:0"]
-    [u vectors 100 7 "black"]
+    [b filledContours -1.025e-2 1.025e-2 0.5e-3 "$GMTU/colours/red_white_blue.cpt"]
+    [u.air vectors 200 3 "black"]
+//    [laplacianb contours 0 100 100  "2,grey"]
+    [convection contours .25e-6 10.25e-6 .5e-6 "1,grey"]
+    [convection contours -10.25e-6 -.25e-6 .5e-6 "1,grey,8_5:0"]
+    [diffusionb contours .25e-6 10.25e-6 .5e-6 "1,green"]
+    [diffusionb contours -10.25e-6 -.25e-6 .5e-6 "1,green,8_5:0"]
 );
 
 separateLegend true;

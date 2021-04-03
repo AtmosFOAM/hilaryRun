@@ -1,0 +1,30 @@
+inputFiles=(TIME/u.xyz
+            hMeans/TIME/u.Stable.xyz
+            hMeans/TIME/u.Up.xyz
+            hMeans/TIME/u.Down.xyz)
+outFile=TIME/w.eps
+col=3
+colx=6
+legends=("all" "Stable" "Up" "Down")
+xlabel="w (m/s)"
+ylabel=""
+pens=("0p,white" "1p,black"  "1p,red" "1p,blue")
+spens=("1p,black" "1p,black" "1p,red" "1p,blue")
+symbols=("c1p" "p0" "p0" "p0" "p0" "p0")
+xmin=-10
+xmax=10
+dx=10
+ddx=0
+dxg=0
+ymin=0
+ymax=10
+dy=2
+ddy=1
+dyg=0
+xscale=*1
+yscale=/1000
+legPos=x0/5.5
+nSkip=1
+projection=X5c/8c
+gv=0
+

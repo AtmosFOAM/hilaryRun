@@ -16,8 +16,7 @@ FoamFile
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 timeVaryingWind true;
-type deformationalNonDivergent;
-deformationScale 5;
-domainSize (360 180 0);
-
-
+type deformationalNonDivergentGeodesic;
+radius 1;
+deformationScale 10;
+endTime endTime [0 0 1 0 0] 5;

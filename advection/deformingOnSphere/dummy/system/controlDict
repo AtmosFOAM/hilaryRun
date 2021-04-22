@@ -32,7 +32,7 @@ stopAt          endTime;
 
 endTime         5;
 
-deltaT          DELTAT;
+deltaT          0.1;
 
 writeControl    runTime;
 
@@ -52,8 +52,8 @@ timePrecision   6;
 
 runTimeModifiable no;
 
-adjustTimeStep no;
-maxCo          1;
+adjustTimeStep yes;
+maxCo          MAXCO;
 
 libs           ("libfiniteVolumeAtmosFOAMtools.so");
 // ************************************************************************* //

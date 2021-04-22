@@ -1,13 +1,13 @@
 #!/bin/bash -e
 
-if [ "$#" -ne 1 ]; then
-    echo usage runAll.sh run|post
+if [ "$#" -ne 2 ]; then
+    echo usage runOne.sh case run|post
     exit
 fi
 
-case=.
+case=$1
 
-if [[ $1 == run ]]; then
+if [[ $2 == run ]]; then
     # Mesh generation
     sphPolarLatLonMesh -case $case
 
@@ -17,11 +17,15 @@ if [[ $1 == run ]]; then
     setInitialTracerField -case $case -name T
     sed -i 's/calculated/zeroGradient/g' $case/0/T
     setVelocityField -case $case
-    gmtFoam -case $case -time 0 UT
-    gv $case/0/UT.pdf &
+    #gmtFoam -case $case -time 0 UT
+    #gv $case/0/UT.pdf &
 
-    implicitAdvectionFoam >& log &
-    tail -f log
+    # Parallel decomposition
+    decomposePar -case $case
+    echo starting mpirun. Output in $case/log
+    mpirun -np 4 implicitAdvectionFoam -case $case -parallel >& $case/log
+    #implicitAdvectionFoam -case $case >& log &
+    #tail -f log
 else
     # Errors from initial conditions
     sumFields -case $case 5 Terror 5 T 0 T -scale1 -1

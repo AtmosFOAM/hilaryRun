@@ -35,7 +35,7 @@ gradSchemes
 divSchemes
 {
     default             none;
-    div(phi,T)          MPDATA MPDATAtype;
+    div(phi,T)          SCHEME;
 }
 
 laplacianSchemes

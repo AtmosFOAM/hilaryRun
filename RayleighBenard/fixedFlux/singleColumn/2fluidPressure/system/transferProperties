@@ -11,7 +11,7 @@ FoamFile
     format          ascii;
 
     root            "";
-    case        "";
+    case            "";
     instance        "";
     local           "";
 
@@ -26,14 +26,14 @@ fluids 2 (down up);
 transferType dwdzTransfer; // Could be divTransfer, dwdzTransfer, pressureTransfer,
                       //  special or noTransfer or diffusionOnly
 transferScale 1;
-wTransferScale 1.5;
-bTransferScale 1;
+wTransferScale 2;
+bTransferScale 0;
+
+minSigma  2(0 0);
+
+gamma    gamma    [0 2 -1 0 0] 1e3;
 
 cloudRadius     cloudRadius [0 1 0 0 0] 0;
 dragCoeff 0;
-
-minSigma  2(0.01 0.01);
-
-gamma    gamma    [0 2 -1 0 0] 1e3;
 
 // ************************************************************************* //

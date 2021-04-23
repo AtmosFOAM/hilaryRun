@@ -7,19 +7,26 @@
 
 cs=(0.8 1.6 8)
 cText="08 1p6 8"
-echo $cText
 
-schemes=("MPDATA_CN" "upwind")
+#schemes=("MPDATA_CN" "upwind")
+#schemesText=("MPDATA_CN 1" " Gauss upwind")
+schemes=("MPDATA_CN")
+schemesText=("MPDATA_CN 1")
 echo ${schemes[*]}
 
-ic=$((0))
-for c in $cText; do
-    cVal=${cs[$ic]}
-    echo $c $cVal
 
-    for scheme in ${schemes[*]}; do
-        for res in 60 120; do
-            let twoRes=$res*2
+is=$((0))
+for scheme in ${schemes[*]}; do
+    schemeText=${schemesText[$is]}
+    echo s/SCHEME/"$schemeText"/g
+    for res in 60 120 240 360; do
+        twoRes=$(($res*2))
+
+        ic=$((0))
+        for c in $cText; do
+            cVal=${cs[$ic]}
+            echo $c $cVal
+
             case=results/c${c}_${scheme}/${twoRes}x${res}
             echo preparing case $case
             mkdir -p $case
@@ -27,14 +34,14 @@ for c in $cText; do
             sed -i 's/NY/'$res'/g' $case/constant/earthProperties
             sed -i 's/NX/'$twoRes'/g' $case/constant/earthProperties
             sed -i 's/MAXCO/'$cVal'/g' $case/system/controlDict
-            sed -i 's/SCHEME/'$scheme'/g' $case/system/fvSchemes
+            sed -i 's/SCHEME/'"$schemeText"'/g' $case/system/fvSchemes
             
             echo running case $case
             ./runAll/runOne.sh $case run
             echo done
         done
+        ic=$(($ic+1))
     done
-    
-    ic=$(($ic+1))
+    is=$(($is+1))
 done
 

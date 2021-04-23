@@ -23,11 +23,11 @@ boundaryField
 {
     ground
     {
-        type            zeroGradient;
+        type            extrapolatedCalculated;
     }
     top
     {
-        type            zeroGradient;
+        type            extrapolatedCalculated;
     }
     left
     {

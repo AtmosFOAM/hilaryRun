@@ -1,11 +1,12 @@
 #!/bin/bash -e
 
 # Assemble l2 error norms as a function of resolution for different schemes
-cases="results/c08_exp_1_noSmoothvAdvCorr_noPolarCell
-       results/c08_imp_1_noSmoothvAdvCorr_noPolarCell
-       results/c1p6_imp_1_noSmoothvAdvCorr_noPolarCell
-       results/c8_imp_1_noSmoothvAdvCorr_noPolarCell
-       results/c1p6_imp_upwind"
+cases="results/c08_MPDATA_CN
+       results/c1p6_MPDATA_CN
+       results/c8_MPDATA_CN
+       results/MPDATA_CN
+       resultsRotated/MPDATA_CN
+       results/c08_upwind_BE"
 inputFiles=''
 
 for case in $cases; do
@@ -31,20 +32,24 @@ inputFiles=(${inputFiles[*]}
             results/plots/1st2ndOrder.dat
             results/plots/1st2ndOrder.dat)
 outFile=results/plots/l2error.eps
-col=(4 4 4 4 4 3 4)
-colx=(2 2 2 2 2 2 2)
-pens=("1p,black" "1p,blue" "1p,red" "1p,cyan"
-     "1p,magenta" "0.5p,black,1_2:0"  "0.5p,black,1_2:0")
-symbols=('c10p' '+14p' 'a10p' 't10p' 'a10p'
+col=(4 4 4 4 4 4 3 4)
+colx=(2 2 2 2 2 2 2 2)
+pens=("1p,black" "1p,blue" "1p,red"
+     "0.5p,grey,4_4:0" "0.5p,cyan,4_4:0"  "0.5p,magenta,4_4:0"
+     "0.5p,black,1_2:0"  "0.5p,black,1_2:0")
+symbols=('c10p' '+14p' 'x14p'
+         't10p' 'i10p' 's6p' 
          'x1p' 'x1p')
-spens=("1p,black" "1p,blue" "1p,red" "1p,cyan"
-       "1p,magenta" "1p,grey" "1p,grey")
-legends=("explicit, c<0.8" "mixed, c<0.8" "mixed, c<1.6" "mixed, c<8" "upwind, c<1.6" "1st/2nd order")
+pens=("1p,black" "1p,blue" "1p,red"
+     "0.5p,cyan"  "0.5p,magenta" "0.5p,grey"
+     "0.5p,black,1_2:0"  "0.5p,black,1_2:0")
+legends=("c<0.8" "c<1.6" "c<8"
+         "c~1" "Rotated lat-lon" "upwind, c<0.8" "1st/2nd order")
 
 xlabel='@~D@~x (degrees)'
 #ylabel='l@-2@- error'
 xmin=0.4
-xmax=15
+xmax=4
 dx=2
 ddx=2
 dxg=0
@@ -55,16 +60,16 @@ ddy=2
 dyg=0
 xscale=*1
 yscale=*1
-legPos=x5.3/0
-projection=X9cl/4cl
+legPos=x8.5/0
+projection=X8cl/4cl
 gv=0
 
 . gmtPlot
 
-outFile=results/plots/l2errorRes.eps
-colx=(1 1 1)
-xlabel='N (pole to pole)'
-xmin=20
-xmax=500
-legPos=x0.5/0.5
-. gmtPlot
+#outFile=results/plots/l2errorRes.eps
+#colx=(1 1 1)
+#xlabel='N (pole to pole)'
+#xmin=20
+#xmax=500
+#legPos=x0.5/0.5
+#. gmtPlot

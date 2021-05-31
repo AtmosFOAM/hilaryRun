@@ -15,12 +15,14 @@ schemesText=("MPDATA_CN 1")
 echo ${schemes[*]}
 
 
-is=$((0))
-for scheme in ${schemes[*]}; do
-    schemeText=${schemesText[$is]}
-    echo s/SCHEME/"$schemeText"/g
-    for res in 60 120 240 360; do
-        twoRes=$(($res*2))
+#for res in 60 120 240 360; do
+for res in 120 240 360; do
+    twoRes=$(($res*2))
+
+    is=$((0))
+    for scheme in ${schemes[*]}; do
+        schemeText=${schemesText[$is]}
+        echo s/SCHEME/"$schemeText"/g
 
         ic=$((0))
         for c in $cText; do
@@ -38,9 +40,8 @@ for scheme in ${schemes[*]}; do
             
             echo running case $case
             ./runAll/runOne.sh $case run
-            echo done
+            ic=$(($ic+1))
         done
-        ic=$(($ic+1))
     done
     is=$(($is+1))
 done

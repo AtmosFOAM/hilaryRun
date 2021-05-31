@@ -7,9 +7,30 @@ fi
 
 case=$1
 
-if [[ $2 == run ]]; then
+if [[ $2 == run  ]]; then
     # Mesh generation
-    sphPolarLatLonMesh -case $case
+    if [[ -a $case/constant/earthProperties ]]; then
+        latLon=`grep nLat $case/constant/earthProperties | wc | \
+             awk '{print $1}'`
+        if [[ $latLon > 0 ]]; then
+            sphPolarLatLonMesh -case $case
+        fi
+    elif [[ -a $case/system/blockMeshDict ]]; then
+        blockMesh -case $case
+        tanPoints -case $case
+        extrudeMesh -case $case
+    elif [[ -a $case/constant/HRgrid ]]; then
+        grid=`cat $case/constant/HRgrid`
+        cp $HOME/f77/buckyball_griddata/grid$grid.out/patch.obj \
+            $case/constant
+        extrudeMesh -case $case
+    elif [[ -a $case/constant/dualGrid ]]; then
+        grid=`cat $case/constant/dualGrid`
+        rm -r $case/constant/polyMesh
+        cp -r $case/$grid/constant/polyMesh $case/constant
+        polyDualMesh 90 -case $case -overwrite
+        extrudeMesh -case $case
+    fi
 
     # Initial conditions
     rm -rf $case/0

@@ -1,9 +1,9 @@
 #!/bin/bash -e
 
 # Assemble l2 error norms as a function of resolution for different schemes
-cases="weakDeformation/c08_MPDATA_cubedSphere_2gauge_adv
-       weakDeformation/c1p6_MPDATA_cubedSphere_2gauge_adv
-       weakDeformation/c3_MPDATA_cubedSphere_2gauge_adv
+cases="weakDeformation/c1_MPDATA_cubedSphere_2gauge_adv
+       weakDeformation/c2_MPDATA_cubedSphere_2gauge_adv
+       weakDeformation/c4_MPDATA_cubedSphere_2gauge_adv
        weakDeformation/c8_MPDATA_cubedSphere_2gauge_adv"
 inputFiles=''
 

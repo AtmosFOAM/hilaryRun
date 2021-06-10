@@ -25,6 +25,8 @@ if [[ $2 == run  ]]; then
         grid=`cat $case/constant/HRgrid`
         cp $HOME/f77/buckyball_griddata/grid$grid.out/patch.obj \
             $case/constant
+        sed 's:SOURCECASE:'$case':g' $case/system/extrudeMeshDictTmp \
+            > $case/system/extrudeMeshDict
         extrudeMesh -case $case
     elif [[ -a $case/constant/dualGrid ]]; then
         grid=`cat $case/constant/dualGrid`

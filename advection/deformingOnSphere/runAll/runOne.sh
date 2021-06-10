@@ -18,17 +18,23 @@ if [[ $2 == run  ]]; then
     elif [[ -a $case/system/blockMeshDict ]]; then
         blockMesh -case $case
         tanPoints -case $case
+        sed 's:SOURCECASE:'$case':g' $case/system/extrudeMeshDictTmp \
+            > $case/system/extrudeMeshDict
         extrudeMesh -case $case
     elif [[ -a $case/constant/HRgrid ]]; then
         grid=`cat $case/constant/HRgrid`
         cp $HOME/f77/buckyball_griddata/grid$grid.out/patch.obj \
             $case/constant
+        sed 's:SOURCECASE:'$case':g' $case/system/extrudeMeshDictTmp \
+            >$case/system/extrudeMeshDict
         extrudeMesh -case $case
     elif [[ -a $case/constant/dualGrid ]]; then
         grid=`cat $case/constant/dualGrid`
         rm -r $case/constant/polyMesh
         cp -r $case/$grid/constant/polyMesh $case/constant
         polyDualMesh 90 -case $case -overwrite
+        sed 's:SOURCECASE:'$case':g' $case/system/extrudeMeshDictTmp \
+            >$case/system/extrudeMeshDict
         extrudeMesh -case $case
     fi
 
@@ -38,8 +44,6 @@ if [[ $2 == run  ]]; then
     setInitialTracerField -case $case -name T
     sed -i 's/calculated/zeroGradient/g' $case/0/T
     setVelocityField -case $case
-    #gmtFoam -case $case -time 0 UT
-    #gv $case/0/UT.pdf &
 
     # Parallel decomposition
     decomposePar -case $case
@@ -48,6 +52,18 @@ if [[ $2 == run  ]]; then
     #implicitAdvectionFoam -case $case >& log &
     #tail -f log
 else
+    if [[ -a $case/processor0 ]]; then
+        rm -rf $case/2.5 $case/5
+        reconstructPar -case $case
+    fi
+    finalTime=`ls -1d $case/[0-9]* | sort -n | tail -n 1`
+    midTime=`ls -1d $case/[0-9]* | sort -n | tail -n 6 | head -1`
+    if [[ $finalTime != $case/5 ]]; then mv $finalTime $case/5; fi
+    if [[ $midTime != $case/2.5 ]]; then mv $midTime $case/2.5; fi
+    gmtFoam -case $case -time 5 Traw
+    gmtFoam -case $case -time 2.5 Traw
+    gv $case/5/Traw.pdf &
+    gv $case/2.5/Traw.pdf &
     # Errors from initial conditions
     sumFields -case $case 5 Terror 5 T 0 T -scale1 -1
     globalSum -case $case T -time 0

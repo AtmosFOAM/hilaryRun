@@ -3,13 +3,14 @@
 # Assemble l2 error norms as a function of resolution for different schemes
 cases="weakDeformation/c08_MPDATA_cubedSphere_2gauge_adv
        weakDeformation/c1p6_MPDATA_cubedSphere_2gauge_adv
+       weakDeformation/c3_MPDATA_cubedSphere_2gauge_adv
        weakDeformation/c8_MPDATA_cubedSphere_2gauge_adv"
 inputFiles=''
 
 for case in $cases; do
     echo '#res dx l1error l2error linf mean var min max' > $case/errorNorms.dat
     inputFiles=(${inputFiles[*]} $case/errorNorms.dat)
-    for res in 15 30 60; do
+    for res in 15 30 60 120; do
         dir=$case/cube_${res}
         if [[ -a $dir/errorNorms.dat ]]; then
             dx=`echo $res | awk '{print 360/6/$1}'`
@@ -28,12 +29,12 @@ inputFiles=(${inputFiles[*]}
             plots/1st2ndOrder.dat
             plots/1st2ndOrder.dat)
 outFile=plots/l2errorCubedWeak.eps
-col=(4 4 4 3 4)
-colx=(2 2 2 2  2)
-pens=("1p,blue" "1p,red" "1p,black" 
+col=(4 4 4 4 3 4)
+colx=(2 2 2 2 2  2)
+pens=("1p,blue" "1p,red" "1p,cyan" "1p,magenta" 
      "0.5p,black,1_2:0"  "0.5p,black,1_2:0")
-symbols=('x8p' 'x8p' 'x8p' 'x1p' 'x1p')
-legends=("c<0.8" "c<1.6" "c<8" "1st/2nd" "order")
+symbols=('x8p' 'x8p' 'x8p' 'x8p' 'x1p' 'x1p')
+legends=("c<0.8" "c<1.6" "c<3" "c<8" "1st/2nd" "order")
 
 xlabel='@~D@~x (degrees)'
 #ylabel='l@-2@- error'

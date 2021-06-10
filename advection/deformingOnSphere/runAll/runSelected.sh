@@ -24,8 +24,8 @@ weakDeformation/c3_MPDATA_cubedSphere_2gauge_adv/cube_60
 #weakDeformation/c08_MPDATA_cubedSphere_2gauge_adv/cube_60
 
 weakDeformation/c8_MPDATA_cubedSphere_2gauge_adv/cube_120
-weakDeformation/c1p6_MPDATA_cubedSphere_2gauge_adv/cube_120
 weakDeformation/c3_MPDATA_cubedSphere_2gauge_adv/cube_120
+weakDeformation/c1p6_MPDATA_cubedSphere_2gauge_adv/cube_120
 weakDeformation/c08_MPDATA_cubedSphere_2gauge_adv/cube_120
 )
 

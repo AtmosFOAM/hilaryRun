@@ -32,6 +32,6 @@ weakDeformation/c08_MPDATA_cubedSphere_2gauge_adv/cube_120
 for case in ${cases[*]}; do
     echo running case $case
     ls -d $case
-#    ./runAll/runOne.sh $case run
-    ./runAll/runOne.sh $case post
+    ./runAll/runOne.sh $case run
+#    ./runAll/runOne.sh $case post
 done

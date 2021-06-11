@@ -8,15 +8,13 @@ fi
 
 cases=\
 (\
-weakDeformation/MPDATA_tri_2gauge_adv/tri5
-weakDeformation/MPDATA_tri_2gauge_adv/tri6
-weakDeformation/MPDATA_tri_2gauge_adv/tri7
-
+fullDeformation/MPDATA_latLonRotated/latLon_240x120
+fullDeformation/MPDATA_latLonSkipped/latLon_240x120
 )
 
 for case in ${cases[*]}; do
     echo running case $case
     ls -d $case
     ./runAll/runOne.sh $case run
-#    ./runAll/runOne.sh $case post
+    ./runAll/runOne.sh $case post
 done

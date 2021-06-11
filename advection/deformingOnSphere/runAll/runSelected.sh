@@ -42,6 +42,10 @@ weakDeformation/MPDATA_HRgrid_2gauge_adv/HRgrid8
 
 weakDeformation/MPDATA_latLonSkipped_2gauge_adv/latLon_240x120
 weakDeformation/MPDATA_latLonSkipped_2gauge_adv/latLon_480x240
+
+weakDeformation/MPDATA_tri_2gauge_adv/tri5
+weakDeformation/MPDATA_tri_2gauge_adv/tri6
+weakDeformation/MPDATA_tri_2gauge_adv/tri7
 )
 
 for case in ${cases[*]}; do

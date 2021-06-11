@@ -1,7 +1,8 @@
 #!/bin/bash -e
 
 # Assemble l2 error norms as a function of resolution for different schemes
-cases="weakDeformation/MPDATA_HRgrid_2gauge_adv"
+cases="weakDeformation/MPDATA_HRgrid_2gauge_adv
+       weakDeformation/MPDATA_tri_2gauge_adv"
 inputFiles=''
 
 for case in $cases; do
@@ -11,6 +12,12 @@ for case in $cases; do
         dir=$case/HRgrid${res}
         if [[ -a $dir/errorNorms.dat ]]; then
             dx=`echo $res | awk '{print 180/3.14159*0.150184*4/2**($1-2)}'`
+            echo -n $res $dx ' ' >> $case/errorNorms.dat
+            tail -1 $dir/errorNorms.dat >> $case/errorNorms.dat
+        fi
+        dir=$case/tri${res}
+        if [[ -a $dir/errorNorms.dat ]]; then
+            dx=`echo $res | awk '{print 180/3.14159*0.0868617*4/2**($1-2)}'`
             echo -n $res $dx ' ' >> $case/errorNorms.dat
             tail -1 $dir/errorNorms.dat >> $case/errorNorms.dat
         fi
@@ -26,12 +33,12 @@ inputFiles=(${inputFiles[*]}
             plots/1st2ndOrder.dat
             plots/1st2ndOrder.dat)
 outFile=plots/l2errorHRgridWeak.eps
-col=(4 3 4)
-colx=(2 2 2)
-pens=("1p,blue" 
+col=(4 4 3 4)
+colx=(2 2 2 2)
+pens=("1p,blue" "1p,red" 
      "0.5p,black,1_2:0"  "0.5p,black,1_2:0")
-symbols=('x8p'  'x1p' 'x1p')
-legends=("Hexagonal" "1st/2nd" "order")
+symbols=('x8p' 'x8p' 'x1p' 'x1p')
+legends=("Hexagonal" "Triangular" "1st/2nd" "order")
 
 xlabel='@~D@~x (degrees)'
 #ylabel='l@-2@- error'

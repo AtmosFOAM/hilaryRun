@@ -34,7 +34,7 @@ colx=(2 2 2 2 2  2)
 pens=("1p,blue" "1p,red" "1p,cyan" "1p,magenta" 
      "0.5p,black,1_2:0"  "0.5p,black,1_2:0")
 symbols=('x8p' 'x8p' 'x8p' 'x8p' 'x1p' 'x1p')
-legends=("c<0.8" "c<1.6" "c<3" "c<8" "1st/2nd" "order")
+legends=("c<1.3" "c<2.5" "c<5" "c<10" "1st/2nd" "order")
 
 xlabel='@~D@~x (degrees)'
 #ylabel='l@-2@- error'

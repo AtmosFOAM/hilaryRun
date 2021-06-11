@@ -35,11 +35,18 @@ weakDeformation/c8_MPDATA_cubedSphere_2gauge_adv/cube_120
 #weakDeformation/MPDATA_latLonRotated_2gauge_adv/latLon_120x60
 #weakDeformation/MPDATA_latLon_2gauge_adv/latLon_240x120
 #weakDeformation/MPDATA_latLon_2gauge_adv/latLon_480x240
+
+weakDeformation/MPDATA_HRgrid_2gauge_adv/HRgrid6
+weakDeformation/MPDATA_HRgrid_2gauge_adv/HRgrid7
+weakDeformation/MPDATA_HRgrid_2gauge_adv/HRgrid8
+
+weakDeformation/MPDATA_latLonSkipped_2gauge_adv/latLon_240x120
+weakDeformation/MPDATA_latLonSkipped_2gauge_adv/latLon_480x240
 )
 
 for case in ${cases[*]}; do
     echo running case $case
     ls -d $case
-    ./runAll/runOne.sh $case run
-#    ./runAll/runOne.sh $case post
+#    ./runAll/runOne.sh $case run
+    ./runAll/runOne.sh $case post
 done

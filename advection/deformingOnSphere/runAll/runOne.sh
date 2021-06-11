@@ -30,7 +30,7 @@ if [[ $2 == run  ]]; then
         extrudeMesh -case $case
     elif [[ -a $case/constant/dualGrid ]]; then
         grid=`cat $case/constant/dualGrid`
-        rm -r $case/constant/polyMesh
+        rm -rf $case/constant/polyMesh $case/[0-9]* $case/processor*
         cp -r $case/$grid/constant/polyMesh $case/constant
         polyDualMesh 90 -case $case -overwrite
         sed 's:SOURCECASE:'$case':g' $case/system/extrudeMeshDictTmp \

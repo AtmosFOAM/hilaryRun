@@ -22,7 +22,7 @@ FoamFile
 constructFrom patch;
 
 // If construct from patch/mesh:
-sourceCase "weakDeformation/c8_MPDATA_cubedSphere_2gauge_adv/cube_120";
+sourceCase "weakDeformation/c4_MPDATA_cubedSphere_2gauge_adv/cube_120";
 sourcePatches (otherSide);
 
 exposedPatchName "originalPatch";

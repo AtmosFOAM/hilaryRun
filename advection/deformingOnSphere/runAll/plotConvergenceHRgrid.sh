@@ -1,16 +1,14 @@
 #!/bin/bash -e
 
 # Assemble l2 error norms as a function of resolution for different schemes
-cases="weakDeformation/MPDATA_latLon_2gauge_adv
-       weakDeformation/MPDATA_latLonRotated_2gauge_adv"
+cases="weakDeformation/HRgrid_2gauge_adv"
 inputFiles=''
 
 for case in $cases; do
     echo '#res dx l1error l2error linf mean var min max' > $case/errorNorms.dat
     inputFiles=(${inputFiles[*]} $case/errorNorms.dat)
-    for res in 60 120 240; do
-        let twoRes=$res*2
-        dir=$case/latLon_${twoRes}x${res}
+    for res in 4 5 6 7 8; do
+        dir=$case/HRgrid${res}
         if [[ -a $dir/errorNorms.dat ]]; then
             dx=`echo $res | awk '{print 180/$1}'`
             echo -n $res $dx ' ' >> $case/errorNorms.dat

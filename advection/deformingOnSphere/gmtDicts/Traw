@@ -20,7 +20,8 @@ plotBoundaryDots false;
 FieldsToPlot
 (
      [T rawValues 0 0.95 0.025 "$GMTU/colours/wh-bl-gr-ye-re.cpt"]
-    [Co colouredContours -2 10 1 "$GMTU/colours/white_black.cpt"]
+    [Co colouredContours 0.8 2 0.2 "$GMTU/colours/white_black.cpt"]
+    [Co contours 3 50 1 "black"]
 );
 
 // options

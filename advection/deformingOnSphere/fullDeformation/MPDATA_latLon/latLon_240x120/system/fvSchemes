@@ -37,7 +37,7 @@ divSchemes
     default             none;
     div(phi,T)          MPDATA
     {
-        nCorr 2;  //(>=0)
+        nCorr 1;  //(>=0)
         gauge 0;
         offCentre -1;
         timeCorrector advective; // flux, advective or none
@@ -45,6 +45,7 @@ divSchemes
         //FCTmin 0;
         //FCTmax 1.00263;
     };
+    MPDATA_div Gauss linear;
 }
 
 laplacianSchemes
@@ -55,7 +56,7 @@ laplacianSchemes
 interpolationSchemes
 {
     default        none;
-    MPDATA_denom   linear;
+    MPDATA_denom   localMax;
     MPDATA_velocity linear;
     MPDATA_gradient linear;
 }

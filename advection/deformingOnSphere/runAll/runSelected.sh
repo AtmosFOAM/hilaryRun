@@ -8,9 +8,11 @@ fi
 
 cases=\
 (\
-fullDeformation/MPDATA_latLon_c2/latLon_240x120
-fullDeformation/MPDATA_latLon_c10/latLon_240x120
+#fullDeformation/MPDATA_HRgrid_c2/HRgrid7
+fullDeformation/MPDATA_tri_c2/tri7
 
+#fullDeformation/MPDATA_latLon_c2/latLon_240x120
+#fullDeformation/MPDATA_latLon_c10/latLon_240x120
 #fullDeformation/MPDATA_cubedSphere_c2/cube_30
 #fullDeformation/MPDATA_cubedSphere_c2/cube_60
 #fullDeformation/MPDATA_latLon_c10/latLon_120x60

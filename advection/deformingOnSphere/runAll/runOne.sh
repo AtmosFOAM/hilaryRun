@@ -60,10 +60,10 @@ else
     midTime=`ls -1d $case/[0-9]* | sort -n | tail -n 6 | head -1`
     if [[ $finalTime != $case/5 ]]; then mv $finalTime $case/5; fi
     if [[ $midTime != $case/2.5 ]]; then mv $midTime $case/2.5; fi
-    gmtFoam -case $case -time 5 Traw
-    gmtFoam -case $case -time 2.5 Traw
-    #gv $case/5/Traw.pdf &
-    #gv $case/2.5/Traw.pdf &
+    gmtFoam -case $case -time 5 T
+    gmtFoam -case $case -time 2.5 T
+    #gv $case/5/T.pdf &
+    #gv $case/2.5/T.pdf &
     # Errors from initial conditions
     sumFields -case $case 5 Terror 5 T 0 T -scale1 -1
     globalSum -case $case T -time 0

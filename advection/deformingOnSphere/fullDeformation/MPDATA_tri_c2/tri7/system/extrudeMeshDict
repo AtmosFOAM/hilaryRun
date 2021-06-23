@@ -20,7 +20,7 @@ FoamFile
 //      surface : from externally read surface
 
 constructFrom patch;
-sourceCase ".";
+sourceCase "fullDeformation/MPDATA_tri_c2/tri7";
 sourcePatches (otherSide);
 exposedPatchName "originalPatch";
 flipNormals false;

@@ -1,0 +1,70 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.4                                   |
+|   \\  /    A nd           | Web:      http://www.openfoam.org               |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version         2.0;
+    format          ascii;
+
+    root            "";
+    case            "";
+    instance        "";
+    local           "";
+
+    class           dictionary;
+    object          fvSchemes;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+ddtSchemes
+{
+    default Euler;
+}
+
+gradSchemes
+{
+    default         none;
+}
+
+divSchemes
+{
+    default             none;
+    div(phi,T)          MPDATA
+    {
+        nCorr 1;  //(>=0)
+        gauge 0;
+        offCentre -1;
+        timeCorrector advective; // flux, advective or none
+        FCTlimit false;
+        //FCTmin 0;
+        //FCTmax 1.00263;
+    };
+}
+
+laplacianSchemes
+{
+    default         none;
+}
+
+interpolationSchemes
+{
+    default        none;
+    MPDATA_denom   reverseLinear;
+    MPDATA_velocity linear;
+    MPDATA_gradient linear;
+    MPDATA_idiv reverseLinear;
+}
+
+snGradSchemes
+{
+    default         none;
+}
+
+
+// ************************************************************************* //

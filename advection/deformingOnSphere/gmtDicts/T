@@ -20,14 +20,14 @@ plotBoundaryDots false;
 FieldsToPlot
 (
     [T filledContours 0 0.95 0.025 "$GMTU/colours/wh-bl-gr-ye-re.cpt"]
-//    [anteDV   vectors 10.1 7 "black"]
-    [Co colouredContours 0 15 1 "$GMTU/colours/white_black.cpt"]
+    [Co colouredContours 0.8 2 0.2 "$GMTU/colours/grey_black.cpt"]
+    [Co contours 3 50 1 "black"]
 );
 
 // options
-//region "0/360/-90/90";
+region "0/360/-90/90";
 boundaryMarks "a60/a60";
 separateLegend true;
 annotate "minMax 180 -105";
-lonMin 0;
-
+lonMin 360;
+//lonMax 180;

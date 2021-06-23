@@ -55,13 +55,14 @@ else
     if [[ -a $case/processor0 ]]; then
         rm -rf $case/2.5 $case/5
         reconstructPar -case $case
+        rm -r $case/processor*
     fi
     finalTime=`ls -1d $case/[0-9]* | sort -n | tail -n 1`
     midTime=`ls -1d $case/[0-9]* | sort -n | tail -n 6 | head -1`
     if [[ $finalTime != $case/5 ]]; then mv $finalTime $case/5; fi
     if [[ $midTime != $case/2.5 ]]; then mv $midTime $case/2.5; fi
-    gmtFoam -case $case -time 5 T
-    gmtFoam -case $case -time 2.5 T
+    #gmtFoam -case $case -time 5 T
+    #gmtFoam -case $case -time 2.5 T
     #gv $case/5/T.pdf &
     #gv $case/2.5/T.pdf &
     # Errors from initial conditions

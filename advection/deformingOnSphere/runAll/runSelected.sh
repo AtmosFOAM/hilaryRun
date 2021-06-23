@@ -8,7 +8,7 @@ fi
 
 cases=\
 (\
-fullDeformation/MPDATA_latLon_c1/latLon_240x120
+#fullDeformation/MPDATA_latLon_c1/latLon_240x120
 fullDeformation/MPDATA_latLon_c1/latLon_480x240
 fullDeformation/MPDATA_latLon_c2/latLon_480x240
 fullDeformation/MPDATA_latLon_c10/latLon_480x240

@@ -11,17 +11,13 @@ FoamFile
     format      ascii;
     class       dictionary;
     location    "system";
-    object      velocityDict;
+    object      tracerDict;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-timeVaryingWind true;
-type deformationalNonDivergentGeodesic;
+type   geodesicGaussians;
 radius 1;
-deformationScale 10;
-endTime endTime [0 0 1 0 0] 5;
-centre (0 0 0);
-centre (0 0 0);
-centre (0 0 0);
-centre (0 0 0);
-centre (0 0 0);
+hBackground 0;
+hmax 0.95;
+b    5;
+

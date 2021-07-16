@@ -1,12 +1,12 @@
 #!/bin/bash -e
 
 # Assemble bounds for different grids
-cases="fullDeformation/MPDATA_latLon_c2/latLon_240x120
-       fullDeformation/MPDATA_latLonRotated/latLon_240x120
-       fullDeformation/MPDATA_latLonSkipped/latLon_240x120
-       fullDeformation/MPDATA_cubedSphere_c2/cube_60
-       fullDeformation/MPDATA_HRgrid_c2/HRgrid7
-       fullDeformation/MPDATA_tri_c2/tri6"
+cases="fullDeformation/MPDATA_latLon_gauge_c2/latLon_240x120
+       fullDeformation/MPDATA_latLonRotated_gauge/latLon_240x120
+       fullDeformation/MPDATA_latLonSkipped_gauge/latLon_240x120
+       fullDeformation/MPDATA_cubedSphere_gauge_c2/cube_60
+       fullDeformation/MPDATA_HRgrid_gauge_c2/HRgrid7
+       fullDeformation/MPDATA_tri_gauge_c2/tri6"
 inputFiles=''
 
 for case in $cases; do
@@ -17,7 +17,7 @@ for case in $cases; do
     fi
 done
 
-outFile=plots/TminMax.eps
+outFile=plots/TminMaxGauge.eps
 col=(3 2 3 2 3 2 3 2 3 2 3 2)
 colx=1
 pens=("black" "black,4_4:0"
@@ -35,7 +35,7 @@ xmax=5
 dx=1
 ddx=0
 dxg=0
-ymin=-0.1
+ymin=-0.2
 ymax=1
 dy=0.2
 ddy=0

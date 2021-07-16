@@ -8,9 +8,9 @@ fi
 
 cases=\
 (\
-fullDeformation/MPDATA_HRgrid_gauge_c2/HRgrid6
-fullDeformation/MPDATA_HRgrid_gauge_c2/HRgrid7
-fullDeformation/MPDATA_HRgrid_gauge_c2/HRgrid8
+fullDeformation/MPDATA_tri_gauge_c2/tri6
+fullDeformation/MPDATA_tri_gauge_c2/tri7
+fullDeformation/MPDATA_tri_gauge_c2/tri8
 )
 
 for case in ${cases[*]}; do

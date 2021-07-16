@@ -47,7 +47,7 @@ ddy=0
 dyg=0
 xscale=*1
 yscale=*1
-#legPos=x0.5/0.5
+legPos=x8.5/0.5
 projection=X8c/4cl
 gv=0
 

@@ -8,9 +8,9 @@ fi
 
 cases=\
 (\
-fullDeformation/MPDATA_cubedSphere_gauge_c2/cube_30
-fullDeformation/MPDATA_cubedSphere_gauge_c2/cube_60
-fullDeformation/MPDATA_cubedSphere_gauge_c2/cube_120
+fullDeformation/MPDATA_latLonSkipped_gauge/latLon_120x60
+fullDeformation/MPDATA_latLonSkipped_gauge/latLon_240x120
+fullDeformation/MPDATA_latLonSkipped_gauge/latLon_480x240
 )
 
 for case in ${cases[*]}; do

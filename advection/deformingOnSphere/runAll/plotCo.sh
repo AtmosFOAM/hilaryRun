@@ -32,7 +32,7 @@ pens=("black" "black,4_4:0"
       "cyan" "cyan,4_4:3"
       "magenta" "magenta,5_5:0"
       "green" "green,5_5:1")
-#legends=("lat-lon"  "" "rotated" "" "skipped" "" "cubed sphere" "" "hexagonal" "" "triangular" "")
+legends=("lat-lon"  "" "rotated" "" "skipped" "" "cubed sphere" "" "hexagonal" "" "triangular" "")
 
 xlabel='time'
 xmin=0

@@ -1,13 +1,13 @@
 #!/bin/bash -e
 
 if [ "$#" -ne 2 ]; then
-    echo usage runOne.sh case run|post
+    echo usage 'runOne.sh case init|run|post'
     exit
 fi
 
 case=$1
 
-if [[ $2 == run  ]]; then
+if [[ $2 == init  ]]; then
     # Mesh generation
     if [[ -a $case/constant/earthProperties ]]; then
         latLon=`grep nLat $case/constant/earthProperties | wc | \
@@ -30,7 +30,9 @@ if [[ $2 == run  ]]; then
         extrudeMesh -case $case
     elif [[ -a $case/constant/dualGrid ]]; then
         grid=`cat $case/constant/dualGrid`
-        rm -rf $case/constant/polyMesh $case/[0-9]* $case/processor*
+        rm -rf $case/constant/polyMesh $case/[0-9]* $case/processor* \
+               $case/constant/orthogonality $case/constant/dx \
+               $case/constant/skewness
         cp -r $case/$grid/constant/polyMesh $case/constant
         polyDualMesh 90 -case $case -overwrite
         sed 's:SOURCECASE:'$case':g' $case/system/extrudeMeshDictTmp \
@@ -45,7 +47,8 @@ if [[ $2 == run  ]]; then
     sed -i 's/calculated/zeroGradient/g' $case/0/T
     setVelocityField -case $case
 
-    # Parallel decomposition
+elif [[ $2 == run  ]]; then
+    # Parallel decomposition and run
     decomposePar -case $case
     echo starting mpirun. Output in $case/log
     mpirun -np 4 implicitAdvectionFoam -case $case -parallel >& $case/log

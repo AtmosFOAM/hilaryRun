@@ -21,7 +21,7 @@ FieldsToPlot
 (
     [T filledContours 0 0.95 0.025 "$GMTU/colours/wh-bl-gr-ye-re.cpt"]
     [Co colouredContours 0.8 2 0.2 "$GMTU/colours/grey_black.cpt"]
-    [Co contours 3 50 1 "black"]
+    [Co contours 3 50 1 "0.25p,black,1_2:0"]
 );
 
 // options

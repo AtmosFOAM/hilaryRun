@@ -20,3 +20,4 @@ type deformationalNonDivergentGeodesic;
 radius 1;
 deformationScale 2;
 endTime endTime [0 0 1 0 0] 5;
+centre (0 0 0);

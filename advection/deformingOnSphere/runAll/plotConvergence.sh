@@ -1,11 +1,11 @@
 #!/bin/bash -e
 
 # Assemble l2 error norms as a function of resolution for different grids
-cases="fullDeformation/MPDATA_latLon
+cases="fullDeformation/MPDATA_latLon_c1
        fullDeformation/MPDATA_latLon_c2
        fullDeformation/MPDATA_latLon_c10
        fullDeformation/MPDATA_latLonRotated
-        fullDeformation/MPDATA_latLonSkipped
+       fullDeformation/MPDATA_latLonSkipped
        fullDeformation/MPDATA_cubedSphere_c2
        fullDeformation/MPDATA_HRgrid_c2
         fullDeformation/MPDATA_tri_c2"
@@ -28,6 +28,7 @@ for case in $cases; do
         echo -n $dx ' ' >> $case/errorNorms.dat
         tail -1 $dir/errorNorms.dat >> $case/errorNorms.dat
     done
+    sort -n $case/errorNorms.dat | sponge $case/errorNorms.dat
 done
 
 # First and 2nd order lines

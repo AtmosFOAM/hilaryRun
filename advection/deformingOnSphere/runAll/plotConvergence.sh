@@ -4,8 +4,8 @@
 cases="fullDeformation/MPDATA_latLon_c1
        fullDeformation/MPDATA_latLon_c2
        fullDeformation/MPDATA_latLon_c10
-       fullDeformation/MPDATA_latLonRotated
-       fullDeformation/MPDATA_latLonSkipped
+       fullDeformation/MPDATA_latLonRotated_c2
+       fullDeformation/MPDATA_latLonSkipped_c2
        fullDeformation/MPDATA_cubedSphere_c2
        fullDeformation/MPDATA_HRgrid_c2
         fullDeformation/MPDATA_tri_c2"
@@ -52,7 +52,7 @@ legends=("lat-lon c<1" "lat-lon c<2" "lat-lon c<10"   "rotated" "skipped"
          "cubed sphere"  "hexagonal"  "triangular"  "1st/2nd order")
 
 xlabel='@~D@~x (degrees)'
-#ylabel='l@-2@- error'
+ylabel='@~i@~@-2@- error'
 xmin=0.3
 xmax=4.01
 dx=2

@@ -2,8 +2,8 @@
 
 # Assemble l2 error norms as a function of resolution for different grids
 cases="fullDeformation/MPDATA_latLon_gauge_c2
-       fullDeformation/MPDATA_latLonRotated_gauge
-       fullDeformation/MPDATA_latLonSkipped_gauge
+       fullDeformation/MPDATA_latLonRotated_gauge_c2
+       fullDeformation/MPDATA_latLonSkipped_gauge_c2
        fullDeformation/MPDATA_cubedSphere_gauge_c2
        fullDeformation/MPDATA_HRgrid_gauge_c2
        fullDeformation/MPDATA_tri_gauge_c2"
@@ -52,7 +52,7 @@ legends=("lat-lon c<2"  "rotated" "skipped"
          "cubed sphere"  "hexagonal"  "triangular"  "1st/2nd order")
 
 xlabel='@~D@~x (degrees)'
-#ylabel='l@-2@- error'
+ylabel='@~i@~@-2@- error'
 xmin=0.3
 xmax=4.01
 dx=2

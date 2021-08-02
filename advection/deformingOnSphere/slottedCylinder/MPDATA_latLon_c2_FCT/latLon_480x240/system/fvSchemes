@@ -42,8 +42,8 @@ divSchemes
         offCentre -1;
         timeCorrector advective; // flux, advective or none
         FCTlimit true;
-        FCTmin 0.1;
-        FCTmax 1;
+        //FCTmin 0.1;
+        //FCTmax 1;
     };
 }
 

@@ -2,8 +2,8 @@
 
 # Assemble max Courant number for different grids
 cases="fullDeformation/MPDATA_latLon_c2/latLon_240x120
-       fullDeformation/MPDATA_latLonRotated/latLon_240x120
-       fullDeformation/MPDATA_latLonSkipped/latLon_240x120
+       fullDeformation/MPDATA_latLonRotated_c2/latLon_240x120
+       fullDeformation/MPDATA_latLonSkipped_c2/latLon_240x120
        fullDeformation/MPDATA_cubedSphere_c2/cube_60
        fullDeformation/MPDATA_HRgrid_c2/HRgrid7
        fullDeformation/MPDATA_tri_c2/tri6"
@@ -34,7 +34,8 @@ pens=("black" "black,4_4:0"
       "green" "green,5_5:1")
 legends=("lat-lon"  "" "rotated" "" "skipped" "" "cubed sphere" "" "hexagonal" "" "triangular" "")
 
-xlabel='time'
+#xlabel='time'
+ylabel='Co'
 xmin=0
 xmax=5
 dx=1

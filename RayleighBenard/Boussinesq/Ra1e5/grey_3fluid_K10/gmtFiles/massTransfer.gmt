@@ -1,0 +1,32 @@
+inputFiles=(TIME/massTransfer.stable.up.xyz TIME/massTransfer.stable.down.xyz
+            TIME/massTransfer.up.stable.xyz TIME/massTransfer.down.stable.xyz
+            hMeans/TIME/massTransfer.stable.up.xyz
+            hMeans/TIME/massTransfer.stable.down.xyz
+            hMeans/TIME/massTransfer.up.stable.xyz
+            hMeans/TIME/massTransfer.down.stable.xyz
+            )
+outFile=TIME/massTransfer.eps
+col=3
+colx=4
+legends=("" "" "" "" "stable->up" "stable->down" "up->stable" "down->stable")
+xlabel="M (s@+-1@+)"
+ylabel=""
+pens=("0p,white" "0p,white" "0p,white" "0p,white" "1p,red" "1p,blue" "1p,magenta" "1p,cyan")
+spens=("red" "blue" "magenta" "cyan" "red" "blue" "magenta" "cyan")
+symbols=("x4p" "x4p" "x4p" "x4p" "c1p" "c1p" "c1p" "c1p")
+xmin=0
+xmax=4e-4
+dx=2e-4
+ddx=1
+dxg=0
+ymin=0
+ymax=10
+dy=2
+ddy=1
+dyg=0
+xscale=*1
+yscale=/1000
+legPos=x1/3
+nSkip=1
+projection=X5c/8c
+gv=0

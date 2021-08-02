@@ -1,0 +1,35 @@
+FoamFile
+{
+    version         2.3;
+    format          ascii;
+
+    root            "";
+    case            "";
+    instance        "constant";
+    local           "";
+
+    class           dictionary;
+    object          gmtDict;
+}
+
+// How to plot
+// Compulsory inputs
+projection "X30.3c/15c";
+projection2D XZ;
+
+FieldsToPlot
+(
+    [sigma.stable filledContours 0 1 0.1 "$GMTU/colours/white_grey.cpt"]
+    [u.down   vectors 200 1 "blue"]
+    [u.up     vectors 200 1 "red"]
+    [u.stable vectors 200 1 "black"]
+    [sigma.up   contours 0.5 1 0.2 "2,red"]
+    [sigma.down contours 0.5 1 0.2 "2,blue"]
+    [sigma.up   contours 0.1 0.3 0.2 "1,red,4_4:0"]
+    [sigma.down contours 0.1 0.3 0.2 "1,blue,4_4:0"]
+);
+
+separateLegend true;
+//region "0/10/-0.1/1.1";
+plotBoundaryDots false;
+annotate "minMax 3 1.3";

@@ -1,0 +1,48 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  dev                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      setFieldsDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+regions
+(
+    // A buoyancy perturbation near the ground
+    boxToCell
+    {
+        box (-5e3 0 0) (5e3 1000 100);
+        fieldValues
+        (
+            volScalarFieldValue b.stable 3.54e-4
+        );
+    }
+    // A buoyancy perturbation at the top
+    boxToCell
+    {
+        box (-10.1e3 0 9.9e3) (-5.1e3 1000 1e4);
+        fieldValues
+        (
+            volScalarFieldValue b.stable -3.54e-4
+        );
+    }
+    // Another buoyancy perturbation at the top
+    boxToCell
+    {
+        box (5.1e3 0 9.9e3) (10.1e3 1000 1e4);
+        fieldValues
+        (
+            volScalarFieldValue b.stable -3.54e-4
+        );
+    }
+);
+
+// ************************************************************************* //

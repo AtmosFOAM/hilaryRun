@@ -1,0 +1,33 @@
+FoamFile
+{
+    version         1.4;
+    format          ascii;
+
+    root            "/export/lime/data-04/sws02hs/OpenFOAM/sws02hs-1.4.1/run/shallowWater";
+    case            "bucky4_30";
+    instance        "constant";
+    local           "";
+
+    class           dictionary;
+    object          gmtDict;
+}
+
+// How to plot
+//projection "Q0/18c";
+projection "G-90/60/18c";
+projection2D latLon;
+plotBoundaryDots false;
+
+FieldsToPlot
+(
+    [divAnteD rawValues 0 0 0 "$GMTU/colours/red_white_blue.cpt"]
+    [anteDV   vectors 40.1 1 "black"]
+    [Co colouredContours 0 10 1 "$GMTU/colours/white_black.cpt"]
+);
+
+// options
+region "5/350/-90/90";
+boundaryMarks "a30/a30";
+separateLegend true;
+annotate "minMax 180 -105";
+

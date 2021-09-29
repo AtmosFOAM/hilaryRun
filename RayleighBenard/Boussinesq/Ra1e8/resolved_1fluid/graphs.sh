@@ -25,8 +25,12 @@ sed 's/TIME/'$time'/g' gmtFiles/P.gmt > gmtFiles/tmp.gmt; \
     gmtPlot gmtFiles/tmp.gmt
 rm gmtFiles/tmp.gmt
 
-montage -scale 100% -mode concatenate -tile 4x1 \
-     $time/sigma.eps $time/b.eps  $time/w.eps $time/P.eps  \
-    $time/results.png
-display $time/results.png &
+#montage -scale 100% -mode concatenate -tile 4x1 \
+#     $time/sigma.eps $time/b.eps  $time/w.eps $time/P.eps  \
+#    $time/results.png
+#display $time/results.png &
+ln -sf ../gmtFiles/results.lyx $time/results.lyx
+lyx --export pdf $time/results.lyx 1> /dev/null
+pdfCrop $time/results.pdf
+ev $time/results.pdf
 

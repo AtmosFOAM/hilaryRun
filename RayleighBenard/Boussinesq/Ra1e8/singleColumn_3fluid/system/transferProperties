@@ -23,19 +23,20 @@ FoamFile
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 fluids 3 (stable up down);
-transferType dwdzTransfer;
-massTransferSmooth 0.9;
-transferScale 0.5;
-entRate       0.1;
+transferType dbdzTransfer;
+massTransferSmooth 0;
+transferScale 0.1;
+entRate       1;
+detrainRate   1;
 minSigma  3(0 0 0);
 
 wTransferScale 1;
-bTransferScale 0.1;
+bTransferScale -1;
 
-Ksigma Ksigma [0 2 -1 0 0] 3.1622776602;
+Ksigma Ksigma [0 2 -1 0 0] 0; //3.1622776602;
 // gamma = gammaHat0 nu Ra^.25 Pr^-.25
 // Ra = 1e8 Pr = 0.707 nu = 2.2357303057
-gamma    gamma    [0 2 -1 0 0] 0; //243.8173239723; //(gammaHat = 1)
+gamma    gamma    [0 2 -1 0 0] 243.8173239723; //(gammaHat = 1)
 
 
 cloudRadius     cloudRadius [0 1 0 0 0] 1e3;

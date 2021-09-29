@@ -15,6 +15,7 @@ ddx=0
 dxg=0
 ymin=0
 ymax=10
+ymax=0.1
 dy=2
 ddy=1
 dyg=0

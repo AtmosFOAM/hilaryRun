@@ -14,16 +14,16 @@ FoamFile
 
 // How to plot
 // Compulsory inputs
-projection "X80c/10c";
+projection "X30.3c/15c";
 projection2D XZ;
 
 FieldsToPlot
 (
-    [sigma.stable filledContours 0 1 0.1 "$GMTU/colours/white_grey.cpt"]
-    [u vectors 200 3 "black"]
-    [sigma.stable contours 0 1 0.5 "2,black"]
-    [sigma.up contours 0 1 0.5 "2,red"]
-    [sigma.down contours 0 1 0.5 "2,blue"]
+    [sigma.stable filledContours 0 2 0.1 "$GMTU/colours/white_grey.cpt"]
+    [sigma.up contours 0 0.15 0.05 "1,red,10_10:0"]
+    [sigma.up contours 0.2 1 0.05 "2,red"]
+    [sigma.down contours 0 0.15 0.05 "1,blue,10_10:0"]
+    [sigma.down contours 0.2 1 0.05 "2,blue"]
 );
 
 separateLegend true;

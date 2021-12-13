@@ -1,0 +1,49 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  dev                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0";
+    object      b;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -2 0 0 0 0];
+
+internalField   uniform 0;
+
+boundaryField
+{
+// Simulation with Ra = 1e8
+// H = 1, DeltaB=1, Pr = nu/alpha = 0.707, nu alpha = 1e-8
+// => alpha = 1e-8/nu => nu^2 = 0.707*1e-8
+// => nu = 8.4083292038e-5, alpha = 1.1892969171e-4
+    ground
+    {
+        type            fixedValue;
+        value          uniform 0.5;
+    }
+    top
+    {
+        type            fixedValue;
+        value          uniform -0.5;
+    }
+    left
+    {
+        type            cyclic;
+    }
+    right
+    {
+        type            cyclic;
+    }
+}
+
+
+// ************************************************************************* //

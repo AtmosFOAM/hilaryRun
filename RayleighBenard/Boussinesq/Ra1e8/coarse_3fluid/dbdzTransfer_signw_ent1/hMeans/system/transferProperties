@@ -1,0 +1,49 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.4                                   |
+|   \\  /    A nd           | Web:      http://www.openfoam.org               |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version         2.0;
+    format          ascii;
+
+    root            "";
+    case            "";
+    instance        "";
+    local           "";
+
+    class           dictionary;
+    object          transferProperties;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+fluids 3 (stable up down);
+transferType dbdzTransfer;
+massTransferSmooth 0;
+transferScale 1;
+entRate       1;
+detrainRate   1;
+minSigma  3(0.65 0 0);
+
+wTransferScale 1;
+bTransferScale 1;
+
+Ksigma Ksigma [0 2 -1 0 0] 1e-4;
+// gamma = gammaHat0 nu Ra^.25 Pr^-.25
+// Ra = 1e8 Pr = 0.707 nu = 8.4083292038e-5
+gamma    gamma    [0 2 -1 0 0] 0.01; //0.0091696942; //(gammaHat = 1)
+
+// Thermal diffusivity in fluid 0
+alphaScale alphaScale [0 1 -1 0 0] 0; //0.01;
+maxAlpha0 maxAlpha0 [0 2 -1 0 0] 0; //0.01;
+BLdepth BLdepth [0 1 0 0 0] 0.01;
+
+cloudRadius     cloudRadius [0 1 0 0 0] 0.0;
+dragCoeff 0.0;
+
+// ************************************************************************* //

@@ -19,17 +19,19 @@ projection2D XZ;
 
 FieldsToPlot
 (
-    [sigma.stable filledContours 0 1 0.1 "$GMTU/colours/white_grey.cpt"]
-    [u.down   vectors 200 1 "blue"]
-    [u.up     vectors 200 1 "red"]
-    [u.stable vectors 200 1 "black"]
-    [sigma.up   contours 0.5 1 0.2 "2,red"]
-    [sigma.down contours 0.5 1 0.2 "2,blue"]
-    [sigma.up   contours 0.1 0.3 0.2 "1,red,4_4:0"]
-    [sigma.down contours 0.1 0.3 0.2 "1,blue,4_4:0"]
+//    [sigma.stable filledContours 0 1 0.1 "$GMTU/colours/white_grey.cpt"]
+    [sigmaDiff rawValues -0.95 0.95 0.1 "$GMTU/colours/red_white_blue.cpt"]
+    [u.down   vectors 0.3 11 "blue"]
+    [u.up     vectors 0.3 11 "red"]
+    [u.stable vectors 0.3 11 "black"]
+    [u.air    vectors 0.3 11 "black"]
+//    [sigma.up   contours 0.5 1 0.1 "2,red"]
+//    [sigma.down contours 0.5 1 0.1 "2,blue"]
+//    [sigma.up   contours 0.1 0.3 0.1 "1,red,4_4:0"]
+//    [sigma.down contours 0.1 0.3 0.1 "1,blue,4_4:0"]
 );
 
 separateLegend true;
 //region "0/10/-0.1/1.1";
 plotBoundaryDots false;
-annotate "minMax 3 1.3";
+annotate "minMax -1 -0.01";

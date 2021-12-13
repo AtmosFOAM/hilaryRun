@@ -19,11 +19,11 @@ projection2D XZ;
 
 FieldsToPlot
 (
-    [b filledContours -3.5e-4 3.5e-4 2e-5 "$GMTU/colours/red_white_blue.cpt"]
-    [u vectors 200 3 "black"]
+    [b filledContours -0.5 0.5 0.05 "$GMTU/colours/red_white_blue.cpt"]
+    [u vectors 0.3 7 "black"]
 );
 
 separateLegend true;
 //region "0/10/-0.1/1.1";
 plotBoundaryDots false;
-annotate "minMax 3 1.3";
+annotate "minMax 0 -0.01";

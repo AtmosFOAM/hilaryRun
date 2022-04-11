@@ -1,12 +1,12 @@
 #!/bin/bash -e
 
 # Assemble l2 error norms as a function of resolution for different grids
-cases="fullDeformation/MPDATA_latLon_gauge_c2
-       fullDeformation/MPDATA_latLonRotated_gauge_c2
-       fullDeformation/MPDATA_latLonSkipped_gauge_c2
-       fullDeformation/MPDATA_cubedSphere_gauge_c2
-       fullDeformation/MPDATA_HRgrid_gauge_c2
-       fullDeformation/MPDATA_tri_gauge_c2"
+cases="fullDeformation/MPDATA_latLon_gauge_c2_thetaC1
+       fullDeformation/MPDATA_latLonRotated_gauge_c2_thetaC1
+       fullDeformation/MPDATA_latLonSkipped_gauge_c2_thetaC1
+       fullDeformation/MPDATA_cubedSphere_gauge_c2_thetaC1
+       fullDeformation/MPDATA_HRgrid_gauge_c2_thetaC1
+       fullDeformation/MPDATA_tri_gauge_c2_thetaC1"
 inputFiles=()
 
 for case in $cases; do

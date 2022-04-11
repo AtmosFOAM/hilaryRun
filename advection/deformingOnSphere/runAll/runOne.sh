@@ -51,9 +51,9 @@ elif [[ $2 == run  ]]; then
     # Parallel decomposition and run
     decomposePar -case $case
     echo starting mpirun. Output in $case/log
-    mpirun -np 4 implicitAdvectionFoam -case $case -parallel >& $case/log
+    mpirun -np 4 implicitAdvectionFoam -case $case -parallel >& $case/log &
     #implicitAdvectionFoam -case $case >& log &
-    #tail -f log
+    echo tail -f $case/log
 else
     if [[ -a $case/processor0 ]]; then
         rm -rf $case/2.5 $case/5

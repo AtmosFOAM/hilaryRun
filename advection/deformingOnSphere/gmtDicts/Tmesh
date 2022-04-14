@@ -19,13 +19,14 @@ plotBoundaryDots false;
 
 FieldsToPlot
 (
-    [T filledContours 0 0.95 0.025 "$GMTU/colours/wh-bl-gr-ye-re.cpt"]
+    [T rawValues -1.05 1.05 0.1 "$GMTU/colours/red_white_blue.cpt"]
     [none mesh      "0.25p,black"]
 );
 
 // options
-region "-0/360/-90/90";
+region "0/360/-90/90";
 boundaryMarks "a60/a60";
-separateLegend true;
+separateLegend false;
 annotate "minMax 180 -105";
+lonMin 360;
 

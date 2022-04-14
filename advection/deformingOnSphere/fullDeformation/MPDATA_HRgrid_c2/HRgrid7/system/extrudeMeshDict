@@ -20,7 +20,7 @@ FoamFile
 //      surface : from externally read surface
 
 constructFrom surface;
-surface       "fullDeformation/MPDATA_HRgrid_gauge_c2/HRgrid7/constant/patch.obj";
+surface       "HRgrid7/constant/patch.obj";
 exposedPatchName "originalPatch";
 flipNormals true;
 extrudeModel        linearRadial;

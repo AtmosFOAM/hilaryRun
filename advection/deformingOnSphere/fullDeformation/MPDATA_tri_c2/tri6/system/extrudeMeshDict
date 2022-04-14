@@ -20,7 +20,7 @@ FoamFile
 //      surface : from externally read surface
 
 constructFrom patch;
-sourceCase ".";
+sourceCase "tri6";
 sourcePatches (otherSide);
 exposedPatchName "originalPatch";
 flipNormals false;

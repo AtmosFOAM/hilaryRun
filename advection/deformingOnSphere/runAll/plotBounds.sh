@@ -29,14 +29,14 @@ pens=("black" "black,4_4:0"
 legends=("lat-lon"  "" "rotated" "" "skipped" "" "cubed sphere" "" "hexagonal" "" "triangular" "")
 
 #xlabel='time'
-ylabel='@~Y@~'
+ylabel='@~y@~'
 xmin=0
 xmax=5
 dx=1
 ddx=0
 dxg=0
 ymin=-0.1
-ymax=1
+ymax=1.1
 dy=0.2
 ddy=0
 dyg=1

@@ -20,7 +20,7 @@ FoamFile
 //      surface : from externally read surface
 
 constructFrom surface;
-surface       "./constant/patch.obj";
+surface       "LW_FCT_HRgrid_c2/HRgrid8/constant/patch.obj";
 exposedPatchName "originalPatch";
 flipNormals true;
 extrudeModel        linearRadial;

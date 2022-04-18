@@ -1,11 +1,11 @@
 #!/bin/bash -e
 
 # Assemble l2 error norms as a function of resolution for different grids
-cases="fullDeformation/MPDATA_latLon_c1
-       fullDeformation/MPDATA_latLon_c2
-       fullDeformation/MPDATA_latLon_c10
-       fullDeformation/MPDATA_latLonRotated_c2
-       fullDeformation/MPDATA_latLonSkipped_c2
+cases="fullDeformation/MPDATA_latLonPolar_c1
+       fullDeformation/MPDATA_latLonPolar_c2
+       fullDeformation/MPDATA_latLonPolar_c10
+       fullDeformation/MPDATA_latLonPolarRotated_c2
+       fullDeformation/MPDATA_latLonPolarSkipped_c2
        fullDeformation/MPDATA_cubedSphere_c2
        fullDeformation/MPDATA_HRgrid_c2
         fullDeformation/MPDATA_tri_c2"
@@ -18,15 +18,17 @@ for case in $cases; do
     
     for dir in $case/*[0-9]; do
         # Find max dx for this grid
-        if [[ ! -a $dir/maxDx.dat ]]; then
-            echo 'centre (0 0 0);' >> $dir/system/velocityFieldDict
-            meshAnalysis2D -case $dir velocityFieldDict
-            gmt info -C $dir/0/distMetrics.dat | awk '{print $4*180/3.14159}' \
-                > $dir/maxDx.dat
+        if [[ -a $dir/errorNorms.dat ]]; then
+            if [[ ! -a $dir/maxDx.dat ]]; then
+                echo 'centre (0 0 0);' >> $dir/system/velocityFieldDict
+                meshAnalysis2D -case $dir velocityFieldDict
+                gmt info -C $dir/0/distMetrics.dat | awk '{print $4*180/3.14159}' \
+                    > $dir/maxDx.dat
+            fi
+            dx=`cat $dir/maxDx.dat`
+            echo -n $dx ' ' >> $case/errorNorms.dat
+            tail -1 $dir/errorNorms.dat >> $case/errorNorms.dat
         fi
-        dx=`cat $dir/maxDx.dat`
-        echo -n $dx ' ' >> $case/errorNorms.dat
-        tail -1 $dir/errorNorms.dat >> $case/errorNorms.dat
     done
     sort -n $case/errorNorms.dat | sponge $case/errorNorms.dat
 done

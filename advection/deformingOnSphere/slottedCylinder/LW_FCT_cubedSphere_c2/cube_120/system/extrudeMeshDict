@@ -22,7 +22,7 @@ FoamFile
 constructFrom patch;
 
 // If construct from patch/mesh:
-sourceCase ".";
+sourceCase "LW_FCT_cubedSphere_c2/cube_120";
 sourcePatches (otherSide);
 
 exposedPatchName "originalPatch";

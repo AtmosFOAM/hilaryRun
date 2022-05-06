@@ -21,8 +21,8 @@ FieldsToPlot
 (
     [T rawValues 0 0.95 0.025 "$GMTU/colours/wh-bl-gr-ye-re.cpt"]
     [T contours -1 -1e-2 1e-2 "black"]
-    [Co colouredContours 0.8 2 0.2 "$GMTU/colours/pink_purple.cpt"]
-    [Co contours 3 50 1 "purple,1_2:0"]
+    [Co colouredContours 0.8 2 0.2 "$GMTU/colours/grey_black.cpt"]
+    [Co contours 3 50 1 "black,1_2:0"]
     //[imp contours 0.1 0.9 0.4 "2,purple"]
     //[offCentre rawValues 0 1 0.1 "$GMTU/colours/white_black.cpt"]
 );

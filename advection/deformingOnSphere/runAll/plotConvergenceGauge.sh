@@ -5,8 +5,8 @@ cases="fullDeformation/LW_latLonPolar_c2
        fullDeformation/LW_latLonPolarRotated_c2
        fullDeformation/LW_latLonPolarSkipped_c2
        fullDeformation/LW_cubedSphere_c2
-       fullDeformation/MPDATA_HRgrid_gauge_c2
-       fullDeformation/MPDATA_tri_gauge_c2"
+       fullDeformation/LW_HRgrid_c2
+       fullDeformation/LW_tri_c2"
 inputFiles=()
 
 for case in $cases; do
@@ -33,8 +33,8 @@ done
 
 # First and 2nd order lines
 echo '#dx 1stOrder 2ndOrder' > plots/1st2ndOrder.dat
-echo  .4 0.05 0.05 >> plots/1st2ndOrder.dat
-echo   2 0.25 2.5 >> plots/1st2ndOrder.dat
+echo  0.5 0.02 0.02 >> plots/1st2ndOrder.dat
+echo  4   0.16 1.28 >> plots/1st2ndOrder.dat
 
 inputFiles=(${inputFiles[*]} 
             plots/1st2ndOrder.dat

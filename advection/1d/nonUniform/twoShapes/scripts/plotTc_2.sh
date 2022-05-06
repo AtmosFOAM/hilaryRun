@@ -27,7 +27,7 @@ for file in $caseUniform/$time0/T.xyz $caseUniform/$time1/T.xyz \
 done
 
 # Make the Courant number file 0 where C>1 and -1 elsewhere
-awk 'NR == 1 {print $0}; NR > 1 { if ($4>0.8) print $1, $2, $3, -0.05; else print $1, $2, $3, -1}' \
+awk 'NR == 1 {print $0}; NR > 1 { if ($4>0.75) print $1, $2, $3, -0.05; else print $1, $2, $3, -1}' \
         $caseNonu/$time0/Co.xyz > $caseNonu/$time0/CoHi.xyz
 
 # Files to plot
@@ -39,7 +39,7 @@ colx=1
 pens=("black" "black" "black,4_4:0" "4,grey")
 symbols=("p0p" "c6p" "x6p" "p0p")
 spens=("0,white" "black" "black" "0,white")
-legends=("@~y@~@+0@+" "@~y@~@+1@+ uniform, c = 0.4" "@~y@~@+1@+ non-uniform" "c in [0.8,4]")
+legends=("@~y@~@+0@+" "@~y@~@+1@+ uniform, c = 0.4" "@~y@~@+1@+ non-uniform" "c in [0.75,4]")
 
 #xlabel='x'
 xmin=0
@@ -56,7 +56,7 @@ xscale=*1
 yscale=("*1" "*1" "*1" "*1" )
 legPos=x4.7/4.5
 projection=X15c/7c
-gv=0
+gv=1
 
 . gmtPlot
 

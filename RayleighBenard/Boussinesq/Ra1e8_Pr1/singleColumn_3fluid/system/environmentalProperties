@@ -24,11 +24,18 @@ FoamFile
 
 nu       nu       [0 2 -1 0 0] 1e-4;
 vonKarmenKappa vonKarmenKappa [0 0 0 0 0] 0.41;
+minLength 3
+(
+    minLength [0 1 0 0 0] 0
+    minLength [0 1 0 0 0] 0
+    minLength [0 1 0 0 0] 0
+);
 maxLength 3
 (
-    maxLength [0 1 0 0 0] 0.2
+    maxLength [0 1 0 0 0] 0.04
     maxLength [0 1 0 0 0] 0.04
     maxLength [0 1 0 0 0] 0.04
 );
-
+// Constant to get TKE dissipation from k^1.5/l
+Cmu 0.01; //0.09;
 // ************************************************************************* //

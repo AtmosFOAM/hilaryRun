@@ -17,22 +17,18 @@ FoamFile
     local           "";
 
     class           dictionary;
-    object          transferProperties;
+    object          environmentalProperties;
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-fluids 3 (stable up down);
-transferType dwdzTransfer;
-transferScale 0.1;
-entRate       2;
-detrainRate   1;
-minSigma  3(0.65 0.1 0.1);
-
-wTransferScale 1;
-bTransferScale 1;
-
-gamma    gamma    [0 2 -1 0 0] 0.03; //0.0091696942; //(gammaHat = 1)
-
+nu       nu       [0 2 -1 0 0] 1e-4;
+vonKarmenKappa vonKarmenKappa [0 0 0 0 0] 0.41;
+maxLength 3
+(
+    maxLength [0 1 0 0 0] 0.2
+    maxLength [0 1 0 0 0] 0.04
+    maxLength [0 1 0 0 0] 0.04
+);
 
 // ************************************************************************* //

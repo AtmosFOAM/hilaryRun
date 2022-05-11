@@ -22,17 +22,12 @@ FoamFile
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-fluids 3 (stable up down);
-transferType dwdzTransfer;
-transferScale 0.1;
-entRate       2;
-detrainRate   1;
-minSigma  3(0.65 0.1 0.1);
-
-wTransferScale 1;
-bTransferScale 1;
-
-gamma    gamma    [0 2 -1 0 0] 0.03; //0.0091696942; //(gammaHat = 1)
-
+fluids 1 (air);
+transferType noTransfer;
+entRate 0;
+detrainRate 0;
+minSigma 1(1);
+bTransferScale 0;
+gamma gamma [0 2 -1 0 0] 0;
 
 // ************************************************************************* //

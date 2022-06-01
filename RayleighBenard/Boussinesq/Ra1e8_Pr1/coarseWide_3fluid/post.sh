@@ -1,15 +1,21 @@
+#!/bin/bash -e
+
 # Post processing
+case=.
+startAverageTime=32
+time=150
 
-# Calculate Nusselt number
-#BoussinesqNusselt.sh . 0 30
-#BoussinesqKE.sh . 0 30 'stable up down'
+# Plots at given time
+sumFields $time sigmaDiff $time sigma.up $time sigma.down -scale1 -1
+for var in ub uSigma up down stable; do
+    gmtFoam -time $time $var
+    ev $time/$var.pdf
+done
 
-for time in [0-9]*; do for part in stable up down; do
-    if [ -a $time/magSqr\(u.${part}\) ]; then
-        mv $time/magSqr\(u.${part}\) $time/uSqr.${part}
-    fi
-done; done
+# Scatter plot of results
+../../scripts/scatter.sh $case $time 'stable up down'
 
-time=50
-./graphs.sh $time
+# Calculate Nusselt number and KE
+../../scripts/Nusselt.sh $case 0 $startAverageTime
+../../scripts/KE.sh $case 0 $startAverageTime 'stable up down'
 

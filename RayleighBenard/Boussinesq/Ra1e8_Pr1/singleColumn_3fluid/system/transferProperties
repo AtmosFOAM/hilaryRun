@@ -24,13 +24,13 @@ FoamFile
 
 fluids 3 (stable up down);
 transferType dwdzTransfer;
-transferScale 0.1;
-entRate       2;
+transferScale 0.2;
+entRate       1;
 detrainRate   1;
 minSigma  3(0.65 0.1 0.1);
 
 wTransferScale 1;
-bTransferScale 1;
+bTransferScale 0;
 
 gamma    gamma    [0 2 -1 0 0] 0.03; //0.0091696942; //(gammaHat = 1)
 

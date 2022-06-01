@@ -5,8 +5,7 @@ cases="fullDeformation/LW_latLonPolar_c2
        fullDeformation/LW_latLonPolarRotated_c2
        fullDeformation/LW_latLonPolarSkipped_c2
        fullDeformation/LW_cubedSphere_c2
-       fullDeformation/LW_HRgrid_c2
-       fullDeformation/LW_tri_c2"
+       fullDeformation/LW_HRgrid_c2"
 inputFiles=()
 
 for case in $cases; do
@@ -40,20 +39,20 @@ inputFiles=(${inputFiles[*]}
             plots/1st2ndOrder.dat
             plots/1st2ndOrder.dat)
 outFile=plots/l2errorGauge.eps
-col=(3 3 3 3 3 3 2 3)
+col=(3 3 3 3 3 2 3)
 colx=(1 1 1 1 1 1 1 1)
 pens=("1p,black,4_4:0"
-      "1p,blue" "1p,red"  "1p,cyan" "1p,magenta" "1p,green" 
+      "1p,blue" "1p,red"  "1p,cyan" "1p,magenta"
      "0.5p,black,1_2:0"  "0.5p,black,1_2:0")
 symbols=('c10p' 
-         'x10p' '+10p' 's10p' 'h10p' 't10p'
+         'x10p' '+10p' 's10p' 'h10p'
          'x1p' 'x1p')
 legends=("lat-lon c<2"  "rotated" "skipped"
-         "cubed sphere"  "hexagonal"  "triangular"  "1st/2nd order")
+         "cubed sphere"  "hexagonal"  "1st/2nd order")
 
 xlabel='@~D@~x (degrees)'
 ylabel='@~i@~@-2@- error'
-xmin=0.3
+xmin=0.5
 xmax=4.01
 dx=2
 ddx=2

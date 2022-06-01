@@ -14,17 +14,17 @@ FoamFile
 
 // How to plot
 // Compulsory inputs
-projection "X30.3c/15c";
+projection "X40c/10c";
 projection2D XZ;
 
 FieldsToPlot
 (
-    [sigma.up filledContours 0 0.5 0.05 "$GMTU/colours/white_grey.cpt"]
+    [sigma.up rawValues 0 0.5 0.05 "$GMTU/colours/white_grey.cpt"]
     [b.up colouredContours -0.525 0.525 0.05 "$GMTU/colours/red_white_blue.cpt"]
-    [u.up     vectors 0.3 3 "black"]
+    [u.up     vectors 0.4 3 "black"]
 );
 
 separateLegend true;
-//region "-10.1e3/10.1e3/0/10e3";
+region "-2/2/0/1";
 plotBoundaryDots false;
 annotate "minMax 0 -0.01";

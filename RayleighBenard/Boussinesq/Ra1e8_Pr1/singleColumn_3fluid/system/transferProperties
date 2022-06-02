@@ -27,9 +27,10 @@ transferType dwdzTransfer;
 transferScale 0.2;
 entRate       1;
 detrainRate   1;
+mixingTransfer 0.4;
 minSigma  3(0.65 0.1 0.1);
 
-wTransferScale 1;
+wTransferScale 2;
 bTransferScale 0;
 
 gamma    gamma    [0 2 -1 0 0] 0.03; //0.0091696942; //(gammaHat = 1)

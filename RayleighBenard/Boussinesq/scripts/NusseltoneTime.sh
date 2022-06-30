@@ -13,5 +13,5 @@ time=$2
 
 # Calculate vertical heat transport and global mean
 multiFluidHeatTransferFoam -case $case -time $time
-writeuvw heatTransfer -case $case -time $time
+#writeuvw heatTransfer -case $case -time $time
 

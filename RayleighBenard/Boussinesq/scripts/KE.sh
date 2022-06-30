@@ -24,8 +24,8 @@ for time in $case/[0-9]*; do
         for part in ${parts[*]}; do
             multiplyFields -case $case $time sigmauSqr.${part} \
                 $time magSqr\(u.${part}\) $time sigma.${part}
-            sumFields -case $case $time KE.$part $time magSqr\(u.${part}\) \
-                      $time magSqr\(u.${part}\) -scale0 0.25 -scale1 0.25
+            sumFields -case $case $time KE.$part $time sigmauSqr.${part} \
+                      $time sigmauSqr.${part} -scale0 0.25 -scale1 0.25
         done
         sumFields -case $case $time KE $time sigmauSqr.${parts[0]} \
             $time sigmauSqr.${parts[0]} -scale0 0.25 -scale1 0.25
@@ -38,6 +38,16 @@ for time in $case/[0-9]*; do
         else
             ln -sf KE $case/$time/totalKE
         fi
+        for part in ${parts[*]}; do
+            if [ -f $case/$time/TKE ] ; then
+                multiplyFields -case $case $time sigmaTKE.$part \
+                             $time TKE.$part $time sigma.$part
+                sumFields -case $case $time totalKE.$part $time KE.$part \
+                            $time sigmaTKE.$part
+            else
+                ln -sf KE.$part $case/$time/totalKE.$part
+            fi
+        done
     fi
 done
 
@@ -51,7 +61,7 @@ done
 #    fi
 #done
 
-rm $case/*/magSqr*
+rm $case/*/magSqr* $case/*/sigmauSqr*
 
 ## Calculate time means
 timeMean -case $case -time $startAveraging':' KE

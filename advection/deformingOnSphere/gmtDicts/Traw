@@ -20,9 +20,9 @@ plotBoundaryDots false;
 FieldsToPlot
 (
     [T rawValues 0 0.95 0.025 "$GMTU/colours/wh-bl-gr-ye-re.cpt"]
-    [T contours -1 -1e-2 1e-2 "black"]
-    [Co colouredContours 0.8 2 0.2 "$GMTU/colours/grey_black.cpt"]
-    [Co contours 3 50 1 "black,1_2:0"]
+    [T contours -1 -1e-2 1e-2 "black,5_5:0"]
+    [Co contours 0.8 1.9 0.2 "1.5,darkgrey"]
+    [Co contours 2 50 1 "1,black"]
     //[imp contours 0.1 0.9 0.4 "2,purple"]
     //[offCentre rawValues 0 1 0.1 "$GMTU/colours/white_black.cpt"]
 );
@@ -31,6 +31,6 @@ FieldsToPlot
 region "0/360/-90/90";
 boundaryMarks "a60/a60";
 separateLegend true;
-annotate "minMax 180 -105";
+annotate "minMax 120 -106";
 lonMin 360;
 //lonMax 180;

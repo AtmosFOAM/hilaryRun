@@ -24,27 +24,26 @@ if [ -f $case/$time/p.stable ]; then
     done
 fi
 
-for var in sigma b u P KE TKE; do
-    for part in stable up down; do
-        writeCellDataxyz -case $case -time $time ${var}.${part}${timeMean}
-        sort -g -k 3 $case/$time/${var}.${part}${timeMean}.xyz \
-            | sponge $case/$time/${var}.${part}.xyz
+for var in sigma b u P KE TKE heatTransfer totalKE; do
+    for part in '' .stable .up .down; do
+        if [ -a $case/$time/${var}${part}${timeMean} ]; then
+            writeCellDataxyz -case $case -time $time ${var}${part}${timeMean}
+            sort -g -k 3 $case/$time/${var}${part}${timeMean}.xyz \
+                | sponge $case/$time/${var}${part}.xyz
+        fi
     done
 done
-for var in heatTransferz KE; do
-    writeCellDataxyz -case $case -time $time ${var}${timeMean}
-    sort -g -k 3 $case/$time/${var}${timeMean}.xyz | sponge $case/$time/$var.xyz
-done
 
-# Convert heatTransfer and KE to Nu and Re
-awk '{if (NR==1) print $0; else print $1, $2, $3, $4/'$alpha'}' \
-    $case/$time/heatTransferz.xyz > $case/$time/Nu.xyz
+# Convert heatTransfer to Nu and KE to Re
 for part in '' .stable .up .down; do
+    awk '{if (NR==1) print $0; else print $1, $2, $3, $6/'$alpha'}' \
+        $case/$time/heatTransfer${part}.xyz > $case/$time/Nu${part}.xyz
     awk '{if (NR==1) print $0; else print $1, $2, $3, sqrt($4/('$alpha'*'$nu'))}' \
-        $case/$time/KE$part.xyz > $case/$time/Re$part.xyz
+        $case/$time/totalKE$part.xyz > $case/$time/Re$part.xyz
 done
 
-for var in sigma b w P Nusselt Re KE; do
+# Plot graphs
+for var in sigma b w P Nusselt Re TKE; do
     sed 's%TIME%'$case/$time'%g' $case/gmtFiles/$var.gmt \
         > $case/gmtFiles/tmp.gmt;  gmtPlot $case/gmtFiles/tmp.gmt
 done
@@ -53,4 +52,7 @@ ln -sf ../gmtFiles/results.lyx $case/$time/results.lyx
 lyx --export pdf $case/$time/results.lyx 1> /dev/null
 pdfCrop $case/$time/results.pdf
 ev $case/$time/results.pdf
+
+# Tidy up files
+rm $case/gmtFiles/tmp.gmt $case/$time/*xyz
 

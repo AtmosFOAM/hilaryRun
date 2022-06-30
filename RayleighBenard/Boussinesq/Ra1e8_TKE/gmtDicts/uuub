@@ -1,0 +1,31 @@
+FoamFile
+{
+    version         2.3;
+    format          ascii;
+
+    root            "";
+    case            "";
+    instance        "constant";
+    local           "";
+
+    class           dictionary;
+    object          gmtDict;
+}
+
+// How to plot
+// Compulsory inputs
+projection "X60c/10c";
+projection2D XZ;
+
+FieldsToPlot
+(
+    [b rawValues -0.5 0.5 0.05 "$GMTU/colours/red_white_blue.cpt"]
+    [u.stable vectors 0.2 7 "black"]
+    [u.up     vectors 0.2 7 "red"]
+    [u.down   vectors 0.2 7 "blue"]
+);
+
+separateLegend true;
+region "-4/4/0/1";
+plotBoundaryDots false;
+annotate "minMax 0 -0.01";

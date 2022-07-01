@@ -12,8 +12,7 @@ cases="fullDeformation/MPDATA_latLonPolar_c1/latLon_120x60
        fullDeformation/MPDATA_latLonPolar_c2/latLon_480x240
        fullDeformation/MPDATA_latLonPolar_c10/latLon_120x60
        fullDeformation/MPDATA_latLonPolar_c10/latLon_240x120
-       fullDeformation/MPDATA_latLonPolar_c10/latLon_480x240
-       fullDeformation/MPDATA_latLonPolar_c10_lowSolver/latLon_120x60"
+       fullDeformation/MPDATA_latLonPolar_c10/latLon_480x240"
 
 inputFiles=''
 
@@ -37,19 +36,17 @@ pens=("black" "0.5p,black,6_4:0" "1p,black,1_2:0"
       "blue" "0.5p,blue,6_4:1" "1p,blue,1_2:1"
       "red"  "0.5p,red,6_4:2"  "1p,red,1_2:1"
       "green" "0.5p,green,6_4:3" "1p,green,1_2:3")
-legends=("10@+-12@+, 120x60, @~D@~t = 0.01, c<1"
-         "10@+-12@+, 240x120, @~D@~t = 0.005, c<1"
-         "10@+-12@+, 480x240, @~D@~t = 0.0025, c<1"
+legends=("120x60, @~D@~t = 0.01, c<1"
+         "240x120, @~D@~t = 0.005, c<1"
+         "480x240, @~D@~t = 0.0025, c<1"
          
-         "10@+-12@+, 120x60, @~D@~t = 0.02, c<2"
-         "10@+-12@+, 240x120, @~D@~t = 0.01, c<2"
-         "10@+-12@+, 480x240, @~D@~t = 0.005, c<2"
+         "120x60, @~D@~t = 0.02, c<2"
+         "240x120, @~D@~t = 0.01, c<2"
+         "480x240, @~D@~t = 0.005, c<2"
          
-         "10@+-12@+, 120x60, @~D@~t = 0.1, c<10"
-         "10@+-12@+, 240x120, @~D@~t = 0.05, c<10"
-         "10@+-12@+, 480x240, @~D@~t = 0.025, c<10"
-
-         "10@+-6@+, 120x60, @~D@~t = 0.1, c<10"
+         "120x60, @~D@~t = 0.1, c<10"
+         "240x120, @~D@~t = 0.05, c<10"
+         "480x240, @~D@~t = 0.025, c<10"
          )
 
 xlabel='time'

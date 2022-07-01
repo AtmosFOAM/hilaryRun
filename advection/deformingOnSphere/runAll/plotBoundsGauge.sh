@@ -1,12 +1,11 @@
 #!/bin/bash -e
 
 # Assemble bounds for different grids
-cases="fullDeformation/MPDATA_latLon_gauge_c2/latLon_240x120
-       fullDeformation/MPDATA_latLonRotated_gauge_c2/latLon_240x120
-       fullDeformation/MPDATA_latLonSkipped_gauge_c2/latLon_240x120
-       fullDeformation/MPDATA_cubedSphere_gauge_c2/cube_60
-       fullDeformation/MPDATA_HRgrid_gauge_c2/HRgrid7
-       fullDeformation/MPDATA_tri_gauge_c2/tri6"
+cases="fullDeformation/LW_latLonPolar_c2/latLon_240x120
+       fullDeformation/LW_latLonPolarRotated_c2/latLon_240x120
+       fullDeformation/LW_latLonPolarSkipped_c2/latLon_240x120
+       fullDeformation/LW_cubedSphere_c2/cube_60
+       fullDeformation/LW_HRgrid_c2/HRgrid7"
 inputFiles=''
 
 for case in $cases; do
@@ -29,14 +28,14 @@ pens=("black" "black,4_4:0"
 legends=("lat-lon"  "" "rotated" "" "skipped" "" "cubed sphere" "" "hexagonal" "" "triangular" "")
 
 #xlabel='time'
-ylabel='@~Y@~'
+ylabel='@~y@~'
 xmin=0
 xmax=5
 dx=1
 ddx=0
 dxg=0
 ymin=-0.2
-ymax=1
+ymax=1.2
 dy=0.2
 ddy=0
 dyg=1

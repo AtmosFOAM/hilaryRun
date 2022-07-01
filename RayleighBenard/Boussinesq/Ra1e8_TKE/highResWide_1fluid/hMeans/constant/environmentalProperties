@@ -1,0 +1,33 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.4                                   |
+|   \\  /    A nd           | Web:      http://www.openfoam.org               |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version         2.0;
+    format          ascii;
+
+    root            "";
+    case            "";
+    instance        "";
+    local           "";
+
+    class           dictionary;
+    object          environmentalProperties;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+nu       nu       [0 2 -1 0 0] 1e-4;
+alpha    alpha    [0 2 -1 0 0] 1e-4;
+
+// Simulation with Ra = 1e8
+// H = 1, DeltaB=1, Pr = nu/alpha = 1, nu alpha = 1e-8
+// => alpha = 1e-8/nu => nu^2 = 1e-8
+// => nu = 1e-4, alpha = 1e-4
+
+// ************************************************************************* //

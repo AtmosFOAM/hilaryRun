@@ -5,8 +5,7 @@ cases="fullDeformation/MPDATA_latLon_c2/latLon_240x120
        fullDeformation/MPDATA_latLonRotated_c2/latLon_240x120
        fullDeformation/MPDATA_latLonSkipped_c2/latLon_240x120
        fullDeformation/MPDATA_cubedSphere_c2/cube_60
-       fullDeformation/MPDATA_HRgrid_c2/HRgrid7
-       fullDeformation/MPDATA_tri_c2/tri6"
+       fullDeformation/MPDATA_HRgrid_c2/HRgrid7"
 inputFiles=''
 
 for case in $cases; do

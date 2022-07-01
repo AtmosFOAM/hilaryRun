@@ -1,0 +1,46 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.4                                   |
+|   \\  /    A nd           | Web:      http://www.openfoam.org               |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version         2.0;
+    format          ascii;
+
+    root            "";
+    case            "";
+    instance        "";
+    local           "";
+
+    class           dictionary;
+    object          environmentalProperties;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+nu       nu       [0 2 -1 0 0] 8.4083292038e-5;
+alpha    alpha    [0 2 -1 0 0] 1.1892969171e-4;
+vonKarmenKappa vonKarmenKappa [0 0 0 0 0] 0.41;
+minLength 3
+(
+    minLength [0 1 0 0 0] 0
+    minLength [0 1 0 0 0] 0
+    minLength [0 1 0 0 0] 0
+);
+maxLength 3
+(
+    maxLength [0 1 0 0 0] 0.2
+    maxLength [0 1 0 0 0] 0.04
+    maxLength [0 1 0 0 0] 0.04
+);
+roughnessHeight roughnessHeight [0 1 0 0 0] 0.01;
+// Constant to get TKE dissipation from k^1.5/l
+Cmu 0.09;
+// Buoyancy TKE production coefficient
+Cb 1;
+
+// ************************************************************************* //

@@ -1,0 +1,39 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.4                                   |
+|   \\  /    A nd           | Web:      http://www.openfoam.org               |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version         2.0;
+    format          ascii;
+
+    root            "";
+    case            "";
+    instance        "";
+    local           "";
+
+    class           dictionary;
+    object          transferProperties;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+fluids 3 (stable up down);
+transferType dwdzTransfer;
+transferScale 0.2;
+entRate       0.5;
+detrainRate   1;
+mixingTransfer 0.2; //0.4;
+minSigma  3(0.1 0.1 0.1);
+
+wTransferScale 2;
+bTransferScale 1;
+
+gamma    gamma    [0 2 -1 0 0] 0;
+dragRadius dragRadius [0 1 0 0 0] 1e-6;
+
+// ************************************************************************* //

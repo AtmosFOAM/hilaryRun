@@ -8,15 +8,14 @@ fi
 
 cases=\
 (\
-fullDeformation/MPDATA_latLonSkipped_gauge/latLon_120x60
-fullDeformation/MPDATA_latLonSkipped_gauge/latLon_240x120
-fullDeformation/MPDATA_latLonSkipped_gauge/latLon_480x240
+MPDATA_latLonPolar_c1 MPDATA_latLonPolar_c2 MPDATA_latLonPolar_c10 \ MPDATA_latLonPolarRotated_c2 MPDATA_HRgrid_c2 MPDATA_HRgrid_c10 \
 )
 
 for case in ${cases[*]}; do
-    echo running case $case
-    ls -d $case
-    ./runAll/runOne.sh $case init
-    ./runAll/runOne.sh $case run
-    ./runAll/runOne.sh $case post
+    for dir in fullDeformation/$case/*; do
+        echo running case $dir
+#        ./runAll/runOne.sh $dir init
+#        ./runAll/runOne.sh $dir run
+        ./runAll/runOne.sh $dir post
+    done
 done

@@ -1,9 +1,9 @@
 #!/bin/bash -e
 
 # Assemble bounds for different grids
-cases="fullDeformation/MPDATA_latLon_c2/latLon_240x120
-       fullDeformation/MPDATA_latLonRotated_c2/latLon_240x120
-       fullDeformation/MPDATA_latLonSkipped_c2/latLon_240x120
+cases="fullDeformation/MPDATA_latLonPolar_c2/latLon_240x120
+       fullDeformation/MPDATA_latLonPolarRotated_c2/latLon_240x120
+       fullDeformation/MPDATA_latLonPolarSkipped_c2/latLon_240x120
        fullDeformation/MPDATA_cubedSphere_c2/cube_60
        fullDeformation/MPDATA_HRgrid_c2/HRgrid7"
 inputFiles=''
@@ -38,7 +38,7 @@ ymin=-0.1
 ymax=1.1
 dy=0.2
 ddy=0
-dyg=1
+dyg=0
 xscale=*1
 yscale=*1
 legPos=x8.5/0.5

@@ -49,10 +49,10 @@ if [[ $2 == init  ]]; then
 
 elif [[ $2 == run  ]]; then
     # Parallel decomposition and run
-    decomposePar -case $case
-    echo starting mpirun. Output in $case/log
-    mpirun -np 4 implicitAdvectionFoam -case $case -parallel >& $case/log &
-    #implicitAdvectionFoam -case $case >& log &
+    #decomposePar -case $case -force
+    #echo starting mpirun. Output in $case/log
+    #mpirun -np 4 --oversubscribe implicitAdvectionFoam -case $case -parallel >& $case/log &
+    implicitAdvectionFoam -case $case >& log &
     echo tail -f $case/log
 else
     if [[ -a $case/processor0 ]]; then

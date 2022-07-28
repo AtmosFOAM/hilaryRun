@@ -1,7 +1,7 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  dev                                   |
+|  \\    /   O peration     | Version:  2.3.0                                 |
 |   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
@@ -11,16 +11,39 @@ FoamFile
     format      ascii;
     class       dictionary;
     location    "system";
-    object      velocityDict;
+    object      fvSolution;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-timeVaryingWind true;
-type deformationalNonDivergentGeodesic;
-radius 1;
-deformationScale 10;
-endTime endTime [0 0 1 0 0] 5;
-centre (0 0 0);
+solvers
+{
+    "(U|omega|k)"
+    {
+        solver          smoothSolver;
+        smoother        symGaussSeidel;
+        tolerance       1e-9;
+        relTol          0.1;
+    }
+}
 
-centre (0 0 0);
-centre (0 0 0);
+PISO
+{
+    nCorrectors     2;
+    nNonOrthogonalCorrectors 0;
+}
+
+relaxationFactors
+{
+    fields
+    {
+    }
+    equations
+    {
+        U               0.5;
+        omega			0.5;
+        k				0.5;
+    }
+}
+
+
+// ************************************************************************* //

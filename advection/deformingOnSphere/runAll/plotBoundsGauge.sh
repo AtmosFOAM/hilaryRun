@@ -24,8 +24,9 @@ pens=("black" "black,4_4:0"
       "red" "red,4_4:2"
       "cyan" "cyan,4_4:3"
       "magenta" "magenta,5_5:0"
+      "grey" "grey,4_4:0"
       "green" "green,5_5:1")
-legends=("lat-lon"  "" "rotated" "" "skipped" "" "cubed sphere" "" "hexagonal" "" "triangular" "")
+legends=("lat-lon, c<2"  "" "rotated" "" "skipped" "" "cubed sphere" "" "hexagonal" "" "lat-lon, c<10" "" "triangular" "")
 
 #xlabel='time'
 ylabel='@~y@~'

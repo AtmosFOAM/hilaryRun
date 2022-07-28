@@ -1,0 +1,27 @@
+inputFiles=(./postProcessing/graphs/50000/Uf.xy)
+outFile=./50000/Uf.eps
+col=(2)
+colx=(1)
+legends=("kOmega u@+*@+ = 1.00003 m/s")
+pens=("black,5_5:0")
+symbols=("+6p")
+spens=("black" "black")
+ylabel="u@++@+"
+xlabel="y@++@+"
+xmin=1
+xmax=1000
+dx=10
+ddx=1
+dxg=0
+ymin=0
+ymax=25
+dy=5
+ddy=5
+dyg=0
+xscale=(*1.00003/0.0013888889)
+yscale=(/1.00003)
+legPos=x0.25/6.75
+nSkip=(0)
+projection=X8cl/8c
+gv=0
+

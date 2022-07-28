@@ -52,7 +52,7 @@ symbols=('c10p' 'c10p' 'c10p'
 legends=("lat-lon c<1" "lat-lon c<2" "lat-lon c<10"   "rotated" "skipped"
          "cubed sphere"  "hexagonal"  "1st/2nd order")
 
-xlabel='@~D@~x (degrees)'
+xlabel='@~D@~s (degrees)'
 ylabel='@~i@~@-2@- error'
 xmin=0.3
 xmax=4.01

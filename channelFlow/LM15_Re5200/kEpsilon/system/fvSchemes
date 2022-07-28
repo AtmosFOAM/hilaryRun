@@ -1,7 +1,7 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  dev                                   |
+|  \\    /   O peration     | Version:  2.3.0                                 |
 |   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
@@ -11,16 +11,42 @@ FoamFile
     format      ascii;
     class       dictionary;
     location    "system";
-    object      velocityDict;
+    object      fvSchemes;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-timeVaryingWind true;
-type deformationalNonDivergentGeodesic;
-radius 1;
-deformationScale 10;
-endTime endTime [0 0 1 0 0] 5;
-centre (0 0 0);
+ddtSchemes
+{
+    default         steadyState;
+}
 
-centre (0 0 0);
-centre (0 0 0);
+gradSchemes
+{
+    default         Gauss linear;
+}
+
+divSchemes
+{
+    default         none;
+    div((nuEff*dev2(T(grad(U))))) Gauss linear;
+    div(phi,epsilon)	bounded Gauss linear;
+    div(phi,k)		bounded Gauss linear;
+}
+
+laplacianSchemes
+{
+    default         	Gauss linear corrected;
+}
+
+interpolationSchemes
+{
+    default         linear;
+}
+
+snGradSchemes
+{
+    default         corrected;
+}
+
+
+// ************************************************************************* //

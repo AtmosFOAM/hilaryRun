@@ -32,14 +32,14 @@ pens=("black" "black,4_4:0" "1,grey" "1,grey,4_4:0" "1,dimgrey,4_1:0" "1,dimgrey
 symbols=("x6p" "+6p" "s10p" "t10p" "c8p" "h8p" "p0p" "p0p")
 spens=("1,black" "1,black" "1,grey" "1,grey" "1,dimgrey" "1,dimgrey"
       "black" "black")
-legends=("Gauge uniform, c = 0.4" "Gauge ratio 10, c in [0.4, 4]"
-         "MPDATA uniform" "MPDATA ratio 10"
-         "FCT uniform" "FCT ratio 10"
+legends=("Infinite gauge, uniform, c = 0.4" "Infinite gauge, ratio 10, c in [0.4, 4]"
+         "Standard MPDATA, uniform" "Standard MPDATA, ratio 10"
+         "FCT with infinite gauge, uniform" "FCT with infinite gauge, ratio 10"
          "1st/2nd")
 
-xlabel='Max @~D@~x'
+xlabel='Max @~D@~s'
 xmin=5e-3
-xmax=0.03
+xmax=0.027
 dx=2
 ddx=0
 dxg=0
@@ -50,7 +50,7 @@ ddy=0
 dyg=0
 xscale=*1
 yscale=("*1" "*1" "*1" )
-legPos=x0.3/3.6
+legPos=x10.5/2
 projection=X10cl/7cl
 gv=0
 

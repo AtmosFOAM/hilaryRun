@@ -5,7 +5,8 @@ cases="fullDeformation/MPDATA_latLonPolar_c2/latLon_240x120
        fullDeformation/MPDATA_latLonPolarRotated_c2/latLon_240x120
        fullDeformation/MPDATA_latLonPolarSkipped_c2/latLon_240x120
        fullDeformation/MPDATA_cubedSphere_c2/cube_60
-       fullDeformation/MPDATA_HRgrid_c2/HRgrid7"
+       fullDeformation/MPDATA_HRgrid_c2/HRgrid7
+       fullDeformation/MPDATA_latLonPolar_c10/latLon_240x120"
 inputFiles=''
 
 for case in $cases; do
@@ -24,8 +25,9 @@ pens=("black" "black,4_4:0"
       "red" "red,4_4:2"
       "cyan" "cyan,4_4:3"
       "magenta" "magenta,5_5:0"
+      "grey" "grey,4_4:0"
       "green" "green,5_5:1")
-legends=("lat-lon"  "" "rotated" "" "skipped" "" "cubed sphere" "" "hexagonal" "" "triangular" "")
+legends=("lat-lon, c<2"  "" "rotated" "" "skipped" "" "cubed sphere" "" "hexagonal" "" "lat-lon, c<10" "" "triangular" "")
 
 #xlabel='time'
 ylabel='@~y@~'
@@ -43,7 +45,7 @@ xscale=*1
 yscale=*1
 legPos=x8.5/0.5
 projection=X8c/4c
-gv=0
+gv=1
 
 . gmtPlot
 

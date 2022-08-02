@@ -15,12 +15,14 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-Ubar            Ubar [ 0 1 -1 0 0 0 0 ] (1 0 0 );
+Ubar            Ubar [ 0 1 -1 0 0 0 0 ] (0 0 0);
+gradP           gradP [0 1 -2 0 0] (1 0 0);
 
 transportModel  Newtonian;
 
-nu              nu [ 0 2 -1 0 0 0 0 ] 8e-6;
-gradP        gradP [ 0 1 -2 0 0 0 0 ] (0 0 0);
+// nu calcluated as u* delta/Re_tau where u*=1, delta=1
+// Re_tau = 720
+nu              nu [ 0 2 -1 0 0 0 0 ] 0.0013888889;
 
 
 // ************************************************************************* //

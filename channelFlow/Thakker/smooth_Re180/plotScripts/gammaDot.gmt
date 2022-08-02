@@ -1,0 +1,27 @@
+inputFiles=(REF/LM_Channel_5200_mean_prof.dat MODEL.xy)
+outFile=CASETIME/dUdy.eps
+col=(2 1)
+colx=(4 2)
+#legends=("DNS  u@+*@+ = U_TAU m/s" "RASMODEL u@+*@+ = UTAU m/s")
+pens=("black" "black,5_5:0")
+symbols=("p0p" "+6p")
+spens=("black" "black")
+xlabel="dU/dy (s@+-1@+)"
+#ylabel="y@++@+"
+xmin=3e-3
+xmax=300
+dx=10
+ddx=$dx
+dxg=0
+ymin=1
+ymax=6e3
+dy=10
+ddy=10
+dyg=0
+xscale=(*U_TAU*U_TAU/NU *1)
+yscale=(*1 *U_TAU/NU)
+legPos=x1/5
+nSkip=(72 0)
+projection=X8cl/8cl
+gv=0
+

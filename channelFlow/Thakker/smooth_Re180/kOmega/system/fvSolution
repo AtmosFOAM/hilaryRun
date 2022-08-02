@@ -10,17 +10,40 @@ FoamFile
     version     2.0;
     format      ascii;
     class       dictionary;
-    location    "constant";
-    object      transportProperties;
+    location    "system";
+    object      fvSolution;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-Ubar            Ubar [ 0 1 -1 0 0 0 0 ] (1 0 0 );
+solvers
+{
+    "(U|omega|k)"
+    {
+        solver          smoothSolver;
+        smoother        symGaussSeidel;
+        tolerance       1e-9;
+        relTol          0.1;
+    }
+}
 
-transportModel  Newtonian;
+PISO
+{
+    nCorrectors     2;
+    nNonOrthogonalCorrectors 0;
+}
 
-nu              nu [ 0 2 -1 0 0 0 0 ] 8e-6;
-gradP        gradP [ 0 1 -2 0 0 0 0 ] (0 0 0);
+relaxationFactors
+{
+    fields
+    {
+    }
+    equations
+    {
+        U               0.5;
+        omega			0.5;
+        k				0.5;
+    }
+}
 
 
 // ************************************************************************* //

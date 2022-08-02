@@ -1,0 +1,6 @@
+/* dynamicCode:
+ * SHA1 = d7ac75842eaf65f2020a1f3659b62714abc6c37c
+ */
+fixedValueFvPatchFieldTemplate.C
+
+LIB = $(PWD)/../platforms/$(WM_OPTIONS)/lib/libomegaRoughWallFunction_d7ac75842eaf65f2020a1f3659b62714abc6c37c

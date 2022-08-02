@@ -1,0 +1,27 @@
+inputFiles=(REF/nut.dat MODEL.xy)
+outFile=CASETIME/length.eps
+col=(2 1 1)
+colx=(9 2 2)
+legends=("DNS  @~n@~@-t@-/C@-@~@m@~@-@+.25@+/k@+0.5@+" "RASMODEL @~n@~@-t@-/C@-@~@m@~@-@+.25@+/k@+0.5@+" "@~k@~z")
+pens=("black" "black,5_5:0" "black,1_2:0")
+symbols=("p0p" "+6p" "p0p")
+spens=("black" "black" "black")
+xlabel="length scale (m)"
+#ylabel="y@++@+"
+xmin=1e-7
+xmax=1
+dx=10
+ddx=10
+dxg=0
+ymin=1
+ymax=6e3
+dy=10
+ddy=10
+dyg=0
+xscale=(*1 *1 *1 *1 *1)
+yscale=(*1 *U_TAU/NU *U_TAU/NU)
+legPos=x0.5/6
+nSkip=(3 0 0)
+projection=X8cl/8cl
+gv=0
+

@@ -10,17 +10,48 @@ FoamFile
     version     2.0;
     format      ascii;
     class       dictionary;
-    location    "constant";
-    object      transportProperties;
+    location    "system";
+    object      fvSchemes;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-Ubar            Ubar [ 0 1 -1 0 0 0 0 ] (1 0 0 );
+ddtSchemes
+{
+    default         steadyState;
+}
 
-transportModel  Newtonian;
+gradSchemes
+{
+    default         Gauss linear;
+}
 
-nu              nu [ 0 2 -1 0 0 0 0 ] 8e-6;
-gradP        gradP [ 0 1 -2 0 0 0 0 ] (0 0 0);
+wallDist
+{
+    method meshWave;
+}
+
+divSchemes
+{
+    default         none;
+    div((nuEff*dev2(T(grad(U))))) Gauss linear;
+    div(phi,omega)	bounded Gauss linear;
+    div(phi,k)		bounded Gauss linear;
+}
+
+laplacianSchemes
+{
+    default         	Gauss linear corrected;
+}
+
+interpolationSchemes
+{
+    default         linear;
+}
+
+snGradSchemes
+{
+    default         corrected;
+}
 
 
 // ************************************************************************* //

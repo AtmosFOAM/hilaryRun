@@ -9,18 +9,41 @@ FoamFile
 {
     version     2.0;
     format      ascii;
-    class       dictionary;
-    location    "constant";
-    object      transportProperties;
+    class       volScalarField;
+    location    "0";
+    object      omega;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-Ubar            Ubar [ 0 1 -1 0 0 0 0 ] (1 0 0 );
+dimensions      [0 0 -1 0 0 0 0];
 
-transportModel  Newtonian;
+internalField   uniform 0.01;
 
-nu              nu [ 0 2 -1 0 0 0 0 ] 8e-6;
-gradP        gradP [ 0 1 -2 0 0 0 0 ] (0 0 0);
+boundaryField
+{
+    ground
+    {
+        type            omegaWallFunction;
+        value           uniform 0.01;
+        kappa           0.408; //0.415; //0.384; //0.41;
+    }
+    centerLine
+    {
+        type            zeroGradient;
+    }
+    inlet
+    {
+        type            cyclic;
+    }
+    outlet
+    {
+        type            cyclic;
+    }
+    sides
+    {
+        type            empty;
+    }
+}
 
 
 // ************************************************************************* //

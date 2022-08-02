@@ -11,16 +11,45 @@ FoamFile
     format      ascii;
     class       dictionary;
     location    "constant";
-    object      transportProperties;
+    object      RASProperties;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-Ubar            Ubar [ 0 1 -1 0 0 0 0 ] (1 0 0 );
+simulationType RAS;
 
-transportModel  Newtonian;
+RAS
+{
+    RASModel        kOmega;
+    turbulence      on;
+    printCoeffs     on;
 
-nu              nu [ 0 2 -1 0 0 0 0 ] 8e-6;
-gradP        gradP [ 0 1 -2 0 0 0 0 ] (0 0 0);
+    kOmegaCoeffs
+    {
+        betaStar    0.09;
+        beta        0.075;
+        gamma       0.5556;
+        alphaK      0.5;
+        alphaOmega  0.5;
+    }
+    kOmegaSSTCoeffs
+    {
+        alphaK1         0.85;
+        alphaK2         1;
+        alphaOmega1     0.5;
+        alphaOmega2     0.856;
+        gamma1          0.555556;
+        gamma2          0.44;
+        beta1           0.075;
+        beta2           0.0828;
+        betaStar        0.09;
+        a1              0.31;
+        b1              1;
+        c1              10;
+        F3              false;
+    }
+
+}
+
 
 
 // ************************************************************************* //

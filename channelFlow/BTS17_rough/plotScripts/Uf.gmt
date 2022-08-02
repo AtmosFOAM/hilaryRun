@@ -1,0 +1,29 @@
+inputFiles=(/home/hilary/latex/lit/litReviews/turbulenceAndBL/BLpapers/BTS17/fig4a_Re720.xy
+            /home/hilary/latex/lit/litReviews/turbulenceAndBL/BLpapers/BTS17/fig4b_Re720.xy
+            MODEL.xy)
+outFile=CASETIME/Uf.eps
+col=(2 2 2)
+colx=(1 1 1)
+legends=("DNS, U@-b@- = 10.4 m/s" "DNS, U@-b@- = 10.85 m/s" "RASMODEL, U@-b@- = UBAR m/s")
+pens=("black,4_2:0" "black,5_5:0" "black")
+#symbols=("+6p")
+#spens=("black" "black")
+ylabel="U@++@+"
+xlabel="z@++@+"
+xmin=1
+xmax=800
+dx=10
+ddx=1
+dxg=0
+ymin=0
+ymax=16
+dy=2
+ddy=2
+dyg=0
+xscale=(*1 *1 *UTAU/NU)
+yscale=(*1 *1 /UTAU)
+legPos=x0.25/6
+nSkip=0
+projection=X12cl/8c
+gv=0
+

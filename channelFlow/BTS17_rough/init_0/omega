@@ -1,0 +1,107 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  2.3.0                                 |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    location    "0";
+    object      omega;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 -1 0 0 0 0];
+
+internalField   uniform 10;
+
+boundaryField
+{
+    ground
+    {
+        // Rough wall function to set wall value of omega based on description
+        // of Wilcox model from Aupoix (2015) "Roughness Corrections for the 
+        // k–omega Shear Stress Transport Model: Status and Proposals"
+        // Journal of Fluids Engineering, FEBRUARY 2015, Vol. 137 / 021202-1
+        // with an additional scaling omegaWallC ~1
+        type            codedFixedValue;
+        value           uniform 1;
+        redirectType            omegaRoughWallFunction;
+        code
+        #{
+            const scalar omegaWallC = 1;
+            const label patchi = this->patch().index();
+
+            const turbulenceModel& turbModel
+                 = this->db().lookupObject<turbulenceModel>
+            (
+                IOobject::groupName
+                (
+                    turbulenceModel::propertiesName,
+                    this->internalField().group()
+                )
+            );
+
+            const nutkRoughWallFunctionFvPatchScalarField& nutw =
+                refCast<const nutkRoughWallFunctionFvPatchScalarField>
+            (
+                turbModel.nut()().boundaryField()[patchi]
+            );
+
+            const tmp<volScalarField> tk = turbModel.k();
+            const volScalarField& k = tk();
+
+            const scalar Cmu25 = pow025(nutw.Cmu());
+            
+            scalarField omega(this->patch().size(), 0);
+
+            forAll(omega, i)
+            {
+                const label celli = this->patch().faceCells()[i];
+                const scalar uStar = Cmu25*sqrt(k[celli]);
+                scalar nu = turbModel.nu()().boundaryField()[patchi][i];
+                scalar ksPlus = nutw.Cs()[i]*nutw.Ks()[i]*uStar/nu;
+                scalar SR = ksPlus < 25 ? sqr(50/ksPlus) : 100/ksPlus;
+                omega[i] = omegaWallC*sqr(uStar)*SR/nu;
+            }
+            operator==(omega);
+        #};
+
+         codeInclude
+        #{
+            #include "fvCFD.H"
+            #include "nutkRoughWallFunctionFvPatchScalarField.H"
+            #include "turbulenceModel.H"
+        #};
+
+         codeOptions
+        #{
+            -I$(LIB_SRC)/finiteVolume/lnInclude \
+            -I$(LIB_SRC)/meshTools/lnInclude \
+            -I$(LIB_SRC)/TurbulenceModels/turbulenceModels/lnInclude
+        #};
+    }
+    centerLine
+    {
+        type            zeroGradient;
+    }
+    inlet
+    {
+        type            cyclic;
+    }
+    outlet
+    {
+        type            cyclic;
+    }
+    sides
+    {
+        type            empty;
+    }
+}
+
+
+// ************************************************************************* //

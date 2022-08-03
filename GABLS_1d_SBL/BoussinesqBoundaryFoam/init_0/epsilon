@@ -40,11 +40,11 @@ internalField  nonuniform #codeStream
         const scalar kappa = 0.41;    // (von-Karmen's constant)
         const scalar lambdaMax = 250; // (maximum length scale)
     
-        // Get the database
+        // Get the database and the mesh
         const IOdictionary& d = static_cast<const IOdictionary&>(dict);
-        
-        // Get the mesh and create a height field
         const fvMesh& mesh = refCast<const fvMesh>(d.db());
+        
+        // Get the height field
         scalarField z = mesh.C().component(2);
 
         // Get the TKE

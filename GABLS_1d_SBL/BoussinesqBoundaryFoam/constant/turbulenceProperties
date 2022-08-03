@@ -10,59 +10,25 @@ FoamFile
     version     2.0;
     format      ascii;
     class       dictionary;
-    location    "system";
-    object      controlDict;
+    location    "constant";
+    object      turbulenceProperties;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-application     turbulentExnerFoam;
+simulationType  RAS;
 
-startFrom       startTime;
-
-startTime       0;
-
-stopAt          endTime;
-
-endTime         10; //32400.1;
-
-deltaT          10;
-
-writeControl    runTime;
-
-writeInterval   10; //3600;
-
-purgeWrite      0;
-
-writeFormat     ascii;
-
-writePrecision  6;
-
-writeCompression off;
-
-timeFormat      general;
-
-timePrecision   6;
-
-runTimeModifiable false;
-
-adjustTimeStep  no;
-
-maxCo           0.5;
-
-libs
-(
-    "libcompressibleTurbulenceModels.so"
-    "libfiniteVolumeAtmosFOAMtools.so"
-    "libatmosphericModels.so"
-    "libExnerTheta.so"
-    "libmoreTurbulence.so"
-);
-
-functions
+laminar
 {
-    #includeFunc turbulentLength
-    #includeFunc frictionVelocity
-    #includeFunc patchAverage
+    laminarModel Stokes;
 }
+
+RAS
+{
+    //RASModel        thetaBuoyantKEpsilon;
+    RASModel        kEpsilon;
+    turbulence      on;
+    printCoeffs     on;
+}
+
 
 // ************************************************************************* //

@@ -10,16 +10,16 @@ FoamFile
     version     2.0;
     format      ascii;
     class       dictionary;
-    location    "system";
-    object      k_tracerFieldDict;
+    location    "constant";
+    object      transportProperties;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 
-type      polynomial;
-a_const   0.4;
-a_z       -1.6e-3;
-a_zz      6.4e-6;
-a_zzz     -2.56e-8;
-polyMax   0.4;
-polyMin   1e-5;
+transportModel  Newtonian;
+
+nu              nu [ 0 2 -1 0 0 0 0 ] 1.3613e-5;
+geostrophicWind (8 0 0);
+Coriolisf           Coriolisf [0 0 -1 0 0] (0 0 1.39e-4); 
+Prandtlt 1;
+Prandtl  0.7;

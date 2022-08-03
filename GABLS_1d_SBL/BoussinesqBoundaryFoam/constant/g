@@ -9,17 +9,14 @@ FoamFile
 {
     version     2.0;
     format      ascii;
-    class       dictionary;
-    location    "system";
-    object      k_tracerFieldDict;
+    class       uniformDimensionedVectorField;
+    location    "constant";
+    object      g;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+dimensions      [0 1 -2 0 0 0 0];
+value           (0 0 -9.81);
 
-type      polynomial;
-a_const   0.4;
-a_z       -1.6e-3;
-a_zz      6.4e-6;
-a_zzz     -2.56e-8;
-polyMax   0.4;
-polyMin   1e-5;
+
+// ************************************************************************* //

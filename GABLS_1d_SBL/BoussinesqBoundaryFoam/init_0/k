@@ -11,11 +11,11 @@ FoamFile
     format      ascii;
     class       volScalarField;
     location    "0";
-    object      epsilon;
+    object      k;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 2 -3 0 0 0 0];
+dimensions      [0 2 -2 0 0 0 0];
 
 internalField  nonuniform #codeStream
 {
@@ -36,23 +36,19 @@ internalField  nonuniform #codeStream
    
     code
     #{
-        // Constants to calculate epsilon
-        const scalar kappa = 0.41;    // (von-Karmen's constant)
-        const scalar lambdaMax = 250; // (maximum length scale)
+        // Constants to calculate the TKE, k
+        const scalar k0 = 0.4;
+        const scalar z1 = 250;
+        const scalar kmin = 1e-5;
     
-        // Get the database
+        // Get the database and the mesh
         const IOdictionary& d = static_cast<const IOdictionary&>(dict);
-        
-        // Get the mesh and create a height field
         const fvMesh& mesh = refCast<const fvMesh>(d.db());
+        
+        // Get the height field
         scalarField z = mesh.C().component(2);
 
-        // Get the TKE
-        const volScalarField& k = d.db().lookupObject<volScalarField>("k");
-    
-        scalarField length = 1/(1/(kappa*z) + 1/lambdaMax);
-
-        os  << pow(k,1.5)/length;
+        os  << max(k0*pow(1-z/z1,3), kmin);
     #};
 };
 
@@ -60,23 +56,23 @@ boundaryField
 {
     ground
     {
-        type            epsilonWallFunction;
-        value           uniform 0.1;
+        type            kqRWallFunction;
+        value           uniform 0.4;
     }
     top
     {
         type            zeroGradient;
-        value           uniform 0.1;
+        value           uniform 0;
     }
     inlet
     {
         type            cyclic;
-        value           uniform 0.001;
+        value           uniform 0.4;
     }
     outlet
     {
         type            cyclic;
-        value           uniform 0.001;
+        value           uniform 0.4;
     }
     front
     {

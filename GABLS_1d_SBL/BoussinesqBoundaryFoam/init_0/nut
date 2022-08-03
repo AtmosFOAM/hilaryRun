@@ -9,60 +9,48 @@ FoamFile
 {
     version     2.0;
     format      ascii;
-    class       dictionary;
-    location    "system";
-    object      controlDict;
+    class       volScalarField;
+    location    "0";
+    object      nut;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-application     turbulentExnerFoam;
+dimensions      [0 2 -1 0 0 0 0];
 
-startFrom       startTime;
+internalField   uniform 0;
 
-startTime       0;
-
-stopAt          endTime;
-
-endTime         10; //32400.1;
-
-deltaT          10;
-
-writeControl    runTime;
-
-writeInterval   10; //3600;
-
-purgeWrite      0;
-
-writeFormat     ascii;
-
-writePrecision  6;
-
-writeCompression off;
-
-timeFormat      general;
-
-timePrecision   6;
-
-runTimeModifiable false;
-
-adjustTimeStep  no;
-
-maxCo           0.5;
-
-libs
-(
-    "libcompressibleTurbulenceModels.so"
-    "libfiniteVolumeAtmosFOAMtools.so"
-    "libatmosphericModels.so"
-    "libExnerTheta.so"
-    "libmoreTurbulence.so"
-);
-
-functions
+boundaryField
 {
-    #includeFunc turbulentLength
-    #includeFunc frictionVelocity
-    #includeFunc patchAverage
+    ground
+    {
+        type            nutkAtmRoughWallFunction;
+        z0              uniform 0.1;
+        value           uniform 0;
+    }
+    top
+    {
+        type            zeroGradient;
+        value           uniform 0;
+    }
+    inlet
+    {
+        type            cyclic;
+        value           uniform 0;
+    }
+    outlet
+    {
+        type            cyclic;
+        value           uniform 0;
+    }
+    front
+    {
+        type           zeroGradient;
+    }
+    back
+    {
+        type           zeroGradient;
+    }
 }
+
 
 // ************************************************************************* //

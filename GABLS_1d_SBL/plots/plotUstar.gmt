@@ -1,4 +1,4 @@
-inputFiles=(postProcessing/patchAverage/0/surfaceFieldValue.dat)
+inputFiles=(postProcessing/graphs/uStar.xy)
 outFile=plots/ustar.eps
 colx=1
 col=2
@@ -19,6 +19,6 @@ dyg=0
 xscale=/60
 yscale=*1
 legPos=x2/10
-nSkip=4
+nSkip=0
 projection=X15c/10c
 gv=1

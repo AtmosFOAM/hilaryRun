@@ -2,8 +2,8 @@
 #            14400/epsilon.dat 18000/epsilon.dat 21600/epsilon.dat 
 #            25200/epsilon.dat 28800/epsilon.dat 32400/epsilon.dat)
 outFile=plots/epsilon.eps
-colx=4
-col=3
+colx=2
+col=1
 legends=("initial conditions" "1 hour" "2 hours" "3 hours" "4 hours" "5 hours"
          "6 hours" "7 hours" "8 hours" "9 hours")
 pens=("1,black" "1.5,black,5_5:" "1.5,black,2_4_10_4:"

@@ -2,8 +2,8 @@
 #            14400/nut.dat 18000/nut.dat 21600/nut.dat 
 #            25200/nut.dat 28800/nut.dat 32400/nut.dat)
 outFile=plots/nut.eps
-colx=4
-col=3
+colx=2
+col=1
 legends=("initial conditions" "1 hour" "2 hours" "3 hours" "4 hours" "5 hours"
          "6 hours" "7 hours" "8 hours" "9 hours")
 pens=("1,black" "1.5,black,5_5:" "1.5,black,2_4_10_4:"

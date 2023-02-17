@@ -1,0 +1,25 @@
+inputFiles=(GRAPHS/TIME/Ri.xy)
+outFile=CASE/TIME/Ri.eps
+col=(1)
+colx=(2)
+legends=("Ri, t = TIME s")
+pens=("black")
+xlabel=""
+ylabel=""
+xmin=0.01
+xmax=10
+dx=10
+ddx=1
+dxg=10
+ymin=0
+ymax=1.5
+dy=0.5
+ddy=0.1
+dyg=0.5
+xscale=('*1')
+yscale=(/1000)
+legPos=x0.2/7
+nSkip=(0)
+projection=X8cl/8c
+gv=0
+

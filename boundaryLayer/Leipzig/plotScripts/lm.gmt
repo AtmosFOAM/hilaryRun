@@ -1,0 +1,27 @@
+inputFiles=(GRAPHS/TIME/lm.xy)
+outFile=CASE/TIME/lm.eps
+col=(1)
+colx=(2)
+legends=("RASMODEL")
+pens=("black")
+#symbols=("p0p" "+6p" "p0p")
+#spens=("black" "black" "black")
+xlabel="Mixing length (m)"
+ylabel="Height (km)"
+xmin=1e-2
+xmax=1e3
+dx=10
+ddx=2
+dxg=0
+ymin=0
+ymax=3
+dy=0.5
+ddy=0.1
+dyg=0
+xscale=('*1')
+yscale=(/1000)
+legPos=x0.5/6
+nSkip=(0)
+projection=X8cl/8c
+gv=0
+

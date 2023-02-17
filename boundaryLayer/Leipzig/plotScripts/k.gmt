@@ -1,0 +1,25 @@
+inputFiles=(GRAPHS/TIME/k.xy)
+outFile=CASE/TIME/k.eps
+col=(1)
+colx=(2)
+legends=("RASMODEL")
+pens=("black")
+xlabel="Turbulent kinetic energy (m@+2@+/s@+2@+)"
+ylabel="Height (km)"
+xmin=1e-7
+xmax=10
+dx=10
+ddx=2
+dxg=0
+ymin=0
+ymax=3
+dy=0.5
+ddy=0.1
+dyg=0
+xscale=('*1')
+yscale=(/1000)
+legPos=x0.5/4
+nSkip=(0)
+projection=X8cl/8c
+gv=0
+

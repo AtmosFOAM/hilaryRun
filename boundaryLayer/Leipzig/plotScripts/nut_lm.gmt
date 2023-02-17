@@ -1,0 +1,25 @@
+inputFiles=(GRAPHS/TIME/nut.xy GRAPHS/TIME/lm.xy GRAPHS/TIME/magS.xy)
+outFile=CASE/TIME/nut_lm.eps
+col=(1 1 1)
+colx=(2 2 2)
+legends=("@~n@~@-t@- (m@+2@+/s), t = TIME s" "l@-m@- (m), t = TIME s" "|S| (s@+-1@+), t = TIME s")
+pens=("black" "blue" "red")
+xlabel=""
+ylabel=""
+xmin=1e-6
+xmax=100
+dx=10
+ddx=10
+dxg=10
+ymin=0
+ymax=1.5
+dy=0.5
+ddy=0.1
+dyg=0.5
+xscale=('*1')
+yscale=(/1000)
+legPos=x0.2/1
+nSkip=(0)
+projection=X8cl/8c
+gv=0
+

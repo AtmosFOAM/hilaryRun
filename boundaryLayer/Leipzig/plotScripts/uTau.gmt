@@ -1,0 +1,27 @@
+inputFiles=(GRAPHS/uTau.xy)
+outFile=CASE/uTau.eps
+col=(2)
+colx=(1)
+#legends=("RASMODEL")
+pens=("black")
+#symbols=("+6p")
+#spens=("black" "black")
+ylabel="u@-*@- (m/s)"
+xlabel="Time (hours)"
+#xmin=0
+#xmax=1
+dx=24
+ddx=6
+dxg=24
+ymin=0.5
+ymax=0.8
+dy=0.05
+ddy=0.01
+dyg=0.65
+xscale=(/3600)
+yscale=('*1')
+legPos=x0.25/6.75
+nSkip=(0)
+projection=X8c/8c
+gv=0
+

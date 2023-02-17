@@ -1,0 +1,25 @@
+inputFiles=(GRAPHS/TIME/k.xy GRAPHS/TIME/epsilon.xy)
+outFile=CASE/TIME/ke.eps
+col=(1 1)
+colx=(2 2)
+legends=("k (m@+2@+/s@+2@+), t = TIME s" "@~e@~ (m@+2@+/s@+3@+), t = TIME s")
+pens=("black" "blue")
+xlabel=""
+ylabel=""
+xmin=1e-6
+xmax=10
+dx=10
+ddx=10
+dxg=10
+ymin=0
+ymax=1.5
+dy=0.5
+ddy=0.1
+dyg=0.5
+xscale=('*1' '*1')
+yscale=("/1000" "/1000")
+legPos=x2/6.75
+nSkip=(0)
+projection=X8cl/8c
+gv=0
+

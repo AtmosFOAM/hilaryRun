@@ -1,0 +1,25 @@
+inputFiles=(GRAPHS/TIME/nut.xy)
+outFile=CASE/TIME/nut.eps
+col=(1)
+colx=(2)
+legends=("TIME @~n@~@-t@-  (m@+2@+/s)")
+pens=("black")
+xlabel=""
+ylabel=""
+xmin=1e-4
+xmax=100
+dx=10
+ddx=10
+dxg=10
+ymin=0
+ymax=2
+dy=0.5
+ddy=0.1
+dyg=0.5
+xscale=('*1')
+yscale=(/1000)
+legPos=x1.5/6
+nSkip=(0)
+projection=X8cl/8c
+gv=0
+

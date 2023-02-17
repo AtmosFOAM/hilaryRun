@@ -47,7 +47,7 @@ pens=("1p,black,4_4:0"
 symbols=('c10p' 
          'x10p' '+10p' 's10p' 'h10p'
          'x1p' 'x1p')
-legends=("lat-lon c<2"  "rotated" "skipped"
+legends=("lat-lon, max c~2"  "rotated" "skipped"
          "cubed sphere"  "hexagonal"  "1st/2nd order")
 
 xlabel='@~D@~s (degrees)'

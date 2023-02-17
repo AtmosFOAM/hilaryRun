@@ -1,0 +1,25 @@
+inputFiles=(GRAPHS/TIME/Cmu.xy)
+outFile=CASE/TIME/Cmu.eps
+col=(1)
+colx=(2)
+legends=("C@-@~m@~@-, t = TIME s")
+pens=("black")
+xlabel=""
+ylabel=""
+xmin=0.08
+xmax=0.095
+dx=0.005
+ddx=0.01
+dxg=0.005
+ymin=0
+ymax=1.5
+dy=0.5
+ddy=0.1
+dyg=0.5
+xscale=('*1')
+yscale=(/1000)
+legPos=x0.5/7
+nSkip=(0)
+projection=X8c/8c
+gv=0
+

@@ -1,0 +1,6 @@
+/* dynamicCode:
+ * SHA1 = 09a4e986910576ce4933b627e8ba1ded9bf34760
+ */
+fixedValueFvPatchFieldTemplate.C
+
+LIB = $(PWD)/../platforms/$(WM_OPTIONS)/lib/libcooling_09a4e986910576ce4933b627e8ba1ded9bf34760

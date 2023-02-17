@@ -1,0 +1,97 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  dev                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       volScalarField;
+    object      T;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 1 -1 0 0 0 0];
+
+// Constants for the inital and boundary conditions
+thetaRef 263.5;
+theta0 265;
+z1 100;
+lapseRate 0.01;
+heatingRate -0.25;
+b0 #calc "$theta0 - $thetaRef";
+
+internalField  nonuniform #codeStream
+{
+    codeInclude
+    #{
+        #include "fvCFD.H"
+    #};
+    codeOptions
+    #{
+        -I$(LIB_SRC)/finiteVolume/lnInclude \
+        -I$(LIB_SRC)/meshTools/lnInclude
+    #};
+    codeLibs
+    #{
+        -lmeshTools \
+        -lfiniteVolume
+    #};
+   
+    code
+    #{
+        // Get the database and the mesh
+        const IOdictionary& d = static_cast<const IOdictionary&>(dict);
+        const fvMesh& mesh = refCast<const fvMesh>(d.db());
+        
+        // Get the height field
+        scalarField z = mesh.C().component(2);
+
+        os  << max($b0 + $lapseRate*(z-$z1), $b0);
+    #};
+};
+
+boundaryField
+{
+    ground
+    {
+        type            codedFixedValue;
+        value           uniform $b0;
+        name            cooling;
+        code #{
+            const scalar t = this->db().time().value();
+            const scalar b = $:b0 + $:heatingRate*t;
+            operator==(b);
+        #};
+    }
+
+    top
+    {
+        type            zeroGradient;
+    }
+
+    inlet
+    {
+        type            cyclic;
+        value           uniform 0;
+    }
+
+    outlet
+    {
+        type            cyclic;
+        value           uniform 0;
+    }
+    front
+    {
+        type           zeroGradient;
+    }
+    back
+    {
+        type           zeroGradient;
+    }
+}
+
+// ************************************************************************* //

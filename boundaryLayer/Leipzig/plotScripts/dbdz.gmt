@@ -1,0 +1,25 @@
+inputFiles=(GRAPHS/constant/dbdz.xy GRAPHS/zero.xy)
+outFile=CASE/TIME/dbdz.eps
+col=(1)
+colx=(2)
+legends=("db/dz (m s@+-2@+/km), t = TIME s")
+pens=("black" "black,1_3:0")
+ylabel="Height (km)"
+xlabel=""
+xmin=1e-3
+xmax=1
+dx=10
+ddx=0
+dxg=10
+ymin=0
+ymax=1.5
+dy=0.5
+ddy=0.1
+dyg=0.5
+xscale=('*1000')
+yscale=(/1000)
+legPos=x1.8/7
+nSkip=(0)
+projection=X8cl/8c
+gv=0
+

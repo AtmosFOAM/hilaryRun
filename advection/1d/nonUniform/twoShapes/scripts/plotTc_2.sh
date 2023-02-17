@@ -36,7 +36,7 @@ inputFiles=($caseUniform/$time0/T.xyz $caseUniform/$time1/T.xyz \
 outFile=$caseNonu/$time1/Tcompare.eps
 col=(4 4 4 4)
 colx=1
-pens=("black" "black" "black,4_4:0" "4,grey")
+pens=("2,grey" "black" "black,4_4:0" "4,grey")
 symbols=("p0p" "c6p" "x6p" "p0p")
 spens=("0,white" "black" "black" "0,white")
 legends=("@~y@~@+0@+" "@~y@~@+1@+ uniform, c = 0.4" "@~y@~@+1@+ non-uniform" "c in [0.75,4]")

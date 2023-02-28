@@ -20,6 +20,9 @@ echo -e '0 0\n3000 0' > $case/postProcessing/graphs/zero.xy
 echo -e '0 17.5\n3000 17.5'> $case/postProcessing/graphs/Ug.xy
 echo -e '1.5e-5 0\n3000 1.5e-5'> $case/postProcessing/graphs/nu.xy
 
+#writeCellDataxyz -case $case -time $time kDiffusion
+#sort -g -k 3 $case/$time/kDiffusion.xyz | sponge $case/$time/kDiffusion.xyz
+
 # Plot graphs
 for var in U ke nut_lm  uTau Cmu eta Ri dbdz; do
     sed 's%CASE%'$case'%g' $case/plotScripts/$var.gmt \

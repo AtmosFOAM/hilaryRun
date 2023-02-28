@@ -1,3 +1,5 @@
+#!/bin/bash -e
+
 # 1D simulation of the Leipzig with profile following ZWM20
 # domain  height = 3km
 # U_mean = 17.5?

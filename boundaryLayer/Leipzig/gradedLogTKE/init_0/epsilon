@@ -23,7 +23,7 @@ boundaryField
 {
     ground
     {
-        type            epsilonCmuWallFunction;
+        type            calculated;
         value           uniform 0.01;
     }
     top

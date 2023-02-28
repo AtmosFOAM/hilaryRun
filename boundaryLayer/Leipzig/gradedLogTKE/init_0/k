@@ -23,7 +23,7 @@ boundaryField
 {
     ground
     {
-        type            kqRWallFunction;
+        type            calculated;
         value           uniform 1.4;
     }
     top

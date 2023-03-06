@@ -17,51 +17,51 @@ FoamFile
     local           "";
 
     class           dictionary;
-    object          fvSchemes;
+    object          controlDict;
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-SIgravityWaves true;
+application buoyantFoam;
 
-ddtSchemes
-{
-    default         backward;
-}
+startFrom       startTime;
+//startFrom       latestTime;
 
-gradSchemes
-{
-    default                   Gauss linear;
-}
+startTime       0;
 
-divSchemes
-{
-    default none;
-    div(phi,theta)    Gauss linearUpwind linearUpwind;
-    div(phi,U)        Gauss linearUpwind linearUpwind;
-    div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear uncorrected;
-}
+stopAt          endTime;
 
-laplacianSchemes
-{
-    default         Gauss linear uncorrected;
-}
+endTime         150000;
 
-interpolationSchemes
-{
-    default        linear;
-}
+deltaT          20;
 
-snGradSchemes
-{
-    default         uncorrected;
-}
+writeControl    runTime;
 
-fluxRequired
-{
-    default         no;
-    Exner;
-}
+writeInterval   1000;
 
+purgeWrite      0;
+
+writeFormat     ascii;
+
+writePrecision  6;
+
+writeCompression uncompressed;
+
+timeFormat      general;
+
+timePrecision   6;
+
+runTimeModifiable yes;
+
+adjustTimeStep no;
+maxCo          1;
+
+libs
+(
+    "libExnerTheta.so"
+    "libfiniteVolumeAtmosFOAMtools.so"
+    "libcompressibleTurbulenceModels.so"
+    "libatmosphericModels.so"
+);
 
 // ************************************************************************* //

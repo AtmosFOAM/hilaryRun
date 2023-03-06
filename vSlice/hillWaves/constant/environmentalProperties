@@ -17,51 +17,26 @@ FoamFile
     local           "";
 
     class           dictionary;
-    object          fvSchemes;
+    object          environmentalProperties;
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-SIgravityWaves true;
+g               g [0 1 -2 0 0 0 0] (0 0 -9.81);
+Omega           Omega [0 0 -1 0 0 0 0] (0 0 0);
+diffusioneCoefficient diffusionCoeff [0 2 -1 0 0] 0;
 
-ddtSchemes
-{
-    default         backward;
-}
+// Settings for setTheta
+// Brunt Vailsalla frequency for different layers of atmosphere
+BruntVaisallaFreq  1(0.01);
+// Extents of the layers (array should be one longer)
+zN  2(0 30.0001e3);
 
-gradSchemes
-{
-    default                   Gauss linear;
-}
-
-divSchemes
-{
-    default none;
-    div(phi,theta)    Gauss linearUpwind linearUpwind;
-    div(phi,U)        Gauss linearUpwind linearUpwind;
-    div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear uncorrected;
-}
-
-laplacianSchemes
-{
-    default         Gauss linear uncorrected;
-}
-
-interpolationSchemes
-{
-    default        linear;
-}
-
-snGradSchemes
-{
-    default         uncorrected;
-}
-
-fluxRequired
-{
-    default         no;
-    Exner;
-}
-
+// Sponge layer coefficients
+spongeOnCellCentres true;
+nSponges  1;
+spongeCentre0 (0 0.5e3 50e3);
+spongeLength0 (0 0 20e3);
+spongeMax0 0.3;
 
 // ************************************************************************* //

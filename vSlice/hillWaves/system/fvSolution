@@ -14,6 +14,8 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+SIgravityWaves true;
+
 solvers
 {
     rho
@@ -27,13 +29,13 @@ solvers
     {
         solver PCG;
         preconditioner DIC;
-        tolerance        1e-6;
+        tolerance        1e-9;
         relTol           0.01;
     }
     ExnerFinal
     {
         $Exner;
-        tolerance        1e-6;
+        tolerance        1e-9;
         relTol           0;
     }
     
@@ -55,22 +57,9 @@ iterations
 
 initialisation
 {
-    maxIters 50;
+    maxIters 100;
     refCell 0;
     refExner 1;
-}
-
-relaxationFactors // for initialisation)
-{
-    fields
-    {
-    
-        theta         1;
-    }
-    equations
-    {
-        Exner         1;
-    }
 }
 
 // ************************************************************************* //

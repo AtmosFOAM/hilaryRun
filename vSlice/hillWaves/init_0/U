@@ -30,12 +30,11 @@ boundaryField
     }
     inlet
     {
-        type            fixedValue;
-        value           uniform (20 0 0);
+        type            cyclic;
     }
     outlet
     {
-        type            zeroGradient;
+        type            cyclic;
     }
 }
 

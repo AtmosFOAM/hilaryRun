@@ -17,33 +17,29 @@ FoamFile
 
 dimensions      [0 0 0 0 0 0 0];
 
-internalField   uniform 0.5;
+internalField   uniform 0;
 
 boundaryField
 {
     ground
     {
-        type            fixedFluxBuoyantExner;
+        type            fixedFluxBuoyantlnExner;
         gradient        uniform 0;
         value           uniform 1;
     }
     top
     {
-        type            fixedFluxBuoyantExner;
+        type            fixedFluxBuoyantlnExner;
         gradient        uniform 0;
         value           uniform 1;
     }
     inlet
     {
-        type            fixedFluxBuoyantExner;
-        gradient        uniform 0;
-        value           uniform 1;
+        type            cyclic;
     }
     outlet
     {
-        type            fixedFluxBuoyantExner;
-        gradient        uniform 0;
-        value           uniform 1;
+        type            cyclic;
     }
 }
 

@@ -24027,13 +24027,11 @@ boundaryField
 {
     inlet
     {
-        type            calculated;
-        value           uniform (0 0 0 0 0 0 0 0 0);
+        type            cyclic;
     }
     outlet
     {
-        type            calculated;
-        value           uniform (0 0 0 0 0 0 0 0 0);
+        type            cyclic;
     }
     ground
     {

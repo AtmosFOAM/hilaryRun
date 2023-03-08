@@ -33,13 +33,11 @@ boundaryField
     }
     inlet
     {
-        type            calculated;
-        value           uniform 100000;
+        type            cyclic;
     }
     outlet
     {
-        type            calculated;
-        value           uniform 100000;
+        type            cyclic;
     }
 }
 

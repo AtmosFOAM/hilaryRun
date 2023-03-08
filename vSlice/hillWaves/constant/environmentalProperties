@@ -24,13 +24,7 @@ FoamFile
 
 g               g [0 1 -2 0 0 0 0] (0 0 -9.81);
 Omega           Omega [0 0 -1 0 0 0 0] (0 0 0);
-diffusioneCoefficient diffusionCoeff [0 2 -1 0 0] 0;
 
-// Settings for setTheta
-// Brunt Vailsalla frequency for different layers of atmosphere
-BruntVaisallaFreq  1(0.01);
-// Extents of the layers (array should be one longer)
-zN  2(0 30.0001e3);
 
 // Sponge layer coefficients
 spongeOnCellCentres true;

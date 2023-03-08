@@ -22,11 +22,9 @@ FoamFile
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-SIgravityWaves true;
-
 ddtSchemes
 {
-    default         backward;
+    default         CrankNicolson 0.9;
 }
 
 gradSchemes

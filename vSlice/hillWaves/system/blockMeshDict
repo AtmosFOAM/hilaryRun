@@ -43,16 +43,18 @@ blocks
 
 boundary (
     inlet {
-        type inlet;
+        type cyclic;
+        neighbourPatch outlet;
         faces (
-            (0 3 7 4)
+            (0 4 7 3)
         );
     }
 
     outlet {
-        type outlet;
+        type cyclic;
+        neighbourPatch inlet;
         faces (
-            (1 2 6 5)
+            (1 5 6 2)
         );
     }
 

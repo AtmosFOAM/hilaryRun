@@ -17,49 +17,21 @@ FoamFile
     local           "";
 
     class           dictionary;
-    object          fvSchemes;
+    object          environmentalProperties;
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-ddtSchemes
-{
-    default         CrankNicolson 0.9;
-}
+g               g [0 1 -2 0 0 0 0] (0 0 -9.81);
+Omega           Omega [0 0 -1 0 0 0 0] (0 0 0);
 
-gradSchemes
-{
-    default                   Gauss linear;
-}
-
-divSchemes
-{
-    default none;
-    div(phi,theta)    Gauss linearUpwind linearUpwind;
-    div(phi,U)        Gauss linearUpwind linearUpwind;
-    div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear uncorrected;
-}
-
-laplacianSchemes
-{
-    default         Gauss linear uncorrected;
-}
-
-interpolationSchemes
-{
-    default        linear;
-}
-
-snGradSchemes
-{
-    default         uncorrected;
-}
-
-fluxRequired
-{
-    default         no;
-    Exner;
-}
+// Sponge layer coefficients
+// MDW+10 uses mu dt = 0.3 for dt=20 and dt=150. Maybe change this?
+spongeOrientation (0 0 0 0 0 0 0 0 1);
+type polynomial;
+polyMin 0;
+a_const -0.9;
+a_z 3e-5;
 
 
 // ************************************************************************* //

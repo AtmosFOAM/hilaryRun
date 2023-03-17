@@ -11,11 +11,19 @@ FoamFile
     format      ascii;
     class       dictionary;
     location    "constant";
-    object      transportProperties;
+    object      add2dMountainDict;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-DT              DT [ 0 2 -1 0 0 0 0 ] 0;
+type btf;
+domainHeight 20e3;
 
+mountain
+{
+    type agnessiWitchMountain;
+    peakHeight peakHeight [0 1 0 0 0] 1;
+    mountainCentre (0 0.5e3 0);
+    mountainHalfWidth mountainHalfWidth [0 1 0 0 0] 10e3;
+};
 
 // ************************************************************************* //

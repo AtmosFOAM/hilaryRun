@@ -21,7 +21,7 @@ solvers
     rho
     {
         solver PCG;
-        preconditioner   DIC;
+        preconditioner   diagonol;
         tolerance        0;
         relTol           0;
     };
@@ -50,7 +50,7 @@ solvers
 
 iterations
 {
-    nOuterCorrectors 2;
+    nOuterCorrectors 1;
     nCorrectors      1;
     nNonOrthogonalCorrectors 0;
 }

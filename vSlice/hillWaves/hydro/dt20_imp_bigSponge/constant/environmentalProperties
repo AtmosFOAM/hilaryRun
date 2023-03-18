@@ -30,8 +30,8 @@ Omega           Omega [0 0 -1 0 0 0 0] (0 0 0);
 spongeOrientation (0 0 0 0 0 0 0 0 1);
 type polynomial;
 polyMin 0;
-a_const -0.9;
-a_z 3e-5;
+a_const -1.8;
+a_z 6e-5;
 
 
 // ************************************************************************* //

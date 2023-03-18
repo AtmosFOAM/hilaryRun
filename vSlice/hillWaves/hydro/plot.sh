@@ -1,7 +1,9 @@
 #!/bin/bash -e
 
-reconstructPar -fields '(Uf)' -latestTime
-writeuvw -latestTime Uf
-gmtFoam -latestTime w
-ev `ls -1rt */w.pdf | tail -1`
-
+if [ -a processor0 ]; then
+    reconstructPar -fields '(Uf U)' -latestTime
+fi
+writeuvw -latestTime U
+gmtFoam -latestTime wAll
+ev `ls -1rt */wAll.pdf | tail -1`
+rm [0-9]*/U[x-z]

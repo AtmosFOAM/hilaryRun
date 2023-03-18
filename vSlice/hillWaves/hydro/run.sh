@@ -16,4 +16,5 @@ setThetaExnerFromT
 decomposePar -constant
 # run
 mpirun -np 4 exnerFoamA -parallel > log 2>&1 &
+echo running exnerFoamA, directing out put to log
 #sleep 0.01; tail -f log

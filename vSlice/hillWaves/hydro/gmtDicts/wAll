@@ -1,0 +1,29 @@
+FoamFile
+{
+    version         2.2;
+    format          ascii;
+
+    root            "";
+    case            "";
+    instance        "constant";
+    local           "";
+
+    class           dictionary;
+    object          gmtDict;
+}
+
+// How to plot
+// Compulsory inputs
+projection "X18c/6c";
+projection2D XZ;
+boundaryPatch ground;
+plotBoundaryDots false;
+
+FieldsToPlot
+(
+    [Uz rawValues -5.025e-3 5.025e-3 5e-4 "$GMTU/colours/red_white_blue.cpt"]
+    [Uf vectorContours -0.01025 0.01025 5e-4 "black" 2]
+);
+
+region "-75e3/75e3/0/50e3";
+boundaryMarks "50e3/10e3";

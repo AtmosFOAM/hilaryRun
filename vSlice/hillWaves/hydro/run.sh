@@ -6,11 +6,11 @@ blockMesh
 terrainFollowingMesh
 
 # create sponge layer
-setAnalyticTracerField -name muSponge -tracerDict "environmentalProperties"
+setTracerField -name muSponge -tracerDict "environmentalProperties"
 
 # Initial conditions
 cp -r ../init_0 0
-setThetaExnerFromT
+setIsothermalBalance
 
 # setup for parallel run
 decomposePar -constant

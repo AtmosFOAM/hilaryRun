@@ -90,8 +90,7 @@ if [[ $2 == init  ]]; then
 
 elif [[ $2 == run  ]]; then
     if [[ -a $case/processor0 ]]; then
-        mpirun -np 8 --oversubscribe ImExAdvectionFoam -case $case \
-            -parallel >& $case/log &
+        mpirun -np 4 --use-hwthread-cpus ImExAdvectionFoam -case $case -parallel >& $case/log &
     else
         ImExAdvectionFoam -case $case >& log &
     fi

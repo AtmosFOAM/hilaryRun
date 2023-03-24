@@ -22,7 +22,7 @@ FoamFile
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-CoLimit 0;
+CoLimit 10;
 
 ddtSchemes
 {

@@ -24,7 +24,7 @@ surface       "SOURCECASE/constant/patch.obj";
 exposedPatchName "originalPatch";
 flipNormals true;
 extrudeModel        linearRadial;
-nLayers             30;
+nLayers             60;
 expansionRatio      1.0;
 linearRadialCoeffs
 {

@@ -49,7 +49,7 @@ if [[ $2 == init  ]]; then
 
     # Initial conditions
     rm -rf $case/0
-    cp -r $case/../init_0 $case/0
+    cp -r $case/../../init_0 $case/0
     setTracerFieldSphere -case $case -time 0 -name T -velocityDict none
     setTracerFieldSphere -case $case -time 0 -name rho -tracerDict rhoDict \
         -velocityDict none
@@ -59,13 +59,13 @@ if [[ $2 == init  ]]; then
     writeuvwLatLon -case $case -time 0 U
     # Extract lat-z cross section of w
     awk 'function abs(v) { return v < 0 ? -v : v};
-             {if (abs($1 - 180) < 2) {print $2, $3/1000, $6}}' \
+             {if (abs($1 - 180) < 1) {print $2, $3/1000, $6}}' \
              $case/0/U.latLon > $case/0/w.latz
     for var in T rho; do
         writeCellDataLatLon -time 0 -case $case $var
         # Exctract lat-z cross section
         awk 'function abs(v) { return v < 0 ? -v : v};
-             {if (abs($1 - 180) < 2) {print $2, $3/1000, $4}}' \
+             {if (abs($1 - 180) < 1) {print $2, $3/1000, $4}}' \
              $case/0/$var.latLon > $case/0/$var.latz
     done
     gmt makecpt -C$GMTU/colours/wh-bl-gr-ye-re.cpt -D -T0.5/1.2/0.05 \
@@ -104,7 +104,7 @@ else
     fi
     #time=`ls -1 $case | sort -n | tail -n 1`
     
-    plotLatZ . $time T 180 1 $GMTU/colours/wh-bl-gr-ye-re.cpt 0 0.95 0.025
+    plotLatZ $case $time T 180 1 $GMTU/colours/wh-bl-gr-ye-re.cpt 0 0.95 0.025
     
 fi
 

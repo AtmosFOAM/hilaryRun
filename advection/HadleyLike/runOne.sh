@@ -105,6 +105,14 @@ else
     
     plotLatZ $case $time T 180 1 $GMTU/colours/wh-bl-gr-ye-re.cpt 0 0.95 0.025
     
+    time=86400
+    sumFields -case $case $time Terror 0 T $time T -scale1 -1
+    globalSum -case $case -time 0 T
+    globalSum -case $case -time $time Terror
+    echo '#Time l1 l2 linf min max' > $case/errorNorms.dat
+    paste $case/globalSumT.dat $case/globalSumTerror.dat | tail -1 | \
+        awk '{print $9, $10/$2, $11/$3, $12/$3, $15, $16}' \
+        >> $case/errorNorms.dat
 fi
 
 

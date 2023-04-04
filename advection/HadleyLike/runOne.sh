@@ -50,22 +50,22 @@ if [[ $2 == init  ]]; then
     # Initial conditions
     rm -rf $case/0
     cp -r $case/../../init_0 $case/0
-    setTracerFieldSphere -case $case -time 0 -name T -velocityDict none
-    setTracerFieldSphere -case $case -time 0 -name rho -tracerDict rhoDict \
+    setTracerField -spherical -case $case -time 0 -name T -velocityDict none
+    setTracerField -spherical -case $case -time 0 -name rho -tracerDict rhoDict \
         -velocityDict none
-    setVelocityFieldSphere -case $case -time 0
+    setVelocityField -spherical -case $case -time 0
 
     # Plots of initial conditions
     writeuvwLatLon -case $case -time 0 U
     # Extract lat-z cross section of w
     awk 'function abs(v) { return v < 0 ? -v : v};
-             {if (abs($1 - 180) < 1) {print $2, $3/1000, $6}}' \
+             {if (abs($1 - 179) < 1) {print $2, $3/1000, $6}}' \
              $case/0/U.latLon > $case/0/w.latz
     for var in T rho; do
         writeCellDataLatLon -time 0 -case $case $var
         # Exctract lat-z cross section
         awk 'function abs(v) { return v < 0 ? -v : v};
-             {if (abs($1 - 180) < 1) {print $2, $3/1000, $4}}' \
+             {if (abs($1 - 179) < 1) {print $2, $3/1000, $4}}' \
              $case/0/$var.latLon > $case/0/$var.latz
     done
     gmt makecpt -C$GMTU/colours/wh-bl-gr-ye-re.cpt -D -T0.5/1.2/0.05 \

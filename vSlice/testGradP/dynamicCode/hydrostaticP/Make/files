@@ -1,0 +1,6 @@
+# dynamicCode:
+# SHA1 = d9f427d5a10f9e1a909f9163858c36a2fd1c3176
+
+codedMixedFvPatchFieldTemplate.C
+
+LIB = $(PWD)/../platforms/$(WM_OPTIONS)/lib/libhydrostaticP_d9f427d5a10f9e1a909f9163858c36a2fd1c3176

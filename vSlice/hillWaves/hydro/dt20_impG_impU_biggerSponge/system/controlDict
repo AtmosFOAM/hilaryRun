@@ -56,11 +56,11 @@ runTimeModifiable yes;
 adjustTimeStep no;
 maxCo          1;
 
-libs
+/*libs
 (
     "libExnerTheta.so"
     "libfiniteVolumeAtmosFOAM.so"
     "libatmosphericModels.so"
-);
+);*/
 
 // ************************************************************************* //

@@ -1,0 +1,58 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  dev                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.2;
+    format      ascii;
+    class       volScalarField;
+    location    "constant";
+    object      P;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 0 0 0 0];
+
+internalField   uniform 0.5;
+
+boundaryField
+{
+    ground
+    {
+        type            codedMixed;
+        refValue        uniform 1;
+        valueFraction   uniform 0;
+        refGradient     uniform 0;
+        name    hydrostaticP;
+        code
+        #{
+            vector g(0,0,-0.1);
+            this->refGrad() = g & this->patch().nf();
+        #};
+     }
+
+    top
+    {
+        type            hydrostaticP;
+        //gradient        uniform -0.1;
+        //value           uniform 0;
+        refValue        uniform 0;
+        valueFraction   uniform 0;
+        refGradient     uniform 0;
+    }
+    inlet
+    {
+        type            cyclic;
+    }
+    outlet
+    {
+        type            cyclic;
+    }
+}
+
+
+// ************************************************************************* //

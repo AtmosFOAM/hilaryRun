@@ -1,0 +1,11 @@
+# dynamicCode:
+# SHA1 = c1643854df30187da2196cbeef3f76413b2e6272
+
+EXE_INC = -g \
+-I$(LIB_SRC)/finiteVolume/lnInclude \
+
+
+LIB_LIBS = \
+    -lOpenFOAM \
+    -lfiniteVolume \
+

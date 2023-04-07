@@ -24,5 +24,5 @@ u0          40;
 w0          0.15;
 endTime     86400;
 nOverturningCells 5;
-divergenceFree false;
+divergenceFree true;
 

@@ -19,9 +19,11 @@ timeVaryingWind true;
 type geodesicHadleyLike;
 earthRadius 6.37122e6;
 scaleHeight 8780.195305808; // R T/g
+rho0 1.161440186;
 ztop        12e3;
 u0          40;
 w0          0.15;
 endTime     86400;
 nOverturningCells 5;
+applyProjection false;
 

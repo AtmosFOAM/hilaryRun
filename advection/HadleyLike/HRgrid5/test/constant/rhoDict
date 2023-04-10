@@ -15,8 +15,10 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-type   rhoIsothermal;
+type   exponentialWithHeight;
+spherical true;
 earthRadius  6.37122e6;
-rho0 1.161440186;
+tracerAtz0 1.161440186;
+z0 0;
 scaleHeight 8780.195305808; // R T/g
 

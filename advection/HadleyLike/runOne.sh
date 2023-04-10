@@ -50,22 +50,27 @@ if [[ $2 == init  ]]; then
     # Initial conditions
     rm -rf $case/0
     cp -r $case/../../init_0 $case/0
-    setTracerField -spherical -case $case -time 0 -name T -velocityDict none
-    setTracerField -spherical -case $case -time 0 -name rho -tracerDict rhoDict \
+    setTracerField -case $case -time 0 -name T -velocityDict none
+    setTracerField -case $case -time 0 -name rho -tracerDict rhoDict \
         -velocityDict none
-    setVelocityField -spherical -case $case -time 0
+    setVelocityField -case $case -time 0
 
     # Plots of initial conditions
     writeuvwLatLon -case $case -time 0 U
     # Extract lat-z cross section of w
     awk 'function abs(v) { return v < 0 ? -v : v};
-             {if (abs($1 - 179) < 1) {print $2, $3/1000, $6}}' \
+             {if (abs($1) < 2) {print $2, $3/1000, $6}}' \
              $case/0/U.latLon > $case/0/w.latz
+    gmt makecpt -C$GMTU/colours/red_white_blue.cpt -D -T-0.31/0.31/0.02 \
+        > colourScale.cpt
+    gmt pscontour $case/0/w.latz -CcolourScale.cpt \
+       -Ba30/a5 -JX18c/6c -R-90/90/0/12 -h0 -I  > $case/0/w.eps
+
     for var in T rho; do
         writeCellDataLatLon -time 0 -case $case $var
-        # Exctract lat-z cross section
+        # Exctract lat-z cross s  ection
         awk 'function abs(v) { return v < 0 ? -v : v};
-             {if (abs($1 - 179) < 1) {print $2, $3/1000, $4}}' \
+             {if (abs($1) < 2) {print $2, $3/1000, $4}}' \
              $case/0/$var.latLon > $case/0/$var.latz
     done
     gmt makecpt -C$GMTU/colours/wh-bl-gr-ye-re.cpt -D -T0.5/1.2/0.05 \
@@ -78,10 +83,6 @@ if [[ $2 == init  ]]; then
     gmt pscontour $case/0/T.latz -CcolourScale.cpt \
        -Ba30/a5 -JX18c/6c -R-90/90/0/12 -h0 -I  > $case/0/T.eps
 
-    gmt makecpt -C$GMTU/colours/red_white_blue.cpt -D -T-0.31/0.31/0.02 \
-        > colourScale.cpt
-    gmt pscontour $case/0/w.latz -CcolourScale.cpt \
-       -Ba30/a5 -JX18c/6c -R-90/90/0/12 -h0 -I  > $case/0/w.eps
     makebb $case/0/*.eps
     ev $case/0/*.eps
 
@@ -103,16 +104,17 @@ else
     fi
     #time=`ls -1 $case | sort -n | tail -n 1`
     
-    plotLatZ $case $time T 180 1 $GMTU/colours/wh-bl-gr-ye-re.cpt 0 0.95 0.025
+    plotLatZ $case $time T 0 1 $GMTU/colours/wh-bl-gr-ye-re.cpt 0 0.95 0.025
     
-    time=86400
-    sumFields -case $case $time Terror 0 T $time T -scale1 -1
-    globalSum -case $case -time 0 T
-    globalSum -case $case -time $time Terror
-    echo '#Time l1 l2 linf min max' > $case/errorNorms.dat
-    paste $case/globalSumT.dat $case/globalSumTerror.dat | tail -1 | \
-        awk '{print $9, $10/$2, $11/$3, $12/$3, $15, $16}' \
-        >> $case/errorNorms.dat
+    if [[ $time == 86400 ]]; then
+        sumFields -case $case $time Terror 0 T $time T -scale1 -1
+        globalSum -case $case -time 0 T
+        globalSum -case $case -time $time Terror
+        echo '#Time l1 l2 linf min max' > $case/errorNorms.dat
+        paste $case/globalSumT.dat $case/globalSumTerror.dat | tail -1 | \
+            awk '{print $9, $10/$2, $11/$3, $12/$3, $15, $16}' \
+            >> $case/errorNorms.dat
+    fi
 fi
 
 

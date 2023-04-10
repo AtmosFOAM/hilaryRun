@@ -15,7 +15,8 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-type   sphericalLayer;
+type   zLayer;
+spherical true;
 earthRadius  6.37122e6;
 tracerBase 2000;
 tracerTop 5000;

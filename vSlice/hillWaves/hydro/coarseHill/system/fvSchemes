@@ -22,8 +22,8 @@ FoamFile
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-SIgravityWaves true;
-implicitU      true;
+SIgravityWaves false;
+implicitU      false;
 stagger        false;
 
 ddtSchemes

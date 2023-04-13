@@ -21,6 +21,14 @@ internalField   uniform 0.5;
 
 boundaryField
 {
+    /*ground
+    {
+        type            hydrostatic;
+        gradPcoeffName  CpTheta;
+        buoyancyName    gSf;
+        gradient        uniform 0;
+        value           uniform 1;
+    }*/
     ground
     {
         type            fixedFluxBuoyantExner;

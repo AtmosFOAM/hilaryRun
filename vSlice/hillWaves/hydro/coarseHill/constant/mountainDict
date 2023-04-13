@@ -17,6 +17,7 @@ FoamFile
 
 type btf;
 domainHeight 20e3;
+groundOffset 500;
 
 mountain
 {

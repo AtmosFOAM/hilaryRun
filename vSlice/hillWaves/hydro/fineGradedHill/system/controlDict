@@ -37,7 +37,7 @@ deltaT          20; // MDW=10 uses 20 (c=0.2) and 150 (c=1.5)
 
 writeControl    runTime;
 
-writeInterval   1e4;
+writeInterval   1e3;
 
 purgeWrite      0;
 
@@ -51,7 +51,7 @@ timeFormat      general;
 
 timePrecision   6;
 
-runTimeModifiable yes;
+runTimeModifiable no;
 
 adjustTimeStep no;
 

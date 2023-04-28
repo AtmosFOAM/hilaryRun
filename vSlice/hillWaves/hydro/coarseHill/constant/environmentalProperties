@@ -27,11 +27,17 @@ Omega           Omega [0 0 -1 0 0 0 0] (0 0 0);
 
 // Sponge layer coefficients
 // MDW+10 uses mu dt = 0.3 for dt=20 and dt=150. Maybe change this?
-spongeOrientation (0 0 0 0 0 0 0 0 1);
 type polynomial;
 polyMin 0;
-a_const -3.333333333;
-a_z 1.666666667e-4;
+//polyMax 0;
+
+// Sponge = a z - b
+// z=5e4, Sponge = 0.3
+// z = 3e4, Sponge = 0
+// So gradient = .3/2e4
+
+a_const -0.45;
+a_z 1.5e-5;
 
 
 // ************************************************************************* //

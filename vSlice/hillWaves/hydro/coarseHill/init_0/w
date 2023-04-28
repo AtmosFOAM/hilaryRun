@@ -7,58 +7,37 @@
 \*---------------------------------------------------------------------------*/
 FoamFile
 {
-    version     2.0;
+    version     2.2;
     format      ascii;
-    class       dictionary;
-    object      fvSolution;
+    class       volScalarField;
+    object      w;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-solvers
-{
-    rho
-    {
-        solver PCG;
-        preconditioner   diagonol;
-        tolerance        0;
-        relTol           0;
-    };
-    Exner
-    {
-        solver PCG;
-        preconditioner DIC;
-        tolerance        1e-8;
-        relTol           0.001;
-    }
-    ExnerFinal
-    {
-        $Exner;
-        tolerance        1e-8;
-        relTol           0;
-    }
-    
-    "(k|epsilon|theta|U)"
-    {
-        solver          PBiCGStab;
-        preconditioner  DILU;
-        tolerance       1e-6;
-        relTol           0;
-        maxIter          2;
-    }
-}
+dimensions      [0 1 -1 0 0 0 0];
 
-iterations
-{
-    nOuterCorrectors 2;
-    nCorrectors      2;
-    nNonOrthogonalCorrectors 0;
-}
+internalField   uniform 0;
 
-initialisation
+boundaryField
 {
-    maxIters 100;
-    refCell 0;
-    refExner 1;
+    ground
+    {
+        type            fixedValue;
+        value           uniform 0;
+    }
+    top
+    {
+        type            fixedValue;
+        value           uniform 0;
+    }
+    inlet
+    {
+        type            cyclic;
+    }
+    outlet
+    {
+        type            cyclic;
+    }
 }
 
 // ************************************************************************* //

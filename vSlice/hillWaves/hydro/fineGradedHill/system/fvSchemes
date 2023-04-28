@@ -25,10 +25,12 @@ FoamFile
 SIgravityWaves true;
 implicitU      true;
 stagger        false;
+hydrostatic    false;
 
 ddtSchemes
 {
-    default         Euler;
+    ocCoeff         0;
+    default         CrankNicolson $ocCoeff;
 }
 
 gradSchemes

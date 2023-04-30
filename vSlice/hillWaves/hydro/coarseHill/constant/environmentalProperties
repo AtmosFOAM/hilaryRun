@@ -29,7 +29,7 @@ Omega           Omega [0 0 -1 0 0 0 0] (0 0 0);
 // MDW+10 uses mu dt = 0.3 for dt=20 and dt=150. Maybe change this?
 type polynomial;
 polyMin 0;
-//polyMax 0;
+polyMax 0;
 
 // Sponge = a z - b
 // z=5e4, Sponge = 0.3

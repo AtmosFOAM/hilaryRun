@@ -29,7 +29,7 @@ hydrostatic    true;
 
 ddtSchemes
 {
-    ocCoeff      0;
+    ocCoeff      0.8;
     default      CrankNicolson $ocCoeff;
 }
 

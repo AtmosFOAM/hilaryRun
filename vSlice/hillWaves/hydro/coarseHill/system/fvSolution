@@ -37,11 +37,11 @@ solvers
         relTol           0;
     }
     
-    "(k|epsilon|theta|U)"
+    "(k|epsilon|theta|U|w)"
     {
         solver          PBiCGStab;
         preconditioner  DILU;
-        tolerance       1e-6;
+        tolerance       1e-8;
         relTol           0;
         maxIter          2;
     }

@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 # mesh generation
-rm -rf [0-9]* constant/polyMesh constant/muSponge* processor*
+rm -rf [0-9]* constant/polyMesh constant/muSponge* processor* dynamicCode
 blockMesh
 terrainFollowingMesh
 

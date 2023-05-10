@@ -1,0 +1,29 @@
+FoamFile
+{
+    version         2.2;
+    format          ascii;
+
+    root            "";
+    case            "";
+    instance        "constant";
+    local           "";
+
+    class           dictionary;
+    object          gmtDict;
+}
+
+// How to plot
+// Compulsory inputs
+projection "X18c/6c";
+projection2D XZ;
+boundaryPatch ground;
+plotBoundaryDots false;
+
+FieldsToPlot
+(
+//    [theta rawValues 250 260 1 "$GMTU/colours/red_blue_white.cpt"]
+    [thetaf rawValues 250 260 1 "$GMTU/colours/red_blue_white.cpt"]
+);
+
+region "-10e3/10e3/0/2e3";
+boundaryMarks "2e3/500";

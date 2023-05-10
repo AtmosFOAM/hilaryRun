@@ -22,14 +22,14 @@ FoamFile
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-SIgravityWaves false;
-implicitU      false;
-implicitT      false;
-hydrostatic    true;
+SIgravityWaves true;
+implicitU      true;
+implicitT      true;
+hydrostatic    false;
 
 ddtSchemes
 {
-    ocCoeff      0.8;
+    ocCoeff      0.9;
     default      CrankNicolson $ocCoeff;
 }
 

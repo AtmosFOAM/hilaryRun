@@ -31,13 +31,13 @@ startTime       0;
 
 stopAt          endTime;
 
-endTime         2000;
+endTime         1.5e5;
 
 deltaT          20; // MDW=10 uses 20 (c=0.2) and 150 (c=1.5)
 
 writeControl    runTime;
 
-writeInterval   20;
+writeInterval   1e4;
 
 purgeWrite      0;
 
@@ -55,13 +55,5 @@ runTimeModifiable no;
 
 adjustTimeStep no;
 maxCo          1;
-
-//libs
-//(
-//    "libExnerTheta.so"
-//    "libfiniteVolumeAtmosFOAM.so"
-//    "libatmosphericModels.so"
-//);
-
 
 // ************************************************************************* //

@@ -1,12 +1,13 @@
 #!/bin/bash -e
 
+mkdir -p plots
+gmtPlot ../gmtDicts/energy.gmt
+ev plots/energy.eps
+
 if [ -a processor0 ]; then
-    reconstructPar -fields '(Uf U)' -latestTime
+    reconstructPar -fields '(Uf w)' -latestTime
 fi
-writeuvw -latestTime U
 gmtFoam -latestTime wAll
 ev `ls -1rt */wAll.pdf | tail -1`
-rm [0-9]*/U[x-z]
-
-gmtPlot ../gmtDicts/energy.gmt
+#rm [0-9]*/U[x-z]
 

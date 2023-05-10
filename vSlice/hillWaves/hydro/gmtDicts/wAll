@@ -21,7 +21,7 @@ plotBoundaryDots false;
 
 FieldsToPlot
 (
-    [Uz rawValues -5.025e-3 5.025e-3 5e-4 "$GMTU/colours/red_white_blue.cpt"]
+    [w rawValues -5.025e-3 5.025e-3 5e-4 "$GMTU/colours/red_white_blue.cpt"]
     [Uf vectorContours -0.01025 0.01025 5e-4 "black" 2]
 );
 

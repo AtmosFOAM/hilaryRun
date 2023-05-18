@@ -22,29 +22,29 @@ FoamFile
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-SIgravityWaves false;
+SIgravityWaves true;
 implicitU      true;
 implicitT      true;
-hydrostatic    false;
+hydrostatic    true;
 
 ddtSchemes
 {
-    ocCoeff      1;
+    ocCoeff      0;
     default      CrankNicolson $ocCoeff;
 }
 
 gradSchemes
 {
     default        Gauss linear;
-    linearUpwind   Gauss linear;
+    limitDiv   Gauss linear;
 }
 
 divSchemes
 {
     default none;
-    div(phi,thetap)    Gauss linear;//Upwind linearUpwind;
-    div(phi,U)        Gauss linear;//Upwind linearUpwind;
-    div(phi,w)        Gauss linear;//Upwind linearUpwind;
+    div(phi,thetap)   Gauss upwind; //CoBlended 1 linearUpwind limitDiv 2 upwind;
+    div(phi,u)        Gauss upwind; //CoBlended 1 linearUpwind limitDiv 2 upwind;
+    //div(phi,w)        Gauss CoBlended 1 linearUpwind limitDiv 2 upwind;
     div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear corrected;
 }
 

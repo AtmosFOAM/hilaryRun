@@ -29,14 +29,14 @@ hydrostatic    false;
 
 ddtSchemes
 {
-    ocCoeff      0.9;
+    ocCoeff      1;
     default      CrankNicolson $ocCoeff;
 }
 
 gradSchemes
 {
-    default        leastSquares;
-    linearUpwind   leastSquares;
+    default        Gauss linear;
+    linearUpwind   Gauss linear;
 }
 
 divSchemes

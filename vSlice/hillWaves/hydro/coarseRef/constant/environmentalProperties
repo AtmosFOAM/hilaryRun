@@ -26,10 +26,11 @@ g               g [0 1 -2 0 0 0 0] (0 0 -9.81);
 Omega           Omega [0 0 -1 0 0 0 0] (0 0 0);
 
 // Sponge layer coefficients
-// MDW+10 uses mu dt = 0.3 for dt=20 and dt=150. Maybe change this?
+// MDW+10 uses mu dt = 0.3 for dt=20 so mu/dt = 0.015
+// So a_z and b_z = =- 0.0075
 type sinusoidal;
-a_z 0.15;
-b_z -0.15;
+a_z 0.0075;
+b_z -0.0075;
 L_z 20e3;
 phi_z 30e3;
 k_z 0.5;

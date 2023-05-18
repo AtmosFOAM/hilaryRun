@@ -59,14 +59,14 @@ boundaryField
 
             const dimensionedScalar Cp("Cp", dimGasConstant, air.Cp(0,0));
 
-            const fvPatchField<scalar>& thetap
-                 = patch().lookupPatchField<volScalarField, scalar>("thetap");
+            const fvsPatchField<scalar>& thetapf
+                 = patch().lookupPatchField<surfaceScalarField, scalar>("thetapf");
             const fvPatchField<scalar>& thetaa
                  = patch().lookupPatchField<volScalarField, scalar>("thetaa");
             const fvsPatchField<scalar>& thetaf
                  = patch().lookupPatchField<surfaceScalarField, scalar>("thetaf");
 
-            this->refGrad() = (g.value() & patch().nf())*thetap
+            this->refGrad() = -(g.value() & patch().nf())*thetapf
                                 /(Cp.value()*thetaa*thetaf);
         #};    }
     top

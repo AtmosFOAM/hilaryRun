@@ -37,7 +37,7 @@ solvers
         relTol           0;
     }
     
-    "(k|epsilon|thetap|U|w)"
+    "(k|epsilon|thetap|U|u|w)"
     {
         solver          PBiCGStab;
         preconditioner  DILU;
@@ -49,8 +49,8 @@ solvers
 
 iterations
 {
-    nOuterCorrectors 2;
-    nCorrectors      1;
+    nOuterCorrectors 3;
+    nCorrectors      6;
     nNonOrthogonalCorrectors 0;
 }
 

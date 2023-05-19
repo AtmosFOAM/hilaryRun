@@ -27,7 +27,7 @@ boundaryField
         refValue        uniform 0;
         valueFraction   uniform 0;
         refGradient     uniform 0;
-        name            hydroStatic;
+        name            hydroStaticg;
         codeInclude
         #{
             #include "specie.H"
@@ -57,17 +57,14 @@ boundaryField
             const fvPatchField<scalar>& theta
                  = patch().lookupPatchField<volScalarField, scalar>("theta");
                  
-            const fvsPatchField<scalar>& gradTheta
-                 = patch().lookupPatchField<surfaceScalarField, scalar>("gradTheta");
+            const fvsPatchField<scalar>& sqrNh
+               = patch().lookupPatchField<surfaceScalarField, scalar>("sqrNh");
                  
-            const fvPatchField<scalar>& gh
-                 = patch().lookupPatchField<volScalarField, scalar>("gh");
-
-            this->refGrad() = -gh*gradTheta/(Cp.value()*sqr(theta));
+            this->refGrad() = -sqrNh/(Cp.value()*theta*patch().magSf());
         #};    }
     top
     {
-        type            hydroStatic;
+        type            hydroStaticg;
         refValue        uniform 0;
         valueFraction   uniform 0;
         refGradient     uniform 0;

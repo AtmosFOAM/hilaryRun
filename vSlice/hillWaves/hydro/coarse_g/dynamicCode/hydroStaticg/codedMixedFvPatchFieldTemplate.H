@@ -46,7 +46,7 @@ namespace Foam
                      A templated MixedValueFvPatchField
 \*---------------------------------------------------------------------------*/
 
-class hydroStaticMixedValueFvPatchScalarField
+class hydroStaticgMixedValueFvPatchScalarField
 :
     public mixedFvPatchField<scalar>
 {
@@ -56,20 +56,20 @@ public:
     static const char* const SHA1sum;
 
     //- Runtime type information
-    TypeName("hydroStatic");
+    TypeName("hydroStaticg");
 
 
     // Constructors
 
         //- Construct from patch and internal field
-        hydroStaticMixedValueFvPatchScalarField
+        hydroStaticgMixedValueFvPatchScalarField
         (
             const fvPatch&,
             const DimensionedField<scalar, volMesh>&
         );
 
         //- Construct from patch, internal field and dictionary
-        hydroStaticMixedValueFvPatchScalarField
+        hydroStaticgMixedValueFvPatchScalarField
         (
             const fvPatch&,
             const DimensionedField<scalar, volMesh>&,
@@ -77,24 +77,24 @@ public:
         );
 
         //- Construct by mapping a copy onto a new patch
-        hydroStaticMixedValueFvPatchScalarField
+        hydroStaticgMixedValueFvPatchScalarField
         (
-            const hydroStaticMixedValueFvPatchScalarField&,
+            const hydroStaticgMixedValueFvPatchScalarField&,
             const fvPatch&,
             const DimensionedField<scalar, volMesh>&,
             const fvPatchFieldMapper&
         );
 
         //- Disallow copy without setting internal field reference
-        hydroStaticMixedValueFvPatchScalarField
+        hydroStaticgMixedValueFvPatchScalarField
         (
-            const hydroStaticMixedValueFvPatchScalarField&
+            const hydroStaticgMixedValueFvPatchScalarField&
         ) = delete;
 
         //- Copy constructor setting internal field reference
-        hydroStaticMixedValueFvPatchScalarField
+        hydroStaticgMixedValueFvPatchScalarField
         (
-            const hydroStaticMixedValueFvPatchScalarField&,
+            const hydroStaticgMixedValueFvPatchScalarField&,
             const DimensionedField<scalar, volMesh>&
         );
 
@@ -106,13 +106,13 @@ public:
         {
             return tmp<fvPatchScalarField >
             (
-                new hydroStaticMixedValueFvPatchScalarField(*this, iF)
+                new hydroStaticgMixedValueFvPatchScalarField(*this, iF)
             );
         }
 
 
     //- Destructor
-    virtual ~hydroStaticMixedValueFvPatchScalarField();
+    virtual ~hydroStaticgMixedValueFvPatchScalarField();
 
 
     // Member Functions

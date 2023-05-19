@@ -1,7 +1,8 @@
 #!/bin/bash -e
 
 # mesh generation
-rm -rf [0-9]* constant/polyMesh constant/muSponge* processor* dynamicCode
+rm -rf [0-9]* constant/polyMesh constant/muSponge* processor* dynamicCode \
+    constant/muSponge
 blockMesh
 terrainFollowingMesh
 
@@ -12,6 +13,7 @@ setTracerField -name muSponge -tracerDict "environmentalProperties"
 # Initial conditions
 cp -r ../init_0 0
 setIsothermalBalance
+cp 0/theta constant/thetaa
 rm 0/Uf 0/lnExner 0/muSponge 0/Exner 0/Exnerp 0/thetap
 
 # run

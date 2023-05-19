@@ -55,11 +55,11 @@ namespace Foam
 extern "C"
 {
     // dynamicCode:
-    // SHA1 = 4cc01715230cb2b31e5f6d8b3aeee25483d86d86
+    // SHA1 = 2ff563bf5031df31bc1354e0a0e6af13c42e2de2
     //
     // unique function name that can be checked if the correct library version
     // has been loaded
-    void hydroStatic_4cc01715230cb2b31e5f6d8b3aeee25483d86d86(bool load)
+    void hydroStaticg_2ff563bf5031df31bc1354e0a0e6af13c42e2de2(bool load)
     {
         if (load)
         {
@@ -77,18 +77,18 @@ extern "C"
 makeRemovablePatchTypeField
 (
     fvPatchScalarField,
-    hydroStaticMixedValueFvPatchScalarField
+    hydroStaticgMixedValueFvPatchScalarField
 );
 
 
-const char* const hydroStaticMixedValueFvPatchScalarField::SHA1sum =
-    "4cc01715230cb2b31e5f6d8b3aeee25483d86d86";
+const char* const hydroStaticgMixedValueFvPatchScalarField::SHA1sum =
+    "2ff563bf5031df31bc1354e0a0e6af13c42e2de2";
 
 
 // * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
 
-hydroStaticMixedValueFvPatchScalarField::
-hydroStaticMixedValueFvPatchScalarField
+hydroStaticgMixedValueFvPatchScalarField::
+hydroStaticgMixedValueFvPatchScalarField
 (
     const fvPatch& p,
     const DimensionedField<scalar, volMesh>& iF
@@ -98,14 +98,14 @@ hydroStaticMixedValueFvPatchScalarField
 {
     if (false)
     {
-        Info<<"construct hydroStatic sha1: 4cc01715230cb2b31e5f6d8b3aeee25483d86d86"
+        Info<<"construct hydroStaticg sha1: 2ff563bf5031df31bc1354e0a0e6af13c42e2de2"
             " from patch/DimensionedField\n";
     }
 }
 
 
-hydroStaticMixedValueFvPatchScalarField::
-hydroStaticMixedValueFvPatchScalarField
+hydroStaticgMixedValueFvPatchScalarField::
+hydroStaticgMixedValueFvPatchScalarField
 (
     const fvPatch& p,
     const DimensionedField<scalar, volMesh>& iF,
@@ -116,16 +116,16 @@ hydroStaticMixedValueFvPatchScalarField
 {
     if (false)
     {
-        Info<<"construct hydroStatic sha1: 4cc01715230cb2b31e5f6d8b3aeee25483d86d86"
+        Info<<"construct hydroStaticg sha1: 2ff563bf5031df31bc1354e0a0e6af13c42e2de2"
             " from patch/dictionary\n";
     }
 }
 
 
-hydroStaticMixedValueFvPatchScalarField::
-hydroStaticMixedValueFvPatchScalarField
+hydroStaticgMixedValueFvPatchScalarField::
+hydroStaticgMixedValueFvPatchScalarField
 (
-    const hydroStaticMixedValueFvPatchScalarField& ptf,
+    const hydroStaticgMixedValueFvPatchScalarField& ptf,
     const fvPatch& p,
     const DimensionedField<scalar, volMesh>& iF,
     const fvPatchFieldMapper& mapper
@@ -135,16 +135,16 @@ hydroStaticMixedValueFvPatchScalarField
 {
     if (false)
     {
-        Info<<"construct hydroStatic sha1: 4cc01715230cb2b31e5f6d8b3aeee25483d86d86"
+        Info<<"construct hydroStaticg sha1: 2ff563bf5031df31bc1354e0a0e6af13c42e2de2"
             " from patch/DimensionedField/mapper\n";
     }
 }
 
 
-hydroStaticMixedValueFvPatchScalarField::
-hydroStaticMixedValueFvPatchScalarField
+hydroStaticgMixedValueFvPatchScalarField::
+hydroStaticgMixedValueFvPatchScalarField
 (
-    const hydroStaticMixedValueFvPatchScalarField& ptf,
+    const hydroStaticgMixedValueFvPatchScalarField& ptf,
     const DimensionedField<scalar, volMesh>& iF
 )
 :
@@ -152,7 +152,7 @@ hydroStaticMixedValueFvPatchScalarField
 {
     if (false)
     {
-        Info<<"construct hydroStatic sha1: 4cc01715230cb2b31e5f6d8b3aeee25483d86d86 "
+        Info<<"construct hydroStaticg sha1: 2ff563bf5031df31bc1354e0a0e6af13c42e2de2 "
             "as copy/DimensionedField\n";
     }
 }
@@ -160,19 +160,19 @@ hydroStaticMixedValueFvPatchScalarField
 
 // * * * * * * * * * * * * * * * * Destructor  * * * * * * * * * * * * * * * //
 
-hydroStaticMixedValueFvPatchScalarField::
-~hydroStaticMixedValueFvPatchScalarField()
+hydroStaticgMixedValueFvPatchScalarField::
+~hydroStaticgMixedValueFvPatchScalarField()
 {
     if (false)
     {
-        Info<<"destroy hydroStatic sha1: 4cc01715230cb2b31e5f6d8b3aeee25483d86d86\n";
+        Info<<"destroy hydroStaticg sha1: 2ff563bf5031df31bc1354e0a0e6af13c42e2de2\n";
     }
 }
 
 
 // * * * * * * * * * * * * * * * Member Functions  * * * * * * * * * * * * * //
 
-void hydroStaticMixedValueFvPatchScalarField::updateCoeffs()
+void hydroStaticgMixedValueFvPatchScalarField::updateCoeffs()
 {
     if (this->updated())
     {
@@ -181,7 +181,7 @@ void hydroStaticMixedValueFvPatchScalarField::updateCoeffs()
 
     if (false)
     {
-        Info<<"updateCoeffs hydroStatic sha1: 4cc01715230cb2b31e5f6d8b3aeee25483d86d86\n";
+        Info<<"updateCoeffs hydroStaticg sha1: 2ff563bf5031df31bc1354e0a0e6af13c42e2de2\n";
     }
 
 //{{{ begin code
@@ -199,13 +199,10 @@ const dictionary& thermoProperties
             const fvPatchField<scalar>& theta
                  = patch().lookupPatchField<volScalarField, scalar>("theta");
                  
-            const fvsPatchField<scalar>& gradTheta
-                 = patch().lookupPatchField<surfaceScalarField, scalar>("gradTheta");
+            const fvsPatchField<scalar>& sqrNh
+               = patch().lookupPatchField<surfaceScalarField, scalar>("sqrNh");
                  
-            const fvPatchField<scalar>& gh
-                 = patch().lookupPatchField<volScalarField, scalar>("gh");
-
-            this->refGrad() = -gh*gradTheta/(Cp.value()*sqr(theta));
+            this->refGrad() = -sqrNh/(Cp.value()*theta*patch().magSf());
 //}}} end code
 
     this->mixedFvPatchField<scalar>::updateCoeffs();

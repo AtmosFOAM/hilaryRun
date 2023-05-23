@@ -17,15 +17,57 @@ FoamFile
     local           "";
 
     class           dictionary;
-    object          environmentalProperties;
+    object          fvSchemes;
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-type exponentialWithHeight;
-z0 0;
-tracerAtz0 1;
-scaleHeight 25e3;
+SIgravityWaves true;
+implicitU      false;
+implicitT      false;
+hydrostatic    false;
+
+ddtSchemes
+{
+    ocCoeff      1;
+    default      CrankNicolson $ocCoeff;
+}
+
+gradSchemes
+{
+    default      Gauss linear;
+    limitDiv     Gauss linear;
+}
+
+divSchemes
+{
+    default none;
+    div(phi,thetap)   Gauss CoBlended 1 linearUpwind limitDiv 2 upwind;
+    div(phi,u)        Gauss CoBlended 1 linearUpwind limitDiv 2 upwind;
+    div(phi,w)        Gauss CoBlended 1 linearUpwind limitDiv 2 upwind;
+    div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear corrected;
+}
+
+laplacianSchemes
+{
+    default         Gauss linear corrected;
+}
+
+interpolationSchemes
+{
+    default        linear;
+}
+
+snGradSchemes
+{
+    default         corrected;
+}
+
+fluxRequired
+{
+    default         no;
+    Exnerp;
+}
 
 
 // ************************************************************************* //

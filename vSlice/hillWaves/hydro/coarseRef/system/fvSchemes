@@ -23,8 +23,8 @@ FoamFile
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 SIgravityWaves true;
-implicitU      true;
-implicitT      true;
+implicitU      false;
+implicitT      false;
 hydrostatic    true;
 
 ddtSchemes

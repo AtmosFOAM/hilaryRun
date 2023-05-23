@@ -57,10 +57,13 @@ boundaryField
             const fvPatchField<scalar>& theta
                  = patch().lookupPatchField<volScalarField, scalar>("theta");
                  
-            const fvsPatchField<scalar>& sqrNh
-               = patch().lookupPatchField<surfaceScalarField, scalar>("sqrNh");
+            const fvsPatchField<scalar>& gradTheta
+                 = patch().lookupPatchField<surfaceScalarField, scalar>("gradTheta");
                  
-            this->refGrad() = -sqrNh/(Cp.value()*theta*patch().magSf());
+            const fvPatchField<scalar>& gh
+                 = patch().lookupPatchField<volScalarField, scalar>("gh");
+
+            this->refGrad() = gh*gradTheta/(Cp.value()*sqr(theta));
         #};    }
     top
     {

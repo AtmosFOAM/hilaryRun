@@ -55,11 +55,11 @@ namespace Foam
 extern "C"
 {
     // dynamicCode:
-    // SHA1 = 2ff563bf5031df31bc1354e0a0e6af13c42e2de2
+    // SHA1 = 5c66fe45cd8227ec3d0a5406595b9a425c5e2969
     //
     // unique function name that can be checked if the correct library version
     // has been loaded
-    void hydroStaticg_2ff563bf5031df31bc1354e0a0e6af13c42e2de2(bool load)
+    void hydroStaticg_5c66fe45cd8227ec3d0a5406595b9a425c5e2969(bool load)
     {
         if (load)
         {
@@ -82,7 +82,7 @@ makeRemovablePatchTypeField
 
 
 const char* const hydroStaticgMixedValueFvPatchScalarField::SHA1sum =
-    "2ff563bf5031df31bc1354e0a0e6af13c42e2de2";
+    "5c66fe45cd8227ec3d0a5406595b9a425c5e2969";
 
 
 // * * * * * * * * * * * * * * * * Constructors  * * * * * * * * * * * * * * //
@@ -98,7 +98,7 @@ hydroStaticgMixedValueFvPatchScalarField
 {
     if (false)
     {
-        Info<<"construct hydroStaticg sha1: 2ff563bf5031df31bc1354e0a0e6af13c42e2de2"
+        Info<<"construct hydroStaticg sha1: 5c66fe45cd8227ec3d0a5406595b9a425c5e2969"
             " from patch/DimensionedField\n";
     }
 }
@@ -116,7 +116,7 @@ hydroStaticgMixedValueFvPatchScalarField
 {
     if (false)
     {
-        Info<<"construct hydroStaticg sha1: 2ff563bf5031df31bc1354e0a0e6af13c42e2de2"
+        Info<<"construct hydroStaticg sha1: 5c66fe45cd8227ec3d0a5406595b9a425c5e2969"
             " from patch/dictionary\n";
     }
 }
@@ -135,7 +135,7 @@ hydroStaticgMixedValueFvPatchScalarField
 {
     if (false)
     {
-        Info<<"construct hydroStaticg sha1: 2ff563bf5031df31bc1354e0a0e6af13c42e2de2"
+        Info<<"construct hydroStaticg sha1: 5c66fe45cd8227ec3d0a5406595b9a425c5e2969"
             " from patch/DimensionedField/mapper\n";
     }
 }
@@ -152,7 +152,7 @@ hydroStaticgMixedValueFvPatchScalarField
 {
     if (false)
     {
-        Info<<"construct hydroStaticg sha1: 2ff563bf5031df31bc1354e0a0e6af13c42e2de2 "
+        Info<<"construct hydroStaticg sha1: 5c66fe45cd8227ec3d0a5406595b9a425c5e2969 "
             "as copy/DimensionedField\n";
     }
 }
@@ -165,7 +165,7 @@ hydroStaticgMixedValueFvPatchScalarField::
 {
     if (false)
     {
-        Info<<"destroy hydroStaticg sha1: 2ff563bf5031df31bc1354e0a0e6af13c42e2de2\n";
+        Info<<"destroy hydroStaticg sha1: 5c66fe45cd8227ec3d0a5406595b9a425c5e2969\n";
     }
 }
 
@@ -181,7 +181,7 @@ void hydroStaticgMixedValueFvPatchScalarField::updateCoeffs()
 
     if (false)
     {
-        Info<<"updateCoeffs hydroStaticg sha1: 2ff563bf5031df31bc1354e0a0e6af13c42e2de2\n";
+        Info<<"updateCoeffs hydroStaticg sha1: 5c66fe45cd8227ec3d0a5406595b9a425c5e2969\n";
     }
 
 //{{{ begin code
@@ -199,10 +199,13 @@ const dictionary& thermoProperties
             const fvPatchField<scalar>& theta
                  = patch().lookupPatchField<volScalarField, scalar>("theta");
                  
-            const fvsPatchField<scalar>& sqrNh
-               = patch().lookupPatchField<surfaceScalarField, scalar>("sqrNh");
+            const fvsPatchField<scalar>& gradTheta
+                 = patch().lookupPatchField<surfaceScalarField, scalar>("gradTheta");
                  
-            this->refGrad() = -sqrNh/(Cp.value()*theta*patch().magSf());
+            const fvPatchField<scalar>& gh
+                 = patch().lookupPatchField<volScalarField, scalar>("gh");
+
+            this->refGrad() = gh*gradTheta/(Cp.value()*sqr(theta));
 //}}} end code
 
     this->mixedFvPatchField<scalar>::updateCoeffs();

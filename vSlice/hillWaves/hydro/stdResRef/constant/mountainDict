@@ -1,41 +1,30 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  1.5                                   |
-|   \\  /    A nd           | Web:      http://www.OpenFOAM.org               |
+|  \\    /   O peration     | Version:  dev                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
 FoamFile
 {
-    version     2.2;
+    version     2.0;
     format      ascii;
-    class       volVectorField;
-    object      U;
+    class       dictionary;
+    location    "constant";
+    object      add2dMountainDict;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 1 -1 0 0 0 0];
+type btf;
+domainHeight 20e3;
+groundOffset 0;
 
-internalField   uniform (20 0 0);
-
-boundaryField
+mountain
 {
-    ground
-    {
-        type            slip;
-    }
-    top
-    {
-        type            slip;
-    }
-    inlet
-    {
-        type            cyclic;
-    }
-    outlet
-    {
-        type            cyclic;
-    }
-}
+    type agnessiWitchMountain;
+    peakHeight peakHeight [0 1 0 0 0] 1;
+    mountainCentre (0 0.5e3 0);
+    mountainHalfWidth mountainHalfWidth [0 1 0 0 0] 10e3;
+};
 
 // ************************************************************************* //

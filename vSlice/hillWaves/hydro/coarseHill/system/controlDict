@@ -31,9 +31,9 @@ startTime       0;
 
 stopAt          endTime;
 
-endTime         1.5e4;
+endTime         4e4;
 
-deltaT          20; // MDW=10 uses 20 (c=0.2) and 150 (c=1.5)
+deltaT          2500; // MDW=10 uses 20 (c=0.2) and 150 (c=1.5)
 
 writeControl    runTime;
 

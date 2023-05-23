@@ -13,7 +13,6 @@ setTracerField -name muSponge -tracerDict "environmentalProperties"
 # Initial conditions
 cp -r ../init_0 0
 setIsothermalBalance
-cp 0/theta constant/thetaa
 rm 0/Uf 0/lnExner 0/muSponge 0/Exner 0/Exnerp 0/thetap
 
 # run

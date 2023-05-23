@@ -7,37 +7,27 @@
 \*---------------------------------------------------------------------------*/
 FoamFile
 {
-    version     2.2;
+    version     2.0;
     format      ascii;
-    class       volScalarField;
+    class       dictionary;
     location    "constant";
-    object      theta_init;
+    object      turbulenceProperties;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 0 0 1 0 0 0];
+simulationType  laminar;
 
-internalField   uniform 250;
-
-boundaryField
+laminar
 {
-    ground
-    {
-        type            zeroGradient;
-    }
-    top
-    {
-        type            zeroGradient;
-    }
-    inlet
-    {
-        type            cyclic;
-    }
-    outlet
-    {
-        type            cyclic;
-    }
+    laminarModel Stokes;
 }
+
+/*RAS
+{
+    RASModel        buoyantKEpsilon;
+    turbulence      on;
+    printCoeffs     on;
+}*/
 
 
 // ************************************************************************* //

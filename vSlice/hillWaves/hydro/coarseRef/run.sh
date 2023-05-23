@@ -1,7 +1,8 @@
 #!/bin/bash -e
 
 # mesh generation
-rm -rf [0-9]* constant/polyMesh constant/muSponge* processor* dynamicCode
+rm -rf [0-9]* constant/polyMesh constant/muSponge* processor* dynamicCode \
+    constant/muSponge
 blockMesh
 terrainFollowingMesh
 
@@ -14,14 +15,11 @@ cp -r ../init_0 0
 setIsothermalBalance
 mv 0/Exner constant/Exnera
 mv 0/theta constant/thetaa
-rm 0/Uf 0/lnExner 0/muSponge
+rm 0/Uf 0/lnExner 0/muSponge 0/Exnerg
 
 # run
-exnerFoamRefuvw >& log & sleep 0.01; tail -f log
+exnerFoamRef > log 2>&1 & sleep 0.01; tail -f log
 
-# Thing to test
-Simplify code
-impicit/explicit on everything 
-large time steps - stable for ocCeoff=0.8,0.9 but not convergent
-hydrostatic/non-hydrostatic
-off centering 0.8 or 0.9 for stability
+# Testing
+Sponge Hydro impGW impU impT iters dt ocCoeff conv   solution
+

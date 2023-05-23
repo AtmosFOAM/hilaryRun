@@ -7,41 +7,24 @@
 \*---------------------------------------------------------------------------*/
 FoamFile
 {
-    version     2.2;
+    version     2.0;
     format      ascii;
-    class       volScalarField;
+    class       dictionary;
     location    "constant";
-    object      Exner_init;
+    object      add2dMountainDict;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 0 0 0 0 0 0];
+type btf;
+domainHeight 20e3;
+groundOffset 0;
 
-internalField   uniform 0;
-
-boundaryField
+mountain
 {
-    ground
-    {
-        type            fixedFluxBuoyantlnExner;
-        gradient        uniform 0;
-        value           uniform 1;
-    }
-    top
-    {
-        type            fixedFluxBuoyantlnExner;
-        gradient        uniform 0;
-        value           uniform 1;
-    }
-    inlet
-    {
-        type            cyclic;
-    }
-    outlet
-    {
-        type            cyclic;
-    }
-}
-
+    type agnessiWitchMountain;
+    peakHeight peakHeight [0 1 0 0 0] 1;
+    mountainCentre (0 0.5e3 0);
+    mountainHalfWidth mountainHalfWidth [0 1 0 0 0] 10e3;
+};
 
 // ************************************************************************* //

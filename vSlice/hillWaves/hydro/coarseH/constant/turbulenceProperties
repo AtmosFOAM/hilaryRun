@@ -11,20 +11,23 @@ FoamFile
     format      ascii;
     class       dictionary;
     location    "constant";
-    object      add2dMountainDict;
+    object      turbulenceProperties;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-type btf;
-domainHeight 2e3;
-groundOffset 0;
+simulationType  laminar;
 
-mountain
+laminar
 {
-    type agnessiWitchMountain;
-    peakHeight peakHeight [0 1 0 0 0] 1;
-    mountainCentre (0 0.5e3 0);
-    mountainHalfWidth mountainHalfWidth [0 1 0 0 0] 10e3;
-};
+    laminarModel Stokes;
+}
+
+/*RAS
+{
+    RASModel        buoyantKEpsilon;
+    turbulence      on;
+    printCoeffs     on;
+}*/
+
 
 // ************************************************************************* //

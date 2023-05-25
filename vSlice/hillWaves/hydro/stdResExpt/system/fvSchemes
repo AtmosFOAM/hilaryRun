@@ -22,7 +22,7 @@ FoamFile
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-SIgravityWaves false;
+SIgravityWaves true;
 implicitU      false;
 implicitT      false;
 hydrostatic    false;
@@ -35,7 +35,7 @@ ddtSchemes
 
 gradSchemes
 {
-    default      Gauss linear;
+    default      leastSquares;
 }
 
 divSchemes
@@ -49,7 +49,7 @@ divSchemes
 
 laplacianSchemes
 {
-    default         Gauss linear faceCorrected;
+    default         Gauss linear corrected;
 }
 
 interpolationSchemes
@@ -59,7 +59,10 @@ interpolationSchemes
 
 snGradSchemes
 {
-    default         faceCorrected;
+    default         none;
+    snGrad(Exner)   corrected;
+    snGrad(decay)   corrected;
+    uncorr          uncorrected;
 }
 
 fluxRequired

@@ -17,57 +17,42 @@ FoamFile
     local           "";
 
     class           dictionary;
-    object          fvSchemes;
+    object          thermophysicalProperties;
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-SIgravityWaves false;
-implicitU      false;
-implicitT      false;
-hydrostatic    false;
 
-ddtSchemes
+Tref       250;
+pRef     100000;
+
+mixture//  air 1 28.9 1000 0 1.8e-05 0.7;
 {
-    ocCoeff      0;
-    default      CrankNicolson $ocCoeff;
+    specie
+    {
+        molWeight       28.9;
+    }
+    thermodynamics
+    {
+        Cp              1005;
+        Hf              0;
+    }
+    transport
+    {
+        mu              0; //1.8e-05;
+        Pr              0.7;
+    }
 }
 
-gradSchemes
+thermoType 
 {
-    default        Gauss linear;
-    limitDiv   Gauss linear;
+    type            heRhoThermo;
+    mixture         pureMixture;
+    transport       const;
+    thermo          hConst;
+    equationOfState perfectGas;
+    specie          specie;
+    energy          sensibleEnthalpy;
 }
-
-divSchemes
-{
-    default none;
-    div(phi,theta)   Gauss CoBlended 1 linearUpwind limitDiv 2 upwind;
-    div(phi,u)        Gauss CoBlended 1 linearUpwind limitDiv 2 upwind;
-    div(phi,w)        Gauss CoBlended 1 linearUpwind limitDiv 2 upwind;
-    div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear corrected;
-}
-
-laplacianSchemes
-{
-    default         Gauss linear correctedBC;
-}
-
-interpolationSchemes
-{
-    default        linear;
-}
-
-snGradSchemes
-{
-    default         correctedBC;
-}
-
-fluxRequired
-{
-    default         no;
-    Exner;
-}
-
 
 // ************************************************************************* //

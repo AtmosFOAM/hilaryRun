@@ -17,57 +17,43 @@ FoamFile
     local           "";
 
     class           dictionary;
-    object          fvSchemes;
+    object          controlDict;
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-SIgravityWaves false;
-implicitU      false;
-implicitT      false;
-hydrostatic    false;
+application buoyantFoam;
 
-ddtSchemes
-{
-    ocCoeff      0;
-    default      CrankNicolson $ocCoeff;
-}
+startFrom       startTime;
+//startFrom       latestTime;
 
-gradSchemes
-{
-    default        Gauss linear;
-    limitDiv   Gauss linear;
-}
+startTime       0;
 
-divSchemes
-{
-    default none;
-    div(phi,theta)   Gauss CoBlended 1 linearUpwind limitDiv 2 upwind;
-    div(phi,u)        Gauss CoBlended 1 linearUpwind limitDiv 2 upwind;
-    div(phi,w)        Gauss CoBlended 1 linearUpwind limitDiv 2 upwind;
-    div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear corrected;
-}
+stopAt          endTime;
 
-laplacianSchemes
-{
-    default         Gauss linear correctedBC;
-}
+endTime         1000; //1.5e4;
 
-interpolationSchemes
-{
-    default        linear;
-}
+deltaT          20; // MDW=10 uses 20 (c=0.2) and 150 (c=1.5)
 
-snGradSchemes
-{
-    default         correctedBC;
-}
+writeControl    runTime;
 
-fluxRequired
-{
-    default         no;
-    Exner;
-}
+writeInterval   1000;
 
+purgeWrite      0;
+
+writeFormat     binary;
+
+writePrecision  6;
+
+writeCompression uncompressed;
+
+timeFormat      general;
+
+timePrecision   6;
+
+runTimeModifiable no;
+
+adjustTimeStep no;
+maxCo          1;
 
 // ************************************************************************* //

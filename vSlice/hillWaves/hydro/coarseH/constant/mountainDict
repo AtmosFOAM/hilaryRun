@@ -16,7 +16,7 @@ FoamFile
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 type btf;
-domainHeight 2e3;
+domainHeight 20e3;
 groundOffset 0;
 
 mountain

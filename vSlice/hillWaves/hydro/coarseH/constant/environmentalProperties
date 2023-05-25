@@ -17,57 +17,24 @@ FoamFile
     local           "";
 
     class           dictionary;
-    object          fvSchemes;
+    object          environmentalProperties;
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-SIgravityWaves false;
-implicitU      false;
-implicitT      false;
-hydrostatic    false;
+g               g [0 1 -2 0 0 0 0] (0 0 -9.81);
+Omega           Omega [0 0 -1 0 0 0 0] (0 0 0);
 
-ddtSchemes
-{
-    ocCoeff      0;
-    default      CrankNicolson $ocCoeff;
-}
-
-gradSchemes
-{
-    default        Gauss linear;
-    limitDiv   Gauss linear;
-}
-
-divSchemes
-{
-    default none;
-    div(phi,theta)   Gauss CoBlended 1 linearUpwind limitDiv 2 upwind;
-    div(phi,u)        Gauss CoBlended 1 linearUpwind limitDiv 2 upwind;
-    div(phi,w)        Gauss CoBlended 1 linearUpwind limitDiv 2 upwind;
-    div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear corrected;
-}
-
-laplacianSchemes
-{
-    default         Gauss linear correctedBC;
-}
-
-interpolationSchemes
-{
-    default        linear;
-}
-
-snGradSchemes
-{
-    default         correctedBC;
-}
-
-fluxRequired
-{
-    default         no;
-    Exner;
-}
+// Sponge layer coefficients
+// MDW+10 uses mu dt = 0.3 for dt=20 so mu/dt = 0.015
+// So a_z and b_z = =- 0.0075
+type sinusoidal;
+a_z 0.0075;
+b_z -0.0075;
+L_z 20e3;
+phi_z 30e3;
+k_z 0.5;
+zmin 30e3;
 
 
 // ************************************************************************* //

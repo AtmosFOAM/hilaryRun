@@ -27,7 +27,7 @@ solvers
     {
         solver PCG;
         preconditioner DIC;
-        tolerance        1e-9;
+        tolerance        1e-8;
         relTol           0.001;
     }
     "(ExnerFinal|ExnerpFinal)"

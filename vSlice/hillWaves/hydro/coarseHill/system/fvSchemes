@@ -29,7 +29,7 @@ hydrostatic    false;
 
 ddtSchemes
 {
-    ocCoeff      0;
+    ocCoeff      1;
     default      CrankNicolson $ocCoeff;
 }
 
@@ -42,15 +42,15 @@ gradSchemes
 divSchemes
 {
     default none;
-    div(phi,theta)   Gauss CoBlended 1 linearUpwind limitDiv 2 upwind;
-    div(phi,u)        Gauss CoBlended 1 linearUpwind limitDiv 2 upwind;
-    div(phi,w)        Gauss CoBlended 1 linearUpwind limitDiv 2 upwind;
+    div(phi,theta)   Gauss QUICK; //CoBlended 1 linearUpwind limitDiv 2 upwind;
+    div(phi,u)        Gauss QUICK; //CoBlended 1 linearUpwind limitDiv 2 upwind;
+    div(phi,w)        Gauss QUICK; //CoBlended 1 linearUpwind limitDiv 2 upwind;
     div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear corrected;
 }
 
 laplacianSchemes
 {
-    default         Gauss linear correctedBC;
+    default         Gauss linear corrected;
 }
 
 interpolationSchemes
@@ -60,7 +60,7 @@ interpolationSchemes
 
 snGradSchemes
 {
-    default         correctedBC;
+    default         corrected;
 }
 
 fluxRequired

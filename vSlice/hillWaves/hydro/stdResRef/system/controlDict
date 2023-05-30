@@ -56,4 +56,9 @@ runTimeModifiable no;
 adjustTimeStep no;
 maxCo          1;
 
+libs
+(
+    "libfiniteVolumeAtmosFOAM.so"
+);
+
 // ************************************************************************* //

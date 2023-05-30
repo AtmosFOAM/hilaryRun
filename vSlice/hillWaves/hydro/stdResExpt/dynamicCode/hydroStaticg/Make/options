@@ -1,0 +1,11 @@
+# dynamicCode:
+# SHA1 = 5c66fe45cd8227ec3d0a5406595b9a425c5e2969
+
+EXE_INC = -g \
+-I$(LIB_SRC)/finiteVolume/lnInclude \
+-I$(LIB_SRC)/thermophysicalModels/specie/lnInclude
+
+LIB_LIBS = \
+    -lOpenFOAM \
+    -lfiniteVolume \
+

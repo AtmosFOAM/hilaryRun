@@ -35,16 +35,15 @@ ddtSchemes
 
 gradSchemes
 {
-    default        Gauss linear;
-    limitDiv   Gauss linear;
+    default      Gauss linear;
 }
 
 divSchemes
 {
     default none;
-    div(phi,theta)   Gauss QUICK; //CoBlended 1 linearUpwind limitDiv 2 upwind;
-    div(phi,u)        Gauss QUICK; //CoBlended 1 linearUpwind limitDiv 2 upwind;
-    div(phi,w)        Gauss QUICK; //CoBlended 1 linearUpwind limitDiv 2 upwind;
+    div(phi,theta)   Gauss QUICKupwind 1 2;
+    div(phi,u)        Gauss QUICKupwind 1 2;
+    div(phi,w)        Gauss QUICKupwind 1 2;
     div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear corrected;
 }
 

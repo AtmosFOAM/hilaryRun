@@ -17,48 +17,62 @@ FoamFile
     local           "";
 
     class           dictionary;
-    object          controlDict;
+    object          fvSchemes;
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-application buoyantFoam;
+SIgravityWaves true;
+implicitU      false;
+implicitT      false;
+hydrostatic    false;
 
-startFrom       startTime;
-//startFrom       latestTime;
+ddtSchemes
+{
+    ocCoeff      1;
+    default      none;
+}
 
-startTime       0;
+gradSchemes
+{
+    default      Gauss linear;
+}
 
-stopAt          endTime;
+divSchemes
+{
+    default none;
+    div(phi,theta)   Gauss  upwind; //QUICKupwind 0 0;
+    div(phi,u)        Gauss upwind; //QUICKupwind 0 0;
+    div(phi,w)        Gauss upwind; //QUICKupwind 0 0;
+    div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear corrected;
+}
 
-endTime         1.5e4;
+laplacianSchemes
+{
+    default         Gauss linear corrected;
+}
 
-deltaT          20; // MDW=10 uses 20 (c=0.2) and 150 (c=1.5)
+interpolationSchemes
+{
+    default        none;
+    interpolate(rho)  linear;
+    flux((rho*U))     linear;
+    interpolate(muSponge) linear;
+    interpolate(theta) linear; //upwind phiNew;
+    interpolate((rho|A(w))) linear;
+    interpolate((rho|A(u))) linear;
+}
 
-writeControl    runTime;
+snGradSchemes
+{
+    default         corrected;
+}
 
-writeInterval   1000;
+fluxRequired
+{
+    default         no;
+    Exner;
+}
 
-purgeWrite      0;
-
-writeFormat     binary;
-
-writePrecision  6;
-
-writeCompression uncompressed;
-
-timeFormat      general;
-
-timePrecision   6;
-
-runTimeModifiable no;
-
-adjustTimeStep no;
-maxCo          1;
-
-libs
-(
-    "libfiniteVolumeAtmosFOAM.so"
-);
 
 // ************************************************************************* //

@@ -15,13 +15,10 @@ cp -r ../init_0 0
 rm 0/P
 setIsothermalBalance
 rm 0/Uf 0/lnExner 0/muSponge 0/Exner?*
-cp 0/Exner 0/Exner_0
-cp 0/U 0/U_0
-cp 0/theta 0/theta_0
 
+# setup for parallel run
+decomposePar -constant
 # run
-exnerFoamA > log 2>&1 & sleep 0.01; tail -f log
-
-# Testing
-Sponge Hydro impGW impU impT iters dt ocCoeff conv   solution
-
+mpirun -np 3 --use-hwthread-cpus exnerFoamAadaptiveImplicit -parallel > log 2>&1 &
+echo running exnerFoamA, directing out put to log
+#sleep 0.01; tail -f log

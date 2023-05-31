@@ -22,7 +22,7 @@ FoamFile
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-SIgravityWaves true;
+SIgravityWaves false;
 implicitU      false;
 implicitT      false;
 hydrostatic    false;

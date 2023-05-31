@@ -15,6 +15,9 @@ cp -r ../init_0 0
 rm 0/P
 setIsothermalBalance
 rm 0/Uf 0/lnExner 0/muSponge 0/Exner?*
+cp 0/Exner 0/Exner_0
+cp 0/U 0/U_0
+cp 0/theta 0/theta_0
 
 # setup for parallel run
 decomposePar -constant

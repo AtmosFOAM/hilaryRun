@@ -29,7 +29,7 @@ hydrostatic    false;
 
 ddtSchemes
 {
-    ocCoeff      0;
+    ocCoeff      0.8;
     default      none;
 }
 
@@ -42,8 +42,7 @@ divSchemes
 {
     default none;
     div(phi,thetap)   Gauss QUICKupwind 1 1;
-    div(phi,u)        Gauss QUICKupwind 1 1;
-    div(phi,w)        Gauss QUICKupwind 1 1;
+    div(phi,U)        Gauss QUICKupwind 1 1;
     div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear corrected;
 }
 

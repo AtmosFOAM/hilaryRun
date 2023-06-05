@@ -33,11 +33,10 @@ solvers
     ExnerFinal
     {
         $Exner;
-        tolerance        1e-6;
         relTol           0;
     }
     
-    "(k|epsilon|theta|U)"
+    "(k|epsilon|theta|U|u|w)"
     {
         solver          PBiCGStab;
         preconditioner  DILU;

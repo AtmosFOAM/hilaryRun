@@ -23,6 +23,7 @@ FoamFile
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 thermoDynamic true;
+Boussinesq    false;
 
 Tref       250;
 pRef     100000;

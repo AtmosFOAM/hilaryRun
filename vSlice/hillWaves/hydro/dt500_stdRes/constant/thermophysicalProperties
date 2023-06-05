@@ -22,7 +22,6 @@ FoamFile
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-thermoDynamic true;
 Boussinesq    false;
 
 Tref       250;

@@ -29,7 +29,6 @@ solvers
         preconditioner DIC;
         tolerance        1e-6;
         relTol           0.01;
-        pRefCell         0;
     }
     "(ExnerpFinal|ExnerFinal)"
     {

@@ -26,11 +26,10 @@ mpirun -np 3 --use-hwthread-cpus exnerFoamRef -parallel > log 2>&1 &
 exit
 
 # Post porcessing
-reconstructPar; \
- writeuvw -latestTime U; \
+reconstructPar; rm -r processor*/[1-9]*\
+writeuvw -latestTime U; \
     gmtFoam  -latestTime w; \
     mkdir -p plots; \
     gmtPlot ../gmtDicts/energy.gmt; \
-    ev 15000/w.pdf plots/energy.eps; \
-    rm -r processor*/[1-9]*
+    ev 15000/w.pdf plots/energy.eps
 

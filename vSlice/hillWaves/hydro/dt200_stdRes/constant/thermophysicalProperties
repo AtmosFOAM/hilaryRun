@@ -23,6 +23,7 @@ FoamFile
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 Boussinesq    false;
+hydrostatic   false;
 
 Tref       250;
 pRef     100000;

@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 if [ "$#" -ne 2 ]; then
-    echo usage 'runOne.sh case init|run|post'
+    echo usage 'runOne.sh case init|run|time'
     exit
 fi
 
@@ -43,17 +43,22 @@ if [[ $2 == init  ]]; then
     # Initial conditions
     rm -rf $case/0
     cp -r $case/init_0 $case/0
-    setInitialTracerField -case $case -name T
+    setTracerField -case $case -name T
     sed -i 's/calculated/zeroGradient/g' $case/0/T
     setVelocityField -case $case
 
 elif [[ $2 == run  ]]; then
+    rm -rf [1-9]* processor*/[0-9]*
     # Parallel decomposition and run
-    #decomposePar -case $case -force
-    #echo starting mpirun. Output in $case/log
-    #mpirun -np 4 --oversubscribe implicitAdvectionFoam -case $case -parallel >& $case/log &
-    implicitAdvectionFoam -case $case >& log &
+    decomposePar -case $case -force
+    echo starting mpirun. Output in $case/log
+    mpirun -np 4 --oversubscribe ImExAdvectionFoam -case $case -parallel >& $case/log &
+    #implicitAdvectionFoam -case $case >& log &
     echo tail -f $case/log
+elif [[ $2 < 5 ]]; then
+    reconstructPar -case $case -time $2
+    gmtFoam -case $case -time $2 T
+    ev $2/T.pdf
 else
     if [[ -a $case/processor0 ]]; then
         rm -rf $case/2.5 $case/5
@@ -66,10 +71,10 @@ else
     if [[ $midTime != $case/2.5 ]]; then mv $midTime $case/2.5; fi
     $case/../../../runAll/plotBoundsOne.sh $case
     ev $case/TminMax.eps
-    #gmtFoam -case $case -time 5 T
-    #gmtFoam -case $case -time 2.5 T
-    #gv $case/5/T.pdf &
-    #gv $case/2.5/T.pdf &
+    gmtFoam -case $case -time 5 T
+    gmtFoam -case $case -time 2.5 T
+    ev $case/5/T.pdf &
+    ev $case/2.5/T.pdf &
     # Errors from initial conditions
     sumFields -case $case 5 Terror 5 T 0 T -scale1 -1
     globalSum -case $case T -time 0

@@ -23,13 +23,11 @@ FoamFile
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 SIgravityWaves true;
-implicitU      true;
-implicitT      true;
-hydrostatic    false;
+advectionType  Implicit;
 
 ddtSchemes
 {
-    ocCoeff      0.8;
+    ocCoeff      1;
     default      none;
 }
 
@@ -41,8 +39,8 @@ gradSchemes
 divSchemes
 {
     default none;
-    div(phi,thetap)   Gauss QUICKupwind 1 1;
-    div(phi,U)        Gauss QUICKupwind 1 1;
+    div(phi,thetap)   Gauss QUICKupwind 1 2;
+    div(phi,U)        Gauss QUICKupwind 1 2;
     div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear corrected;
 }
 

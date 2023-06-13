@@ -22,31 +22,38 @@ FoamFile
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-SIgravityWaves true;
-advectionType  Implicit;
-
+//CoLimit 1;
+//fullImplicit true;
 ddtSchemes
 {
-    ocCoeff      0.8;
-    default      none;
+    default Euler; //CrankNicolson 1; //
 }
 
 gradSchemes
 {
-    default      Gauss linear;
+    default         none;
+    linearUpwind    Gauss linear;
 }
 
 divSchemes
 {
-    default none;
-    div(phi,thetap)   Gauss QUICKupwind 1 2;
-    div(phi,U)        Gauss QUICKupwind 1 2;
-    div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear corrected;
+    default             none;
+    //div(phi,T)          Gauss linearUpwind linearUpwind; //QUICKupwind 1 2;
+    div(phi,T)          adaptiveImplicitAdvection
+    {
+        correctionScheme QUICKupwind 1 2; //linearUpwind linearUpwind; //
+        nCorr 1;
+        offCentre offCentre;
+        CoLimit 1;
+        FCTlimit true;
+        //FCTmin 0;
+        //FCTmax 1.00263;
+    };
 }
 
 laplacianSchemes
 {
-    default         Gauss linear corrected;
+    default         none;
 }
 
 interpolationSchemes
@@ -56,13 +63,7 @@ interpolationSchemes
 
 snGradSchemes
 {
-    default         corrected;
-}
-
-fluxRequired
-{
-    default         no;
-    Exnerp;
+    default         none;
 }
 
 

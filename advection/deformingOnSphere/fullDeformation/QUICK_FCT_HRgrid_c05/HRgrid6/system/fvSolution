@@ -14,50 +14,18 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+nOuterCorrections 2;
+
 solvers
 {
-    rho
+    T
     {
-        solver PCG;
-        preconditioner   diagonol;
-        tolerance        0;
-        relTol           0;
-    };
-    Exnerp
-    {
-        solver GAMG;
-        smoother DIC;
-        tolerance        1e-6;
-        relTol           0.01;
-    }
-    "(ExnerpFinal|ExnerFinal)"
-    {
-        $Exnerp;
-        relTol           0;
-    }
-    
-    "(k|epsilon|U|u|w|thetap)"
-    {
-        solver          PBiCGStab;
-        preconditioner  DILU;
+        solver PBiCGStab;
+        preconditioner   DILU;
         tolerance       1e-6;
-        relTol           0;
-        //maxIter          2;
+        relTol          0;
+        //maxIter         1;
     }
-}
-
-iterations
-{
-    nOuterCorrectors 2;
-    nCorrectors      2;
-    nNonOrthogonalCorrectors 0;
-}
-
-initialisation
-{
-    maxIters 100;
-    refCell 0;
-    refExner 1;
 }
 
 // ************************************************************************* //

@@ -52,7 +52,7 @@ elif [[ $2 == run  ]]; then
     # Parallel decomposition and run
     decomposePar -case $case -force
     echo starting mpirun. Output in $case/log
-    mpirun -np 4 --oversubscribe ImExAdvectionFoam -case $case -parallel >& $case/log &
+    mpirun -np 4 --oversubscribe implicitAdvectionFoam -case $case -parallel >& $case/log &
     #implicitAdvectionFoam -case $case >& log &
     echo tail -f $case/log
 elif [[ $2 < 5 ]]; then

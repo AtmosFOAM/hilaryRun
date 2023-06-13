@@ -25,8 +25,9 @@ solvers
     };
     Exnerp
     {
-        solver PCG;
-        preconditioner DIC;
+        solver GAMG; //PCG;
+        smoother DIC;
+        //preconditioner DIC;
         tolerance        1e-6;
         relTol           0.01;
     }

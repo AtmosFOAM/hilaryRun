@@ -1,31 +1,25 @@
 /*--------------------------------*- C++ -*----------------------------------*\
 | =========                 |                                                 |
 | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
-|  \\    /   O peration     | Version:  1.5                                   |
-|   \\  /    A nd           | Web:      http://www.OpenFOAM.org               |
+|  \\    /   O peration     | Version:  dev                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
 |    \\/     M anipulation  |                                                 |
 \*---------------------------------------------------------------------------*/
 FoamFile
 {
-    version     2.0;
+    version     7.0;
     format      ascii;
     class       dictionary;
-    object      fvSolution;
+    object      earthProperties;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-nOuterCorrections 1;
-
-solvers
-{
-    T
-    {
-        solver PBiCGStab;
-        preconditioner   DILU;
-        tolerance       1e-6;
-        relTol          0;
-        //maxIter         1;
-    }
-}
+earthRadius earthRadius [0 1 0 0 0] 0.99;
+polarCell true;
+maxLonRatio 0;
+nLat 60;
+nLon 120;
+R 1.01;
+meshRotation (30 0 0);
 
 // ************************************************************************* //

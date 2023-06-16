@@ -48,7 +48,7 @@ if [[ $2 == init  ]]; then
     setVelocityField -case $case
 
 elif [[ $2 == run  ]]; then
-    rm -rf [1-9]* processor*/[0-9]*
+    rm -rf 0.* [1-9]* processor*/[0-9]*
     # Parallel decomposition and run
     decomposePar -case $case -force
     echo starting mpirun. Output in $case/log

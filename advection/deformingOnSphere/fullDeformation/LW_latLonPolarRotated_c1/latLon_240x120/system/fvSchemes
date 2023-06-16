@@ -22,29 +22,24 @@ FoamFile
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-//CoLimit 1;
-//fullImplicit true;
 ddtSchemes
 {
-    default Euler; //CrankNicolson 1; //
+    default Euler;
 }
 
 gradSchemes
 {
     default         none;
-    linearUpwind    Gauss linear;
 }
 
 divSchemes
 {
     default             none;
-    //div(phi,T)          Gauss linearUpwind linearUpwind; //QUICKupwind 1 2;
-    div(phi,T)          adaptiveImplicitAdvection
+    div(phi,T)          LaxWendroff
     {
-        correctionScheme QUICKupwind 1 2; //linearUpwind linearUpwind; //
-        nCorr 2;
-        offCentre offCentre;
-        CoLimit 1;
+        nCorr 1;
+        offCentre -1;
+        timeCorrector advective; //flux;//  or none
         FCTlimit false;
         //FCTmin 0;
         //FCTmax 1.00263;
@@ -70,5 +65,4 @@ fluxRequired
 {
     T;
 }
-
 // ************************************************************************* //

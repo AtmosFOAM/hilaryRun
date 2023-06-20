@@ -37,7 +37,6 @@ divSchemes
     default             none;
     div(phi,T)          LaxWendroff
     {
-        nCorr 1;
         offCentre -1;
         timeCorrector advective; // flux, advective or none
         FCTlimit false;

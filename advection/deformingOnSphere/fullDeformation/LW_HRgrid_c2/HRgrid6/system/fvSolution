@@ -14,14 +14,17 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+nOuterCorrections 1;
+
 solvers
 {
     T
     {
         solver PBiCGStab;
         preconditioner   DILU;
-        tolerance       1e-12;
+        tolerance       1e-6;
         relTol          0;
+        maxIter         1;
     }
 }
 

@@ -23,10 +23,10 @@ solvers
         tolerance        0;
         relTol           0;
     };
-    Exnerp
+    "(Exnerp|thetaEqn)"
     {
-        solver PCG;
-        preconditioner DIC;
+        solver GAMG;
+        smoother DIC;
         tolerance        1e-6;
         relTol           0.01;
     }

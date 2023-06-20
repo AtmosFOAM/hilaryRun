@@ -22,7 +22,6 @@ FoamFile
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-CoLimit 10;
 
 ddtSchemes
 {
@@ -39,6 +38,13 @@ divSchemes
     default        none;
     implicit       Gauss linearUpwind linearUpwind;
     explicit       Gauss linearUpwind linearUpwind;
+    div(phi,T)     LaxWendroff
+    {
+        nCorr 2;
+        offCentre 0;
+        FCTlimit true;
+        timeCorrector flux;
+    };
 }
 
 laplacianSchemes
@@ -59,6 +65,7 @@ snGradSchemes
 fluxRequired
 {
     ProjectionP;
+    T;
 }
 
 

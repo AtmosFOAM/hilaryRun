@@ -23,7 +23,7 @@ solvers
         tolerance        0;
         relTol           0;
     };
-    Exnerp
+    "(Exnerp|thetaEqn|UEqn)"
     {
         solver GAMG;
         smoother DIC;
@@ -48,8 +48,8 @@ solvers
 
 iterations
 {
-    nOuterCorrectors 2;
-    nCorrectors      2;
+    nOuterCorrectors 3;
+    nCorrectors      3;
     nNonOrthogonalCorrectors 0;
 }
 

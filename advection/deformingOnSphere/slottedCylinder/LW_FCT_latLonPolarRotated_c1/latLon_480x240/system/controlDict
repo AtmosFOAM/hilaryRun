@@ -20,7 +20,7 @@ FoamFile
     object          controlDict;
 }
 
-// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+// * * * * * * * * * * * * * * * * * * * * *   * * * * * * * * * * * * * * * * //
 
 application buoyantFoam;
 
@@ -55,5 +55,4 @@ runTimeModifiable no;
 adjustTimeStep no;
 maxCo          1.6;
 
-libs           ("libfiniteVolumeAtmosFOAMtools.so");
 // ************************************************************************* //

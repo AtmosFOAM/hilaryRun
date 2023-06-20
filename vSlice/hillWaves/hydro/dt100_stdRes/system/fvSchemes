@@ -39,8 +39,18 @@ gradSchemes
 divSchemes
 {
     default none;
-    div(phi,thetap)   Gauss QUICKupwind 1 2;
-    div(phi,U)        Gauss QUICKupwind 1 2;
+    div(phi,thetap)   LaxWendroff
+    {
+        offCentre  -1;
+        timeCorr   advective;
+        FCTlimit   false;
+    };
+    div(phi,U)        LaxWendroff
+    {
+        offCentre  -1;
+        timeCorr   advective;
+        FCTlimit   false;
+    };
     div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear corrected;
 }
 
@@ -63,6 +73,8 @@ fluxRequired
 {
     default         no;
     Exnerp;
+    U;
+    thetap;
 }
 
 

@@ -49,7 +49,7 @@ solvers
 iterations
 {
     nOuterCorrectors 3;
-    nCorrectors      3;
+    nCorrectors      2;
     nNonOrthogonalCorrectors 0;
 }
 

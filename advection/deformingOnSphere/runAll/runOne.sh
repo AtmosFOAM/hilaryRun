@@ -39,6 +39,7 @@ if [[ $2 == init  ]]; then
             >$case/system/extrudeMeshDict
         extrudeMesh -case $case
     fi
+    sed -i 's/patch/wall/g' $case/constant/polyMesh/boundary
 
     # Initial conditions
     rm -rf $case/0

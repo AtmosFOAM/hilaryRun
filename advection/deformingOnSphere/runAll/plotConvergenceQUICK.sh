@@ -4,11 +4,13 @@
 cases="fullDeformation/QUICK_latLonPolarRotated_c1
        fullDeformation/QUICK_latLonSkipped_c1
        fullDeformation/QUICK_cubedSphere_c1
-       fullDeformation/QUICK_HRgrid_c1"
+       fullDeformation/QUICK_HRgrid_c1
+       fullDeformation/QUICK_HRgrid_c2"
 inputFiles=()
 
-legends=("rotated lat-lon"  "skipped lat-lon"
-         "cubed sphere"  "hexagonal"  "1st/2nd order")
+legends=("rotated lat-lon, c~1, c<35"  "skipped lat-lon, c~1"
+         "cubed sphere, c~1"  "hexagonal, c~1" "hexagonal, c~2" 
+          "1st/2nd order")
 
 for case in $cases; do
     echo $case
@@ -41,26 +43,26 @@ inputFiles=(${inputFiles[*]}
 outFile=plots/l2errorQUICK.eps
 col=(3 3 3 3 3 2 3)
 colx=(1 1 1 1 1 1 1 1)
-pens=("1p,blue" "1p,red"  "1p,black" "1p,green"
+pens=("1p,blue" "1p,red"  "1p,black" "1p,green" "1p,darkgreen,4_4:0"
      "0.5p,black,1_2:0"  "0.5p,black,1_2:0")
-symbols=('c10p' 'x14p'  's10p' 'h10p'
+symbols=('c10p' 'x14p'  's10p' 'h10p' 'h10p'
          'x1p' 'x1p')
 
 xlabel='@~D@~x (degrees)'
 ylabel='@~i@~@-2@- error'
-xmin=0.5
+xmin=0.2
 xmax=4.01
 dx=2
 ddx=2
 dxg=0
-ymin=1.8e-2
+ymin=3e-3
 ymax=1
 dy=2
 ddy=2
 dyg=0
 xscale=*1
 yscale=*1
-legPos=x0.3/3.5
+legPos=x0.3/3
 projection=X8cl/6cl
 gv=0
 

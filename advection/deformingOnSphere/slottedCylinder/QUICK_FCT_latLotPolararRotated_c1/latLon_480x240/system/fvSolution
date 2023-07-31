@@ -20,11 +20,11 @@ solvers
 {
     T
     {
-        solver PBiCGStab;
-        preconditioner   DILU;
+        solver GAMG;
+        smoother   DILUGaussSeidel;
         tolerance       1e-6;
         relTol          0;
-        maxIter         1;
+        maxIter         10;
     }
 }
 

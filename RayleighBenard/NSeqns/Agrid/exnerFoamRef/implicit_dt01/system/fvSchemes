@@ -39,9 +39,16 @@ gradSchemes
 divSchemes
 {
     default none;
-    div(phi,thetap)   Gauss QUICKupwind 1 1;
-    div(phi,U)        Gauss QUICKupwind 1 1;
+    div(phi,U)        Gauss QUICKupwind 1 1 rho;
     div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear uncorrected;
+
+    advectDiffuse(phi,thetap) advectionDiffusion
+    {
+        FCTlimit false;
+        FCTmin 0;
+        FCTmax 0;
+        correctionScheme QUICKupwind 0.5 1 rho;
+    };
 }
 
 laplacianSchemes
@@ -63,6 +70,7 @@ fluxRequired
 {
     default         no;
     Exnerp;
+    thetap;
 }
 
 

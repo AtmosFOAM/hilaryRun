@@ -17,53 +17,48 @@ FoamFile
     local           "";
 
     class           dictionary;
-    object          fvSchemes;
+    object          controlDict;
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-ddtSchemes
-{
-    default Euler;
-}
+application buoyantFoam;
 
-gradSchemes
-{
-    default         Gauss linear;
-}
+startFrom       startTime;
+//startFrom       latestTime;
 
-divSchemes
-{
-    default             none;
-    div(phi,T)          adaptiveImplicitAdvection
-    {
-        correctionScheme QUICKupwind -1 -1; // pure QUICK
-        nCorr 2;
-        offCentre -1;
-        CoLimit 1;
-        FCTlimit true;
-        //FCTmin 0.1;
-        //FCTmax 1;
-    };
-}
+startTime       0;
 
-laplacianSchemes
-{
-    default         none;
-}
+stopAt          endTime;
 
-interpolationSchemes
-{
-    default        linear;
-}
+endTime         1.5e4;
 
-snGradSchemes
-{
-    default         none;
-}
+deltaT          100; // MDW=10 uses 20 (c=0.2) and 150 (c=1.5)
 
-fluxRequired
-{
-    T;
-}
+writeControl    runTime;
+
+writeInterval   1000;
+
+purgeWrite      0;
+
+writeFormat     binary;
+
+writePrecision  6;
+
+writeCompression uncompressed;
+
+timeFormat      general;
+
+timePrecision   6;
+
+runTimeModifiable no;
+
+adjustTimeStep no;
+maxCo          1;
+
+libs
+(
+    "libfiniteVolumeAtmosFOAM.so"
+);
+
 // ************************************************************************* //

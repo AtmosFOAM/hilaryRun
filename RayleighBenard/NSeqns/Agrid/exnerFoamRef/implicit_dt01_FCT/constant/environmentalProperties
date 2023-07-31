@@ -17,53 +17,23 @@ FoamFile
     local           "";
 
     class           dictionary;
-    object          fvSchemes;
+    object          environmentalProperties;
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-ddtSchemes
-{
-    default Euler;
-}
+/*
+Ra = g(Tup-Tdown)/T H^3/(nu alpha) = 
+Tup = 330 Tup = 270 T = 300
+rho = 1.16144
+H = 1
+mu = 1.8e-05
+nu = 1.55e-5
+alpha = 2.214e-5
+Pr = 0.7 = nu/alpha
+*/
 
-gradSchemes
-{
-    default         Gauss linear;
-}
+g               g [0 1 -2 0 0 0 0] (0 0 -9.81);
+Omega           Omega [0 0 -1 0 0 0 0] (0 0 0);
 
-divSchemes
-{
-    default             none;
-    div(phi,T)          adaptiveImplicitAdvection
-    {
-        correctionScheme QUICKupwind -1 -1; // pure QUICK
-        nCorr 2;
-        offCentre -1;
-        CoLimit 1;
-        FCTlimit true;
-        //FCTmin 0.1;
-        //FCTmax 1;
-    };
-}
-
-laplacianSchemes
-{
-    default         none;
-}
-
-interpolationSchemes
-{
-    default        linear;
-}
-
-snGradSchemes
-{
-    default         none;
-}
-
-fluxRequired
-{
-    T;
-}
 // ************************************************************************* //

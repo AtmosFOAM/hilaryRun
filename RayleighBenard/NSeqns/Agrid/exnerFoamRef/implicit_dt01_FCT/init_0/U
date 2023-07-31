@@ -9,22 +9,34 @@ FoamFile
 {
     version     2.0;
     format      ascii;
-    class       dictionary;
-    object      fvSolution;
+    class       volVectorField;
+    object      U;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-nOuterCorrections 1;
+dimensions      [0 1 -1 0 0 0 0];
 
-solvers
+internalField   uniform (0 0 0);
+
+boundaryField
 {
-    T
+    ground
     {
-        solver GAMG;
-        smoother   DILUGaussSeidel;
-        tolerance       1e-6;
-        relTol          0;
-        maxIter         10;
+        type            noSlip;
+    }
+    top
+    {
+        type            noSlip;
+    }
+    left
+    {
+        type            cyclic;
+        value           uniform (0 0 0);
+    }
+    right
+    {
+        type            cyclic;
+        value           uniform (0 0 0);
     }
 }
 

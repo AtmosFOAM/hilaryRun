@@ -45,11 +45,11 @@ divSchemes
 
     advectDiffuse(phi,thetap) advectionDiffusion
     {
-        nIterations 1;
+        nIterations 2;
         FCTlimit FCTon;
         FCTmin 0;
         FCTmax 0;
-        correctionScheme QUICKupwind 1 1 rho;
+        correctionScheme QUICKupwind 0.8 1 rho;
     };
 }
 

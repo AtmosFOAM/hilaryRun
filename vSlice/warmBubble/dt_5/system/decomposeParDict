@@ -13,7 +13,7 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-numberOfSubdomains  4;
+numberOfSubdomains  3;
 
 /*
     Main methods are:
@@ -25,7 +25,7 @@ method              simple;
 
 simpleCoeffs
 {
-    n               (2 1 2); // total must match numberOfSubdomains
+    n               (3 1 1); // total must match numberOfSubdomains
 }
 
 

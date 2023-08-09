@@ -1,7 +1,8 @@
 #!/bin/bash -e
 
 # clear out old stuff
-rm -rf [0-9]* constant/polyMesh core log processor*
+rm -rf [0-9]* constant/polyMesh core log processor* constant/Exnera \
+    constant/thetaa constant/u constant/w
 
 # create mesh and plot
 blockMesh
@@ -19,13 +20,13 @@ rm 0/Exneraf
 # setup for parallel run
 decomposePar -constant
 # run
-mpirun -np 4 --use-hwthread-cpus exnerFoamRef -parallel > log 2>&1 &
+mpirun -np 3 --use-hwthread-cpus exnerFoamRef -parallel > log 2>&1 &
 
 exit
 
 # Post porcessing
 reconstructPar; rm -r processor*/[1-9]*; \
-writeuvw -latestTime U; \
-    gmtFoam  -latestTime w; \
-    ev 18000/w.pdf
+    postProcess -func CourantNoU -lastestTime; \
+    gmtFoam  -latestTime thetaC; \
+    ev 1000/thetaC.pdf
 

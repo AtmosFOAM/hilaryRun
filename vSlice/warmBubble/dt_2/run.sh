@@ -26,7 +26,7 @@ exit
 
 # Post porcessing
 reconstructPar; rm -r processor*/[1-9]*; \
-writeuvw -latestTime U; \
-    gmtFoam  -latestTime theta; \
-    ev 1000/theta.pdf
+    postProcess -func CourantNoU -lastestTime; \
+    gmtFoam  -latestTime thetaC; \
+    ev 1000/thetaC.pdf
 

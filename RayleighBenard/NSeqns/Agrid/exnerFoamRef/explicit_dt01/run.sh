@@ -31,3 +31,9 @@ gmtFoam bc
 eps2gif theta.webm ?/bc.pdf ??/bc.pdf
 
 eps2gif theta.webm ?/bc.pdf ??/bc.pdf
+
+
+# Post process
+reconstructPar; rm -r processor*/[1-9]*; \
+    postProcess -latestTime -func CourantNoU; \
+    gmtFoam  -latestTime bc;     ev 100/bc.pdf

@@ -51,15 +51,8 @@ solvers
 iterations
 {
     nOuterCorrectors 3;
-    nCorrectors      3;
+    nCorrectors      2;
     nNonOrthogonalCorrectors 0;
-}
-
-initialisation
-{
-    maxIters 100;
-    refCell 0;
-    refExner 1;
 }
 
 // ************************************************************************* //

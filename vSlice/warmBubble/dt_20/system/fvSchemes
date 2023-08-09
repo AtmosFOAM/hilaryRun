@@ -22,7 +22,7 @@ FoamFile
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-SIgravityWaves false;
+SIgravityWaves true;
 advectionType  Implicit;
 
 ddtSchemes
@@ -39,9 +39,18 @@ gradSchemes
 divSchemes
 {
     default none;
-    div(phi,thetap)   Gauss QUICKupwind 0.8 1;
-    div(phi,U)        Gauss QUICKupwind 0.8 1;
+    //div(phi,thetap)   Gauss QUICKupwind 1 1 rho;
+    div(phi,U)        Gauss QUICKupwind 1 1 rho;
     div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear corrected;
+
+    advectDiffuse(phi,thetap) advectionDiffusion
+    {
+        nIterations 1;
+        FCTlimit FCToff;
+        FCTmin 0;
+        FCTmax 0;
+        correctionScheme QUICKupwind 1 1 rho;
+    };
 }
 
 laplacianSchemes
@@ -63,6 +72,7 @@ fluxRequired
 {
     default         no;
     Exnerp;
+    thetap;
 }
 
 

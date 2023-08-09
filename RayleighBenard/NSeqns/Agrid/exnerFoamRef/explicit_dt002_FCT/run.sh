@@ -21,3 +21,7 @@ decomposePar -constant
 # Solve NS equations
 mpirun -np 4 --use-hwthread-cpus exnerFoamRef -parallel >& log &
 
+# Post process
+reconstructPar; rm -r processor*/[1-9]*; \
+    postProcess -latestTime -func CourantNoU; \
+    gmtFoam  -latestTime bc;     ev 100/bc.pdf

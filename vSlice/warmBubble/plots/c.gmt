@@ -1,0 +1,21 @@
+inputFiles=(dt_2/c.dat dt_5/c.dat dt_10/c.dat dt_20/c.dat)
+outFile=plots/c.eps
+col=(2 2 2 2)
+colx=1
+legends=("@~D@~t=2 s" "@~D@~t=5 s" "@~D@~t=10 s" "@~D@~t=20 s")
+pens=("black" "1,black,5_5:"  "black,4_4_2_4:"  "black,1_2:" )
+xlabel='Time (s)'
+ylabel='Maximum Courant number'
+xmin=0
+xmax=1000
+dx=200
+ddx=100
+ymin=0
+ymax=4
+dy=1
+ddy=1
+dyg=1
+legPos=x1/6
+nSkip=1
+projection=X12c/8c
+gv=0

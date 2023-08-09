@@ -1,0 +1,21 @@
+inputFiles=(explicit_dt002/c.dat implicit_dt002/c.dat implicit_dt01/c.dat)
+outFile=plots/c.eps
+col=(2 2 2 2)
+colx=1
+legends=("explicit @~D@~t=0.02 s" "implicit @~D@~t=0.02 s" "implicit @~D@~t=0.1 s")
+pens=("black" "red,5_5:"  "blue,4_6_2_6:"  "black,1_2:" )
+xlabel='Time (s)'
+ylabel='Maximum Courant number'
+xmin=0
+xmax=100
+dx=20
+ddx=10
+ymin=0
+ymax=3
+dy=1
+ddy=1
+dyg=1
+legPos=x1/6
+nSkip=1
+projection=X24c/8c
+gv=0

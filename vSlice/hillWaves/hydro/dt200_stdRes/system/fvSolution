@@ -14,6 +14,8 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+divFreeInitial false;
+
 solvers
 {
     rho
@@ -23,11 +25,10 @@ solvers
         tolerance        0;
         relTol           0;
     };
-    "(Exnerp|thetaEqn)"
+    Exnerp
     {
-        solver GAMG;
-        smoother DIC;
-        //preconditioner DIC;
+        solver PCG;
+        preconditioner DIC;
         tolerance        1e-6;
         relTol           0.01;
     }
@@ -49,8 +50,8 @@ solvers
 
 iterations
 {
-    nOuterCorrectors 2;
-    nCorrectors      2;
+    nOuterCorrectors 3;
+    nCorrectors      3;
     nNonOrthogonalCorrectors 0;
 }
 

@@ -30,7 +30,7 @@ License
 #include "surfaceFields.H"
 #include "unitConversion.H"
 //{{{ begin codeInclude
-#line 33 "/home/hilary/OpenFOAM/hilary-10/run/vSlice/hillWaves/hydro/dt100_stdRes/0/Exnerp/boundaryField/ground"
+#line 33 "./dt100_stdRes/0/Exnerp/boundaryField/ground"
 #include "specie.H"
             #include "perfectGas.H"
             #include "hConstThermo.H"
@@ -185,7 +185,7 @@ void hydroStaticMixedValueFvPatchScalarField::updateCoeffs()
     }
 
 //{{{ begin code
-    #line 47 "/home/hilary/OpenFOAM/hilary-10/run/vSlice/hillWaves/hydro/dt100_stdRes/0/Exnerp/boundaryField/ground"
+    #line 47 "./dt100_stdRes/0/Exnerp/boundaryField/ground"
 const dictionary& environmentalProperties
                 = db().lookupObject<IOdictionary>("environmentalProperties");
 

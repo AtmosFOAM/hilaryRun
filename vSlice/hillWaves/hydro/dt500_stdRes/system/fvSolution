@@ -14,6 +14,8 @@ FoamFile
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
+divFreeInitial false;
+
 solvers
 {
     rho
@@ -49,7 +51,7 @@ solvers
 iterations
 {
     nOuterCorrectors 3;
-    nCorrectors      2;
+    nCorrectors      3;
     nNonOrthogonalCorrectors 0;
 }
 

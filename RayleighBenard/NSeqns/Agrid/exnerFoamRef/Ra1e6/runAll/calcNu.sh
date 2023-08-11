@@ -121,5 +121,5 @@ heatFlux=`tail -1 $case/globalSumheatFluxzTimeMean.dat | awk '{print $5}'`
 Nusselt=`awk 'BEGIN{print '$heatFlux'/'$heatFluxNorm'}'`
 echo Time and space averaged heat transfer = $heatFlux
 echo Nusselt number = $Nusselt
-ev $outFile
+#ev $outFile
 

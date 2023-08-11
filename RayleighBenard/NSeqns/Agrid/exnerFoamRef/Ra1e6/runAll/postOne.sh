@@ -13,10 +13,10 @@ if [ -a $case/processor0 ]; then
     reconstructPar -case $case -latestTime
 fi
 
-postProcess -latestTime -func CourantNoU
-gmtFoam  -latestTime bc
-ev `ls -rt */bc.pdf | tail -1`
+postProcess -case $case -latestTime -func CourantNoU
+gmtFoam -case $case -latestTime bc
+#ev `ls -rt $case/*/bc.pdf | tail -1`
 
-../plots/calcNu.sh . 0 240
-../plots/calcRe.sh . 0 240
+./runAll/calcNu.sh $case 0 240
+./runAll/calcRe.sh $case 0 240
 

@@ -100,5 +100,5 @@ wFlux=`tail -1 $case/globalSumwFluxTimeMean.dat | awk '{print $5}'`
 Re=`awk 'BEGIN{print sqrt('$wFlux')/'$wFluxNorm'}'`
 echo Time and space averaged w flux  $wFlux
 echo Reynolds number = $Re
-ev $outFile
+#ev $outFile
 

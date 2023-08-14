@@ -28,10 +28,10 @@ mkdir $case/0
 cp -r $case/../init_0/* $case/0
 setTracerField -case $case -name theta -tracerDict thetaDict
 setTracerField -case $case -name Exner -tracerDict ExnerDict
-mv 0/Exner constant/Exnera
-mv 0/theta constant/thetaa
-mv 0/u 0/w constant
-rm 0/Exnerf 0/muSponge
+mv $case/0/Exner $case/constant/Exnera
+mv $case/0/theta $case/constant/thetaa
+mv $case/0/u $case/0/w $case/constant
+rm $case/0/Exnerf $case/0/muSponge
 
 # Run the case
 ##############

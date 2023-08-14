@@ -38,9 +38,9 @@ gradSchemes
 divSchemes
 {
     default none;
-    CoLimitExp 2;
-    div(phi,thetap)   Gauss QUICKupwind 1 1 rho;
-    div(phi,U)        Gauss QUICKupwind 1 1 rho;
+    CoLimitExp 1;
+    div(phi,thetap)   Gauss QUICKupwind 0.8 1 rho;
+    div(phi,U)        Gauss QUICKupwind 0.8 1 rho;
     div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear corrected;
 }
 

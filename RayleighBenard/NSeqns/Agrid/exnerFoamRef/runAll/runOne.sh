@@ -19,7 +19,7 @@ blockMesh -case $case
 # Initial conditions
 rm -rf $case/0
 mkdir $case/0
-cp -r runAll/init_0/* $case/0
+cp -r $case/../../runAll/init_0/* $case/0
 mv $case/0/Exnera $case/0/thetaa $case/0/u $case/0/w $case/constant
 
 # add Gaussian random noise to thetap

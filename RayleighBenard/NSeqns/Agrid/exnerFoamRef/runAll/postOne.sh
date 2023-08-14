@@ -17,6 +17,6 @@ postProcess -case $case -latestTime -func CourantNoU
 gmtFoam -case $case -latestTime bc
 #ev `ls -rt $case/*/bc.pdf | tail -1`
 
-./runAll/calcNu.sh $case 0 240
-./runAll/calcRe.sh $case 0 240
+$case/../../runAll/calcNu.sh $case 0 240
+$case/../../runAll/calcRe.sh $case 0 240
 

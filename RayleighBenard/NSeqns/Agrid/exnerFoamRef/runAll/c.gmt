@@ -1,0 +1,27 @@
+inputFiles=(Ra1e8/ImEx_dx001_dt02/c.dat
+            Ra1e6/ImEx_dx002_dt02/c.dat
+            Ra1e6/ImEx_dx002_dt05/c.dat
+            Ra1e6/ImEx_dx002_dt1/c.dat
+            Ra1e6/ImEx_dx002_dt2.5/c.dat)
+outFile=plots/c.eps
+col=(2 2 2 2 2)
+colx=1
+legends=("Ra = 10@+8@+, @~D@~t = 0.2" "Ra = 10@+6@+, @~D@~t = 0.2"
+          "Ra = 10@+6@+, @~D@~t = 0.5"  "Ra = 10@+6@+, @~D@~t = 1"
+           "Ra = 10@+6@+, @~D@~t = 2.5")
+pens=("1,grey" "black"  "black,5_5:"  "black,1_2:" "black,4_8:2")
+xlabel='Time (s)'
+ylabel='Maximum Courant number'
+xmin=0
+xmax=1000
+dx=200
+ddx=100
+ymin=0
+ymax=8
+dy=1
+ddy=1
+dyg=1
+legPos=x6/3.5
+nSkip=1
+projection=X12c/8c
+gv=0

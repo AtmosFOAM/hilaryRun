@@ -19,4 +19,6 @@ gmtFoam -case $case -latestTime bc
 
 $case/../../runAll/calcNu.sh $case 0 240
 $case/../../runAll/calcRe.sh $case 0 240
+$case/../../runAll/nIters.sh $case
+runningMean.sh 20 $case/nExnerIter.dat > ${case}/nExnerIter.dat_smooth.dat
 

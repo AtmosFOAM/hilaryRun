@@ -4,12 +4,15 @@
 
 inputFiles=(Ra1e6/explicit_dx001_dt005/Nusselt.dat
             Ra1e6/explicit_dx002_dt01/Nusselt.dat
-            Ra1e6/explicit_dx004_dt02/Nusselt.dat)
+            Ra1e6/explicit_dx004_dt02/Nusselt.dat
+            Ra1e6/explicit_dx001_dt005/NusseltTimeMean.dat
+            Ra1e6/explicit_dx002_dt01/NusseltTimeMean.dat
+            Ra1e6/explicit_dx004_dt02/NusseltTimeMean.dat)
 outFile=Ra1e6/plots/compareNusselt.eps
 legends=("@~D@~x = 0.01, @~D@~t = 0.005"
          "@~D@~x = 0.02, @~D@~t = 0.01"
-         "@~D@~x = 0.04, @~D@~t = 0.02")
-pens=("blue" "red" "grey")
+         "@~D@~x = 0.04, @~D@~t = 0.02" "running means")
+pens=("blue" "red" "black" "1,blue,1_2:" "1,red,1_2:" "1,black,1_2:" )
 col=2
 colx=1
 xlabel="Time"
@@ -30,6 +33,7 @@ projection=X15c/10c
 gv=0
 source gmtPlot
 ev $outFile
+exit
 
 inputFiles=(Ra1e6/explicit_dx001_dt005/NusseltTimeMean.dat
             Ra1e6/explicit_dx002_dt01/NusseltTimeMean.dat

@@ -26,8 +26,8 @@ setTracerField -case $case -name muSponge -tracerDict environmentalProperties
 rm -rf $case/0
 mkdir $case/0
 cp -r $case/../init_0/* $case/0
-setTracerField -case $case -name theta -tracerDict thetaDict
-setTracerField -case $case -name Exner -tracerDict ExnerDict
+setTracerField -case $case -name theta -tracerDict thetaDict -time 0
+setTracerField -case $case -name Exner -tracerDict ExnerDict -time 0
 mv $case/0/Exner $case/constant/Exnera
 mv $case/0/theta $case/constant/thetaa
 mv $case/0/u $case/0/w $case/constant
@@ -36,10 +36,10 @@ rm $case/0/Exnerf $case/0/muSponge
 # Run the case
 ##############
 # setup for parallel run
-#decomposePar -constant
+decomposePar -constant -case $case
 # run
-#mpirun -np 3 --use-hwthread-cpus exnerFoamRef -parallel > log 2>&1 &
-exnerFoamRef -case $case >& $case/log &
+mpirun -np 3 --use-hwthread-cpus exnerFoamRef -case $case -parallel > $case/log 2>&1 &
+#exnerFoamRef -case $case >& $case/log &
 echo tail -f $case/log
 
 ## Post porcessing

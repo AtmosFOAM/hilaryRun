@@ -6,18 +6,18 @@ inputFiles=(Ra1e6/implicit_dx004_dt01/Nusselt.dat
             Ra1e6/implicit_dx004_dt02/Nusselt.dat
             Ra1e6/implicit_dx004_dt05/Nusselt.dat
             Ra1e6/implicit_dx004_dt1/Nusselt.dat
-            Ra1e6/implicit_dx004_dt2p5/Nusselt.dat
+            Ra1e6/implicit_dx004_dt2.5/Nusselt.dat
             Ra1e6/implicit_dx004_dt5/Nusselt.dat
             
             Ra1e6/explicit_dx004_dt01/Nusselt.dat
             Ra1e6/explicit_dx004_dt02/Nusselt.dat
             Ra1e6/explicit_dx004_dt05/Nusselt.dat
             Ra1e6/explicit_dx004_dt1/Nusselt.dat
-            Ra1e6/explicit_dx004_dt2p5/Nusselt.dat
+            Ra1e6/explicit_dx004_dt2.5/Nusselt.dat
             Ra1e6/explicit_dx004_dt5/Nusselt.dat
             
             Ra1e6/ImEx_dx004_dt1/Nusselt.dat
-            Ra1e6/ImEx_dx004_dt2p5/Nusselt.dat
+            Ra1e6/ImEx_dx004_dt2.5/Nusselt.dat
             Ra1e6/ImEx_dx004_dt5/Nusselt.dat)
 outFile=Ra1e6/plots/compareNusseltCoarse.eps
 legends=("Implicit, @~D@~t = 0.1"
@@ -65,18 +65,18 @@ inputFiles=(Ra1e6/implicit_dx004_dt01/NusseltTimeMean.dat
             Ra1e6/implicit_dx004_dt02/NusseltTimeMean.dat
             Ra1e6/implicit_dx004_dt05/NusseltTimeMean.dat
             Ra1e6/implicit_dx004_dt1/NusseltTimeMean.dat
-            Ra1e6/implicit_dx004_dt2p5/NusseltTimeMean.dat
+            Ra1e6/implicit_dx004_dt2.5/NusseltTimeMean.dat
             Ra1e6/implicit_dx004_dt5/NusseltTimeMean.dat
             
             Ra1e6/explicit_dx004_dt01/NusseltTimeMean.dat
             Ra1e6/explicit_dx004_dt02/NusseltTimeMean.dat
             Ra1e6/explicit_dx004_dt05/NusseltTimeMean.dat
             Ra1e6/explicit_dx004_dt1/NusseltTimeMean.dat
-            Ra1e6/explicit_dx004_dt2p5/NusseltTimeMean.dat
+            Ra1e6/explicit_dx004_dt2.5/NusseltTimeMean.dat
             Ra1e6/explicit_dx004_dt5/NusseltTimeMean.dat
             
             Ra1e6/ImEx_dx004_dt1/NusseltTimeMean.dat
-            Ra1e6/ImEx_dx004_dt2p5/NusseltTimeMean.dat
+            Ra1e6/ImEx_dx004_dt2.5/NusseltTimeMean.dat
             Ra1e6/ImEx_dx004_dt5/NusseltTimeMean.dat)
 outFile=Ra1e6/plots/compareNusseltTimeMeanCoarse.eps
 ymin=6
@@ -93,18 +93,18 @@ inputFiles=(Ra1e6/implicit_dx004_dt01/NusseltTopBotTimeMean.dat
             Ra1e6/implicit_dx004_dt02/NusseltTopBotTimeMean.dat
             Ra1e6/implicit_dx004_dt05/NusseltTopBotTimeMean.dat
             Ra1e6/implicit_dx004_dt1/NusseltTopBotTimeMean.dat
-            Ra1e6/implicit_dx004_dt2p5/NusseltTopBotTimeMean.dat
+            Ra1e6/implicit_dx004_dt2.5/NusseltTopBotTimeMean.dat
             Ra1e6/implicit_dx004_dt5/NusseltTopBotTimeMean.dat
             
             Ra1e6/explicit_dx004_dt01/NusseltTopBotTimeMean.dat
             Ra1e6/explicit_dx004_dt02/NusseltTopBotTimeMean.dat
             Ra1e6/explicit_dx004_dt05/NusseltTopBotTimeMean.dat
             Ra1e6/explicit_dx004_dt1/NusseltTopBotTimeMean.dat
-            Ra1e6/explicit_dx004_dt2p5/NusseltTopBotTimeMean.dat
+            Ra1e6/explicit_dx004_dt2.5/NusseltTopBotTimeMean.dat
             Ra1e6/explicit_dx004_dt5/NusseltTopBotTimeMean.dat
             
             Ra1e6/ImEx_dx004_dt1/NusseltTopBotTimeMean.dat
-            Ra1e6/ImEx_dx004_dt2p5/NusseltTopBotTimeMean.dat
+            Ra1e6/ImEx_dx004_dt2.5/NusseltTopBotTimeMean.dat
             Ra1e6/ImEx_dx004_dt5/NusseltTopBotTimeMean.dat)
 outFile=Ra1e6/plots/compareNusseltTopBot.eps
 ymin=6.8

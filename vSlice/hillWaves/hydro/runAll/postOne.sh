@@ -18,3 +18,4 @@ gmtFoam -case $case -latestTime w
 #mkdir -p $case/plots
 #gmtPlot gmtDicts/energy.gmt
 
+logStats.sh $case Exnerp

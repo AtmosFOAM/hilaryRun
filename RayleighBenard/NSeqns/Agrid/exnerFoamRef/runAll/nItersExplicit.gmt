@@ -1,0 +1,23 @@
+inputFiles=(Ra1e6/explicit_dx002_dt01/nExnerIter.dat
+            Ra1e6/explicit_dx002_dt02/nExnerIter.dat)
+outFile=plots/explicit_nIters.eps
+col=(2 2 2 2 2)
+colx=1
+legends=("Ra = 10@+6@+, @~D@~t = 0.2"
+          "Ra = 10@+6@+, @~D@~t = 0.5")
+pens=("black" "blue,5_5")
+xlabel='Time (s)'
+ylabel='Total pressure solver iterations'
+xmin=0
+xmax=1000
+dx=200
+ddx=100
+ymin=0
+ymax=60
+dy=10
+ddy=10
+dyg=10
+legPos=x3/0.3
+nSkip=1
+projection=X12c/8c
+gv=0

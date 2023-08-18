@@ -1,20 +1,21 @@
 inputFiles=(explicit_dt_2/nExnerIter.dat explicit_dt_5/nExnerIter.dat)
-outFile=plots/explicit_nIters.eps
+outFile=plots/explicit_nItersPer20.eps
 col=(2 2)
 colx=1
 legends=("@~D@~t=2 s" "@~D@~t=5 s")
 pens=("black" "1,black,5_5:"  "black,4_4_2_4:"  "black,1_2:" )
 xlabel='Time (s)'
-ylabel='Total pressure solver iterations'
+ylabel='Pressure solver iterations per 20s'
 xmin=0
 xmax=1000
 dx=200
 ddx=100
 ymin=0
-ymax=60
-dy=10
+ymax=102
+dy=20
 ddy=$dy
 dyg=$dy
+yscale=('*10' '*4')
 legPos=x7/6
 nSkip=1
 projection=X12c/8c

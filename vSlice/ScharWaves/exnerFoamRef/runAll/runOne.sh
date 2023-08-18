@@ -36,10 +36,10 @@ rm $case/0/Exnerf $case/0/muSponge
 # Run the case
 ##############
 # setup for parallel run
-decomposePar -constant -case $case
+#decomposePar -constant -case $case
 # run
-mpirun -np 3 --use-hwthread-cpus exnerFoamRef -case $case -parallel > $case/log 2>&1 &
-#exnerFoamRef -case $case >& $case/log &
+#mpirun -np 3 --use-hwthread-cpus exnerFoamRef -case $case -parallel > $case/log 2>&1 &
+exnerFoamRef -case $case >& $case/log &
 echo tail -f $case/log
 
 ## Post porcessing

@@ -15,11 +15,11 @@ blockMesh -case $case
 terrainFollowingMesh -case $case
 
 # create sponge layer
-cp runAll/init_0/muSponge $case/constant
+cp $case/../runAll/init_0/muSponge $case/constant
 setTracerField -case $case -name muSponge -tracerDict "environmentalProperties"
 
 # Initial conditions
-cp -r runAll/init_0 $case/0
+cp -r $case/../runAll/init_0 $case/0
 setIsothermalBalance -case $case
 mv $case/0/Exner $case/constant/Exnera
 mv $case/0/theta $case/constant/thetaa

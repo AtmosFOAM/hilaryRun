@@ -29,13 +29,13 @@ nSkip=1
 projection=X12c/8c
 gv=0
 
-source gmtPlot
-ev $outFile
+#source gmtPlot
+#ev $outFile
 
 yscale=(/1 /5 /10 /25 /50)
 outFile=plots/nItersPer20.eps
 ylabel='Pressure solver iterations per 20 seconds'
-ymax=50
+ymax=30
 dy=10
 ddy=$dy
 dyg=$dy

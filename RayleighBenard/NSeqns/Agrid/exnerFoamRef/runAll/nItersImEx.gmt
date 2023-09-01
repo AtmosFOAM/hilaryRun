@@ -1,26 +1,28 @@
-inputFiles=(Ra1e6/ImEx_dx002_dt02/nExnerIter.dat
+inputFiles=(Ra1e8/ImEx_dx001_dt02/nExnerIter.dat
+            Ra1e6/ImEx_dx002_dt02/nExnerIter.dat
             Ra1e6/ImEx_dx002_dt05/nExnerIter.dat
             Ra1e6/ImEx_dx002_dt1/nExnerIter.dat
             Ra1e6/ImEx_dx002_dt2.5/nExnerIter.dat)
 outFile=plots/ImEx_nIters.eps
 col=(2 2 2 2 2)
 colx=1
-legends=("Ra = 10@+6@+, @~D@~t = 0.2"
-          "Ra = 10@+6@+, @~D@~t = 0.5"  "Ra = 10@+6@+, @~D@~t = 1"
-           "Ra = 10@+6@+, @~D@~t = 2.5")
-pens=("black"  "blue,5_5:"  "1,red,1_2:" "1,green,4_8:2")
+legends=("Ra = 10@+8@+@~D@~t = 0.2" "@~D@~t = 0.2"
+          "@~D@~t = 0.5"  "@~D@~t = 1"
+           "@~D@~t = 2.5")
+pens=("1,grey" "black"  "blue,5_5:"  "1,red,1_2:" "1,green,4_8:2")
 xlabel='Time (s)'
-ylabel='Total pressure solver iterations'
+ylabel='Pressure solver iterations per second'
 xmin=0
 xmax=1000
 dx=200
 ddx=100
 ymin=0
-ymax=60
-dy=10
-ddy=10
-dyg=10
-legPos=x3/0.3
+ymax=350
+dy=50
+ddy=50
+dyg=50
+yscale=("*5" "*2" "*1" "*2/5")
+legPos=x7/5
 nSkip=1
 projection=X12c/8c
 gv=0

@@ -6,9 +6,9 @@ inputFiles=(Ra1e8/ImEx_dx001_dt02/c.dat
 outFile=plots/c.eps
 col=(2 2 2 2 2)
 colx=1
-legends=("Ra = 10@+8@+, @~D@~t = 0.2" "Ra = 10@+6@+, @~D@~t = 0.2"
-          "Ra = 10@+6@+, @~D@~t = 0.5"  "Ra = 10@+6@+, @~D@~t = 1"
-           "Ra = 10@+6@+, @~D@~t = 2.5")
+legends=("Ra = 10@+8@+@~D@~t = 0.2" "@~D@~t = 0.2"
+          "@~D@~t = 0.5"  "@~D@~t = 1"
+           "@~D@~t = 2.5")
 pens=("1,grey" "black"  "black,5_5:"  "black,1_2:" "black,4_8:2")
 xlabel='Time (s)'
 ylabel='Maximum Courant number'

@@ -9,7 +9,9 @@ fi
 case=$1
 
 # Post porcessing
-#reconstructPar -case $case; rm -r $case/processor*/[1-9]*; \
+if [[ -a processor0 ]]; then
+    reconstructPar -case $case; rm -r $case/processor*/[1-9]*
+fi
 writeuvw -case $case -latestTime U
 gmtFoam -case $case -latestTime w
 #ev `ls -rt $case/*/w.pdf | tail -1`

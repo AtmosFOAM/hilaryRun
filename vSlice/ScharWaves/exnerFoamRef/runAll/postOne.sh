@@ -15,4 +15,4 @@ fi
 writeuvw -case $case -latestTime U
 gmtFoam -case $case -latestTime w
 #ev `ls -rt $case/*/w.pdf | tail -1`
-
+logStats.sh $case Exnerp

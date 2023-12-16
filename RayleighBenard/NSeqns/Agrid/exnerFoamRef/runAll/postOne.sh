@@ -22,3 +22,15 @@ $case/../../runAll/calcRe.sh $case 0 240
 $case/../../runAll/nIters.sh $case
 runningMean.sh 20 $case/nExnerIter.dat > ${case}/nExnerIter.dat_smooth.dat
 
+# Create a movie
+postProcess -func CourantNoU
+gmtFoam bc
+times=`ls -d 0 [0-9]*[0-9] | sort -n`
+file=bc.pdf
+files=
+for time in $times; do
+    if [ -a $time/$file ]; then
+        files="$files $time/$file"
+    fi
+done
+convert -scale 100% -delay 10 $files bc.mp4

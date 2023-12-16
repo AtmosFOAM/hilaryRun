@@ -1,0 +1,292 @@
+Running exnerFoamRefLin
+
+dt = 40, c < 0.4, Ndt = 0.8
+SIgravityWaves false
+offCentre goes from 0.5 to 0.5
+Stable and Accurate
+***************************************************************
+dt = 40, c < 0.4, Ndt = 0.8
+SIgravityWaves true
+offCentre goes from 0.5 to 0.5
+ImEx goes from 0 to 0
+offCentreGW goes from 0.5 to 0.5
+offCentrePG goes from 0.5 to 0.5
+Also good
+***************************************************************
+dt = 200, c < 2, Ndt = 4
+SIgravityWaves true
+ocCoeff      0.8
+offCentre goes from 0.59999 to 0.600425
+ImEx goes from 0 to 1
+offCentreGW goes from 0.555556 to 0.745146
+offCentrePG goes from 0.555556 to 0.745146
+Unstable
+***************************************************************
+dt = 100, c < 1, Ndt = 2
+SIgravityWaves true
+ocCoeff      0.8
+offCentre goes from 0.555556 to 0.555556
+ImEx goes from 0 to 1
+offCentreGW goes from 0.555556 to 0.555556
+offCentrePG goes from 0.555556 to 0.555556
+Unstable
+***************************************************************
+dt = 100, c < 1, Ndt = 2
+SIgravityWaves true
+ocCoeff      0.7
+offCentre goes from 0.588235 to 0.588235
+ImEx goes from 0 to 1
+offCentreGW goes from 0.588235 to 0.588235
+offCentrePG goes from 0.588235 to 0.588235
+Unstable
+***************************************************************
+dt = 100, U = 10, c < 0.5, Ndt = 2
+SIgravityWaves true
+ocCoeff      0.7
+offCentre goes from 0.588235 to 0.588235
+ImEx goes from 0 to 0
+offCentreGW goes from 0.588235 to 0.588235
+offCentrePG goes from 0.588235 to 0.588235
+Stable
+***************************************************************
+dt = 100, U = 20, g = 1, c < 1, Ndt = 0.2
+SIgravityWaves true
+ocCoeff      0.7
+offCentre goes from 0.588235 to 0.588235
+ImEx goes from 0 to 1
+offCentreGW goes from 0.588235 to 0.588235
+offCentrePG goes from 0.588235 to 0.588235
+Stable
+***************************************************************
+dt = 200, U = 20, g = 1, c < 2, Ndt = 0.4
+SIgravityWaves true
+ocCoeff      0.7
+offCentre goes from 0.599885 to 0.60026
+ImEx goes from 0 to 1
+offCentreGW goes from 0.588235 to 0.588235
+offCentrePG goes from 0.588235 to 0.588235
+Stable
+***************************************************************
+dt = 500, U = 20, g = 1, c < 5, Ndt = 1
+SIgravityWaves true
+ocCoeff      0.7
+offCentre goes from 0.899896 to 0.900185
+ImEx goes from 0 to 1
+offCentreGW goes from 0.588235 to 0.588235
+offCentrePG goes from 0.588235 to 0.588235
+Stable
+***************************************************************
+dt = 500, U = 2, g = 9.81, c < 0.5, Ndt = 10
+SIgravityWaves true
+ocCoeff      0.7
+offCentre goes from 0.588235 to 0.588235
+ImEx goes from 0 to 0
+offCentreGW goes from 0.588235 to 0.898058
+offCentrePG goes from 0.588235 to 0.898058
+Very slow growing instability
+***************************************************************
+dt = 500, U = 2, g = 9.81, c < 0.5, Ndt = 10
+SIgravityWaves true
+ocCoeff      0.7
+offCentrePG = offCentreGW = ocAlpha = 0.588
+Same instability but stronger.
+***************************************************************
+Problem is that Ndt is only large on w faces.
+Ndt uses maxInterp.interpolate(N2)
+    offCentreGW = max(ocAlpha, 1 - 1/max(Ndt, SMALL));
+    offCentrePG = max(ocAlpha, offCentreGW);
+offCentre goes from 0.588235 to 0.588235
+ImEx goes from 0 to 0
+offCentreGW goes from 0.897434 to 0.898183
+offCentrePG goes from 0.897434 to 0.898183
+Still an instability
+***************************************************************
+dt = 500, U = 2, g = 9.81, c < 0.5, Ndt = 10
+SIgravityWaves true
+ocCoeff      0.2
+offCentre goes from 0.833333 to 0.833333
+ImEx goes from 0 to 0
+offCentreGW goes from 0.897434 to 0.898183
+offCentrePG goes from 0.897434 to 0.898183
+Stable
+So offCentre needs to be closer to offCentreGW.
+***************************************************************
+***************************************************************
+***************************************************************
+dt = 40, U = 20, g = 9.81, c < 0.4. Ndt = 0.8
+SIgravityWaves true
+ocCoeff      1
+Rewritten code for offCentre and offCentrePG
+offCentre = max(offCentrev, 1 - 1/Cof);
+offCentrePG = max(offCentre, 1 - 1/Ndt);
+offCentre goes from 0.5 to 0.5
+ImEx goes from 0 to 0
+offCentrePG goes from 0.5 to 0.5
+Stable w goes from -0.0093 to 0.010
+***************************************************************
+dt = 100, U = 20, g = 9.81, c < 1 Ndt = 1.9
+SIgravityWaves true
+ocCoeff      1
+offCentre goes from 0.5 to 0.5
+ImEx goes from 0 to 1
+offCentrePG goes from 0.5 to 0.5
+Unstable. Crashes at 5000
+***************************************************************
+dt = 100, U = 20, g = 9.81, c < 1 Ndt = 1.9
+SIgravityWaves true
+ocCoeff      0.8
+offCentre goes from 0.555556 to 0.555556
+ImEx goes from 0 to 1
+offCentrePG goes from 0.555556 to 0.555556
+Unstable. Crashes at 10000
+***************************************************************
+dt = 100, U = 2, g = 9.81, c < 0.1 Ndt = 1.9
+SIgravityWaves true
+ocCoeff      1
+offCentre goes from 0.5 to 0.5
+ImEx goes from 0 to 0
+offCentrePG goes from 0.5 to 0.5
+Stable
+***************************************************************
+dt = 200, U = 2, g = 9.81, c < 0.2 Ndt = 3.9
+SIgravityWaves true
+ocCoeff      1
+offCentre goes from 0.5 to 0.745146
+ImEx goes from 0 to 0
+offCentrePG goes from 0.743899 to 0.745456
+Stable
+***************************************************************
+dt = 200, U = 20, g = 1, c < 2 Ndt = 0.4
+SIgravityWaves true
+ocCoeff      1
+offCentre goes from 0.5 to 0.500162
+ImEx goes from 0 to 1
+offCentrePG goes from 0.5 to 0.500162
+Stable
+***************************************************************
+dt = 100, U = 20, g = 1, c < 1 Ndt = 0.2
+SIgravityWaves true
+ocCoeff      1
+offCentre goes from 0.5 to 0.5
+ImEx goes from 0 to 1
+offCentrePG goes from 0.5 to 0.5
+Stable
+***************************************************************
+dt = 100, U = 20, g = 9.81, c < 1 Ndt = 1.9
+SIgravityWaves true
+ocCoeff      1
+CoLimitExp 0
+offCentre goes from 0.5 to 0.5
+ImEx goes from 1 to 1
+offCentrePG goes from 0.5 to 0.5
+Larger scale instability. Crashes at 13600
+***************************************************************
+dt = 100, U = 20, g = 9.81, c < 1 Ndt = 1.9
+SIgravityWaves true
+ocCoeff      0.7
+CoLimitExp 0
+offCentre goes from 0.588235 to 0.588235
+ImEx goes from 1 to 1
+offCentrePG goes from 0.588235 to 0.588235
+Slower instability
+***************************************************************
+dt = 100, U = 20, g = 9.81, c < 1 Ndt = 1.9
+SIgravityWaves true
+ocCoeff      0.5
+CoLimitExp 0
+offCentre goes from 0.666667 to 0.666667
+ImEx goes from 1 to 1
+offCentrePG goes from 0.666667 to 0.666667
+Stable
+***************************************************************
+dt = 100, U = 20, g = 9.81, c < 1 Ndt = 1.9
+SIgravityWaves true
+ocCoeff      1
+CoLimitExp 0
+offCentrePG = max(offCentre, 1 - 1/(2*Ndt))
+offCentre goes from 0.5 to 0.5
+ImEx goes from 1 to 1
+offCentrePG goes from 0.743586 to 0.745456
+Stable
+***************************************************************
+dt = 100, U = 20, g = 9.81, c < 1 Ndt = 1.9
+SIgravityWaves true
+ocCoeff      1
+CoLimitExp 0
+offCentrePG = max(offCentre, 1 - 1/(2*Ndt))
+offCentrev = max(ocAlpha, 1 - 1/(2*Ndtf))
+offCentre goes from 0.5 to 0.745146
+ImEx goes from 1 to 1
+offCentrePG goes from 0.743899 to 0.745456
+Stable
+***************************************************************
+dt = 100, U = 20, g = 9.81, c < 1 Ndt = 1.9
+SIgravityWaves true
+ocCoeff      1
+CoLimitExp 1
+offCentrePG = max(offCentre, 1 - 1/(2*Ndt))
+offCentrev = max(ocAlpha, 1 - 1/(2*Ndtf))
+offCentre goes from 0.5 to 0.745146
+ImEx goes from 0 to 1
+offCentrePG goes from 0.743899 to 0.745456
+UnStable
+***************************************************************
+Need to make ImEx=1 when Ndt>1 in vertical
+ImEx = 1 - 0.5*(sign(CoLimitExp - Cof)+1)*0.5*(sign(CoLimitExp - Ndtf)+1);
+dt = 100, U = 20, g = 9.81, c < 1 Ndt = 1.9
+SIgravityWaves true
+ocCoeff      1
+CoLimitExp 1
+offCentrePG = max(offCentre, 1 - 1/(2*Ndt))
+offCentrev = max(ocAlpha, 1 - 1/(2*Ndtf))
+offCentre goes from 0.5 to 0.745146
+ImEx goes from 0 to 1
+offCentrePG goes from 0.743899 to 0.745456
+***************************************************************
+Need to make ImEx=1 when Ndt>1 in vertical
+ImEx = 1 - 0.5*(sign(CoLimitExp - Cof)+1)*0.5*(sign(CoLimitExp - Ndtf)+1);
+dt = 100, U = 20, g = 9.81, c < 1 Ndt = 1.9
+SIgravityWaves true
+ocCoeff      1
+CoLimitExp 0.99
+offCentrePG = max(offCentre, 1 - 1/(2*Ndt))
+offCentrev = max(ocAlpha, 1 - 1/(2*Ndtf))
+offCentre goes from 0.5 to 0.745146
+ImEx goes from 1 to 1
+offCentrePG goes from 0.743899 to 0.745456
+Stable
+w goes from -0.0058 to 0.0059
+***************************************************************
+dt = 200, U = 20, g = 9.81, c < 2 Ndt = 3.9
+SIgravityWaves true
+ocCoeff      1
+CoLimitExp 0.99
+offCentre goes from 0.5 to 0.872573
+ImEx goes from 1 to 1
+offCentrePG goes from 0.87195 to 0.872728
+Stable. w goes from -0.0016 to 0.0012
+***************************************************************
+dt = 500, U = 20, g = 9.81, c < 5 Ndt = 10
+SIgravityWaves true
+ocCoeff      1
+CoLimitExp 0.99
+offCentre goes from 0.799955 to 0.949029
+ImEx goes from 1 to 1
+offCentrePG goes from 0.94878 to 0.949091
+Stable. w goes from -0.0026 to 0.0028
+***************************************************************
+dt = 1000, U = 20, g = 9.81, c < 10 Ndt = 20
+SIgravityWaves true
+ocCoeff      1
+CoLimitExp 0.99
+offCentre goes from 0.899833 to 0.974515
+ImEx goes from 1 to 1
+offCentrePG goes from 0.97439 to 0.974546
+Unstable
+***************************************************************
+Increased sponge strength a factor of 10
+dt = 1000, U = 20, g = 9.81, c < 10 Ndt = 20
+SIgravityWaves true
+ocCoeff      1
+CoLimitExp 0.99
+Crashes at 10000

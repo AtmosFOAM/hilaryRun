@@ -8,4 +8,4 @@ gmtPlot runAll/c.gmt
 gmtPlot runAll/nItersImplicit.gmt
 gmtPlot runAll/nItersImEx.gmt
 gmtPlot runAll/nItersExplicit.gmt
-
+./runAll/compareHiRes.sh

@@ -13,15 +13,14 @@ FoamFile
 }
 
 // How to plot
-projection "G300/25/36c";
+projection "G100/110/24c";
 projection2D latLon;
 plotBoundaryDots false;
 
 FieldsToPlot
 (
-    [T filledContours 0 0.95 0.025 "$GMTU/colours/wh-bl-gr-ye-re.cpt"]
-    [none mesh      "0.25p,grey"]
-    [U vectors 2. 3 "black"]
+    [none mesh      "0.1p,grey"]
+    [U vectors 9.5 7 "black"]
 );
 
 // options

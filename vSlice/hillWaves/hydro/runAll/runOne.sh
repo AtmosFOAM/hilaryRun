@@ -27,8 +27,8 @@ mv $case/0/u $case/0/w $case/constant
 rm $case/0/P $case/0/Uf $case/0/lnExner $case/0/muSponge $case/0/Exnerg
 
 # setup for parallel run
-#decomposePar -constant -case $case
+decomposePar -constant -case $case
 # run
-#mpirun -np 3 --use-hwthread-cpus exnerFoamRef -case $case -parallel > $case/log 2>&1 &
-exnerFoamRef -case $case >& $case/log &
+mpirun -np 3 --use-hwthread-cpus exnerFoamRef -case $case -parallel > $case/log 2>&1 &
+#exnerFoamRef -case $case >& $case/log &
 echo tail -f $case/log

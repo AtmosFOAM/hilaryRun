@@ -1,0 +1,447 @@
+************************************************************************
+exnerFoamRef code with
+
+UEqn.H containing:
+    //thetapf += offCentreGW*runTime.deltaT()*fvc::interpolate(w*Gamma);
+    //if (!Boussinesq) { thetaf = thetaaf + thetapf; }
+
+dt=200, ocCoeff=1, QUICKupwind 0.8 1 rho, SIgravityWaves true. 2x2 iterations
+Courant Number mean: 1.98333 max: 1.98398 max Ndt = 3.91909
+Damped, stable solutions
+
+************************************************************************
+UEqn.H containing:
+    thetapf += offCentreGW*runTime.deltaT()*fvc::interpolate(w*Gamma);
+    if (!Boussinesq) { thetaf = thetaaf + thetapf; }
+Large scale, slow instability.
+
+************************************************************************
+Try reducing U  to 10
+Starts with
+Courant Number mean: 0.991667 max: 0.991988 max Ndt = 3.91909
+Instability is slightly faster
+at Time = 15000
+
+Courant Number mean: 3.16113 max: 12.2757 max Ndt = 6.88745
+crashes
+************************************************************************
+Try reducing U  to 5
+Starts with
+Courant Number mean: 0.495834 max: 0.495994 max Ndt = 3.91909
+Courant Number mean: 1.72429 max: 6.95968  max Ndt = 4.27888
+Instability is getting worse. This is about Ndt, not about advection.
+************************************************************************
+Reduce grid size in x to speed up solution and ensure all explicit
+Courant Number mean: 0.500001 max: 0.500158 horizontal 0.500002 vertical 0.000158548 max Ndt = 3.91905
+Courant Number mean: 2.26834 max: 7.10646 horizontal 0.718683 vertical 6.62584 max Ndt = 4.49972
+************************************************************************
+Further reduce U to 2
+Courant Number mean: 0.200001 max: 0.200063 horizontal 0.200001 vertical 6.34191e-05 max Ndt = 3.91905
+Courant Number mean: 0.944298 max: 3.2469 horizontal 0.346714 vertical 3.05459 max Ndt = 3.99814
+************************************************************************
+Remove the code to ensure implicit advection for strong stratification
+ (in offCentreAdvection.H)
+Courant Number mean: 0.200001 max: 0.200063 horizontal 0.200001 vertical 6.34191e-05 max Ndt = 3.91905
+Courant Number mean: 0.640198 max: 1.93183 horizontal 0.322073 vertical 1.72722 max Ndt = 3.9453
+The instability is the same nature but less bad.
+************************************************************************
+Coded uses alpha=0.5 for PG.
+Try fixing offCentreGW to 0.5 too.
+ImEx=0 always (CoLimitExp 100)
+Courant Number mean: 0.200001 max: 0.200063 horizontal 0.200001 vertical 6.34191e-05 max Ndt = 3.91905
+Courant Number mean: 0.205144 max: 0.217923 horizontal 0.200362 vertical 0.0180666 max Ndt = 3.91937
+Fixed. 
+************************************************************************
+Check at full size.
+Courant Number mean: 0.2 max: 0.200063 horizontal 0.200001 vertical 6.34191e-05 max Ndt = 3.91909
+Courant Number mean: 0.200825 max: 0.21142 horizontal 0.200788 vertical 0.0113528 max Ndt = 3.91966
+Still good. 
+************************************************************************
+Go back to small domain and test ImEx=1 always (CoLimitExp 0)
+Courant Number mean: 0.200001 max: 0.200063 horizontal 0.200001 vertical 6.34191e-05 max Ndt = 3.91905
+Courant Number mean: 0.235393 max: 0.334913 horizontal 0.203376 vertical 0.133144 max Ndt = 3.91968
+Slightly worse but not as bad as using variable offCentreGW
+************************************************************************
+Test at full resolution
+Courant Number mean: 0.2 max: 0.200063 horizontal 0.200001 vertical 6.34191e-05 max Ndt = 3.91909
+Courant Number mean: 0.202876 max: 0.2537 horizontal 0.202058 vertical 0.0545118 max Ndt = 3.91967
+Growing instability
+************************************************************************
+Full resolution with u=2, ImEx=0 (CoLimit 100)
+Courant Number mean: 0.200532 max: 0.208508 horizontal 0.200785 vertical 0.00856566 max Ndt = 3.91966
+Still a growing instability. 
+************************************************************************
+Try with offCentreGW=1 (badly hard coded), ImEx=0 (CoLimit 100)
+This makes it much worse! Large instability. 
+************************************************************************
+Try with offCentreGW=offCentrePG=1
+Final
+Courant Number mean: 0.200001 max: 0.200743 horizontal 0.200737 vertical 9.15998e-05 max Ndt = 3.91946
+Correct results. No instability. 
+
+8 Dec 2023
+**********
+offCentreGW = offCentrePG = 1/(1 + 0.9) = 0.53
+explicit advection   CoLimitExp 100 
+u=2
+dt = 200
+Ndt = 4
+nx = 200
+2x2 iterations
+Courant Number mean: 0.2 max: 0.200063 horizontal 0.200001 vertical 6.34191e-05 max Ndt = 3.91909
+Courant Number mean: 0.200015 max: 0.200793 horizontal 0.200786 vertical 9.47303e-05 max Ndt = 3.91965
+Slowly growing gravity wave instability.
+
+************************************************************************
+offCentre = 1/(1 + 0.8) = 0.56
+No instability.
+************************************************************************
+offCentre = 1/(1 + 0.8) = 0.56
+implicit advection CoLimitExp 0
+Instability back again - slower
+************************************************************************
+offCentre = 1/(1 + 0.8) = 0.56
+implicit advection CoLimitExp 1
+OK but would not be ok for larger horizontal Courant number because
+ImEx = 0.5*(sign(maxInterp.interpolate(CoNum+SMALL) - CoLimitExp) + 1);
+Which mixes horizontal and vertical. Large c_x leads to implicit in vertical.
+************************************************************************
+Instead define
+Cf = mag(dt*phi/rhof/Sf/dx)
+This is ok with CoLimitExp 1
+************************************************************************
+CoLimitExp 0.1 gives instabilty (horizontally implicit, vertically explicit)
+************************************************************************
+offCentre = max(0.5, 1 - 1/(Cof + 0.2));
+Bug found in calculating offCentrPG and offCentreGW (!= offCentre)
+Fixed but instability is worse!
+************************************************************************
+Back to
+offCentre = max(ocAlpha, 1 - 1/(Cof + 0.2));
+Weaker
+************************************************************************
+dt = 250
+Much worse. Stick with this as it is more obvious.
+************************************************************************
+dt = 250
+CoLimitExp 0.1
+oc = 0.7 therefore OffCentre = 0.59
+Not bad but hint of same instability
+************************************************************************
+dt = 250
+CoLimitExp 0.1
+oc = 0.7 therefore OffCentre = 0.59
+offCentre = max(0.5, 1 - 1/(Cof + 0.2));
+Hmm, possibly ok
+************************************************************************
+dt = 250
+CoLimitExp 1
+oc = 0.7 therefore OffCentre = 0.59
+offCentre = max(0.5, 1 - 1/(Cof + 0.2));
+Instability back again.
+************************************************************************
+dt = 250
+CoLimitExp 1
+oc = 1 therefore OffCentre = 0.5
+offCentre = max(0.5, 1 - 1/(Cof + 0.2));
+offCentrePG = max(0.5, 1 - 1/max(Ndt, SMALL));
+All GW damped
+************************************************************************
+dt = 250
+CoLimitExp 0.1
+oc = 1 therefore OffCentre = 0.5
+offCentre = max(0.5, 1 - 1/(Cof + 0.2));
+offCentrePG = max(0.5, 1 - 1/max(Ndt, SMALL));
+GW still damped
+************************************************************************
+dt = 250   U = 20
+CoLimitExp 1
+oc = 1 therefore OffCentre = 0.5
+offCentre = max(0.5, 1 - 1/(Cof + 0.2));
+offCentrePG = max(0.5, 1 - 1/max(Ndt, SMALL));
+Surface features. GW propagation.
+************************************************************************
+dt = 200   U = 20
+CoLimitExp 1
+oc = 1 therefore OffCentre = 0.5
+offCentre = max(0.5, 1 - 1/(Cof + 0.2));
+offCentrePG = max(0.5, 1 - 1/max(Ndt, SMALL));
+Better but still damped.
+************************************************************************
+dt = 500   U = 20
+CoLimitExp 1
+oc = 1 therefore OffCentre = 0.5
+offCentre = max(0.5, 1 - 1/(Cof + 0.2));
+offCentrePG = max(0.5, 1 - 1/max(Ndt, SMALL));
+Crashes at Time = 10000
+************************************************************************
+dt = 500   U = 2
+CoLimitExp 100
+oc = 1 therefore OffCentre = 0.5
+offCentre = max(0.5, 1 - 1/(Cof + 0.2));
+offCentrePG = max(0.5, 1 - 1/max(Ndt, SMALL));
+Stable
+
+************************************************************************
+************************************************************************
+Tests withExnerFoamA
+dt = 40 U = 20 CoLimitExp 1
+offCentrePG = max(ocAlpha, 1 - 1/max(Ndt, SMALL)); = offCentreGW
+oc = 1 therefore OffCentre = 0.5
+offCentre = max(0.5, 1 - 1/(Cof + 0.2));
+SIgravityWaves false;
+Appears convergent but solutions do not look converged.
+************************************************************************
+Tighter Exner tolerance 1e-9
+Good convergence but worse solutions
+************************************************************************
+ocCoeff = 0
+Doesn't help
+************************************************************************
+ocCoeff = 0
+offCentre = 1
+InUEqn
+//if (ucorr == 0)
+offCentre = max(1, 1 - 1/(Cof + 0.2));
+************************************************************************
+Problem is theta is not solving. Increase tolerance? 1e-9
+That works but now we have oscillations in w in the x direction
+T and u look fine. Just w
+************************************************************************
+Re-instate in UEqn
+if (ucorr == 0)
+No difference
+************************************************************************
+Reinstate UEqn.solve
+use reconstruct instead of weightedReconstruct
+No difference. Re-instate
+************************************************************************
+ocCoeff = 1
+offCentre = 0.5
+InUEqn
+if (ucorr == 0)
+offCentre = max(0.5, 1 - 1/(Cof + 0.2));
+Fixed
+************************************************************************
+SIgravityWaves true
+appears unstable. Run for longer. Unstable.
+************************************************************************
+//thetaf += offCentreGW*runTime.deltaT()*fvc::interpolate(w*Gamma);
+Stable and results look accurate
+************************************************************************
+Use igInc instead of modifying thetaf
+Convergent, correct and strong.
+************************************************************************
+dt = 200
+Crashed at t=4000
+************************************************************************
+dt = 200, U = 2
+Stable
+************************************************************************
+dt = 200, U = 20
+igInc = Cp*offCentreGW*runTime.deltaT()*fvc::interpolate(w*Gamma)
+        *fvc::snGrad(Exner)*mesh.magSf()*mag(gUnitNormal);
+Crashed at t=4000
+************************************************************************
+dt = 200, U = 20
+igInc = 0 and SIgravityWaves=true
+At t=15000, w goes from -0.0021616071462631226 to 0.0016730306670069695
+No variability in stratosphere.
+************************************************************************
+dt = 40, U = 20
+igInc = 0 and SIgravityWaves=true
+w goes from -0.0046161627396941185 to 0.005112065933644772
+************************************************************************
+dt = 40, U = 20
+SIgravityWaves=false
+w goes from -0.010681722313165665 to 0.01111790630966425
+************************************************************************
+dt = 40, U = 20
+SIgravityWaves=true
+igInc = Cp*offCentreGW*runTime.deltaT()*fvc::interpolate(w*Gamma)
+        *fvc::snGrad(Exner)*mesh.magSf()*mag(gUnitNormal);
+w goes from -0.013871939852833748 to 0.013802814297378063
+************************************************************************
+The problem could be inconsistency between alpha for advection and GW.
+dt = 200, U = 20
+SIgravityWaves=true
+igInc = Cp*offCentreGW*runTime.deltaT()*fvc::interpolate(w*Gamma)
+        *fvc::snGrad(Exner)*mesh.magSf()*mag(gUnitNormal);
+    offCentrePG = max(offCentrePG, offCentre);
+    offCentre = max(offCentrePG, offCentre);
+offCentreGW goes from 0.702919 to 0.778456
+Crashes at 3400
+************************************************************************
+dt = 200, U = 20
+SIgravityWaves=true
+igInc = Cp*offCentreGW*runTime.deltaT()*fvc::interpolate(w*Gamma)
+        *fvc::snGrad(Exner)*mesh.magSf()*mag(gUnitNormal);
+offCentre = max(ocAlpha, 1 - 1/(Cof + 0.2));
+ocAlpha = 0.8 requires ocCoeff = 0.25
+Crashes at 3400 just after
+offCentreGW goes from 0.8 to 0.803212
+But GW instability growing from t=2000
+when
+vertical c = 0.0143094
+************************************************************************
+dt = 200, U = 20
+SIgravityWaves=true, igInc != 0
+CoLimitExp = 0
+all offCentre = 0.5
+Crashed at 5200
+Similar instability
+************************************************************************
+Same but CoLimitExp = 1
+Crashed at 5200
+************************************************************************
+Recalculate igInc after wEqn.solve
+Crashes at 2800
+************************************************************************
+dt = 200, U = 20
+SIgravityWaves=true, igInc = 0
+CoLimitExp = 1
+offCentrPG = 0.5
+offCentre = max(0.5, 1 - 1/(Cof + 0.2));
+offCentreGW = min(max(scalar(0), 1 - 1/max(Ndt, SMALL)), 0.5);
+w goes from -0.006297276355326176 to 0.007283060345798731
+Could be ok
+************************************************************************
+dt = 500, U = 20
+Crashes at 14000. Large scale unstable.
+************************************************************************
+dt = 500, U = 20 implies Ndt = 10
+offCentreGW = max(scalar(0), 1 - 1/max(Ndt, SMALL)) = 0.9
+Crashes at 14000
+************************************************************************
+dt = 500, U = 20 implies Ndt = 10 horiz c = 5
+offCentreGW = max(scalar(0), 1 - 1/max(Ndt, SMALL)) = 0.9
+offCentrePG = max(offCentreGW, 0.5)
+Crashes at 15000
+************************************************************************
+Need to test with c=5, Ndt = 0.8 (with same stratification)
+dt = 40, U = 250
+Crashes at 1120
+************************************************************************
+dt = 200, U = 20, g = 9.8 implies c <= 2, Ndt = 0.4
+SIgravityWaves=true, igInc = 0
+offCentre goes from 0.5 to 0.545973
+ImEx goes from 0 to 1
+offCentreGW goes from 0.743871 to 0.745677
+offCentrePG goes from 0.743871 to 0.745677
+w oscillates every 1000s.
+************************************************************************
+dt = 200, U = 20, g = 1 implies c <= 2, Ndt = 0.4
+SIgravityWaves=true, igInc = 0
+offCentre goes from 0.5 to 0.545588
+ImEx goes from 0 to 1
+offCentreGW goes from 0 to 0
+offCentrePG goes from 0.5 to 0.5
+Stable
+************************************************************************
+dt = 500, U = 20, g = 0.4 implies c <= 5, Ndt = 0.4
+SIgravityWaves=true, igInc = 0
+offCentre goes from 0.5 to 0.807904
+ImEx goes from 0 to 1
+offCentreGW goes from 0 to 0
+offCentrePG goes from 0.5 to 0.5
+Crashes at 15000
+************************************************************************
+dt = 500, U = 20, g = 0.1 implies c <= 5, Ndt = 0.1
+SIgravityWaves=true, igInc = 0
+offCentre goes from 0.5 to 0.807986
+ImEx goes from 0 to 1
+offCentreGW goes from 0 to 0
+offCentrePG goes from 0.5 to 0.5
+Crashes at 15000
+************************************************************************
+dt = 500, U = 20, g = 0.1 implies c <= 5, Ndt = 0.1
+SIgravityWaves=true, ocCoeff      0.5
+offCentre goes from 0.666667 to 0.807753
+ImEx goes from 0 to 1
+offCentreGW goes from 0 to 0
+offCentrePG goes from 0.666667 to 0.666667
+Stable
+************************************************************************
+dt = 500, U = 20, g = 1 implies c <= 5, Ndt = 1
+SIgravityWaves=true, ocCoeff      0.5
+offCentre goes from 0.666667 to 0.807774
+ImEx goes from 0 to 1
+offCentreGW goes from 0 to 0
+offCentrePG goes from 0.666667 to 0.666667
+Stable
+************************************************************************
+dt = 500, U = 20, g = 9.81 implies c <= 5, Ndt = 9.8
+SIgravityWaves=true, ocCoeff      0.5
+offCentre goes from 0.666667 to 0.807693
+ImEx goes from 0 to 1
+offCentreGW goes from 0.89756 to 0.898183
+offCentrePG goes from 0.89756 to 0.898183
+Stable :-D
+************************************************************************
+dt = 500, U = 20, g = 9.81 implies c <= 5, Ndt = 9.8
+SIgravityWaves=true, ocCoeff      1
+offCentre = max(ocAlpha, 1 - 1/(max(Cof, maxInterp.interpolate(CoNum))));
+ImEx = 0.5*(sign(Cof - CoLimitExp)+1);
+offCentreGW = max(scalar(0), 1 - 1/max(Ndt, SMALL));
+offCentrePG = max(ocAlpha, offCentreGW);
+offCentre goes from 0.799982 to 0.800268
+ImEx goes from 0 to 1
+offCentreGW goes from 0.89756 to 0.898239
+offCentrePG goes from 0.89756 to 0.898239
+Stable
+************************************************************************
+dt = 200, U = 20, g = 9.81 implies c <= 2, Ndt = 3.9
+SIgravityWaves=true, ocCoeff      1
+offCentre goes from 0.5 to 0.500574
+ImEx goes from 0 to 1
+offCentreGW goes from 0.743899 to 0.745667
+offCentrePG goes from 0.743899 to 0.745667
+Stable but 1000 s oscillation.
+************************************************************************
+dt = 200, U = 20, g = 9.81 implies c <= 2, Ndt = 3.9
+SIgravityWaves=true, ocCoeff      1
+offCentre = max(ocAlpha, 1 - 1/((max(Cof, maxInterp.interpolate(CoNum))))+0.1);
+offCentre goes from 0.599904 to 0.600468
+ImEx goes from 0 to 1
+offCentreGW goes from 0.743899 to 0.745666
+offCentrePG goes from 0.743899 to 0.745666
+Stable and w goes from -0.0015 to 0.00094
+************************************************************************
+dt = 200, U = 20, g = 9.81 implies c <= 2, Ndt = 3.9
+SIgravityWaves=true, ocCoeff      1
+Replace
+thetaf += offCentreGW*runTime.deltaT()*fvc::interpolate(w*Gamma);
+Slow instability again.
+************************************************************************
+dt = 100, U = 20, g = 9.81 implies c <= 1, Ndt = 1.96
+SIgravityWaves=true, ocCoeff      1
+//thetaf += offCentreGW*runTime.deltaT()*fvc::interpolate(w*Gamma);
+offCentre goes from 0.5 to 0.5
+ImEx goes from 0 to 1
+offCentreGW goes from 0.487791 to 0.491606
+offCentrePG goes from 0.5 to 0.5
+dw/dx and dT/dx oscillations. du/dz oscillation near the ground.
+************************************************************************
+dt = 100, U = 20, g = 9.81 implies c <= 1, Ndt = 1.96
+SIgravityWaves=true, ocCoeff      0.9
+offCentre goes from 0.526316 to 0.526316
+ImEx goes from 0 to 1
+offCentreGW goes from 0.487796 to 0.491278
+offCentrePG goes from 0.526316 to 0.526316
+Doesn't help. offCentreGW needs to be bigger?
+************************************************************************
+dt = 100, U = 20, g = 9.81 implies c <= 1, Ndt = 1.96
+SIgravityWaves=true, ocCoeff      1
+offCentreGW = max(ocAlpha, 1 - 1/max(Ndt, SMALL));
+offCentre goes from 0.5 to 0.5
+ImEx goes from 0 to 1
+offCentreGW goes from 0.5 to 0.5
+offCentrePG goes from 0.5 to 0.5
+Doesn't help
+************************************************************************
+dt = 100, U = 20, g = 9.81 implies c <= 1, Ndt = 1.96
+SIgravityWaves=true, ocCoeff      1
+offCentreGW = max(ocAlpha, 1 - 1/max(Ndt, SMALL));
+thetaf += offCentreGW*runTime.deltaT()*fvc::interpolate(w*Gamma);
+Crashes
+

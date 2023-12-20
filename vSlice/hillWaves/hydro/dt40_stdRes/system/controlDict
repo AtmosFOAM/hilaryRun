@@ -24,8 +24,8 @@ FoamFile
 
 application buoyantFoam;
 
-//startFrom       startTime;
-startFrom       latestTime;
+startFrom       startTime;
+//startFrom       latestTime;
 
 startTime       0;
 
@@ -33,7 +33,7 @@ stopAt          endTime;
 
 endTime         15000;
 
-deltaT          1000; // MDW=10 uses 20 (c=0.2) and 150 (c=1.5)
+deltaT          40; // MDW=10 uses 20 (c=0.2) and 150 (c=1.5)
 
 writeControl    runTime;
 

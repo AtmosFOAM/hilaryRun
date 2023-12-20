@@ -26,7 +26,7 @@ SIgravityWaves true;
 
 ddtSchemes
 {
-    ocCoeff      0.2;
+    ocCoeff      1;
     default      none;
 }
 
@@ -38,7 +38,7 @@ gradSchemes
 divSchemes
 {
     default none;
-    CoLimitExp 1;
+    CoLimitExp 0.99;
     div(phi,thetap)   Gauss QUICKupwind 0.8 1 rho;
     div(phi,U)        Gauss QUICKupwind 0.8 1 rho;
     div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear corrected;

@@ -25,11 +25,11 @@ solvers
         tolerance        0;
         relTol           0;
     };
-    "(Exner|Exnerp)"
+    Exnerp
     {
         solver PCG;
         preconditioner DIC;
-        tolerance        1e-9;
+        tolerance        1e-6;
         relTol           0.01;
     }
     "(ExnerpFinal|ExnerFinal)"
@@ -38,11 +38,11 @@ solvers
         relTol           0;
     }
     
-    "(k|epsilon|U|u|w|thetap|theta)"
+    "(k|epsilon|U|u|w|thetap)"
     {
         solver          PBiCGStab;
         preconditioner  DILU;
-        tolerance       1e-9;
+        tolerance       1e-6;
         relTol           0;
         maxIter          1;
     }

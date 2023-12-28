@@ -6,7 +6,7 @@ col=(2 2 2 2 2)
 colx=1
 legends=("@~D@~t = 0.5"  "@~D@~t = 1"
            "@~D@~t = 2.5")
-pens=( "blue,5_5:"  "1,red,1_2:" "1,green,4_8:2")
+pens=( "blue"  "red" "green")
 xlabel='Time (s)'
 ylabel='Total pressure solver iterations'
 xmin=0
@@ -14,7 +14,7 @@ xmax=1000
 dx=200
 ddx=100
 ymin=0
-ymax=350
+ymax=300
 dy=50
 ddy=50
 dyg=50

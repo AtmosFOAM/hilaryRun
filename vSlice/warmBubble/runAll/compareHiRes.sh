@@ -28,7 +28,7 @@ pens=("1,blue,8_3"
       "1.5,blue,2_3" "1.5,red,2_3" "1.5,green,2_3")
 
 xlabel="Time"
-ylabel="RMS difference"
+ylabel="RMS difference (K)"
 xmin=0
 xmax=1000
 dx=100

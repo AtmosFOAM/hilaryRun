@@ -11,5 +11,5 @@ case=$1
 #reconstructPar; rm -r processor*/[1-9]*; \
 postProcess -case $case -func CourantNoU -latestTime
 gmtFoam -case $case -latestTime thetaC
-#ev `ls -rt $case/*/thetaC.pdf | tail -1`
+ev `ls -rt $case/*/thetaC.pdf | tail -1`
 

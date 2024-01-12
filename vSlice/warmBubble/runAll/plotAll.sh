@@ -1,5 +1,6 @@
 for dir in *_dt_*; do
     echo $dir
+    ./runAll/postOne.sh $dir
     ./runAll/nIters.sh $dir
     
 done

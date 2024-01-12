@@ -20,9 +20,10 @@ solvers
 {
     T
     {
-        solver GAMG;
-        smoother   DILUGaussSeidel;
-        tolerance       1e-6;
+        solver smoothSolver; //GAMG; //PBiCG;//PBiCGStab; //
+        //preconditioner DILU; //none; //diagonal; //GAMG;
+        smoother   DILUGaussSeidel; //symGaussSeidel; //nonBlockingGaussSeidel; //DILU; //GaussSeidel;
+        tolerance       1e-14;
         relTol          0;
         maxIter         1;
     }

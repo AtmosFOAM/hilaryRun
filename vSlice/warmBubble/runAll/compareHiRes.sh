@@ -4,14 +4,14 @@ dirs="explicit_dt_5
       implicit_dt_2 implicit_dt_5 implicit_dt_10 implicit_dt_20
       ImEx_dt_5 ImEx_dt_10  ImEx_dt_20"
 
-#for dir in $dirs; do
-#    for time in $dir/[0-9]*; do
-#        t=`echo $time | awk -F '/' '{print $NF}'`
-#        echo $time $t
-#        sumFields -case $dir $t thetaDiff $t thetap ../$ref/$t thetap -scale1 -1
-#    done
-#    globalSum -case $dir thetaDiff
-#done
+for dir in $dirs; do
+    for time in $dir/[0-9]*; do
+        t=`echo $time | awk -F '/' '{print $NF}'`
+        echo $time $t
+        sumFields -case $dir $t thetaDiff $t thetap ../$ref/$t thetap -scale1 -1
+    done
+    globalSum -case $dir thetaDiff
+done
 
 # Plot options
 inputFiles=()

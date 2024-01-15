@@ -1,6 +1,7 @@
 for dir in */*_dt*; do
     echo $dir
     logStats.sh $dir Exnerp
+    runAll/postOne.sh $dir
 done
 
 gmtPlot runAll/c.gmt

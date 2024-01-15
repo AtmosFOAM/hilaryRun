@@ -39,8 +39,8 @@ divSchemes
 {
     default none;
     CoLimitExp 0.8;
-    div(phi,thetap)   Gauss QUICKupwind 2 4 rho;
-    div(phi,U)        Gauss QUICKupwind 2 4 rho;
+    div(phi,thetap)   Gauss QUICKupwind 0.8 1 rho;
+    div(phi,U)        Gauss QUICKupwind 0.8 1 rho;
     div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear uncorrected;
 }
 

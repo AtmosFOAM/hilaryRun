@@ -2,13 +2,13 @@
 
 # Assemble l2 error norms as a function of resolution for different grids
 cases="fullDeformation/cubic_latLonPolarRotated_c1
-       fullDeformation/QUICK_latLonSkipped_c1
-       fullDeformation/QUICK_cubedSphere_c1
-       fullDeformation/cubic_HRgrid_c1
+       fullDeformation/cubic_latLonSkipped_c1
+       fullDeformation/cubic_cubedSphere_c1
+       fullDeformation/QUICK_HRgrid_c1
        fullDeformation/QUICK_HRgrid_c2"
 inputFiles=()
 
-legends=("rotated lat-lon, c~1, c<35"  "skipped lat-lon, c~1"
+legends=("rotated lat-lon, c~1, c<70"  "skipped lat-lon, c~1"
          "cubed sphere, c~1"  "hexagonal, c~1" "hexagonal, c~2" 
           "1st/2nd order")
 

@@ -39,5 +39,5 @@ legPos=x0.3/1.3
 projection=X15c/8c
 gv=0
 
-. gmtPlot
+source gmtPlot
 

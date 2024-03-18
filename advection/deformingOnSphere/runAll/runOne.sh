@@ -56,7 +56,7 @@ elif [[ $2 == run  ]]; then
     mpirun -np 4 --oversubscribe implicitAdvectionFoam -case $case -parallel >& $case/log &
     #implicitAdvectionFoam -case $case >& log &
     echo tail -f $case/log
-elif [[ $2 < 5 ]]; then
+elif [[ $2 < 6 ]]; then
     reconstructPar -case $case -time $2
     gmtFoam -case $case -time $2 T
     ev $2/T.pdf
@@ -66,16 +66,22 @@ else
         reconstructPar -case $case
         rm -r $case/processor*
     fi
-    finalTime=`ls -1d $case/[0-9]* | sort -n | tail -n 1`
-    midTime=`ls -1d $case/[0-9]* | sort -n | tail -n 6 | head -1`
-    if [[ $finalTime != $case/5 ]]; then mv $finalTime $case/5; fi
-    if [[ $midTime != $case/2.5 ]]; then mv $midTime $case/2.5; fi
+    #Find max dx for this grid
+    if [[ ! -a $case/maxDx.dat ]]; then
+        cellCentreDistances -case $case \
+            | awk '{if (NF==1 && $1==$1+0) print $1*180/3.14159}' \
+            | sort -nr | head -1 > $case/maxDx.dat
+    fi
+    #finalTime=`ls -1d $case/[0-9]* | sort -n | tail -n 1`
+    #midTime=`ls -1d $case/[0-9]* | sort -n | tail -n 6 | head -1`
+    #if [[ $finalTime != $case/5 ]]; then mv $finalTime $case/5; fi
+    #if [[ $midTime != $case/2.5 ]]; then mv $midTime $case/2.5; fi
     $case/../../../runAll/plotBoundsOne.sh $case
     ev $case/TminMax.eps
-    gmtFoam -case $case -time 5 T
-    gmtFoam -case $case -time 2.5 T
-    ev $case/5/T.pdf &
-    ev $case/2.5/T.pdf &
+    #gmtFoam -case $case -time 5 T
+    #gmtFoam -case $case -time 2.5 T
+    #ev $case/5/T.pdf &
+    #ev $case/2.5/T.pdf &
     # Errors from initial conditions
     sumFields -case $case 5 Terror 5 T 0 T -scale1 -1
     globalSum -case $case T -time 0

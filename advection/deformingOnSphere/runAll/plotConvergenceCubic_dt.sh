@@ -1,16 +1,16 @@
 #!/bin/bash -e
 
 # Assemble l2 error norms as a function of resolution for different grids
-cases="fullDeformation/QUICK_cubedSphere_c025
-       fullDeformation/QUICK_cubedSphere_c05
-       fullDeformation/QUICK_cubedSphere_c1
-       fullDeformation/QUICK_cubedSphere_c2
-       fullDeformation/QUICK_cubedSphere_c5
-       fullDeformation/QUICK_cubedSphere_c10
+cases="fullDeformation/cubic_cubedSphere_c025
+       fullDeformation/cubic_cubedSphere_c05
+       fullDeformation/cubic_cubedSphere_c1
+       fullDeformation/cubic_cubedSphere_c2
+       fullDeformation/cubic_cubedSphere_c5
+       fullDeformation/cubic_cubedSphere_c10
        "
 
 legends=("cubed sphere" "1st/2nd order")
-data=plots/QUICK_cubedSphere_c.dat
+data=plots/cubic_cubedSphere_c.dat
 res=cube_60
 
 echo '#dt l1error l2error linf mean var min max' > $data
@@ -37,7 +37,7 @@ echo  0.1   1 10 >> plots/1st2ndOrder.dat
 inputFiles=($data
             plots/1st2ndOrder.dat
             plots/1st2ndOrder.dat)
-outFile=plots/l2errorQUICK_dt.eps
+outFile=plots/l2errorCubic_dt.eps
 col=(3 2 3)
 colx=(1 1 1)
 pens=("1p,black"
@@ -63,4 +63,4 @@ projection=X8cl/6cl
 gv=0
 
 . gmtPlot
-
+ev $outFile

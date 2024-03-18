@@ -1,0 +1,77 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  10
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      fvModels;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+codedSource
+{
+    type            coded;
+    selectionMode   all;
+    field           T;
+    name            HartneyRain;
+
+    codeInclude
+    #{
+        using namespace Foam;
+        #include "fvmSup.H"
+        #include "DemandDrivenMeshObject.H"
+        using namespace Foam::constant::mathematical;
+    #};
+
+    codeAddSup
+    #{
+        class moisture: public DemandDrivenMeshObject
+                        <fvMesh, GeometricMeshObject, moisture>
+        {
+            public:
+                //TypeName("moisture");
+                explicit moisture(const fvMesh& mesh, const volScalarField& q)
+                :
+                    DemandDrivenMeshObject
+                         <fvMesh, Foam::GeometricMeshObject, moisture>(mesh),
+                    rain(IOobject("rain", "0", mesh,
+                            IOobject::MUST_READ, IOobject::AUTO_WRITE), mesh),
+                    qsat("qsat", q)
+                {Info << "hello" << endl;}
+                virtual ~moisture(){}
+                volScalarField rain;
+                volScalarField qsat;
+        };
+
+        // Data from the code
+        const volVectorField& C = mesh().C();
+        const Time& time = mesh().time();
+        const scalarField& V = mesh().V();
+        scalarField& TSource = eqn.source();
+        const volScalarField& T = mesh().lookupObject<volScalarField>(fieldName);
+
+        moisture& moist = moisture::New(mesh(), T);
+
+        // Evaporation timescale
+        const dimensionedScalar evapTimeScale = time.deltaT(); //(dimTime, 0.001);
+        // Saturation profile
+        scalar Csat = 0.75;
+        scalar Ksat = 0.25;
+        dimensionedScalar L(dimLength, 1);
+        moist.qsat = Csat + Ksat*cos(2*pi*C.component(0)/L);
+        // Where is is supersaturated
+        volScalarField whereSuper("whereSuper", max(sign(T - moist.qsat), scalar(0)));
+        
+        eqn -= fvm::Sp(whereSuper/evapTimeScale, T);
+        TSource -= whereSuper*moist.qsat/evapTimeScale.value()*V;
+        moist.rain += whereSuper/evapTimeScale*(T - moist.qsat)*time.deltaT();
+     #};
+}
+
+// ************************************************************************* //

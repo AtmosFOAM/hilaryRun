@@ -3,6 +3,7 @@
 # Plots the number of iterations for each case
 
 inputFiles=(dt20_stdRes/nExnerpIter.dat
+            dt20_stdRes/nExnerpIter.dat
             dt40_stdRes/nExnerpIter.dat
             dt100_stdRes/nExnerpIter.dat
             dt200_stdRes/nExnerpIter.dat

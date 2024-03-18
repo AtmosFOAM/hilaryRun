@@ -23,7 +23,7 @@ boundaryField
 {
     ground
     {
-            type            codedMixed;
+        type            codedMixed;
         refValue        uniform 0;
         valueFraction   uniform 0;
         refGradient     uniform 0;

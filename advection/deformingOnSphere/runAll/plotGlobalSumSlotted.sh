@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 # Assemble bounds for different grids
-cases="slottedCylinder/QUICK_FCT_latLonPolarRotated_c1/latLon_480x240
+cases="slottedCylinder/cubic_FCT_latLonPolarRotated_c1/latLon_480x240
        slottedCylinder/QUICK_FCT_HRgrid_c1/HRgrid8"
 inputFiles=''
 

@@ -1,0 +1,22 @@
+inputFiles=(energy.dat energy.dat energy.dat energy.dat
+            energy.dat energy.dat energy.dat energy.dat)
+outFile=plots/energy.eps
+col=(2 2 3 3 4 4 5 5)
+colx=1
+legends=("KE" "  -KE" "internal" "  -internal" "PE" "  -PE" "Total" "  -Total")
+pens=("blue,solid" "blue,4_8:0" "red,solid" "red,4_8:2"
+      "green,solid" "green,4_8:4" "black,solid" "black,4_8:4")
+xlabel='Time (hours)'
+ylabel='Normalised energy change'
+xmin=0
+xmax=4.2
+dx=1
+ymin=1e-14
+ymax=1e-5
+dy=10
+xscale=/3600
+yscale=("*1" "*(-1)" "*1" "*(-1)" "*1" "*(-1)" "*1" "*(-1)")
+legPos=x1/6
+nSkip=1
+projection=X15c/10cl
+gv=0

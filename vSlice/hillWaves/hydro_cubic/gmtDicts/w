@@ -1,0 +1,33 @@
+FoamFile
+{
+    version         2.2;
+    format          ascii;
+
+    root            "";
+    case            "";
+    instance        "constant";
+    local           "";
+
+    class           dictionary;
+    object          gmtDict;
+}
+
+// How to plot
+// Compulsory inputs
+projection "X18c/6c";
+projection2D XZ;
+boundaryPatch ground;
+plotBoundaryDots false;
+
+FieldsToPlot
+(
+    [w contours 5e-4 1 5e-4 "black"]
+    [w contours -1 -5e-4 5e-4 "black,10_10:0"]
+    [w contours 0 200 100 "black,2_2:0"]
+    [Uz contours 5e-4 1 5e-4 "black"]
+    [Uz contours -1 -5e-4 5e-4 "black,10_10:0"]
+    [Uz contours 0 200 100 "black,2_2:0"]
+);
+
+region "-40e3/40e3/0/12e3";
+boundaryMarks "10e3/2e3";

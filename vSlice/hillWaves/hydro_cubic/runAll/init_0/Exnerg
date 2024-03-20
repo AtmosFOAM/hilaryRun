@@ -1,0 +1,86 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  dev                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.2;
+    format      ascii;
+    class       volScalarField;
+    location    "0";
+    object      Exnerg;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 0 0 0 0];
+
+internalField   uniform 0;
+
+boundaryField
+{
+    ground
+    {
+        type            codedMixed;
+        refValue        uniform 0;
+        valueFraction   uniform 0;
+        refGradient     uniform 0;
+        name            hydroStaticg;
+        codeInclude
+        #{
+            #include "specie.H"
+            #include "perfectGas.H"
+            #include "hConstThermo.H"
+            #include "constTransport.H"
+        #};
+        codeOptions
+        #{
+            -I$(LIB_SRC)/thermophysicalModels/specie/lnInclude
+        #};
+        codeLibs
+        #{
+        #};
+        code
+        #{
+            const dictionary& thermoProperties
+                = db().lookupObject<IOdictionary>("physicalProperties");
+
+            const constTransport<hConstThermo<perfectGas<specie> > > air
+            (
+                 thermoProperties.subDict("mixture")
+            );
+
+            const dimensionedScalar Cp("Cp", dimGasConstant, air.Cp(0,0));
+
+            const fvPatchField<scalar>& theta
+                 = patch().lookupPatchField<volScalarField, scalar>("theta");
+                 
+            const fvsPatchField<scalar>& gradTheta
+                 = patch().lookupPatchField<surfaceScalarField, scalar>("gradTheta");
+                 
+            const fvPatchField<scalar>& gh
+                 = patch().lookupPatchField<volScalarField, scalar>("gh");
+
+            this->refGrad() = gh*gradTheta/(Cp.value()*sqr(theta));
+        #};    }
+    top
+    {
+        type            hydroStaticg;
+        refValue        uniform 0;
+        valueFraction   uniform 0;
+        refGradient     uniform 0;
+    }
+    inlet
+    {
+        type            cyclic;
+    }
+    outlet
+    {
+        type            cyclic;
+    }
+}
+
+
+// ************************************************************************* //

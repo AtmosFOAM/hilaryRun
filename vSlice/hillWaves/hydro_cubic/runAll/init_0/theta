@@ -1,0 +1,89 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  dev                                   |
+|   \\  /    A nd           | Web:      www.OpenFOAM.org                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.2;
+    format      ascii;
+    class       volScalarField;
+    location    "constant";
+    object      theta_init;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+dimensions      [0 0 0 1 0 0 0];
+
+internalField   uniform 250;
+
+boundaryField
+{
+    ground
+    {
+        type            fixedValue;
+        value           uniform 250;
+        /*type            codedMixed;
+        refValue        uniform 250;
+        valueFraction   uniform 0;
+        refGradient     uniform 0;
+        name            isothermal;
+        codeInclude
+        #{
+            #include "specie.H"
+            #include "perfectGas.H"
+            #include "hConstThermo.H"
+            #include "constTransport.H"
+        #};
+        codeOptions
+        #{
+            -I$(LIB_SRC)/thermophysicalModels/specie/lnInclude
+        #};
+        codeLibs
+        #{
+        #};
+        code
+        #{
+            const dictionary& environmentalProperties
+                = db().lookupObject<IOdictionary>("environmentalProperties");
+
+            const dictionary& thermoProperties
+                = db().lookupObject<IOdictionary>("physicalProperties");
+            
+            dimensionedVector g(environmentalProperties.lookup("g"));
+
+            const constTransport<hConstThermo<perfectGas<specie> > > air
+            (
+                 thermoProperties.subDict("mixture")
+            );
+
+            const dimensionedScalar Cp("Cp", dimGasConstant, air.Cp(0,0));
+
+            const fvPatchField<scalar>& Exner
+                 = patch().lookupPatchField<volScalarField, scalar>("Exner");
+
+            this->refGrad() = -(g.value() & patch().nf())/Cp.value()
+                                /Exner.patchInternalField();
+            //this->refGrad() = 2*(g.value() & patch().nf())/Cp.value()
+            //                    /Exner.patchInternalField();
+        #};*/
+    }
+    top
+    {
+        type            fixedValue;
+        value           uniform 250;
+    }
+    inlet
+    {
+        type            cyclic;
+    }
+    outlet
+    {
+        type            cyclic;
+    }
+}
+
+
+// ************************************************************************* //

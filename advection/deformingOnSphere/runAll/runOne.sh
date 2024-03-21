@@ -57,7 +57,9 @@ elif [[ $2 == run  ]]; then
     #implicitAdvectionFoam -case $case >& log &
     echo tail -f $case/log
 elif [[ $2 < 6 ]]; then
-    reconstructPar -case $case -time $2
+    if [[ -a $case/processor0 ]]; then
+        reconstructPar -case $case -time $2
+    fi
     gmtFoam -case $case -time $2 T
     ev $2/T.pdf
 else

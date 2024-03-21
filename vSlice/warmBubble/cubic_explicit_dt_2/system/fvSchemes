@@ -22,7 +22,7 @@ FoamFile
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-SIgravityWaves true;
+SIgravityWaves false;
 
 ddtSchemes
 {
@@ -42,12 +42,12 @@ divSchemes
     CoLimitExp 1000;
     div(phi,thetap)   Gauss cubicUpwind -1 -1 rho;
     div(phi,U)        Gauss cubicUpwind -1 -1 rho;
-    div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear corrected;
+    div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear uncorrected;
 }
 
 laplacianSchemes
 {
-    default         Gauss linear corrected;
+    default         Gauss linear uncorrected;
 }
 
 interpolationSchemes
@@ -57,7 +57,7 @@ interpolationSchemes
 
 snGradSchemes
 {
-    default         corrected;
+    default         uncorrected;
 }
 
 fluxRequired

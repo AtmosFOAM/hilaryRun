@@ -1,6 +1,6 @@
-inputFiles=(ImEx_dt_2/nExnerIter.dat ImEx_dt_5/nExnerIter.dat
-            ImEx_dt_10/nExnerIter.dat ImEx_dt_20/nExnerIter.dat)
-outFile=plots/ImEx_nItersPer20.eps
+inputFiles=(cubic_ImEx_dt_2/nExnerIter.dat cubic_ImEx_dt_5/nExnerIter.dat
+            cubic_ImEx_dt_10/nExnerIter.dat cubic_ImEx_dt_20/nExnerIter.dat)
+outFile=cubicPlots/ImEx_nItersPer20.eps
 col=(2 2 2 2)
 colx=1
 legends=("@~D@~t=2 s" "@~D@~t=5 s" "@~D@~t=10 s" "@~D@~t=20 s")

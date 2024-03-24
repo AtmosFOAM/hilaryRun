@@ -1,8 +1,8 @@
-ref=explicit_dt_2
+ref=cubic_explicit_dt_2
 
-dirs="explicit_dt_5
-      implicit_dt_2 implicit_dt_5 implicit_dt_10 implicit_dt_20
-      ImEx_dt_5 ImEx_dt_10  ImEx_dt_20"
+dirs="cubic_explicit_dt_5
+      cubic_implicit_dt_2 cubic_implicit_dt_5 cubic_implicit_dt_10 cubic_implicit_dt_20
+      cubic_ImEx_dt_5 ImEx_dt_10  cubic_ImEx_dt_20"
 
 for dir in $dirs; do
     for time in $dir/[0-9]*; do
@@ -17,7 +17,7 @@ done
 inputFiles=()
 for dir in $dirs; do 
     inputFiles=(${inputFiles[*]} $dir/globalSumthetaDiff.dat); done
-outFile=plots/RMSerrors.eps
+outFile=cubicPlots/RMSerrors.eps
 col=3
 colx=1
 legends=("Explicit, @~D@~t=5 s"

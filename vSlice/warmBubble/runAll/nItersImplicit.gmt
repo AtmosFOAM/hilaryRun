@@ -1,6 +1,6 @@
-inputFiles=(implicit_dt_2/nExnerIter.dat implicit_dt_5/nExnerIter.dat
-            implicit_dt_10/nExnerIter.dat implicit_dt_20/nExnerIter.dat)
-outFile=plots/implicit_nItersPer20.eps
+inputFiles=(cubic_implicit_dt_2/nExnerIter.dat cubic_implicit_dt_5/nExnerIter.dat
+            cubic_implicit_dt_10/nExnerIter.dat cubic_implicit_dt_20/nExnerIter.dat)
+outFile=cubicPlots/implicit_nItersPer20.eps
 col=(2 2 2 2)
 colx=1
 legends=("@~D@~t=2 s" "@~D@~t=5 s" "@~D@~t=10 s" "@~D@~t=20 s")
@@ -20,4 +20,4 @@ yscale=('*10' '*4' '*2' '*1')
 legPos=x7/0.01
 nSkip=1
 projection=X12c/8c
-gv=0
+gv=1

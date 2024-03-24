@@ -1,5 +1,5 @@
-inputFiles=(implicit_dt_2/c.dat implicit_dt_5/c.dat implicit_dt_10/c.dat implicit_dt_20/c.dat)
-outFile=plots/c.eps
+inputFiles=(cubic_implicit_dt_2/c.dat cubic_implicit_dt_5/c.dat cubic_implicit_dt_10/c.dat cubic_implicit_dt_20/c.dat)
+outFile=cubicPlots/c.eps
 col=(2 2 2 2)
 colx=1
 legends=("@~D@~t=2 s" "@~D@~t=5 s" "@~D@~t=10 s" "@~D@~t=20 s")
@@ -18,4 +18,4 @@ dyg=1
 legPos=x1/6
 nSkip=1
 projection=X12c/8c
-gv=0
+gv=1

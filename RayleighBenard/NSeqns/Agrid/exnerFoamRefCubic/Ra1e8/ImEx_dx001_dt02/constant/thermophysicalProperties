@@ -30,21 +30,13 @@ pRef     100000;
 
 mixture//  air 1 28.9 1000 0 1.8e-05 0.7;
 {
-    specie
-    {
-        molWeight       83.1447;
-    }
-    thermodynamics
-    {
-        Cp              1000;
-        Hf              0;
-    }
-    transport
-    {
-        mu              1e-5;
-        Pr              1;
-    }
+    specie {molWeight 83.1447;}
+    thermodynamics{Cp 1000; Hf 0;}
+    transport {mu 1e-4; Pr 1;}
 }
+specie {molWeight 83.1447;}
+thermodynamics{Cp 1000; Hf 0;}
+transport {mu 1e-4; Pr 1;}
 
 thermoType 
 {

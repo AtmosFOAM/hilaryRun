@@ -40,8 +40,8 @@ divSchemes
 {
     default none;
     CoLimitExp 0;
-    div(phi,thetap)   Gauss cubicUpwind -1 -1 rho;
-    div(phi,U)        Gauss cubicUpwind -1 -1 rho;
+    div(phi,thetap)   Gauss cubicUpwind 2 4 rho;
+    div(phi,U)        Gauss cubicUpwind 2 4 rho;
     div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear corrected;
 }
 

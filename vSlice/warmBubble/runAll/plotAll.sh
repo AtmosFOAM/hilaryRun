@@ -1,4 +1,4 @@
-for dir in *_dt_*; do
+for dir in cubic*_dt_*; do
     echo $dir
     ./runAll/postOne.sh $dir
     ./runAll/nIters.sh $dir

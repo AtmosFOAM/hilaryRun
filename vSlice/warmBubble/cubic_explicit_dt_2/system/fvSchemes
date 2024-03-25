@@ -27,7 +27,7 @@ SIgravityWaves false;
 ddtSchemes
 {
     ocCoeff      1;
-    offCentreSafety 0;
+    offCentreSafety 0.2;
     default      none;
 }
 

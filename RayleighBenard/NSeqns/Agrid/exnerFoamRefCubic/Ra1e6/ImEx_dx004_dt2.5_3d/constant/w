@@ -9,50 +9,37 @@ FoamFile
 {
     version     2.0;
     format      ascii;
-    class       dictionary;
-    object      fvSolution;
+    class       volScalarField;
+    object      w;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-divFreeInitial false;
+dimensions      [0 1 -1 0 0 0 0];
 
-solvers
-{
-    "(rho)"
-    {
-        solver PCG;
-        preconditioner   diagonol;
-        tolerance        0;
-        relTol           0;
-    }
-    "(Exner|Exnerp)"
-    {
-        solver GAMG;
-        smoother DIC;
-        tolerance        1e-6;
-        relTol           0.01;
-    }
-    "(ExnerpFinal|ExnerFinal|)"
-    {
-        $Exner;
-        relTol           0;
-    }
-    
-    "(k|epsilon|thetap|u|v|w|U)"
-    {
-        solver          PBiCGStab;
-        preconditioner  diagonal;
-        tolerance       1e-6;
-        relTol           0;
-        maxIter          1;
-    }
-}
+internalField   uniform 0;
 
-iterations
+boundaryField
 {
-    nOuterCorrectors 2;
-    nCorrectors      2;
-    nNonOrthogonalCorrectors 0;
+    ground
+    {
+        type            fixedValue;
+        value           uniform 0;
+    }
+    top
+    {
+        type            fixedValue;
+        value           uniform 0;
+    }
+    left
+    {
+        type            cyclic;
+        value           uniform (0 0 0);
+    }
+    right
+    {
+        type            cyclic;
+        value           uniform (0 0 0);
+    }
 }
 
 // ************************************************************************* //

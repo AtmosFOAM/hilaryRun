@@ -46,6 +46,16 @@ boundaryField
         type            empty;
         value           uniform 0;
     }
+    front
+    {
+        type            cyclic;
+        value           uniform 0;
+    }
+    back
+    {
+        type            cyclic;
+        value           uniform 0;
+    }
 }
 
 

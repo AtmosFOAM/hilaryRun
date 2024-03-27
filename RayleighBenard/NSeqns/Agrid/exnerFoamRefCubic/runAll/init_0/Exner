@@ -41,6 +41,14 @@ boundaryField
     {
         type            cyclic;
     }
+    front
+    {
+        type            cyclic;
+    }
+    back
+    {
+        type            cyclic;
+    }
 }
 
 

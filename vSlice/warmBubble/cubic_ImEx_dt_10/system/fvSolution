@@ -38,7 +38,7 @@ solvers
         relTol           0;
     }
     
-    "(k|epsilon|U|u|w|thetap)"
+    "(k|epsilon|U|u|v|w|thetap)"
     {
         solver          PBiCGStab;
         preconditioner  DILU;

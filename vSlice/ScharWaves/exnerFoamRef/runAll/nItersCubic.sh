@@ -10,7 +10,7 @@ inputFiles=(cubic_dt_8/nExnerpIter.dat
 outFile=plots/nItersCubic.eps
 col=(2 2 2 2 2)
 colx=1
-legends=("@~D@~t = 8" "@~D@~t = 40" "@~D@~t = 120" "@~D@~t = 240" "@~D@~t = 400")
+legends=("@~D@~t = 8 s" "@~D@~t = 40 s" "@~D@~t = 120 s" "@~D@~t = 240 s" "@~D@~t = 400 s")
 pens=("black"  "blue,5_5:"  "1,red,1_2:" "1,cyan,4_8:2" "1,magenta,4_8_1_8:3" "green")
 xlabel='Time (s)'
 ylabel='Total pressure solver iterations'

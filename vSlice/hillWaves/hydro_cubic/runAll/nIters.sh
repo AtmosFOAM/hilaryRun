@@ -11,7 +11,7 @@ inputFiles=(dt20_stdRes/nExnerpIter.dat
 outFile=plots/nIters.eps
 col=(2 2 2 2 2 2)
 colx=1
-legends=("@~D@~t = 20" "@~D@~t = 40" "@~D@~t = 100" "@~D@~t = 200" "@~D@~t = 500" "@~D@~t = 1000")
+legends=("@~D@~t = 20 s" "@~D@~t = 40 s" "@~D@~t = 100 s" "@~D@~t = 200 s" "@~D@~t = 500 s" "@~D@~t = 1000 s")
 pens=("black"  "green"  "blue,5_5:"  "1,red,1_2:" "1,cyan,4_8:2" "1,magenta,4_8_1_8:3")
 xlabel='Time (s)'
 ylabel='Total pressure solver iterations'
@@ -25,7 +25,7 @@ dy=100
 ddy=$dy
 dyg=$dy
 yscale=*1
-legPos=x9/5
+legPos=x8.5/5
 nSkip=1
 projection=X12c/8c
 gv=0

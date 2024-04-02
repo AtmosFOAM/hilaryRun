@@ -11,7 +11,7 @@ case=$1
 # clear out old stuff
 rm -rf $case/[0-9]* $case/constant/polyMesh core $case/core $case/log \
     $case/processor* $case/dynamicCode $case/*.dat $case/constant/Exnera \
-    $case/constant/thetaa $case/constant/u $case/constant/w
+    $case/constant/thetaa $case/constant/[u-w]
 
 # create mesh
 blockMesh -case $case
@@ -22,7 +22,7 @@ mkdir $case/0
 cp -r $case/../runAll/init_0/* $case/0
 setTracerField -case $case -name Exnera -tracerDict ExnerDict
 setTracerField -case $case -name thetap -tracerDict thetaDict
-mv $case/0/Exnera $case/0/thetaa $case/0/u $case/0/w $case/constant
+mv $case/0/Exnera $case/0/thetaa $case/0/[u-w] $case/constant
 rm $case/0/Exneraf
 
 # Run the case

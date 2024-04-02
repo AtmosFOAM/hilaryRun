@@ -10,7 +10,7 @@ case=$1
 
 # Post process
 if [ -a $case/processor0 ]; then
-    reconstructPar -case $case -latestTime
+    reconstructPar -case $case
 fi
 
 postProcess -case $case -latestTime -func CourantNoU

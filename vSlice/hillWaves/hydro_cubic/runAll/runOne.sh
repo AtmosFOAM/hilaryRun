@@ -23,7 +23,7 @@ cp -r $case/../runAll/init_0 $case/0
 setIsothermalBalance -case $case
 mv $case/0/Exner $case/constant/Exnera
 mv $case/0/theta $case/constant/thetaa
-mv $case/0/u $case/0/w $case/constant
+mv $case/0/[u-w] $case/constant
 rm $case/0/P $case/0/Uf $case/0/lnExner $case/0/muSponge $case/0/Exnerg
 
 # setup for parallel run

@@ -38,7 +38,7 @@ solvers
         relTol           0;
     }
     
-    "(k|epsilon|thetap|u|w|U)"
+    "(k|epsilon|thetap|u|v|w|U)"
     {
         solver          PBiCGStab;
         preconditioner  diagonal;

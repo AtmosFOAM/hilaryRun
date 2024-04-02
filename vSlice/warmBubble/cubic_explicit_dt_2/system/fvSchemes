@@ -22,12 +22,12 @@ FoamFile
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-SIgravityWaves false;
+SIgravityWaves true;
 
 ddtSchemes
 {
     ocCoeff      1;
-    offCentreSafety 0.2;
+    offCentreSafety 0;
     default      none;
 }
 

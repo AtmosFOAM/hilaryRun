@@ -2,7 +2,7 @@ ref=cubic_explicit_dt_2
 
 dirs="cubic_explicit_dt_5
       cubic_implicit_dt_2 cubic_implicit_dt_5 cubic_implicit_dt_10 cubic_implicit_dt_20
-      cubic_ImEx_dt_5 ImEx_dt_10  cubic_ImEx_dt_20"
+      cubic_ImEx_dt_5 cubic_ImEx_dt_10  cubic_ImEx_dt_20"
 
 for dir in $dirs; do
     for time in $dir/[0-9]*; do

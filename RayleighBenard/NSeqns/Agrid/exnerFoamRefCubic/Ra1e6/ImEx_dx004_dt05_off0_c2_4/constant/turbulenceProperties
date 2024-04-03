@@ -9,39 +9,25 @@ FoamFile
 {
     version     2.0;
     format      ascii;
-    class       volScalarField;
+    class       dictionary;
     location    "constant";
-    object      Exnerp;
+    object      turbulenceProperties;
 }
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-dimensions      [0 0 0 0 0 0 0];
+simulationType  laminar;
 
-internalField   uniform 1;
-
-boundaryField
+laminar
 {
-    ground
-    {
-        type            fixedFluxBuoyantExner;
-        gradient        uniform 0;
-        value           uniform 1;
-    }
-    top
-    {
-        type            fixedFluxBuoyantExner;
-        gradient        uniform 0;
-        value           uniform 1;
-    }
-    left
-    {
-        type            cyclic;
-    }
-    right
-    {
-        type            cyclic;
-    }
+    laminarModel Stokes;
 }
+
+/*RAS
+{
+    RASModel        buoyantKEpsilon;
+    turbulence      on;
+    printCoeffs     on;
+}*/
 
 
 // ************************************************************************* //

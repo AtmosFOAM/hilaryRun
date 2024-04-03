@@ -64,7 +64,6 @@ fluxRequired
 {
     default         no;
     Exnerp;
-    P;
 }
 
 

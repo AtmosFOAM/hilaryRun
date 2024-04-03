@@ -2,18 +2,18 @@
 
 # Nusselt number for RB convection - comparison between simulations
 
-inputFiles=(Ra1e6/implicit_dx002_dt05/Nusselt.dat
-            Ra1e6/implicit_dx002_dt1/Nusselt.dat
-            Ra1e6/implicit_dx002_dt2.5/Nusselt.dat
+inputFiles=(Ra1e6/implicit_dx002_dt05_off0_c2_4/Nusselt.dat
+            Ra1e6/implicit_dx002_dt1_off0_c2_4/Nusselt.dat
+            Ra1e6/implicit_dx002_dt2.5_off0_c2_4/Nusselt.dat
             
             Ra1e6/explicit_dx002_dt01/Nusselt.dat
             Ra1e6/explicit_dx002_dt02/Nusselt.dat
             
-            Ra1e6/ImEx_dx002_dt02/Nusselt.dat
-            Ra1e6/ImEx_dx002_dt05/Nusselt.dat
-            Ra1e6/ImEx_dx002_dt1/Nusselt.dat
-            Ra1e6/ImEx_dx002_dt1_3d/Nusselt.dat
-            Ra1e6/ImEx_dx002_dt2.5/Nusselt.dat)
+            Ra1e6/ImEx_dx002_dt02_off0_c2_4/Nusselt.dat
+            Ra1e6/ImEx_dx002_dt05_off0_c2_4/Nusselt.dat
+            Ra1e6/ImEx_dx002_dt1_off0_c2_4/Nusselt.dat
+            Ra1e6/ImEx_dx002_dt1_3d_off0_c2_4/Nusselt.dat
+            Ra1e6/ImEx_dx002_dt2.5_off0_c2_4/Nusselt.dat)
 outFile=Ra1e6/plots/compareNusseltMid.eps
 legends=("Implicit, @~D@~t = 0.5"
          "Implicit, @~D@~t = 1"

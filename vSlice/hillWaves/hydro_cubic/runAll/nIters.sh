@@ -2,12 +2,12 @@
 
 # Plots the number of iterations for each case
 
-inputFiles=(dt20_stdRes/nExnerpIter.dat
-            dt40_stdRes/nExnerpIter.dat
-            dt100_stdRes/nExnerpIter.dat
-            dt200_stdRes/nExnerpIter.dat
-            dt500_stdRes/nExnerpIter.dat
-            dt1000_stdRes/nExnerpIter.dat)
+inputFiles=(dt20_off0_c2_4/nExnerpIter.dat
+            dt40_off0_c2_4/nExnerpIter.dat
+            dt100_off0_c2_4/nExnerpIter.dat
+            dt200_off0_c2_4/nExnerpIter.dat
+            dt500_off0_c2_4/nExnerpIter.dat
+            dt1000_off0_c2_4/nExnerpIter.dat)
 outFile=plots/nIters.eps
 col=(2 2 2 2 2 2)
 colx=1

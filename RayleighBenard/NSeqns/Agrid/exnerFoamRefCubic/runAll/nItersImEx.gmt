@@ -1,8 +1,8 @@
-inputFiles=(Ra1e6/ImEx_dx002_dt02/nExnerIter.dat
-            Ra1e6/ImEx_dx002_dt05/nExnerIter.dat
-            Ra1e6/ImEx_dx002_dt1/nExnerIter.dat
-            Ra1e6/ImEx_dx002_dt1_3d/nExnerIter.dat
-            Ra1e6/ImEx_dx002_dt2.5/nExnerIter.dat)
+inputFiles=(Ra1e6/ImEx_dx002_dt02_off0_c2_4/nExnerIter.dat
+            Ra1e6/ImEx_dx002_dt05_off0_c2_4/nExnerIter.dat
+            Ra1e6/ImEx_dx002_dt1_off0_c2_4/nExnerIter.dat
+            Ra1e6/ImEx_dx002_dt1_3d_off0_c2_4/nExnerIter.dat
+            Ra1e6/ImEx_dx002_dt2.5_off0_c2_4/nExnerIter.dat)
 outFile=plots/ImEx_nIters.eps
 col=(2 2 2 2 2)
 colx=1

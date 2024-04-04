@@ -2,14 +2,14 @@
 
 # Assemble l2 error norms as a function of resolution for different grids
 cases="fullDeformation/cubic_latLonPolarRotated_c1
+       fullDeformation/cubic_latLonPolarRotated_c1_c2_4
        fullDeformation/cubic_latLonSkipped_c1
        fullDeformation/cubic_cubedSphere_c1
-       fullDeformation/QUICK_HRgrid_c1
-       fullDeformation/QUICK_HRgrid_c2"
+       fullDeformation/cubic_HRgrid_c1"
 inputFiles=()
 
-legends=("rotated lat-lon, c~1, c<70"  "skipped lat-lon, c~1"
-         "cubed sphere, c~1"  "hexagonal, c~1" "hexagonal, c~2" 
+legends=("rotated lat-lon, c~1, c<70" "same but @~g@~<=1"  "skipped lat-lon, c~1"
+         "cubed sphere, c~1"  "hexagonal, c~1"
           "1st/2nd order")
 
 for case in $cases; do
@@ -43,9 +43,9 @@ inputFiles=(${inputFiles[*]}
 outFile=plots/l2errorCubic.eps
 col=(3 3 3 3 3 2 3)
 colx=(1 1 1 1 1 1 1 1)
-pens=("1p,blue" "1p,red"  "1p,black" "1p,green" "1p,darkgreen,4_4:0"
+pens=("1p,blue" "1p,cyan" "1p,red"  "1p,black" "1p,green" 
      "0.5p,black,1_2:0"  "0.5p,black,1_2:0")
-symbols=('c10p' 'x14p'  's10p' 'h10p' 'h10p'
+symbols=('c10p' 'c7p' 'x14p'  's10p' 'h10p' 
          'x1p' 'x1p')
 
 xlabel='@~D@~x (degrees)'

@@ -26,9 +26,9 @@ mv $case/0/Exnera $case/0/thetaa $case/0/u $case/0/v $case/0/w $case/constant
 postProcess -case $case -func randomise -time 0
 mv $case/0/'randomise(thetap)' $case/0/thetap
 
-#decomposePar -case $case -constant
+decomposePar -case $case -constant
 
 # Solve NS equations
-#mpirun -np 4 --use-hwthread-cpus exnerFoamRef -case $case -parallel >& $case/log &
-exnerFoamRef -case $case >& $case/log &
+mpirun -np 4 --use-hwthread-cpus exnerFoamRef -case $case -parallel >& $case/log &
+#exnerFoamRef -case $case >& $case/log &
 echo tail -f $case/log

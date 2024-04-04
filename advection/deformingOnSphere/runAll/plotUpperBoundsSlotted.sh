@@ -2,7 +2,7 @@
 
 # Assemble bounds for different grids
 cases="slottedCylinder/cubic_FCT_latLonPolarRotated_c1/latLon_480x240
-       slottedCylinder/QUICK_FCT_HRgrid_c1/HRgrid8"
+       slottedCylinder/cubic_FCT_HRgrid_c1/HRgrid8"
 inputFiles=''
 
 for case in $cases; do

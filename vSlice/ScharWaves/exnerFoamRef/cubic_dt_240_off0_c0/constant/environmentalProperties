@@ -17,36 +17,24 @@ FoamFile
     local           "";
 
     class           dictionary;
-    object          thermophysicalProperties;
+    object          environmentalProperties;
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-Boussinesq    false;
-hydrostatic   false;
+g               g [0 1 -2 0 0 0 0] (0 0 -9.81);
+Omega           Omega [0 0 -1 0 0 0 0] (0 0 0);
 
-Tref       1000;
-pRef     100000;
+// Sponge layer coefficients
+// MDW+10 uses mu dt = 1.2 for dt=8 and dt = 40. For dt = 40, mu=0.03
+// For dt = 8, mu = 0.15
+type sinusoidal;
+a_z 0.015;
+b_z -0.015;
+L_z 10e3;
+phi_z 20e3;
+k_z 0.5;
+zmin 20e3;
 
-mixture//  air 1 28.9 1000 0 1.8e-05 0.7;
-{
-    specie {molWeight 83.1447;}
-    thermodynamics{Cp 1000; Hf 0;}
-    transport {mu 1e-5; Pr 1;}
-}
-specie {molWeight 83.1447;}
-thermodynamics{Cp 1000; Hf 0;}
-transport {mu 1e-5; Pr 1;}
-
-thermoType 
-{
-    type            heRhoThermo;
-    mixture         pureMixture;
-    transport       const;
-    thermo          hConst;
-    equationOfState perfectGas;
-    specie          specie;
-    energy          sensibleEnthalpy;
-}
 
 // ************************************************************************* //

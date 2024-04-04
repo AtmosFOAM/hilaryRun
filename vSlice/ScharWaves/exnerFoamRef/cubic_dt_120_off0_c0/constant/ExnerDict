@@ -17,36 +17,17 @@ FoamFile
     local           "";
 
     class           dictionary;
-    object          thermophysicalProperties;
+    object          thetaDict;
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-Boussinesq    false;
-hydrostatic   false;
-
-Tref       1000;
-pRef     100000;
-
-mixture//  air 1 28.9 1000 0 1.8e-05 0.7;
-{
-    specie {molWeight 83.1447;}
-    thermodynamics{Cp 1000; Hf 0;}
-    transport {mu 1e-5; Pr 1;}
-}
-specie {molWeight 83.1447;}
-thermodynamics{Cp 1000; Hf 0;}
-transport {mu 1e-5; Pr 1;}
-
-thermoType 
-{
-    type            heRhoThermo;
-    mixture         pureMixture;
-    transport       const;
-    thermo          hConst;
-    equationOfState perfectGas;
-    specie          specie;
-    energy          sensibleEnthalpy;
-}
+// constants for initialising theta with setTracerField
+type exponentialWithHeight;
+spherical false;
+z0 0;
+tracerAtz0 3.324907;      //g^2/(cp N^2 theta0)
+scaleHeight   9.81e4;    // -g/N^2, N = 0.01/s
+offset        -2.324907;  // 1 - 3.324907
 
 // ************************************************************************* //

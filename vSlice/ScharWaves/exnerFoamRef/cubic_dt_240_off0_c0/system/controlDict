@@ -17,36 +17,48 @@ FoamFile
     local           "";
 
     class           dictionary;
-    object          thermophysicalProperties;
+    object          controlDict;
 }
 
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
-Boussinesq    false;
-hydrostatic   false;
+application buoyantFoam;
 
-Tref       1000;
-pRef     100000;
+startFrom       startTime;
+//startFrom       latestTime;
 
-mixture//  air 1 28.9 1000 0 1.8e-05 0.7;
-{
-    specie {molWeight 83.1447;}
-    thermodynamics{Cp 1000; Hf 0;}
-    transport {mu 1e-5; Pr 1;}
-}
-specie {molWeight 83.1447;}
-thermodynamics{Cp 1000; Hf 0;}
-transport {mu 1e-5; Pr 1;}
+startTime       0;
 
-thermoType 
-{
-    type            heRhoThermo;
-    mixture         pureMixture;
-    transport       const;
-    thermo          hConst;
-    equationOfState perfectGas;
-    specie          specie;
-    energy          sensibleEnthalpy;
-}
+stopAt          endTime;
+
+endTime         18000;
+
+deltaT          240;
+
+writeControl    runTime;
+
+writeInterval   3600;
+
+purgeWrite      0;
+
+writeFormat     binary;
+
+writePrecision  6;
+
+writeCompression uncompressed;
+
+timeFormat      general;
+
+timePrecision   6;
+
+runTimeModifiable no;
+
+adjustTimeStep no;
+maxCo          1;
+
+libs
+(
+    "libfiniteVolumeAtmosFOAM.so"
+);
 
 // ************************************************************************* //

@@ -8,7 +8,7 @@ cases="fullDeformation/cubic_latLonPolarRotated_c1
        fullDeformation/cubic_HRgrid_c1"
 inputFiles=()
 
-legends=("rotated lat-lon, c~1, c<70" "same but @~g@~<=1"  "skipped lat-lon, c~1"
+legends=("rotated lat-lon, c~1, c<70" "same but @~g@~ <= 1"  "skipped lat-lon, c~1"
          "cubed sphere, c~1"  "hexagonal, c~1"
           "1st/2nd order")
 

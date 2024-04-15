@@ -16,7 +16,7 @@ done
 outFile=plots/slottedTmax.eps
 col=3
 colx=1
-pens=("black" "grey")
+pens=("1,black" "1,grey")
 legends=("lat-lon, c<35" "hexagonal, c<1.02")
 
 xlabel='time'

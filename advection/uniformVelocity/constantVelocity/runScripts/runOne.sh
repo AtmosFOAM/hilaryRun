@@ -48,8 +48,8 @@ if [[ -e $case/1 ]]; then
     # Plot and calculate error norms
     T=1
     sumFields -case $case $T Terror $T T 0 T -scale1 -1
-    gmtFoam -case $case -time $T Terror
-    ev $case/$T/Terror.pdf
+    #gmtFoam -case $case -time $T Terror
+    #ev $case/$T/Terror.pdf
     globalSum -case $case -time $T T
     globalSum -case $case -time $T Terror
     echo "#Time l1 l2 linf normMass normVar" > $case/errorNorms.dat

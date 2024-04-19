@@ -17,9 +17,10 @@ plotBoundaryDots false;
 
 FieldsToPlot
 (
-    [T rawValues -1.025 1.025 0.05 "$GMTU/colours/red_white_blue.cpt"]
+    [T contours 0.05  1.05   0.1 "1,black"]
+    [T0 contours 0.05 1.05 0.1 "1,black,5_5:0"]
 );
 
 //region "0e3/450e3/0/30e3";
 //boundaryMarks "100e3/10e3WSen";
-separateLegend false;
+//separateLegend false;

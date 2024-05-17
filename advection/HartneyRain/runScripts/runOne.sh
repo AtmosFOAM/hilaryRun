@@ -6,7 +6,7 @@ then
    exit
 fi
 
-case=$1
+export case=$1
 
 # Resolutions:
 # n=20, dt = 0.02
@@ -20,7 +20,8 @@ if [[ ! -e $case ]]; then
     ln -s ../../runScripts/system/fvSchemes $case/system/fvSchemes
     ln -s ../../runScripts/system/fvSolution $case/system/fvSolution
     cp runScripts/system/*Dict $case/system
-    cp -r runScripts/constant/T* runScripts/constant/gmtDicts $case/constant
+    cp -r runScripts/constant/T* runScripts/constant/rain \
+         runScripts/constant/gmtDicts $case/constant
     ln -s ../../runScripts/constant/fvModels $case/constant/fvModels
     ln -s ../../runScripts/constant/tracerFieldDict $case/constant/tracerFieldDict
     ln -s ../../runScripts/constant/velocityFieldDict \
@@ -35,7 +36,8 @@ if [[ ! -e $case/0 ]]; then
     mkdir $case/0
     setTracerField -case $case
     setVelocityField -case $case
-    mv $case/0/T_analytic $case/0/T
+    cp $case/0/T_analytic $case/0/T
+    cp $case/constant/rain $case/0
     #gmtFoam -case $case -time 0 T
     #ev $case/0/T.pdf
 fi
@@ -45,18 +47,15 @@ if [[ ! -e $case/1 ]]; then
     RKImExAdvectionFoam -case $case |& tee $case/log
 fi
 
-exit
 if [[ -e $case/1 ]]; then
-    # Plot and calculate error norms
-    T=1
-    sumFields -case $case $T Terror $T T 0 T -scale1 -1
-    #gmtFoam -case $case -time $T Terror
-    #ev $case/$T/Terror.pdf
-    globalSum -case $case -time $T T
-    globalSum -case $case -time $T Terror
-    echo "#Time l1 l2 linf normMass normVar" > $case/errorNorms.dat
-    paste $case/globalSumTerror.dat $case/globalSumT.dat | tail -1 | \
-        awk '{print $1, $2/$10, $3/$11, $4/$12, $5/$13, $6/$11}' \
-        >> $case/errorNorms.dat
-    cat $case/errorNorms.dat
+    for t in 1; do
+        export t=$t
+        # Plot the vapour and the rain
+        for var in rain qsat T; do
+            writeCellDataxyz -case $case -time $t $var
+        done
+        gmtPlot $case/../runScripts/rain.gmt
+        ev $case/$t/rain.eps
+    done
+    #eps2gif $case/rain.gif $case/0/rain.eps $case/0.*/rain.eps $case/1/rain.eps
 fi

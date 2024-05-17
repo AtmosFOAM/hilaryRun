@@ -21,11 +21,19 @@ codedSource
     field           T;
     name            HartneyRain;
 
+    codeOptions
+    #{
+        -I$(ATMOSFOAM_SRC)/finiteVolume/lnInclude
+    #};
+
     codeInclude
     #{
         using namespace Foam;
         #include "fvmSup.H"
         #include "DemandDrivenMeshObject.H"
+        #include "fvcVolumeIntegrate.H"
+        #include "RKfield.H"
+        #include "butcherTableau.H"
         using namespace Foam::constant::mathematical;
     #};
 
@@ -35,18 +43,22 @@ codedSource
                         <fvMesh, GeometricMeshObject, moisture>
         {
             public:
-                //TypeName("moisture");
+                volScalarField rain;
+                volScalarField qsat;
+                const dimensionedScalar waterSum0;
+
                 explicit moisture(const fvMesh& mesh, const volScalarField& q)
                 :
                     DemandDrivenMeshObject
                          <fvMesh, Foam::GeometricMeshObject, moisture>(mesh),
                     rain(IOobject("rain", "0", mesh,
                             IOobject::MUST_READ, IOobject::AUTO_WRITE), mesh),
-                    qsat("qsat", q)
-                {Info << "hello" << endl;}
+                    qsat(IOobject("qsat", "0", mesh,
+                            IOobject::NO_READ, IOobject::AUTO_WRITE), q),
+                    waterSum0(fvc::domainIntegrate(q+rain))
+                {rain.oldTime();}
+                
                 virtual ~moisture(){}
-                volScalarField rain;
-                volScalarField qsat;
         };
 
         // Data from the code
@@ -55,22 +67,42 @@ codedSource
         const scalarField& V = mesh().V();
         scalarField& TSource = eqn.source();
         const volScalarField& T = mesh().lookupObject<volScalarField>(fieldName);
+        const RKfield<scalar, fvPatchField, volMesh>& Ts
+             = mesh().lookupObject<RKfield<scalar, fvPatchField, volMesh>>
+        (fieldName+"s");
+        const label iRK = Ts.iRK();
+        const butcherTableau& BT = Ts.BT();
 
         moisture& moist = moisture::New(mesh(), T);
 
         // Evaporation timescale
-        const dimensionedScalar evapTimeScale = time.deltaT(); //(dimTime, 0.001);
+        const dimensionedScalar evapTimeScale = time.deltaT();
         // Saturation profile
         scalar Csat = 0.75;
         scalar Ksat = 0.25;
         dimensionedScalar L(dimLength, 1);
         moist.qsat = Csat + Ksat*cos(2*pi*C.component(0)/L);
         // Where is is supersaturated
-        volScalarField whereSuper("whereSuper", max(sign(T - moist.qsat), scalar(0)));
+        const volScalarField& T0 = iRK > 0? Ts[iRK-1] : T.oldTime();
+        volScalarField whereSuper("whereSuper", max(sign(T0 - moist.qsat),scalar(0)));
         
-        eqn -= fvm::Sp(whereSuper/evapTimeScale, T);
-        TSource -= whereSuper*moist.qsat/evapTimeScale.value()*V;
-        moist.rain += whereSuper/evapTimeScale*(T - moist.qsat)*time.deltaT();
+        eqn -= fvm::Sp(BT.subTimes()[iRK]*whereSuper/evapTimeScale, T);
+        TSource -= BT.subTimes()[iRK]*whereSuper*moist.qsat/evapTimeScale.value()*V;
+        //TSource += BT.subTimes()[iRK]*whereSuper*(T-moist.qsat)/evapTimeScale.value()*V;
+        volScalarField r = BT.subTimes()[iRK]*time.deltaT()*whereSuper/evapTimeScale
+                            *(T - moist.qsat);
+        moist.rain = moist.rain.oldTime() + r;
+        
+        /*dimensionedScalar waterSum = fvc::domainIntegrate(T + moist.rain);
+        Info << "BT.subTimes()[" << iRK << "] = " << BT.subTimes()[iRK]
+             << " waterSum = " << waterSum.value() << " normalised error = "
+             << ((waterSum - moist.waterSum0)/moist.waterSum0).value() << endl;
+        */
+        if (time.timeName() == "0")
+        {
+            moist.qsat.write();
+            moist.rain.write();
+        }
      #};
 }
 

@@ -17,4 +17,4 @@ FoamFile
 
 timeVaryingWind false;
 type uniform;
-velocity (1 1 0);
+velocity (1 0 0);

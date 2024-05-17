@@ -22,8 +22,9 @@ solvers
     {
         solver          PBiCGStab;
         preconditioner  DILU;
-        tolerance       1e-6;
+        tolerance       1e-16;
         relTol          0;
+        maxIter         2;
     }
 }
 

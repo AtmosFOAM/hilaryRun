@@ -1,0 +1,130 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+  =========                 |
+  \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox
+   \\    /   O peration     | Website:  https://openfoam.org
+    \\  /    A nd           | Version:  10
+     \\/     M anipulation  |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    format      ascii;
+    class       dictionary;
+    location    "constant";
+    object      fvModels;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+XSource
+{
+    type            coded;
+    selectionMode   all;
+    field           X;
+    name            terminatorChemistry;
+
+    codeOptions
+    #{
+        -I$(ATMOSFOAM_SRC)/finiteVolume/lnInclude
+    #};
+
+    codeInclude
+    #{
+        using namespace Foam;
+        #include "fvmSup.H"
+        #include "DemandDrivenMeshObject.H"
+        #include "fvcVolumeIntegrate.H"
+        //#include "RKfield.H"
+        //#include "butcherTableau.H"
+    #};
+
+    codeAddSup
+    #{
+        class terminatorChemistry: public DemandDrivenMeshObject
+                        <fvMesh, GeometricMeshObject, terminatorChemistry>
+        {
+            public:
+                volScalarField k1;
+
+                explicit terminatorChemistry(const fvMesh& mesh)
+                :
+                    DemandDrivenMeshObject
+                <fvMesh, Foam::GeometricMeshObject, terminatorChemistry>(mesh),
+                    k1(IOobject("k1", "constant", mesh,
+                            IOobject::MUST_READ, IOobject::NO_WRITE), mesh)
+                {}
+                
+                virtual ~terminatorChemistry(){}
+        };
+
+        // Data from the code
+        //const volVectorField& C = mesh().C();
+        //const Time& time = mesh().time();
+        const scalarField& V = mesh().V();
+        scalarField& TSource = eqn.source();
+        const volScalarField& X = mesh().lookupObject<volScalarField>("X");
+        const volScalarField& X1 = mesh().lookupObject<volScalarField>("X1");
+
+        terminatorChemistry& tc = terminatorChemistry::New(mesh());
+        const dimensionedScalar k2(tc.k1.dimensions(), scalar(1));
+
+        TSource -= 1e3*(tc.k1*X1 - 2*k2*sqr(X))*V;
+     #};
+}
+
+X1Source
+{
+    type            coded;
+    selectionMode   all;
+    field           X1;
+    name            terminatorChemistry1;
+
+    codeOptions
+    #{
+        -I$(ATMOSFOAM_SRC)/finiteVolume/lnInclude
+    #};
+
+    codeInclude
+    #{
+        using namespace Foam;
+        #include "fvmSup.H"
+        #include "DemandDrivenMeshObject.H"
+        #include "fvcVolumeIntegrate.H"
+        //#include "RKfield.H"
+        //#include "butcherTableau.H"
+    #};
+
+    codeAddSup
+    #{
+        class terminatorChemistry: public DemandDrivenMeshObject
+                        <fvMesh, GeometricMeshObject, terminatorChemistry>
+        {
+            public:
+                volScalarField k1;
+
+                explicit terminatorChemistry(const fvMesh& mesh)
+                :
+                    DemandDrivenMeshObject
+                <fvMesh, Foam::GeometricMeshObject, terminatorChemistry>(mesh),
+                    k1(IOobject("k1", "constant", mesh,
+                            IOobject::MUST_READ, IOobject::NO_WRITE), mesh)
+                {}
+                
+                virtual ~terminatorChemistry(){}
+        };
+
+        // Data from the code
+        //const volVectorField& C = mesh().C();
+        //const Time& time = mesh().time();
+        const scalarField& V = mesh().V();
+        scalarField& TSource = eqn.source();
+        const volScalarField& X = mesh().lookupObject<volScalarField>("X");
+        const volScalarField& X1 = mesh().lookupObject<volScalarField>("X1");
+
+        terminatorChemistry& tc = terminatorChemistry::New(mesh());
+        const dimensionedScalar k2(tc.k1.dimensions(), scalar(1));
+
+        eqn -= fvm::Sp(1e3*tc.k1, X1);
+        TSource -= 1e3*2*k2*sqr(X)*V;
+     #};
+}
+
+// ************************************************************************* //

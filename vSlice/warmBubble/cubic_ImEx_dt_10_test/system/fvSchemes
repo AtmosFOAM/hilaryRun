@@ -1,0 +1,71 @@
+/*---------------------------------------------------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  1.4                                   |
+|   \\  /    A nd           | Web:      http://www.openfoam.org               |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version         2.0;
+    format          ascii;
+
+    root            "";
+    case            "";
+    instance        "";
+    local           "";
+
+    class           dictionary;
+    object          fvSchemes;
+}
+
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+SIgravityWaves true;
+
+ddtSchemes
+{
+    ocCoeff      1;
+    offCentreSafety 0;
+    default      none;
+}
+
+gradSchemes
+{
+    default      Gauss linear;
+}
+
+divSchemes
+{
+    default none;
+    CoLimitExp 0.8;
+    div(phi,thetap)   Gauss cubicUpwind 2 4 rho;
+    div(phi,U)        Gauss cubicUpwind 2 4 rho;
+    div(((rho*nuEff)*dev2(T(grad(U))))) Gauss linear uncorrected;
+}
+
+laplacianSchemes
+{
+    default         Gauss linear uncorrected;
+}
+
+interpolationSchemes
+{
+    default        linear;
+}
+
+snGradSchemes
+{
+    default         uncorrected;
+}
+
+fluxRequired
+{
+    default         no;
+    Exnerp;
+    thetap;
+}
+
+
+// ************************************************************************* //

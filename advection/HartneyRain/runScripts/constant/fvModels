@@ -93,11 +93,11 @@ codedSource
                             *(T - moist.qsat);
         moist.rain = moist.rain.oldTime() + r;
         
-        /*dimensionedScalar waterSum = fvc::domainIntegrate(T + moist.rain);
+        dimensionedScalar waterSum = fvc::domainIntegrate(T + moist.rain);
         Info << "BT.subTimes()[" << iRK << "] = " << BT.subTimes()[iRK]
              << " waterSum = " << waterSum.value() << " normalised error = "
              << ((waterSum - moist.waterSum0)/moist.waterSum0).value() << endl;
-        */
+        
         if (time.timeName() == "0")
         {
             moist.qsat.write();

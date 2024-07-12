@@ -15,7 +15,7 @@ case=$1
 action=$2
 shift 2
 
-exe=implicitAdvectionFoam
+exe=RKImExAdvectionFoam
 while getopts "e:" opt || :; do
     case $opt in
         e) exe=$OPTARG; break ;;
@@ -60,8 +60,11 @@ if [[ $action == init  ]]; then
     # Initial conditions
     rm -rf $case/0
     cp -r $case/init_0 $case/0
-    setTracers -case $case -name T
+    setTerminator -case $case
+    mv $case/0/Xsum $case/0/Tsum
     setVelocityField -case $case
+    gmtFoam -case $case -time constant k1
+    evince $case/constant/k1.pdf &
 
 elif [[ $action == run  ]]; then
     rm -rf 0.* [1-9]* processor*/[0-9]*
@@ -75,42 +78,10 @@ elif [[ $action < 6 ]]; then
     if [[ -a $case/processor0 ]]; then
         reconstructPar -case $case -time $action
     fi
-    gmtFoam -case $case -time $action T
-    ev $action/T.pdf
-else
-    if [[ -a $case/processor0 ]]; then
-        rm -rf $case/2.5 $case/5
-        reconstructPar -case $case
-        rm -r $case/processor*
-    fi
-    #Find max dx for this grid
-    if [[ ! -a $case/maxDx.dat ]]; then
-        cellCentreDistances -case $case \
-            | awk '{if (NF==1 && $1==$1+0) print $1*180/3.14159}' \
-            | sort -nr | head -1 > $case/maxDx.dat
-    fi
-    #finalTime=`ls -1d $case/[0-9]* | sort -n | tail -n 1`
-    #midTime=`ls -1d $case/[0-9]* | sort -n | tail -n 6 | head -1`
-    #if [[ $finalTime != $case/5 ]]; then mv $finalTime $case/5; fi
-    #if [[ $midTime != $case/2.5 ]]; then mv $midTime $case/2.5; fi
-    $case/../../../runAll/plotBoundsOne.sh $case
-    ev $case/TminMax.eps
-    #gmtFoam -case $case -time 5 T
-    #gmtFoam -case $case -time 2.5 T
-    #ev $case/5/T.pdf &
-    #ev $case/2.5/T.pdf &
-    # Errors from initial conditions
-    sumFields -case $case 5 Terror 5 T 0 T -scale1 -1
-    globalSum -case $case T -time 0
-    mv $case/globalSumT.dat $case/globalSumT0.dat
-    globalSum -case $case T -time 5
-    globalSum -case $case Terror -time 5
-
-    echo '#l1 l2 linf mean var min max' > $case/errorNorms.dat
-    paste $case/globalSumTerror.dat $case/globalSumT0.dat \
-          $case/globalSumT.dat | tail -1 |\
-        awk '{print $2/$10, $3/$11, $4/$12, $5/$13, $6/$14, $23, $24}' \
-        >> $case/errorNorms.dat
-    cat $case/errorNorms.dat
+    gmtFoam -case $case -time $action X
+    ev $case/$action/X.pdf
+    sumFields -case $case $action TsumError $action Tsum 0 Tsum -scale0 1e6 -scale1 -1e6
+    gmtFoam -case $case -time $action Tsum
+    ev $case/$action/Tsum.pdf
 fi
 

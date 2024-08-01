@@ -16,12 +16,12 @@ FoamFile
 // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
 
 withDensity true;
-tracerNames 2("rho" "T");
+tracerNames 3("rho" "T" "unity");
 
 solvers
 {
 
-    "T|rho"
+    "T|rho|unity"
     {
         solver          PBiCGStab;
         preconditioner  DILU;

@@ -22,6 +22,7 @@ ddtSchemes
                 (0.1666666666666667 0.1666666666666667 0.666666666666667 0))
                 4 (0 0 0 0)
                 4 (0 1 0.5 1);
+    //butcherTableau 3 3((0 0 0) (1 0 0) (0 1 0)) 3(0 0 0) 3(0 1 1);
 }
 
 gradSchemes
@@ -31,8 +32,9 @@ gradSchemes
 
 divSchemes
 {
+    FCT true;
     CoLimit 0.5;
-    correctionScheme upwindWithoutCorrection; //cubicUpwind -1 -1 rho;
+    correctionScheme cubicUpwind -1 -1 rho; //upwindWithoutCorrection;
 }
 
 laplacianSchemes
@@ -53,6 +55,8 @@ snGradSchemes
 fluxRequired
 {
     T;
+    rho;
+    unity;
 }
 
 

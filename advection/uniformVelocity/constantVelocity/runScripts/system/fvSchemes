@@ -31,6 +31,8 @@ gradSchemes
 divSchemes
 {
     CoLimit 1;
+    FCT none;
+    correctionScheme cubicUpwind -1 -1 none;
 }
 
 laplacianSchemes

@@ -13,7 +13,7 @@ legends=("@~D@~t = 0.2"
          "@~D@~t = 2.5")
 pens=("black"  "blue"  "red" "1,magenta,5_2:0" "green")
 xlabel='Time (s)'
-#ylabel='Pressure solver iterations per second'
+ylabel='Total pressure solver iterations'
 xmin=0
 xmax=1000
 dx=200

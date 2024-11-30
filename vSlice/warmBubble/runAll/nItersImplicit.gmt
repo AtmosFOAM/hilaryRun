@@ -3,7 +3,8 @@ inputFiles=(cubic_implicit_dt_2/nExnerIter.dat cubic_implicit_dt_5/nExnerIter.da
 outFile=cubicPlots/implicit_nItersPer20.eps
 col=(2 2 2 2)
 colx=1
-legends=("@~D@~t=2 s" "@~D@~t=5 s" "@~D@~t=10 s" "@~D@~t=20 s")
+legends=("@~D@~t=2 s,   CPU 447 s" "@~D@~t=5 s,   CPU 176 s"
+         "@~D@~t=10 s, CPU 91 s" "@~D@~t=20 s, CPU 45 s")
 pens=("black" "1,black,5_5:"  "black,4_4_2_4:"  "black,1_2:" )
 xlabel='Time (s)'
 ylabel='Pressure solver iterations per 20s'
@@ -17,7 +18,7 @@ dy=20
 ddy=$dy
 dyg=$dy
 yscale=('*10' '*4' '*2' '*1')
-legPos=x7/0.01
+legPos=x7/0
 nSkip=1
 projection=X12c/8c
-gv=1
+gv=0

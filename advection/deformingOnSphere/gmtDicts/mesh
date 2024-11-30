@@ -13,7 +13,7 @@ FoamFile
 }
 
 // How to plot
-projection "G0/45/18c";
+projection "G70/30/18c";
 projection2D latLon;
 plotBoundaryDots false;
 

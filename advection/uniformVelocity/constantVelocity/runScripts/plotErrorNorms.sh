@@ -22,8 +22,8 @@ echo -e "#dx error\n0.01 1e-4\n0.1 .1" > plots/3rdOrder.dat
 echo -e "#dx error\n0.01 1e-3\n0.1 .1" > plots/2ndOrder.dat
 echo -e "#dx error\n0.01 1e-2\n0.1 .1" > plots/1stOrder.dat
 
-inputFiles=(${inputFiles[*]} )
-#            plots/3rdOrder.dat  plots/2ndOrder.dat  plots/1stOrder.dat)
+inputFiles=(${inputFiles[*]}
+            plots/3rdOrder.dat  plots/2ndOrder.dat  plots/1stOrder.dat)
 echo ${inputFiles[*]}
 outFile=plots/errorNorms.eps
 col=(3 3 3 3 3 3 2 2 2)
@@ -31,7 +31,7 @@ colx=1
 legends=("c = 0.8" "c = 1.6" "c = 2" "c = 2.5" "c = 5" "c = 10" "1st/2nd/3rd" "" "")
 pens=("black" "blue" "cyan" "red" "magenta" "grey"
       "0.25,black,1_4:0" "0.25,black,1_4:0" "0.25,black,1_4:0")
-symbols=("x10p" "c10p" "a10p" "+10p" "t10p" "h10p" "x0p" "x0p" "x0p")
+symbols=("x10p" "c10p" "a10p" "+10p" "t10p" "h10p" "x1p" "x1p" "x1p")
 spens=("black" "blue" "cyan" "red" "magenta" "grey" "black" "black" "black")
 xlabel='@~D@~x'
 ylabel=''

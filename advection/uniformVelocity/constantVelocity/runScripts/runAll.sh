@@ -11,7 +11,7 @@ done
 ./runScripts/plotDiags.sh
 
 for case in cubicRK3_40_c10 cubicRK3_40_c1p6; do
-    ln -s ../0/T $case/1/T0
+    ln -sf ../0/T $case/1/T0
     gmtFoam -case $case -time 1 T
     ev $case/1/T.pdf
 done

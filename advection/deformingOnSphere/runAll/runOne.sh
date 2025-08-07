@@ -40,7 +40,7 @@ if [[ $action == init  ]]; then
     elif [[ -a $case/constant/HRgrid ]]; then
         grid=`cat $case/constant/HRgrid`
         cp $HOME/f77/buckyball_griddata/grid$grid.out/patch.obj \
-            $case/constant
+            $case /constant
         sed 's:SOURCECASE:'$case':g' $case/system/extrudeMeshDictTmp \
             > $case/system/extrudeMeshDict
         extrudeMesh -case $case
